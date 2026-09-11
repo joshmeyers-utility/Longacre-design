@@ -208,9 +208,10 @@ correction a one-line change instead of a rebuild.
 | Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-Verified state: **9,544 bound values across both artboard pages, zero unbound,
-zero reaching past the semantic layer, 1,474 contrast checks against real
-painted ancestors, zero failures.** If you add anything, bind it.
+Verified state: **9,672 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, zero tinted grounds, 1,490 contrast
+checks against real painted ancestors, zero failures.** If you add anything,
+bind it.
 
 ### The other rule: strokes are dividers
 
@@ -267,6 +268,9 @@ photographic bands adjacent.
   figures are Light (300) — inherited from the fact sheet — but sit in
   `text/stat-figure` (near-black), not blue.
 - **Sentence case everywhere. No all-caps**, including labels and buttons.
+- **A pillar colour marks one of the four pillars, and nothing else.** Not a
+  nav card, not a section icon, never a link. Used as decoration it stops being
+  a signal. Home's "Project pillars" is the only section that may carry them.
 - **Blue means link.** Nothing else is blue. Labels, eyebrows and metadata are
   grays (`text/eyebrow` → `stone/700`). A blue label that is not clickable is a
   small lie repeated on every page.

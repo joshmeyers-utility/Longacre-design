@@ -686,3 +686,43 @@ photo library arrives and nobody re-checks.
 > Worth remembering for the Webflow build: an automated contrast check that
 > walks to the nearest solid fill will keep reporting these as passing. The scrim
 > values are the guarantee, not the checker.
+
+### 12.7 The tinted cards the first sweep missed
+
+The card sweep in §12.1 looked for `surface/*` fills. Community's three route
+cards were filled with `pillar/community-surface`, `pillar/safety-surface` and
+`pillar/energy-future-surface` — pale blue, pale green and pale cream — so they
+did not match the pattern and survived. They were the last tinted grounds in the
+file, and the cream one is exactly what the client asked to be rid of.
+
+All three are now rule-and-space like the rest. **Zero tinted grounds remain on
+either artboard page.**
+
+Removing the fills exposed a second problem underneath: **the "Open →" link in
+each card was a different colour** — blue, green and gold, one per pillar. "Blue
+means link" only teaches a reader anything if every link is blue; three colours
+of link on one row teaches nothing. The same pattern was on Contact's four
+route cards and on The Campus's three water icons.
+
+26 nodes repointed:
+
+- Links and their arrows → `text/link`, everywhere.
+- Icons that are not pillar icons → `text/primary`.
+- **Home's "Project pillars" section untouched.** That is the one place a pillar
+  colour means a pillar, and the brand architecture in §6 depends on it.
+
+The rule that falls out of this, worth stating plainly: **a pillar colour marks
+one of the four pillars, and nothing else.** Used as decoration it stops being a
+signal, and it quietly teaches the reader that colour here is arbitrary.
+
+### 12.8 One photograph for Community
+
+The Community page had no imagery below the hero, and the agent's ruling stands
+that the Voices portrait cannot be briefed on its own. But the fact sheet names
+a frame nobody had used: *"JUL | Hosted first community open house, convening
+hundreds of residents from across Indiana County."*
+
+It is the only event in the source material where the subject is neighbours
+rather than machinery, which is exactly what a Community page needs and exactly
+what the rest of the site's photography does not do. Added as a wide band
+between Commitments and Voices, captioned from the fact sheet's own line.
