@@ -1,0 +1,367 @@
+/* Homer City Energy Campus — design tokens
+ * Generated from design-system/tokens.json. Do not hand-edit.
+ *
+ * Colour scales are generated in OKLCH so lightness steps are perceptually
+ * even and every scale behaves the same way at the same step number.
+ *
+ * This file powers prototype/. Webflow uses native Variables — see
+ * docs/03-design-system.md for the mapping.
+ */
+
+/* Open Sans 300-700 + Material Symbols Rounded */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..700;1,300..700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=swap');
+
+:root {
+  /* ---------------------------------------------------- colour primitives */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  /* navy */
+  --color-navy-50: #F3F8FF;
+  --color-navy-100: #E5EFFE;
+  --color-navy-200: #CEE0FA;
+  --color-navy-300: #B2CCF1;
+  --color-navy-400: #93B4E1;
+  --color-navy-500: #779CCE;
+  --color-navy-600: #5F84B4;
+  --color-navy-700: #4A6B97;
+  --color-navy-800: #375377;
+  --color-navy-900: #263C58;
+  --color-navy-950: #17273A;
+  /* blue */
+  --color-blue-50: #F2F8FF;
+  --color-blue-100: #E2F0FF;
+  --color-blue-200: #C6E2FF;
+  --color-blue-300: #9ECFFF;
+  --color-blue-400: #6AB8FF;
+  --color-blue-500: #31A0F7;
+  --color-blue-600: #0087D9;
+  --color-blue-700: #006EB1;
+  --color-blue-800: #00568A;
+  --color-blue-900: #003E65;
+  --color-blue-950: #002843;
+  /* teal */
+  --color-teal-50: #ECFBFC;
+  --color-teal-100: #D7F5F8;
+  --color-teal-200: #B2EBF0;
+  --color-teal-300: #84DBE2;
+  --color-teal-400: #4FC6CE;
+  --color-teal-500: #00AFB8;
+  --color-teal-600: #00949A;
+  --color-teal-700: #00797D;
+  --color-teal-800: #005E61;
+  --color-teal-900: #004446;
+  --color-teal-950: #002D2E;
+  /* green */
+  --color-green-50: #EEFBF3;
+  --color-green-100: #DCF6E6;
+  --color-green-200: #BCECCE;
+  --color-green-300: #95DDB2;
+  --color-green-400: #6CC893;
+  --color-green-500: #44B276;
+  --color-green-600: #26995E;
+  --color-green-700: #0D7E48;
+  --color-green-800: #056335;
+  --color-green-900: #014824;
+  --color-green-950: #012F15;
+  /* amber */
+  --color-amber-50: #FFF6EC;
+  --color-amber-100: #FFEBD7;
+  --color-amber-200: #FFD6B0;
+  --color-amber-300: #FFB977;
+  --color-amber-400: #F29B42;
+  --color-amber-500: #DF7F00;
+  --color-amber-600: #BE6900;
+  --color-amber-700: #9D5400;
+  --color-amber-800: #7C4000;
+  --color-amber-900: #5C2C00;
+  --color-amber-950: #3E1B00;
+  /* red */
+  --color-red-50: #FFF5F3;
+  --color-red-100: #FFE9E6;
+  --color-red-200: #FFD2CD;
+  --color-red-300: #FFB4AC;
+  --color-red-400: #FF8B84;
+  --color-red-500: #F36663;
+  --color-red-600: #D74B4D;
+  --color-red-700: #B4363B;
+  --color-red-800: #8F262C;
+  --color-red-900: #6B181E;
+  --color-red-950: #480D12;
+  /* stone */
+  --color-stone-50: #F8F7F6;
+  --color-stone-100: #F0EEEC;
+  --color-stone-200: #E1DEDA;
+  --color-stone-300: #CDC9C3;
+  --color-stone-400: #B6B1AA;
+  --color-stone-500: #9E9991;
+  --color-stone-600: #868179;
+  --color-stone-700: #6D6962;
+  --color-stone-800: #55514C;
+  --color-stone-900: #3D3B36;
+  --color-stone-950: #282622;
+
+  /* ------------------------------------------------------------ spacing */
+  /* 2px base unit. Token name == pixel value. */
+  --space-0: 0px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-120: 120px;
+  --space-160: 160px;
+  --space-200: 200px;
+
+  /* ----------------------------------------------------------- typography */
+  --font-sans: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-icon: 'Material Symbols Rounded';
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-50: 0.75rem; /* 12px */
+  --font-size-75: 0.875rem; /* 14px */
+  --font-size-100: 1.0rem; /* 16px */
+  --font-size-200: 1.125rem; /* 18px */
+  --font-size-300: 1.25rem; /* 20px */
+  --font-size-400: 1.5rem; /* 24px */
+  --font-size-500: 1.875rem; /* 30px */
+  --font-size-600: 2.25rem; /* 36px */
+  --font-size-700: 2.75rem; /* 44px */
+  --font-size-800: 3.5rem; /* 56px */
+  --font-size-900: 4.25rem; /* 68px */
+  --font-size-1000: 5.25rem; /* 84px */
+  --line-height-none: 1;
+  --line-height-tight: 1.05;
+  --line-height-snug: 1.15;
+  --line-height-heading: 1.25;
+  --line-height-normal: 1.45;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.75;
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.012em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.02em;
+  --tracking-caps: 0.08em;
+
+  /* ------------------------------------------------------ radius + shadow */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px 0px rgba(23, 39, 58, 0.04);
+  --shadow-sm: 0 2px 6px -1px rgba(23, 39, 58, 0.06);
+  --shadow-md: 0 4px 12px -2px rgba(23, 39, 58, 0.08);
+  --shadow-lg: 0 8px 24px -4px rgba(23, 39, 58, 0.1);
+  --shadow-xl: 0 16px 40px -8px rgba(23, 39, 58, 0.14);
+
+  /* -------------------------------------------------------------- motion */
+  --duration-instant: 0ms;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --duration-slower: 480ms;
+  --duration-slowest: 640ms;
+  --ease-appear: cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-interact: cubic-bezier(0.30, 0, 0.20, 1);
+  --ease-transition: cubic-bezier(0.40, 0, 0.20, 1);
+  --ease-exit: cubic-bezier(0.40, 0, 1, 1);
+  --motion-distance-sm: 8px;
+  --motion-distance-md: 16px;
+  --motion-distance-lg: 24px;
+  --stagger-tight: 40ms;
+  --stagger-base: 60ms;
+  --stagger-loose: 90ms;
+
+  /* ------------------------------------------------- layout + icon + z */
+  --container-text: 680px;
+  --container-narrow: 880px;
+  --container-default: 1200px;
+  --container-wide: 1440px;
+  --container-full: 100%;
+  --icon-size-sm: 20px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 40px;
+  --icon-size-xl: 48px;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-overlay: 800;
+  --z-modal: 900;
+  --z-toast: 1000;
+}
+
+/* ========================================================================
+   SEMANTIC TOKENS — use these in components, never the primitives above.
+   Every one points at a primitive, so a brand change is a one-line edit.
+   ===================================================================== */
+:root {
+  /* surface */
+  --surface-page: var(--color-stone-50);
+  --surface-default: var(--color-white);
+  --surface-subtle: var(--color-stone-100);
+  --surface-sunken: var(--color-stone-200);
+  --surface-brand: var(--color-navy-950);
+  --surface-brand-alt: var(--color-navy-900);
+  --surface-accent: var(--color-blue-700);
+  --surface-accent-subtle: var(--color-blue-50);
+  --surface-stat: var(--color-blue-50);
+  /* text */
+  --text-primary: var(--color-stone-900);
+  --text-secondary: var(--color-stone-700);
+  --text-tertiary: var(--color-stone-600);
+  --text-brand: var(--color-navy-800);
+  --text-link: var(--color-blue-700);
+  --text-link-hover: var(--color-blue-800);
+  --text-inverse: var(--color-white);
+  --text-inverse-secondary: var(--color-stone-300);
+  --text-inverse-link: var(--color-blue-300);
+  --text-on-accent: var(--color-white);
+  --text-stat-figure: var(--color-blue-700);
+  --text-stat-figure-inverse: var(--color-blue-300);
+  --text-footnote: var(--color-stone-600);
+  /* border */
+  --border-subtle: var(--color-stone-200);
+  --border-default: var(--color-stone-300);
+  --border-strong: var(--color-stone-400);
+  --border-brand: var(--color-navy-800);
+  --border-accent: var(--color-blue-600);
+  --border-focus: var(--color-blue-600);
+  --border-focus-inverse: var(--color-blue-400);
+  --border-inverse: var(--color-navy-800);
+  /* action */
+  --action-primary-bg: var(--color-blue-700);
+  --action-primary-bg-hover: var(--color-blue-800);
+  --action-primary-bg-active: var(--color-blue-900);
+  --action-primary-text: var(--color-white);
+  --action-secondary-border: var(--color-navy-800);
+  --action-secondary-text: var(--color-navy-800);
+  --action-secondary-bg-hover: var(--color-navy-50);
+  --action-inverse-bg: var(--color-white);
+  --action-inverse-text: var(--color-navy-950);
+  --action-inverse-bg-hover: var(--color-stone-100);
+  --action-disabled-bg: var(--color-stone-200);
+  --action-disabled-text: var(--color-stone-500);
+  /* feedback */
+  --feedback-info-surface: var(--color-blue-50);
+  --feedback-info-border: var(--color-blue-300);
+  --feedback-info-text: var(--color-blue-900);
+  --feedback-info-icon: var(--color-blue-700);
+  --feedback-construction-surface: var(--color-amber-50);
+  --feedback-construction-border: var(--color-amber-300);
+  --feedback-construction-text: var(--color-amber-900);
+  --feedback-construction-icon: var(--color-amber-700);
+  --feedback-urgent-surface: var(--color-red-50);
+  --feedback-urgent-border: var(--color-red-300);
+  --feedback-urgent-text: var(--color-red-900);
+  --feedback-urgent-icon: var(--color-red-700);
+  --feedback-success-surface: var(--color-green-50);
+  --feedback-success-border: var(--color-green-300);
+  --feedback-success-text: var(--color-green-900);
+  --feedback-success-icon: var(--color-green-700);
+  /* pillar */
+  --pillar-safety: var(--color-green-700);
+  --pillar-safety-surface: var(--color-green-50);
+  --pillar-infrastructure: var(--color-navy-800);
+  --pillar-infrastructure-surface: var(--color-navy-50);
+  --pillar-community: var(--color-blue-700);
+  --pillar-community-surface: var(--color-blue-50);
+  --pillar-energy-future: var(--color-teal-700);
+  --pillar-energy-future-surface: var(--color-teal-50);
+}
+
+/* ---------------------------------------------------- typography styles */
+:root {
+  --type-display: var(--font-weight-bold) var(--font-size-900)/var(--line-height-tight) var(--font-sans);
+  --type-display-tracking: var(--tracking-tighter);
+  --type-h1: var(--font-weight-bold) var(--font-size-700)/var(--line-height-snug) var(--font-sans);
+  --type-h1-tracking: var(--tracking-tight);
+  --type-h2: var(--font-weight-semibold) var(--font-size-600)/var(--line-height-heading) var(--font-sans);
+  --type-h2-tracking: var(--tracking-tight);
+  --type-h3: var(--font-weight-semibold) var(--font-size-400)/var(--line-height-heading) var(--font-sans);
+  --type-h3-tracking: var(--tracking-normal);
+  --type-h4: var(--font-weight-semibold) var(--font-size-300)/var(--line-height-normal) var(--font-sans);
+  --type-h4-tracking: var(--tracking-normal);
+  --type-body-lg: var(--font-weight-regular) var(--font-size-300)/var(--line-height-relaxed) var(--font-sans);
+  --type-body-lg-tracking: var(--tracking-normal);
+  --type-body: var(--font-weight-regular) var(--font-size-200)/var(--line-height-relaxed) var(--font-sans);
+  --type-body-tracking: var(--tracking-normal);
+  --type-body-sm: var(--font-weight-regular) var(--font-size-100)/var(--line-height-normal) var(--font-sans);
+  --type-body-sm-tracking: var(--tracking-normal);
+  --type-caption: var(--font-weight-regular) var(--font-size-75)/var(--line-height-normal) var(--font-sans);
+  --type-caption-tracking: var(--tracking-normal);
+  --type-footnote: var(--font-weight-regular) var(--font-size-50)/var(--line-height-normal) var(--font-sans);
+  --type-footnote-tracking: var(--tracking-normal);
+  --type-label: var(--font-weight-semibold) var(--font-size-75)/var(--line-height-normal) var(--font-sans);
+  --type-label-tracking: var(--tracking-caps);
+  --type-stat: var(--font-weight-light) var(--font-size-900)/var(--line-height-none) var(--font-sans);
+  --type-stat-tracking: var(--tracking-tighter);
+  --type-stat-sm: var(--font-weight-light) var(--font-size-700)/var(--line-height-none) var(--font-sans);
+  --type-stat-sm-tracking: var(--tracking-tighter);
+  --type-quote: var(--font-weight-light) var(--font-size-500)/var(--line-height-heading) var(--font-sans);
+  --type-quote-tracking: var(--tracking-tight);
+  --type-label-transform: uppercase;
+}
+
+/* Mobile type ramp. Webflow expresses this as breakpoint overrides on the
+   text style, not as separate variables. */
+@media (max-width: 767px) {
+  :root {
+    --type-display: var(--font-weight-bold) var(--font-size-600)/var(--line-height-tight) var(--font-sans);
+    --type-h1: var(--font-weight-bold) var(--font-size-500)/var(--line-height-snug) var(--font-sans);
+    --type-h2: var(--font-weight-semibold) var(--font-size-400)/var(--line-height-heading) var(--font-sans);
+    --type-h3: var(--font-weight-semibold) var(--font-size-300)/var(--line-height-heading) var(--font-sans);
+    --type-h4: var(--font-weight-semibold) var(--font-size-200)/var(--line-height-normal) var(--font-sans);
+    --type-body-lg: var(--font-weight-regular) var(--font-size-200)/var(--line-height-relaxed) var(--font-sans);
+    --type-body: var(--font-weight-regular) var(--font-size-100)/var(--line-height-relaxed) var(--font-sans);
+    --type-stat: var(--font-weight-light) var(--font-size-700)/var(--line-height-none) var(--font-sans);
+    --type-stat-sm: var(--font-weight-light) var(--font-size-600)/var(--line-height-none) var(--font-sans);
+    --type-quote: var(--font-weight-light) var(--font-size-400)/var(--line-height-heading) var(--font-sans);
+  }
+}
+
+/* ------------------------------------------------------- reduced motion */
+/* Durations collapse to 1ms rather than 0 so transitionend still fires.
+   Opacity fades are kept — it is movement that causes trouble, not fading. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 1ms;
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+    --duration-slower: 1ms;
+    --duration-slowest: 1ms;
+    --motion-distance-sm: 0px;
+    --motion-distance-md: 0px;
+    --motion-distance-lg: 0px;
+    --stagger-tight: 0ms;
+    --stagger-base: 0ms;
+    --stagger-loose: 0ms;
+    --duration-fast: 120ms;   /* fades stay */
+    --duration-base: 120ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

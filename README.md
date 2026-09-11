@@ -42,8 +42,8 @@ Four stages, reviewed one at a time.
 | --- | --- | --- |
 | **1 · Context** | Source material transcribed, brand inputs captured, rules written | ✅ **Complete** |
 | **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
-| **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ⬜ Awaiting go-ahead |
-| **4 · Draft site** | Responsive HTML/CSS draft of the Phase 1 pages | ⬜ Not started |
+| **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
+| **4 · Draft site** | Responsive HTML/CSS draft of the Phase 1 pages | ⬜ Awaiting go-ahead |
 
 Each stage gets presented for a decision before the next one starts.
 
@@ -68,6 +68,9 @@ Read in this order:
      workforce release, and what the site has to be credible against.
 3. **[`docs/02-plan.md`](docs/02-plan.md)** — Stage 2. Sitemap, page specs, CMS
    model, content status.
+4. **[`docs/03-design-system.md`](docs/03-design-system.md)** — Stage 3.
+   Typography, colour, spacing, motion, and how it all maps to Webflow. Values
+   live in [`design-system/`](design-system/) and in Figma.
 
 Arriving in later stages: `docs/02-plan.md`, `docs/03-design-system.md`,
 `design-system/tokens.json`, `design-system/tokens.css`, `prototype/`,
@@ -115,7 +118,7 @@ Blocking the stage listed:
 
 | Item | Blocks |
 | --- | --- |
-| Brand guide — typefaces, exact colour values, logo vector | Stage 3 |
+| Brand guide — exact colour values, logo vector, confirmation of the type choice | Refines Stage 3 |
 | Names of the nine unions + per-union copy | Stage 4 Workforce page |
 | Partner details for Independence and Kovalchick | Stage 4 Partners page |
 | Full-resolution photo library + usage rights | Stage 4 |

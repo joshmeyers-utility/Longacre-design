@@ -65,7 +65,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | --- | --- | --- |
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
-| 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ⬜ Not started |
+| 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Draft site | `prototype/` — responsive HTML/CSS of Phase 1 | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -85,11 +85,11 @@ docs/
     site-structure.md      Client IA brief — authority on scope.
     external-context.md    Secondary research. NOT approved copy — see §5.
   02-plan.md               IA, page specs, 13-collection CMS model.
-  03-design-system.md      (Stage 3) Rationale behind the tokens.
+  03-design-system.md      Rationale behind the tokens.
   04-build-notes.md        (Stage 4) Webflow port instructions.
 design-system/
-  tokens.json              (Stage 3) Design tokens, W3C format.
-  tokens.css               (Stage 3) Same tokens as CSS custom properties.
+  tokens.json              Design tokens, W3C format. Generated — don't hand-edit.
+  tokens.css               Same tokens as CSS custom properties. Powers prototype/.
 prototype/                 (Stage 4) Responsive HTML/CSS draft.
 ```
 
@@ -183,11 +183,41 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 
 ---
 
-## 7. Brand inputs observed
+## 7. Design system
 
-Sampled from the rendered client PDFs. **Approximate** — PDF rendering shifts
-colour slightly, and no brand guide has been supplied. Confirm before locking
-tokens in Stage 3.
+**Resolved in Stage 3.** Full rationale in `docs/03-design-system.md`; values in
+`design-system/tokens.json` and `tokens.css`; live in Figma as 232 variables
+across three collections (Primitives, Semantic, Motion), 28 text styles and 5
+effect styles.
+
+### The one rule
+
+**Components use semantic tokens only — never primitives.** `action/primary-bg`,
+not `color/blue/700`. Colour primitives are deliberately hidden from every Figma
+picker (`scopes = []`) to enforce this. It is what makes a brand-guide
+correction a one-line change instead of a rebuild.
+
+| Layer | Examples |
+| --- | --- |
+| Primitives | `color/blue/700`, `space/16`, `font-size/300`, `radius/md` |
+| Semantic | `surface/page`, `text/primary`, `action/primary-bg`, `pillar/safety` |
+| Motion | `duration/base`, `ease/appear`, `distance/md` |
+
+- **Type:** Open Sans 300–700. Stat figures are Light (300) — inherited from the
+  fact sheet and worth keeping.
+- **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render
+  size. Not Outlined — Figma does not have it.
+- **Spacing:** 2px base unit; the token name is the pixel value (`space/16` = 16px).
+- **Motion:** gentle, never overshooting. `ease/appear` for reveals,
+  `ease/interact` for hover and press, `ease/transition` for layout.
+  `prefers-reduced-motion` support is in `tokens.css` and is not optional.
+- **Two grounds:** warm `stone` neutrals for reading, cool `navy` for
+  institutional moments. They alternate down the page.
+
+### Source anchors these were derived from
+
+Sampled from the rendered client PDFs — **approximate**, and superseded by the
+tokens above. Kept for traceability when the brand guide arrives.
 
 | Role in collateral | Sampled | Notes |
 | --- | --- | --- |
