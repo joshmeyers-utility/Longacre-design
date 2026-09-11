@@ -218,10 +218,17 @@ timeline markers, and nothing else. Check before you add one.
 
 - **Type:** Open Sans 300–700. Hero runs 104px desktop / 44px mobile. Stat
   figures are Light (300) — inherited from the fact sheet — but sit in
-  `text/stat-figure` (near-black), not blue; the brand blue moved to the eyebrow.
-- **Eyebrow:** 12px SemiBold, 12% tracking, uppercase. It is not decoration — it
-  is where a section's date-stamp, category or scope lives, which is exactly what
-  §5.3 requires.
+  `text/stat-figure` (near-black), not blue.
+- **Sentence case everywhere. No all-caps**, including labels and buttons.
+- **Blue means link.** Nothing else is blue. Labels, eyebrows and metadata are
+  grays (`text/eyebrow` → `stone/700`). A blue label that is not clickable is a
+  small lie repeated on every page.
+- **Eyebrow:** 12px SemiBold, 4% tracking, sentence case. Not decoration — it is
+  where a section's date-stamp, category or scope lives, per §5.3.
+- **Grounds:** the page is **white**; `surface/subtle` (`stone/50`) groups and
+  separates content; navy bands mark institutional moments.
+- **`stone/700` is the floor for neutral text** — the lightest step that clears
+  4.5:1 on white. Nothing lighter may carry text on any ground.
 - **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render
   size. Not Outlined — Figma does not have it.
 - **Spacing:** 2px base unit; the primitive name is the pixel value

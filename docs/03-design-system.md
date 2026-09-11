@@ -438,3 +438,58 @@ What changed, and why:
 **Reversibility.** Every one of these is a token move, not a rebuild. Softer
 corners, blue stat figures and a lighter type ramp are each one re-pointed token
 away if the client's brand guide says otherwise.
+
+
+---
+
+## 10. Second revision — white base, sentence case, verified AA
+
+### A contrast defect, found and fixed
+
+Auditing every semantic text-on-surface pair turned up a real failure that had
+been there since Stage 3, despite §2's "verified, not assumed" claim — the
+verification had covered a subset:
+
+| Token | Was | On light grounds | Now |
+| --- | --- | --- | --- |
+| `text/tertiary` | `stone/600` | **2.88 – 3.87:1** | `stone/700` (4.72 – 5.46) |
+| `text/footnote` | `stone/600` | **2.88 – 3.87:1** | `stone/700` (4.72 – 5.46) |
+| `text/secondary` | `stone/700` | 4.07 on `sunken` | `stone/800` (6.80 – 7.87) |
+
+These are the tokens carrying *"as of September 2026"* and the footnote markers.
+The two figures §5 says must always be visible were the two hardest to read.
+
+`stone/700` is the floor: it is the lightest neutral that clears 4.5:1 on white.
+Anything lighter cannot legally carry text, whatever the ground.
+
+### Lighter, and what "lighter" actually meant
+
+| Token | Was | Now |
+| --- | --- | --- |
+| `surface/page` | `stone/50` | **`white`** |
+| `surface/subtle` | `stone/100` | `stone/50` — the old page tint, now doing the grouping |
+| `surface/sunken` | `stone/200` | `stone/100` |
+| `surface/brand` | `navy/950` | `navy/900` |
+| `surface/brand-alt` | `navy/900` | `navy/800` |
+
+The page is white and the old tint groups content. Grounds carry the rhythm; the
+dark bands stop reading as near-black.
+
+Text had to go *darker* for AA while grounds went lighter — the lightness comes
+from the surfaces, which is where the eye reads it anyway.
+
+### Sentence case, and blue means link
+
+Labels were uppercase at 12% tracking. Both are gone: **sentence case at 4%
+tracking**, and `text/eyebrow` repointed from `blue/700` to `stone/700`.
+
+Blue now means exactly one thing: this is a link. A label that was blue but not
+clickable was a small lie told 90 times across the file.
+
+### Verified, this time properly
+
+Not a token matrix — every text node in the file, against its actual nearest
+painted ancestor, at the AA threshold for its own size and weight:
+
+**932 text nodes checked. Zero failures.** Plus 5,711 bound values, zero
+unbound, zero reaching past the semantic layer.

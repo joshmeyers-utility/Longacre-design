@@ -159,7 +159,7 @@
   --tracking-normal: 0em;
   --tracking-wide: 0.02em;
   --tracking-caps: 0.08em;
-  --tracking-eyebrow: 0.12em;
+  --tracking-eyebrow: 0.04em;
 
   /* ------------------------------------------------------ radius + shadow */
   --radius-none: 0px;
@@ -220,12 +220,12 @@
    ===================================================================== */
 :root {
   /* surface */
-  --surface-page: var(--color-stone-50);
+  --surface-page: var(--color-white);
   --surface-default: var(--color-white);
-  --surface-subtle: var(--color-stone-100);
-  --surface-sunken: var(--color-stone-200);
-  --surface-brand: var(--color-navy-950);
-  --surface-brand-alt: var(--color-navy-900);
+  --surface-subtle: var(--color-stone-50);
+  --surface-sunken: var(--color-stone-100);
+  --surface-brand: var(--color-navy-900);
+  --surface-brand-alt: var(--color-navy-800);
   --surface-accent: var(--color-blue-700);
   --surface-accent-subtle: var(--color-blue-50);
   --surface-stat: var(--color-blue-50);
@@ -233,20 +233,20 @@
   --surface-media: var(--color-stone-200);
   /* text */
   --text-primary: var(--color-stone-900);
-  --text-secondary: var(--color-stone-700);
-  --text-tertiary: var(--color-stone-600);
+  --text-secondary: var(--color-stone-800);
+  --text-tertiary: var(--color-stone-700);
   --text-brand: var(--color-navy-800);
   --text-link: var(--color-blue-700);
   --text-link-hover: var(--color-blue-800);
   --text-inverse: var(--color-white);
-  --text-inverse-secondary: var(--color-stone-300);
-  --text-inverse-link: var(--color-blue-300);
+  --text-inverse-secondary: var(--color-stone-200);
+  --text-inverse-link: var(--color-blue-200);
   --text-on-accent: var(--color-white);
   --text-stat-figure: var(--color-stone-900);
   --text-stat-figure-inverse: var(--color-white);
-  --text-eyebrow: var(--color-blue-700);
-  --text-eyebrow-inverse: var(--color-blue-300);
-  --text-footnote: var(--color-stone-600);
+  --text-eyebrow: var(--color-stone-700);
+  --text-eyebrow-inverse: var(--color-stone-200);
+  --text-footnote: var(--color-stone-700);
   /* border */
   --border-subtle: var(--color-stone-200);
   --border-divider: var(--color-stone-200);
@@ -263,9 +263,9 @@
   --action-primary-bg-hover: var(--color-blue-800);
   --action-primary-bg-active: var(--color-blue-900);
   --action-primary-text: var(--color-white);
-  --action-secondary-bg: var(--color-navy-900);
+  --action-secondary-bg: var(--color-navy-950);
   --action-secondary-bg-hover: var(--color-navy-800);
-  --action-secondary-bg-active: var(--color-navy-950);
+  --action-secondary-bg-active: var(--color-navy-900);
   --action-secondary-text: var(--color-white);
   --action-inverse-bg: var(--color-white);
   --action-inverse-bg-hover: var(--color-stone-100);
