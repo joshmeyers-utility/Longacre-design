@@ -216,7 +216,9 @@ tile accents, no severity bars, no button borders — those are ground, space, o
 filled rectangle. The file currently holds 37 hairline dividers and 29 circular
 timeline markers, and nothing else. Check before you add one.
 
-- **Type:** Open Sans 300–700. Hero runs 104px desktop / 44px mobile. Stat
+- **Type: Geist 300–700** (Google-hosted, ports to Webflow). Replaced Open
+  Sans, which was the web's default 2011–2016 and carried that period into the
+  design regardless of palette. Hero runs 104px desktop / 44px mobile. Stat
   figures are Light (300) — inherited from the fact sheet — but sit in
   `text/stat-figure` (near-black), not blue.
 - **Sentence case everywhere. No all-caps**, including labels and buttons.
@@ -225,8 +227,9 @@ timeline markers, and nothing else. Check before you add one.
   small lie repeated on every page.
 - **Eyebrow:** 12px SemiBold, 4% tracking, sentence case. Not decoration — it is
   where a section's date-stamp, category or scope lives, per §5.3.
-- **Grounds:** the page is **white**; `surface/subtle` (`stone/50`) groups and
-  separates content; navy bands mark institutional moments.
+- **Grounds: white, and near-white.** `surface/subtle` is `stone/50`; navy
+  bands mark institutional moments. **No tinted grounds** — the `sand` family
+  exists in the primitives but is used by no semantic role.
 - **`stone/700` is the floor for neutral text** — the lightest step that clears
   4.5:1 on white. Nothing lighter may carry text on any ground.
 - **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render

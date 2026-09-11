@@ -562,3 +562,68 @@ This palette diverges from the colours sampled off the client's own PDFs
 the supplied collateral, and softens the cerulean. That is a legitimate
 direction, but it is a **brand decision, not a derivation**, and it should be
 confirmed against the brand guide when it arrives (open question #1).
+
+
+---
+
+## 12. Typeface change — Open Sans to Geist
+
+A review found the design still reading dated after the palette work. The
+diagnosis was the typeface, not the colour.
+
+**Open Sans was the web's default from roughly 2011 to 2016.** At display
+weights and sizes it carries that period with it, and no amount of white space
+or palette tuning undoes the association. Checked against current reference
+work — Ragged Edge, SSENSE, Studio Freight, Base — every one of those pages is
+carried by its type, not its colour.
+
+**Geist** replaces it across the system: 1,350 text nodes and all 32 text
+styles. It was chosen over the alternatives because:
+
+| Candidate | Why not |
+| --- | --- |
+| Inter | Fine, but the current default — neutral to the point of anonymous |
+| Instrument Sans | No Light weight, and the stat figures depend on Light |
+| Schibsted Grotesk | No Light weight either |
+| Archivo | A real contender, with more editorial character — the pick if the client wants more personality than Geist gives |
+| Public Sans | Credible civic choice, but plainer than what the brief needs |
+
+Geist keeps the full range the system relies on — Light for stat figures
+through Bold for display — and reads tighter and flatter than Open Sans at the
+104px hero size, which is where the difference shows most.
+
+It is a Google-hosted face, so it ports to Webflow exactly as Open Sans did.
+
+## 13. Clean pass — white grounds, deeper blue
+
+| Change | From | To |
+| --- | --- | --- |
+| `surface/subtle` | `sand/50` | `stone/50` |
+| `surface/sunken` | `sand/100` | `stone/100` |
+| `surface/stat` | `sand/100` | `stone/50` |
+| `action/primary-bg` | `blue/700` | `blue/800` |
+| `text/link` | `blue/700` | `blue/800` |
+| `text/link-hover` | `blue/800` | `blue/900` |
+| `pillar/community` | `blue/700` | `blue/800` |
+| `space/section-y-lg` | 120px | **160px** |
+
+The `sand` family no longer appears in any semantic role — the cream was
+carrying too much warmth at section scale. It stays in the primitives, one
+re-point away if it is wanted back for a feature band.
+
+The 36 grid-mark `+` glyphs were removed. They suited the Performance Lab
+register, but against a brief of "clean" they read as furniture.
+
+Section padding at 160px narrowed the content column to 1120px, which dropped
+the stat grid to two columns — the fixed 368px children no longer fitted three
+across. Columns re-fitted to 341px. **This is the recurring failure mode of
+fixed-width children inside a wrapping container: change the padding and the
+column count changes silently.**
+
+Verified after: 1,165 text nodes checked against their real grounds, zero
+contrast failures, zero unbound values, zero primitive leaks.
+
+A further 55 text nodes now sit over photographic hero fills and cannot be
+contrast-checked programmatically — their legibility depends on the gradient
+scrim beneath them, which is a design decision to confirm visually, not a
+computed one.
