@@ -566,3 +566,80 @@ photographic bands at full width inside the 16px gutter, the same Then and now
 pair, the same Voices flag, and the same apprenticeship correction. The caption
 stacks rather than running inline, via the component variant rather than a
 per-instance override.
+
+---
+
+## 12. The copy audit — what measuring the layout turned up
+
+Restructuring a section means reading it. Reading it turned up more than the
+layout problems.
+
+### 12.1 Cards, removed
+
+28 filled cards across four sections — Home's power block, the FAQ's resources,
+The Campus's water block, Contact's routes. Both research passes named the
+white-box card on a light ground as the single strongest 2015–2019 signal, and
+it also conflicted with the file's own stroke rule in spirit: the box was doing
+the separating that space and a rule should do.
+
+All 28 are now rule-and-space: a hairline at the top of each column, no fill, no
+padding box, the column free to be whatever height its content needs. Ragged
+bottoms stop being a defect once there is no box to be ragged against.
+
+**Contact's four route cards were white on white.** The box was invisible and
+still in the markup — it would have shipped to Webflow as a div with a
+background colour matching its parent.
+
+The only other tinted ground in the file went at the same time: Workforce's
+"How to apply" band was `surface/accent-subtle`, the lone aqua surface in a
+system of white, near-white and navy. The button carries the emphasis.
+
+### 12.2 The word "coal"
+
+It appeared four times — in Home's orientation copy, in the homepage water row,
+in the FAQ's water answer, and in The Campus page hero ("3,200 acres of former
+coal ground").
+
+**It appears in no client document.** Not in the fact sheet, not in the tour
+deck, not in the IA brief. Only in `docs/source/external-context.md`, which §5
+says is not publishable. The fact sheet's own phrasing is *"the former Homer
+City Generating Station"* — which is also better writing, because it is specific
+to this place and passes the voice test. Every instance now uses the client's
+name for it.
+
+The same audit caught *"decommissioned in July 2023"*. The photo essay says
+**1969–2023** and names no month. The line now reads "ran from 1969 to 2023",
+which is the client's own caption.
+
+### 12.3 The water answer has no source at all
+
+Three claims — the Two Lick Reservoir as the source, the comparison to the
+former station's usage, and "roughly the same" — trace **only** to press
+coverage in `external-context.md`. Tier B.
+
+This is the question `docs/02-plan.md` says is asked most, on the topic with the
+most organised opposition, and the client's supplied material does not answer it
+anywhere. It now carries an amber tier-B flag on all three surfaces it appears
+on, and it is blocking open question #14.
+
+That is the right outcome, not a workaround. A transparency site that answers
+its most contested question from newspaper coverage, unflagged, is doing the
+opposite of what it claims.
+
+### 12.4 Provenance, counted
+
+**14 amber flags** now sit across the two artboard pages:
+
+| Flag | Where | Why |
+| --- | --- | --- |
+| Tier A — 4 Sep 2026 press release | Workforce numbers, Home workforce spotlight | The five workforce figures are the ones the brief asked for and no supplied PDF contained |
+| Tier B — press coverage | The Campus water card, Home power-block water row, FAQ water answer | No client document names a water source |
+| Placeholder — no attributed quote | Community Voices, Workforce spotlights | §5.6: a quote without name, role, organization and a real photograph does not run |
+| DRAFT — written from public filings | FAQ permit-appeal answer | Pre-existing; needs client and legal sign-off |
+
+### 12.5 Verified, finally
+
+**9,544 bound values across both artboard pages, zero unbound, zero reaching
+past the semantic layer. 1,474 contrast checks against real painted ancestors:
+zero failures, and zero within 0.35 of their threshold.** Every uniform-weight
+stroke in the file is a 16×16 circle on the timeline rail.

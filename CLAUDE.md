@@ -105,6 +105,9 @@ transcriptions as the in-repo record.
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
 
+0. **"Coal" is not a word this site uses.** It appears in no client document —
+   only in `external-context.md`. The fact sheet's own phrasing is *"the former
+   Homer City Generating Station"*. Use theirs.
 1. **Every figure traces to `docs/source/`.** If a number is not in those files,
    it does not go on the page. Do not estimate, do not interpolate, do not round
    for visual balance (`~1,300` is not `1.3K`).
@@ -205,8 +208,8 @@ correction a one-line change instead of a rebuild.
 | Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-Verified state: **9,434 bound values across both artboard pages, zero unbound,
-zero reaching past the semantic layer, 1,453 contrast checks against real
+Verified state: **9,544 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, 1,474 contrast checks against real
 painted ancestors, zero failures.** If you add anything, bind it.
 
 ### The other rule: strokes are dividers
@@ -232,6 +235,15 @@ Two consequences:
 - **`Kind = Photograph | Rendering`.** The deck's cover is a render of a campus
   that does not exist yet. On this site, labelling that is the same discipline
   as the "as of" date.
+
+### And no cards
+
+**A filled box is not a grouping device.** Columns are separated by a hairline
+at the top and by space — never by a white rectangle on a light ground, which is
+the clearest 2015-era signal available and does the job space already does. The
+file had 28 of them; four were white on white, invisible and still in the
+markup. Grounds stay white, near-white and navy: there are **no tinted
+grounds**, and the one that existed (an aqua CTA band) is gone.
 
 ### Stats are a ledger, not cards
 
@@ -390,6 +402,7 @@ the first line rather than refactoring later.
 | 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
 | 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
 | 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
+| 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
 
 **Non-blocking — can proceed with a stated assumption:**
 
