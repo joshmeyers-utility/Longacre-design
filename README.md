@@ -43,7 +43,7 @@ Four stages, reviewed one at a time.
 | **1 · Context** | Source material transcribed, brand inputs captured, rules written | ✅ **Complete** |
 | **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
-| **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete** — [`docs/04-design-pass.md`](docs/04-design-pass.md) |
+| **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised — [`docs/04-design-pass.md`](docs/04-design-pass.md) |
 | **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.
