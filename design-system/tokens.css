@@ -324,6 +324,8 @@
   --space-section-y-mobile: var(--space-48);
   --space-container-x: var(--space-24);
   --space-container-x-mobile: var(--space-16);
+  --space-container-x-desktop: var(--space-160);
+  --space-container-x-wide: var(--space-80);
   --space-card-padding: var(--space-24);
   --space-card-padding-lg: var(--space-32);
   --space-card-padding-sm: var(--space-16);
@@ -391,8 +393,10 @@
   --type-logo-wordmark-tracking: var(--tracking-tight);
   --type-logo-sub: var(--font-weight-semibold) var(--font-size-50)/var(--line-height-heading) var(--font-sans);
   --type-logo-sub-tracking: var(--tracking-eyebrow);
-  --type-stat: var(--font-weight-light) var(--font-size-900)/var(--line-height-none) var(--font-sans);
+  --type-stat: var(--font-weight-light) var(--font-size-1000)/var(--line-height-none) var(--font-sans);
   --type-stat-tracking: var(--tracking-tighter);
+  --type-stat-ledger: var(--font-weight-light) var(--font-size-900)/var(--line-height-none) var(--font-sans);
+  --type-stat-ledger-tracking: var(--tracking-tighter);
   --type-stat-sm: var(--font-weight-light) var(--font-size-700)/var(--line-height-none) var(--font-sans);
   --type-stat-sm-tracking: var(--tracking-tighter);
   --type-quote: var(--font-weight-light) var(--font-size-500)/var(--line-height-heading) var(--font-sans);
@@ -416,6 +420,7 @@
     --type-body: var(--font-weight-regular) var(--font-size-100)/var(--line-height-relaxed) var(--font-sans);
     --type-logo-wordmark: var(--font-weight-bold) var(--font-size-200)/var(--line-height-tight) var(--font-sans);
     --type-stat: var(--font-weight-light) var(--font-size-700)/var(--line-height-none) var(--font-sans);
+    --type-stat-ledger: var(--font-weight-light) var(--font-size-700)/var(--line-height-none) var(--font-sans);
     --type-stat-sm: var(--font-weight-light) var(--font-size-600)/var(--line-height-none) var(--font-sans);
     --type-quote: var(--font-weight-light) var(--font-size-400)/var(--line-height-heading) var(--font-sans);
   }

@@ -429,3 +429,140 @@ Two full-bleed photographic bands added to Home, butting their neighbours with
 no padding, each carrying a caption at the page margin naming the photo still
 needed. Combined with the map band, the page now alternates contained and
 full-bleed rather than running one width throughout.
+
+---
+
+## 11. Editorial pass, second round — the ledger and the band
+
+Two research passes ran in parallel with this work: one surveying how modern
+editorial sites interleave photography into a long scrolling page, one surveying
+how they present statistics without falling back on cards. Both were checked
+against real published sites rather than against taste. What follows is what
+they changed.
+
+### 11.1 By the Numbers is now a ledger, on white
+
+A 3×2 grid of stat cards became a seven-row ledger: the figure hard left at
+68px Light, the explanation in a 448px column hard right, a hairline spanning
+the full 1120 between every row and closing the block at the bottom. The middle
+is empty and stays empty — the rule spanning the gap is what makes the figure
+and its label read as one object, which is also why the row needs no card and no
+border.
+
+The ground changed from navy to white. A seven-row ledger in navy is roughly
+1,400px of solid colour, which is the opposite of the brief. Navy stays for
+smaller institutional moments; here the numbers stand alone on white, which for
+a transparency site is the right register anyway.
+
+**Three fact-discipline problems this fixed structurally, not cosmetically:**
+
+1. **The footnotes now travel with their figures.** Previously the section
+   carried one line — *"¹ ² See footnotes at the foot of this page"* — pointing
+   somewhere else. `CLAUDE.md` §5.2 requires the footnote on any surface showing
+   10,000+ or ~1,000. The ledger's right-hand column has room for the full
+   sentence, so both footnotes now sit directly beneath the figure they qualify,
+   inside the rule that binds the row. No asterisk, no jump, no footer.
+2. **The projection qualifiers moved above the figures.** *Anticipated*,
+   *Projected* and *Up to* were buried mid-label or, in the case of "up to
+   4.4 GW", dropped entirely — the artboard read a flat "4.4 GW". They are now
+   an eyebrow directly above the figure, which is both more honest and more
+   readable than a qualifier the eye skips.
+3. **The date stamp took the eyebrow role.** "As of September 2026" was set in
+   the footnote token. It is metadata, not fine print, and §5.3 makes it
+   load-bearing.
+
+A seventh row was added: **~3M cubic meters** of earth moved, *roughly the
+volume required to build Egypt's Great Pyramid of Giza*. It is in the fact
+sheet, it was not on any artboard, and it is the single most legible number in
+the source material for a reader who does not think in gigawatts.
+
+### 11.2 The band component, and a caption that would have shipped
+
+The homepage's two photographic bands were hand-built frames. Their caption
+read:
+
+> Ironworkers on the power block. Photography needed at full resolution.
+
+That is a production note sitting in a published-copy field. If the photograph
+lands and nobody edits the caption, the live site says *"Photography needed at
+full resolution"* underneath it. The brief and the caption were the same string.
+
+**Image Band** fixes this structurally rather than by editing the string:
+
+- The **brief** lives *inside the image area* — the region the photograph
+  replaces. It is destroyed the moment the asset lands. It carries an amber chip
+  reading *"Photograph needed — this text never publishes."*
+- The **caption** lives *outside* the image area and is the only published copy.
+- `Kind = Photograph | Rendering`. The IUP deck's cover is a **rendering**, not a
+  photograph, and it is the most likely asset for someone to grab for a hero. On
+  a site whose job is transparency, that distinction is the same discipline as
+  the "as of" date, and it now has a place to live.
+- `Caption = Inline | Stacked`. Inline puts the date in a 112px marker slot hard
+  left with the prose in an offset column — deliberately the same geometry as a
+  ledger row. Stacked puts the date above the prose, for bands under 700px.
+- Width is never set on the component. The parent section's horizontal padding
+  decides: 160 → contained, 80 → wide, 0 → full bleed, 16 → mobile.
+
+Two further caption changes, both from the research: the prose is **near-black,
+not gray** (gray is reserved for the date line beneath or beside it), and the
+**date is split out of the caption string** into its own field, so §5.3's
+date-stamp requirement is structural rather than a typing convention.
+
+### 11.3 Where photography now runs
+
+Before this pass, only the homepage had imagery below the hero. Captions and
+dates below are the client's own, taken verbatim from the IUP deck's photo-essay
+table and re-cased to house style.
+
+| Page | Band | Width | Caption |
+| --- | --- | --- | --- |
+| Home | after Workforce spotlight | wide 1280 | First steel, going vertical. March 2026. |
+| Home | after Timeline teaser | full bleed 1440 | View from the north. February 2026. |
+| Workforce | after Trades on site | wide 1280 | Crews working at height on the gas insulated switchgear building. July 2026. |
+| The Campus | after What is being built | contained 1120 | Unit 5 heat recovery steam generator (HRSG) under construction. July 2026. |
+| The Campus | Then and now | two-up 544 | Homer City Generating Station, 1969–2023 · Power block aerial, looking north, April 2026 |
+
+**Full bleed is spent, not spread.** It appears once in the body of the site,
+and no two photographic bands are adjacent. The researched rhythm — never two
+bands of the same width class consecutively, always a non-photographic section
+between — holds on every page.
+
+**Three placements were deliberately not built**, and the reasoning matters more
+than the omission:
+
+- **A Contact entrance photograph.** An inviting gate shot is a promise the site
+  cannot keep while no supplied document states a visitor access policy, on a
+  site in full construction phase. Open question #13.
+- **An apprenticeship photograph.** The only frame that works is a real
+  apprentice and a real journeyman on a real dated task. A staged version is
+  precisely the generic corporate register the client asked us to leave, and it
+  would sit directly under a figure that is itself still unconfirmed.
+- **A third homepage aerial.** The hero is an aerial and the map band sits
+  between. A third would make the page one photograph repeated.
+
+### 11.4 Two pieces of copy that could not have run
+
+- **"135 people learning a trade on this job."** The source says **135+**, and
+  says it in a client press release that is tier A and still unconfirmed. The
+  artboard had turned a qualified, unconfirmed figure into a flat assertion.
+  Now reads "135+ apprentices learning a trade on this job".
+- **The Voices section ran the same invented quote twice**, unattributed, with
+  no portrait — against §5.6, which says a quote without a name, a role, an
+  organization and a real photograph does not run. It is now a single
+  full-width pull quote with the portrait slot shown, the attribution slots
+  labelled, and an amber flag stating plainly that no attributed quote has been
+  supplied. Two half-filled cards made the section look half done; it is not
+  started.
+
+Also removed: a standfirst on Then and now that ended *"— so this pair sits
+inside the margin, not full bleed."* That is a note to a designer, in a field
+that publishes.
+
+### 11.5 Mobile
+
+Full parity, not a reduction. Mobile gets the same seven ledger rows (stacked
+layout, 44px figures, same qualifiers, same attached footnotes), the same four
+photographic bands at full width inside the 16px gutter, the same Then and now
+pair, the same Voices flag, and the same apprenticeship correction. The caption
+stacks rather than running inline, via the component variant rather than a
+per-instance override.

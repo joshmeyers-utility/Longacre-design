@@ -66,7 +66,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
-| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §8) |
+| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -205,9 +205,9 @@ correction a one-line change instead of a rebuild.
 | Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-Verified state: **6,188 bound values across the component library and all 15
-artboards, zero unbound, zero reaching past the semantic layer.** If you add
-anything, bind it.
+Verified state: **9,434 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, 1,453 contrast checks against real
+painted ancestors, zero failures.** If you add anything, bind it.
 
 ### The other rule: strokes are dividers
 
@@ -215,6 +215,39 @@ anything, bind it.
 tile accents, no severity bars, no button borders — those are ground, space, or a
 filled rectangle. The file currently holds 37 hairline dividers and 29 circular
 timeline markers, and nothing else. Check before you add one.
+
+### The third rule: a brief is not a caption
+
+**Production notes and published copy never share a field.** A caption that
+reads *"Photography needed at full resolution"* is one forgotten edit away from
+saying exactly that on the live site, under a real photograph. In the **Image
+Band** component the brief lives *inside* the image area — the region the
+photograph destroys — and the caption lives outside it. The same separation
+applies anywhere a placeholder describes what is still missing.
+
+Two consequences:
+
+- **Date is its own field, not part of the caption string.** §5.3 is structural,
+  not a typing convention.
+- **`Kind = Photograph | Rendering`.** The deck's cover is a render of a campus
+  that does not exist yet. On this site, labelling that is the same discipline
+  as the "as of" date.
+
+### Stats are a ledger, not cards
+
+Figure hard left, explanation in a narrow column hard right, a hairline spanning
+the full width between rows and closing the block. The middle stays empty — the
+rule spanning it is what binds figure to label, which is also why the row needs
+no card and no border. **Required footnotes live in the right-hand column,
+beneath the label**, inside the rule that binds the row. Not an asterisk, not a
+pointer to the page foot. Qualifiers — *Anticipated*, *Projected*, *Up to* — sit
+as an eyebrow directly above the figure rather than buried mid-label.
+
+**Band widths come from the parent's padding, never from the band:**
+`space/container-x-desktop` (160) → contained 1120 · `space/container-x-wide`
+(80) → wide 1280 · zero → full bleed 1440 · `space/container-x-mobile` (16) →
+mobile. Full bleed is spent, not spread: once in the body of the site, never two
+photographic bands adjacent.
 
 - **Type: Geist 300–700** (Google-hosted, ports to Webflow). Replaced Open
   Sans, which was the web's default 2011–2016 and carried that period into the
@@ -355,6 +388,8 @@ the first line rather than refactoring later.
 | 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Partners page |
 | 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |
 | 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
+| 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
+| 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
 
 **Non-blocking — can proceed with a stated assumption:**
 
@@ -364,6 +399,8 @@ the first line rather than refactoring later.
 | 7 | Does a fuller timeline exist beyond the fact sheet's? | Build the condensed homepage teaser to link to a full timeline page; ship it when content lands. |
 | 8 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | **Resolved:** one "Community" nav item with three child pages. |
 | 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
+| 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
+| 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
 
 ---
 
