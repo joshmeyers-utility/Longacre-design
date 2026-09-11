@@ -208,8 +208,8 @@ correction a one-line change instead of a rebuild.
 | Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-Verified state: **9,672 bound values across both artboard pages, zero unbound,
-zero reaching past the semantic layer, zero tinted grounds, 1,490 contrast
+Verified state: **9,668 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, zero tinted grounds, 1,494 contrast
 checks against real painted ancestors, zero failures.** If you add anything,
 bind it.
 
@@ -271,7 +271,11 @@ photographic bands adjacent.
 - **A pillar colour marks one of the four pillars, and nothing else.** Not a
   nav card, not a section icon, never a link. Used as decoration it stops being
   a signal. Home's "Project pillars" is the only section that may carry them.
-- **Blue means link.** Nothing else is blue. Labels, eyebrows and metadata are
+- **Blue means link.** Nothing else is blue — **icons included**. An icon is
+  blue only when the icon *is* the control (`arrow_forward`, `add`, `remove`,
+  `download`, `open_in_new`, `expand_more`, `close`, `search`, `menu`). A trade
+  mark, a commitment mark, a resource-type mark or a category mark is
+  `text/primary` on light and `text/inverse-secondary` on navy. Labels, eyebrows and metadata are
   grays (`text/eyebrow` → `stone/700`). A blue label that is not clickable is a
   small lie repeated on every page.
 - **Eyebrow:** 12px SemiBold, 4% tracking, sentence case. Not decoration — it is

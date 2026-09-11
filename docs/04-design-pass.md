@@ -749,3 +749,35 @@ nothing to click. It now carries a text link.
 **Provenance flags** were sized to hug their text, which pushed the longest of
 them past the edge of the accordion column on FAQ. All 16 now fill their
 container and wrap.
+
+### 12.10 Blue that was not a link
+
+A closing sweep for the patterns both research passes named as dated —
+rounded corners over 4px, drop shadows, italic captions, centred captions,
+all-caps runs, text under 12px, British spellings — came back clean on every
+count. The only genuine finding was one the design system's own rules should
+have caught much earlier.
+
+**104 Material Symbols icons were coloured with link tokens.** The nine trades
+on Workforce. The seven commitments on Community. The resource-type icons on
+FAQ. The four contact-route icons in the footer, on every page. None of them
+are clickable.
+
+`CLAUDE.md` §7 is explicit: *"Blue means link. Nothing else is blue... A blue
+label that is not clickable is a small lie repeated on every page."* This was
+that lie, 104 times — and it is exactly what the client asked to be rid of when
+they said to use grays for anything that is not a link.
+
+Icons are now split by whether the icon **is** the control:
+
+| | Colour |
+| --- | --- |
+| `arrow_forward`, `add`, `remove`, `download`, `open_in_new`, `expand_more`, `close`, `search`, `menu` | `text/link` — these are the control |
+| Everything else — trade marks, commitment marks, resource types, category marks | `text/primary` on light, `text/inverse-secondary` on navy |
+
+The result is a page that is monochrome except where something can be clicked,
+which is what the rule was always trying to produce.
+
+**Final state: 9,668 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, zero tinted grounds, 1,494 contrast
+checks against real painted ancestors, zero failures.**
