@@ -643,3 +643,46 @@ opposite of what it claims.
 past the semantic layer. 1,474 contrast checks against real painted ancestors:
 zero failures, and zero within 0.35 of their threshold.** Every uniform-weight
 stroke in the file is a 16×16 circle on the timeline rail.
+
+### 12.6 The scrims, which the automated check could not see
+
+The contrast sweep walks each text node up to its nearest **solid** painted
+ancestor. A photograph is not a solid fill, so for text over a hero image the
+sweep was measuring against the navy underneath the photo and reporting a pass
+regardless of what the photograph actually does. Every hero was "passing" a
+check that was not looking at the right thing.
+
+Reading the actual gradients found two problems:
+
+1. **Six mobile page heroes had no scrim at all** — white text directly on a
+   photograph.
+2. **The scrim that did exist ran the wrong way.** The homepage mobile hero's
+   gradient is transparent at the top and 88% at the bottom, which is correct
+   *there* because the photo occupies the top third and the text sits below it.
+   Copied onto a page hero, whose eyebrow and headline start at the top, it put
+   the weakest part of the scrim exactly where the smallest text was.
+
+Both are now rebuilt from explicit values rather than cloned:
+
+| | Direction | Stops (navy `23,39,58`) |
+| --- | --- | --- |
+| Desktop | left → right | 0.93 · 0.88 @50% · 0.72 @68% · 0.12 @92% · 0.08 |
+| Mobile | top → bottom | 0.88 → 0.94 |
+
+The desktop numbers are set so the scrim is still at 0.72 where the 900px text
+column ends. Checked by hand against the worst case the design can encounter —
+a **pure white photograph** behind the weakest point of the scrim:
+
+| Text | Worst-case ratio | Needs |
+| --- | --- | --- |
+| White hero heading, desktop @0.72 | 5.97:1 | 3.0 |
+| White standfirst, desktop @0.72 | 5.97:1 | 4.5 |
+| White eyebrow, mobile @0.88 | 9.68:1 | 4.5 |
+
+So hero text clears AA against any photograph that can be dropped in, not just
+against the ones currently placed. That is the only way this holds once the real
+photo library arrives and nobody re-checks.
+
+> Worth remembering for the Webflow build: an automated contrast check that
+> walks to the nearest solid fill will keep reporting these as passing. The scrim
+> values are the guarantee, not the checker.
