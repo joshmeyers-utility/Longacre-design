@@ -322,14 +322,26 @@ boolean so a self-contained headline can switch it off.
 
 Three devices transfer; three deliberately do not.
 
+The live site is unreachable from this environment — the egress proxy returns
+`CONNECT tunnel failed, response 403` for that domain, and the proxy itself
+reports healthy with no relay failures, so it is a standing policy block rather
+than a transient one. The reading below is from fourteen of their sections
+captured on Mobbin, not from the site itself.
+
 | Device | Taken | Why |
 | --- | --- | --- |
 | Rule paired with an index | ✅ | Every section header is a hairline with its number at the right end. Orientation on a long scroll, an anchor for deep links, and it is a mark rather than a box |
-| Card header: rule + index | ✅ | Pillar tiles are `01–04` — they are fixed brand architecture, so the numbers are hard-coded and always true |
+| Grid-node `+` mark | ✅ | Their signature: small plus marks sitting on the invisible column grid. Ours sits at the left terminus of each section rule — 36 of them, the same idea at restrained volume |
+| Card header: rule + index | ✅ | Pillar tiles are `01–04` — fixed brand architecture, so the numbers are hard-coded and always true |
 | Split-cell button | ✅ | The arrow sits in its own cell behind a hairline; it reads as a control, not an ornament |
+| Footer column labels | ✅ | Their footer labels every column. Ours now carries *Get in touch*, *Location*, *Pages* — it scans as a directory rather than a list of links |
 | Edge-cropped display type | ❌ | Clips words. This site is read by neighbours checking facts, not admired |
 | Ghosted oversize background type | ❌ | Costs legibility for style |
+| Registration brackets on image wells | ❌ | Handsome, but they would sit on photo placeholders that disappear the moment real photography lands |
 | Their orange, and all-caps labels | ❌ | Wrong brand; and caps were ruled out |
+
+Fixed while in the footer: the mobile page-link row was a horizontal stack at
+375 and was **cutting off News and Contact**. It stacks now, and all five show.
 
 Section numbering is computed from a section's **position in its artboard**, not
 from a running count, so mobile and desktop cannot drift. Verified: identical
