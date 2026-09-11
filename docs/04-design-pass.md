@@ -12,8 +12,13 @@ Stage 3 tokens.
 | `03 Mobile` | 8 artboards at 375px |
 | `04 Desktop` | 7 artboards at 1440px |
 
-Everything is bound to variables. No raw hex, no hardcoded spacing — change a
-token and every artboard follows.
+Everything is bound to variables: **6,188 bound values, zero unbound, zero
+reaching past the semantic layer into a primitive.** No raw hex, no hardcoded
+spacing, no hardcoded type size — change a token and every artboard follows.
+
+Mobile artboards carry the Typography collection's **Mobile** mode and desktop
+artboards carry **Desktop**, so the entire type ramp is one switch rather than a
+duplicated component set.
 
 ---
 
@@ -102,9 +107,15 @@ The brief asked for spacious, and the numbers reflect that.
 | --- | --- | --- |
 | Page gutter | 16px | 120px (1200px content column) |
 | Section padding (vertical) | 64px | 120px |
-| Section internal gap | 28px | 56px |
-| Card padding | 20–24px | 32px |
+| Section internal gap | 24–32px | 48–64px |
+| Hero height | hugs content | 840px |
+| Display type | 44px | 104px |
+| Card padding | 0 — cards are unboxed | 0 |
 | Reading measure | full width minus gutter | 680–760px |
+
+Card padding is zero on purpose. Once a card has no fill and no border, interior
+padding only pushes its content away from its own image, and the grid gap
+already does the separating.
 
 ### Images: full bleed unless grouped
 
@@ -223,3 +234,50 @@ spotlights and the photo library all remain blocking — see `CLAUDE.md` §10.
    component's description panel.
 5. **`04 Desktop` → FAQ.** The most important page on the site, and the one that
    has to carry sourcing convincingly.
+
+
+---
+
+## 8. Revision — the modern pass
+
+The first pass was legible but read as a wireframe: every element wrapped in a
+rounded outlined box, type too even to build hierarchy, four pastel grounds
+competing in one row. Reference points for the revision were Performance Lab,
+T1 Energy, Zipline and Glide — sites that build structure out of space, scale and
+one confident accent instead of containers.
+
+Work was done **at component level first** so it rippled through every artboard,
+then screens were reviewed and corrected. Full token rationale in
+`docs/03-design-system.md` §9.
+
+### Components
+
+| Component | Was | Now |
+| --- | --- | --- |
+| Button | 8px radius, outlined secondary | 2px radius; secondary is filled navy; trailing arrow on a boolean property; no outlined variant at all |
+| Stat | Blue Light figure in a tile | Hairline rule, near-black figure at 84px desktop, no tile |
+| Pillar Tile | Pastel ground + 3px top accent stroke | No ground, no stroke; a short accent rule in the pillar colour that extends to full width on hover |
+| News Card | White card, border, shadow, rounded | The image *is* the card — no chrome; eyebrow + type/h3 headline sit on the page ground |
+| Quote Card | Bordered box, generic avatar circle | Unboxed pull quote, hairline, square portrait slot at radius/media |
+| Expandable Card | Outlined box | Lifts to `surface/default` on hover and expand; no border |
+| FAQ Accordion | Boxed rows | Hairline between rows only — the one place a rule earns its keep |
+| Alert Banner | Tint + 4px left bar | Tint and icon carry severity; no bar |
+| Section Header | Blue 14px label | 12px eyebrow at 12% tracking, uppercase |
+| Photo Placeholder | Centred grey box | Marker moves to top-right on full-bleed instances so it never sits under headline copy |
+
+### Screens
+
+- **Hero** is genuinely full bleed now — the image fills the frame behind the
+  content rather than sitting in a 260px band above it. Desktop hero grew to
+  840px to give the 104px headline room to breathe.
+- **Stats** go three-across on desktop (columns were 373px in a 1200px grid, so
+  only two fitted).
+- **Pillar rows** stretch to equal height with the CTA pinned to the bottom, so
+  four tiles with different copy lengths still align on one baseline.
+
+### Strokes
+
+The file now contains **66 strokes total**: 37 single-side hairline dividers
+(FAQ rows, header bottoms, mobile menu rows) and 29 circular timeline markers
+≤24px where the ring *is* the object and carries complete-versus-upcoming
+without relying on colour. **Zero card outlines.**

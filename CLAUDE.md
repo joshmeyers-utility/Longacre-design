@@ -66,7 +66,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
-| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete |
+| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §8) |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -186,10 +186,10 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 
 ## 7. Design system
 
-**Resolved in Stage 3.** Full rationale in `docs/03-design-system.md`; values in
-`design-system/tokens.json` and `tokens.css`; live in Figma as 232 variables
-across three collections (Primitives, Semantic, Motion), 28 text styles and 5
-effect styles.
+**Resolved in Stage 3, revised during the Stage 4 modern pass.** Full rationale
+in `docs/03-design-system.md`; values in `design-system/tokens.json` and
+`tokens.css`; live in Figma as 270 variables across four collections
+(Primitives, Semantic, Typography, Motion), 32 text styles and 5 effect styles.
 
 ### The one rule
 
@@ -201,14 +201,38 @@ correction a one-line change instead of a rebuild.
 | Layer | Examples |
 | --- | --- |
 | Primitives | `color/blue/700`, `space/16`, `font-size/300`, `radius/md` |
-| Semantic | `surface/page`, `text/primary`, `action/primary-bg`, `pillar/safety` |
+| Semantic | `surface/page`, `text/primary`, `action/primary-bg`, `pillar/safety`, `space/stack-md`, `radius/surface`, `icon/lg` |
+| Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-- **Type:** Open Sans 300–700. Stat figures are Light (300) — inherited from the
-  fact sheet and worth keeping.
+Verified state: **6,188 bound values across the component library and all 15
+artboards, zero unbound, zero reaching past the semantic layer.** If you add
+anything, bind it.
+
+### The other rule: strokes are dividers
+
+**A stroke separates two pieces of content. Nothing else.** No card outlines, no
+tile accents, no severity bars, no button borders — those are ground, space, or a
+filled rectangle. The file currently holds 37 hairline dividers and 29 circular
+timeline markers, and nothing else. Check before you add one.
+
+- **Type:** Open Sans 300–700. Hero runs 104px desktop / 44px mobile. Stat
+  figures are Light (300) — inherited from the fact sheet — but sit in
+  `text/stat-figure` (near-black), not blue; the brand blue moved to the eyebrow.
+- **Eyebrow:** 12px SemiBold, 12% tracking, uppercase. It is not decoration — it
+  is where a section's date-stamp, category or scope lives, which is exactly what
+  §5.3 requires.
 - **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render
   size. Not Outlined — Figma does not have it.
-- **Spacing:** 2px base unit; the token name is the pixel value (`space/16` = 16px).
+- **Spacing:** 2px base unit; the primitive name is the pixel value
+  (`space/16` = 16px), but components use roles — `space/stack-md`,
+  `space/card-padding`, `space/section-y`.
+- **Radius:** four roles, not eight sizes. `radius/control` (2),
+  `radius/surface` (**0**), `radius/media` (4), `radius/pill`. Surfaces are
+  square; softening the whole system is one re-pointed token.
+- **Responsive type:** only font size varies by breakpoint, via the Typography
+  collection's Desktop/Mobile modes. Line height and tracking are percentages so
+  they scale on their own. Set the mode on the artboard, never per node.
 - **Motion:** gentle, never overshooting. `ease/appear` for reveals,
   `ease/interact` for hover and press, `ease/transition` for layout.
   `prefers-reduced-motion` support is in `tokens.css` and is not optional.

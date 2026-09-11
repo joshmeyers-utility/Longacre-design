@@ -4,7 +4,7 @@ Typography, colour, spacing and motion for the Homer City Energy Campus site.
 
 | Where | What |
 | --- | --- |
-| [Figma](https://www.figma.com/design/Jrd1qr29Hi3WvscddRo34r/Longacre) | 232 variables in 3 collections, 28 text styles, 5 effect styles, plus a visual token sheet |
+| [Figma](https://www.figma.com/design/Jrd1qr29Hi3WvscddRo34r/Longacre) | 270 variables in 4 collections, 32 text styles, 5 effect styles, plus a visual token sheet |
 | `design-system/tokens.json` | W3C Design Tokens format — the machine-readable source |
 | `design-system/tokens.css` | The same tokens as CSS custom properties; powers `prototype/` |
 
@@ -25,13 +25,22 @@ color/blue/700  = #006EB1          ← primitive: a value, no opinion
 action/primary-bg → color/blue/700 ← semantic: a decision, aliased
 ```
 
+Four collections carry it:
+
+| Collection | Modes | Holds |
+| --- | --- | --- |
+| Primitives | Default | 132 raw values — colour steps, the 2px space scale, font sizes, radii |
+| Semantic | Default | 105 roles — `surface/*`, `text/*`, `action/*`, `border/*`, `pillar/*`, `space/*`, `radius/*`, `icon/*` |
+| Typography | **Desktop, Mobile** | 17 font-size roles — see below |
+| Motion | Default | 16 durations, easings, distances, staggers |
+
 In Figma the colour primitives are created with `scopes = []`, which **hides them
 from every picker**. A designer opening a fill picker sees `surface/page`,
 `surface/brand`, `surface/accent` — not 79 raw swatches. That is deliberate: a
 token system only holds if using it correctly is easier than bypassing it.
 
 The payoff is concrete. When the brand guide arrives and the real blue turns out
-to be two shades off, one primitive changes and all 66 semantic tokens, every
+to be two shades off, one primitive changes and all 105 semantic tokens, every
 text style, and every component follow. Nothing downstream is edited.
 
 ---
@@ -181,6 +190,30 @@ range, often on a phone. The generous default costs nothing and helps everyone.
 answers, news articles and long commitment copy use it. Nothing that is meant to
 be read runs full-bleed.
 
+### One mode switch drives the whole responsive ramp
+
+The **Typography** collection is the only one with modes. Each entry is a
+font-size role that aliases a different primitive per mode:
+
+```
+type/hero      Desktop → font-size/1100 (104px)   Mobile → font-size/700 (44px)
+type/h2        Desktop → font-size/600  (36px)    Mobile → font-size/400 (24px)
+type/body      Desktop → font-size/200  (18px)    Mobile → font-size/100 (16px)
+```
+
+Every text node in the file binds `fontSize` to one of these. Mobile artboards
+carry an explicit **Mobile** mode; desktop artboards carry **Desktop**. Changing
+one artboard's mode reflows its entire type ramp — no duplicated components, no
+per-instance overrides.
+
+Line height and tracking stay as **percentages**, so they scale with the font
+size automatically and need no mode of their own. That is why only font size is
+a variable.
+
+`type/logo-wordmark` and `type/logo-sub` are deliberately separate: the logo is a
+lockup, not body copy, and must not ride the body ramp. Both are placeholder
+artwork until the logo vector arrives.
+
 ### Mobile ramp
 
 Display steps 68 → 36 and H1 44 → 30. Tested at a true 375px viewport: at 44px a
@@ -246,15 +279,49 @@ that repeat:
 | `space/inline-xs … lg` | 6–16 | Horizontal gaps between inline elements |
 | `space/field-y` / `-x` | 12 / 16 | Form control padding |
 
-### Radius and elevation
+### Radius — four roles, one dial
 
-Radius: `0, 2, 4, 8, 12, 16, 24, 9999` — all even. Cards use `lg` (12), buttons
-`md` (8), pills `full`.
+Primitives are `0, 2, 4, 8, 12, 16, 24, 9999`, but components never touch them.
+They use four semantic roles instead:
 
-Five elevation steps, **tinted with `navy-950` rather than pure black**. A black
-shadow on a warm ground goes muddy; a navy-tinted one keeps elevation inside the
-palette. Shadows live as Figma effect styles (`Elevation/xs … xl`) because Figma
-variables cannot hold shadows.
+| Role | Value | Used by |
+| --- | --- | --- |
+| `radius/control` | 2 | Buttons, chips, inputs |
+| `radius/surface` | **0** | Cards, tiles, panels, banners |
+| `radius/media` | 4 | Grouped imagery, portraits, thumbnails |
+| `radius/pill` | 9999 | Avatars, timeline markers, round badges |
+
+Surfaces at 0 is the deliberate part. A card defined by a rounded box is a card
+the layout is apologising for; a card defined by space and a ground shift is one
+the layout means. Roles also make this a **one-line decision**: if the client
+wants the whole system softer, `radius/surface` re-points and every component
+follows.
+
+### Strokes mean exactly one thing
+
+A stroke is a **divider between pieces of content**. Nothing else.
+
+Not a card outline, not a tile accent, not a severity bar, not a button border.
+Those are drawn with ground, space or a filled rectangle, which is what they
+actually are. Across the entire file this leaves 32 strokes: FAQ row rules,
+header bottom rules, mobile menu row rules, and three timeline markers where the
+ring *is* the object and carries complete-versus-upcoming without relying on
+colour.
+
+`border/divider` and `border/divider-inverse` exist so the intent is legible in
+the token name, not just in the usage.
+
+### Elevation
+
+Five steps, **tinted with `navy-950` rather than pure black**. A black shadow on
+a warm ground goes muddy; a navy-tinted one keeps elevation inside the palette.
+Shadows live as Figma effect styles (`Elevation/xs … xl`) because Figma variables
+cannot hold shadows.
+
+Cards no longer use them. Elevation is now reserved for things genuinely floating
+above the page — the sticky header once scrolled, the mobile menu overlay — plus
+focus rings, which are zero-blur spread shadows so they map to
+`box-shadow: 0 0 0 3px` exactly and survive variant swaps.
 
 ---
 
@@ -341,3 +408,33 @@ how a Webflow designer expects to work, and it keeps one class per style.
 | **Brand guide** — real typefaces, exact colours, logo vector | Colours are sampled from rendered PDFs, which shifts values slightly. Because every semantic token aliases a primitive, correcting them is a find-and-replace on 7 scales, not a rebuild. Open Sans is a stated choice, not a guess at the brand face — if the real face differs, one `font-family` primitive changes |
 | Icon set | Rounded chosen because Figma lacks Outlined. If the client installs Outlined in Figma, one variable changes |
 | Dark mode | Out of scope; not in the brief. The primitive/semantic split means it could be added later as a second mode on the Semantic collection without touching components |
+
+
+---
+
+## 9. Revision — from wireframe to finished
+
+A review found the first pass reading as a wireframe: every element announced by
+a rounded, outlined box; type too timid to establish hierarchy; four pastel
+grounds competing in a single row. Reference points were Performance Lab, T1
+Energy, Zipline and Glide — sites that build structure from space, scale and one
+confident accent rather than from containers.
+
+What changed, and why:
+
+| Change | Reason |
+| --- | --- |
+| Strokes reduced to content dividers only | An outline around everything is the single strongest wireframe signal |
+| `radius/surface` = 0 | Cards defined by ground and space, not by a rounded box |
+| Display type up to 104px desktop / 44px mobile | The first pass had no scale contrast; a hero needs to behave like one |
+| Eyebrow role added (12px, 12% tracking, caps) | Carries section scope **and** the date-stamps and category labels the fact discipline needs — an editorial device doing real work |
+| Stat figures blue → `text/stat-figure` (near-black) | At 84px Light, blue read as decoration; near-black reads as fact. The brand blue moved to the eyebrow, where it has more effect |
+| Pillar tiles: pastel grounds → accent rule | Four pastel tints side by side read as a dashboard, not as one set of four |
+| News cards: chrome removed, image enlarged | The photograph is the strongest asset in the source material; it should carry the card |
+| Quote cards: box removed | A pull quote on the page ground with a hairline reads as editorial rather than as a widget |
+| Buttons: outlined secondary → filled navy; radius 2; trailing arrow | Outlines fail over photography. Every reference site has exactly one button style plus text links |
+| Every font size, gap, padding and radius bound to a variable | Roughly half the file was hardcoded or reaching past the semantic layer; it is now **6,188 bound values and zero unbound** |
+
+**Reversibility.** Every one of these is a token move, not a rebuild. Softer
+corners, blue stat figures and a lighter type ramp are each one re-pointed token
+away if the client's brand guide says otherwise.
