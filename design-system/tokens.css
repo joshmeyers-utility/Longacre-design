@@ -16,41 +16,65 @@
   --color-white: #FFFFFF;
   --color-black: #000000;
   /* navy */
-  --color-navy-50: #F3F8FF;
-  --color-navy-100: #E5EFFE;
-  --color-navy-200: #CEE0FA;
-  --color-navy-300: #B2CCF1;
-  --color-navy-400: #93B4E1;
-  --color-navy-500: #779CCE;
-  --color-navy-600: #5F84B4;
-  --color-navy-700: #4A6B97;
-  --color-navy-800: #375377;
-  --color-navy-900: #263C58;
-  --color-navy-950: #17273A;
+  --color-navy-50: #F2F8FF;
+  --color-navy-100: #E3F0FF;
+  --color-navy-200: #C8E2FE;
+  --color-navy-300: #A8CEF7;
+  --color-navy-400: #87B6E8;
+  --color-navy-500: #699FD6;
+  --color-navy-600: #5086BB;
+  --color-navy-700: #3C6D9D;
+  --color-navy-800: #2C557C;
+  --color-navy-900: #1D3D5C;
+  --color-navy-950: #10283D;
   /* blue */
-  --color-blue-50: #F2F8FF;
-  --color-blue-100: #E2F0FF;
-  --color-blue-200: #C6E2FF;
-  --color-blue-300: #9ECFFF;
-  --color-blue-400: #6AB8FF;
-  --color-blue-500: #31A0F7;
-  --color-blue-600: #0087D9;
-  --color-blue-700: #006EB1;
-  --color-blue-800: #00568A;
-  --color-blue-900: #003E65;
-  --color-blue-950: #002843;
+  --color-blue-50: #F0F9FF;
+  --color-blue-100: #DEF2FF;
+  --color-blue-200: #BDE5FF;
+  --color-blue-300: #91D3FC;
+  --color-blue-400: #65BCEF;
+  --color-blue-500: #39A5DD;
+  --color-blue-600: #0D8CC2;
+  --color-blue-700: #00729F;
+  --color-blue-800: #00597C;
+  --color-blue-900: #00415B;
+  --color-blue-950: #002A3C;
   /* teal */
-  --color-teal-50: #ECFBFC;
-  --color-teal-100: #D7F5F8;
-  --color-teal-200: #B2EBF0;
-  --color-teal-300: #84DBE2;
-  --color-teal-400: #4FC6CE;
-  --color-teal-500: #00AFB8;
-  --color-teal-600: #00949A;
-  --color-teal-700: #00797D;
-  --color-teal-800: #005E61;
-  --color-teal-900: #004446;
-  --color-teal-950: #002D2E;
+  --color-teal-50: #EBFBFC;
+  --color-teal-100: #D6F6F8;
+  --color-teal-200: #AEECEF;
+  --color-teal-300: #7DDCE1;
+  --color-teal-400: #40C7CD;
+  --color-teal-500: #00AFB5;
+  --color-teal-600: #009498;
+  --color-teal-700: #00797B;
+  --color-teal-800: #005E5F;
+  --color-teal-900: #004545;
+  --color-teal-950: #002D2D;
+  /* sand */
+  --color-sand-50: #F9F9E8;
+  --color-sand-100: #F3F0D0;
+  --color-sand-200: #E8E2A4;
+  --color-sand-300: #D9CD70;
+  --color-sand-400: #C5B42F;
+  --color-sand-500: #AE9C00;
+  --color-sand-600: #938300;
+  --color-sand-700: #796A00;
+  --color-sand-800: #5F5200;
+  --color-sand-900: #453B00;
+  --color-sand-950: #2D2600;
+  /* gold */
+  --color-gold-50: #FCF7ED;
+  --color-gold-100: #F8EDDA;
+  --color-gold-200: #F1DCB9;
+  --color-gold-300: #E5C592;
+  --color-gold-400: #D4AA6A;
+  --color-gold-500: #C09047;
+  --color-gold-600: #A8782D;
+  --color-gold-700: #8C5F19;
+  --color-gold-800: #6F490F;
+  --color-gold-900: #523406;
+  --color-gold-950: #362103;
   /* green */
   --color-green-50: #EEFBF3;
   --color-green-100: #DCF6E6;
@@ -63,18 +87,6 @@
   --color-green-800: #056335;
   --color-green-900: #014824;
   --color-green-950: #012F15;
-  /* amber */
-  --color-amber-50: #FFF6EC;
-  --color-amber-100: #FFEBD7;
-  --color-amber-200: #FFD6B0;
-  --color-amber-300: #FFB977;
-  --color-amber-400: #F29B42;
-  --color-amber-500: #DF7F00;
-  --color-amber-600: #BE6900;
-  --color-amber-700: #9D5400;
-  --color-amber-800: #7C4000;
-  --color-amber-900: #5C2C00;
-  --color-amber-950: #3E1B00;
   /* red */
   --color-red-50: #FFF5F3;
   --color-red-100: #FFE9E6;
@@ -171,11 +183,11 @@
   --radius-2xl: 24px;
   --radius-full: 9999px;
   --shadow-none: none;
-  --shadow-xs: 0 1px 2px 0px rgba(23, 39, 58, 0.04);
-  --shadow-sm: 0 2px 6px -1px rgba(23, 39, 58, 0.06);
-  --shadow-md: 0 4px 12px -2px rgba(23, 39, 58, 0.08);
-  --shadow-lg: 0 8px 24px -4px rgba(23, 39, 58, 0.1);
-  --shadow-xl: 0 16px 40px -8px rgba(23, 39, 58, 0.14);
+  --shadow-xs: 0 1px 2px 0px rgba(16, 40, 61, 0.04);
+  --shadow-sm: 0 2px 6px -1px rgba(16, 40, 61, 0.06);
+  --shadow-md: 0 4px 12px -2px rgba(16, 40, 61, 0.08);
+  --shadow-lg: 0 8px 24px -4px rgba(16, 40, 61, 0.1);
+  --shadow-xl: 0 16px 40px -8px rgba(16, 40, 61, 0.14);
 
   /* -------------------------------------------------------------- motion */
   --duration-instant: 0ms;
@@ -222,13 +234,13 @@
   /* surface */
   --surface-page: var(--color-white);
   --surface-default: var(--color-white);
-  --surface-subtle: var(--color-stone-50);
-  --surface-sunken: var(--color-stone-100);
+  --surface-subtle: var(--color-sand-50);
+  --surface-sunken: var(--color-sand-100);
   --surface-brand: var(--color-navy-900);
   --surface-brand-alt: var(--color-navy-800);
   --surface-accent: var(--color-blue-700);
-  --surface-accent-subtle: var(--color-blue-50);
-  --surface-stat: var(--color-blue-50);
+  --surface-accent-subtle: var(--color-teal-100);
+  --surface-stat: var(--color-sand-100);
   --surface-accent-strong: var(--color-blue-700);
   --surface-media: var(--color-stone-200);
   /* text */
@@ -240,7 +252,7 @@
   --text-link-hover: var(--color-blue-800);
   --text-inverse: var(--color-white);
   --text-inverse-secondary: var(--color-stone-200);
-  --text-inverse-link: var(--color-blue-200);
+  --text-inverse-link: var(--color-teal-200);
   --text-on-accent: var(--color-white);
   --text-stat-figure: var(--color-stone-900);
   --text-stat-figure-inverse: var(--color-white);
@@ -278,10 +290,10 @@
   --feedback-info-border: var(--color-blue-300);
   --feedback-info-text: var(--color-blue-900);
   --feedback-info-icon: var(--color-blue-700);
-  --feedback-construction-surface: var(--color-amber-50);
-  --feedback-construction-border: var(--color-amber-300);
-  --feedback-construction-text: var(--color-amber-900);
-  --feedback-construction-icon: var(--color-amber-700);
+  --feedback-construction-surface: var(--color-gold-50);
+  --feedback-construction-border: var(--color-gold-300);
+  --feedback-construction-text: var(--color-gold-900);
+  --feedback-construction-icon: var(--color-gold-700);
   --feedback-urgent-surface: var(--color-red-50);
   --feedback-urgent-border: var(--color-red-300);
   --feedback-urgent-text: var(--color-red-900);
@@ -291,14 +303,14 @@
   --feedback-success-text: var(--color-green-900);
   --feedback-success-icon: var(--color-green-700);
   /* pillar */
-  --pillar-safety: var(--color-green-700);
+  --pillar-safety: var(--color-green-800);
   --pillar-safety-surface: var(--color-green-50);
   --pillar-infrastructure: var(--color-navy-800);
   --pillar-infrastructure-surface: var(--color-navy-50);
   --pillar-community: var(--color-blue-700);
   --pillar-community-surface: var(--color-blue-50);
-  --pillar-energy-future: var(--color-teal-700);
-  --pillar-energy-future-surface: var(--color-teal-50);
+  --pillar-energy-future: var(--color-gold-700);
+  --pillar-energy-future-surface: var(--color-gold-50);
 
   /* space — roles, not sizes. Change the role, not every component. */
   --space-section-y: var(--space-96);

@@ -493,3 +493,72 @@ painted ancestor, at the AA threshold for its own size and weight:
 
 **932 text nodes checked. Zero failures.** Plus 5,711 bound values, zero
 unbound, zero reaching past the semantic layer.
+
+
+---
+
+## 11. Palette rebuild — the client's five colours
+
+The client supplied a five-colour palette. The primitive ramps were regenerated
+in OKLCH so each anchor is reproduced exactly at a named step, and every other
+step in that family derives from it:
+
+| Anchor | Role | Lands at | Generated |
+| --- | --- | --- | --- |
+| `#143251` | Deep navy — institutional ground | `navy/900` | `#1D3D5C` |
+| `#238FC8` | Cerulean — the brand blue | `blue/600` | `#0D8CC2` |
+| `#AFECF1` | Pale aqua | `teal/200` | `#AEECEF` |
+| `#F3F1D0` | Cream | `sand/100` | `#F3F0D0` |
+| `#D8B471` | Gold | `gold/400` | `#D4AA6A` |
+
+Eight families, 88 primitives. Three structural decisions came out of it:
+
+**The cream needed its own family.** `#F3F1D0` carries chroma 0.043 at hue 104 —
+roughly three times the tint of the `stone` neutral ramp. A ramp that light-tinted
+cannot also carry body text: its dark steps land on olive, and text in an olive
+gray reads as a mistake. So `sand` was added for grounds and `stone` stays
+deliberately untinted for text. Only `sand/50–200` are used; the darker steps
+exist for completeness.
+
+**Amber became gold.** The supplied gold sits 14° from the old amber, so keeping
+both would have been two names for one hue. The family was renamed and
+re-anchored — Figma aliases are id-based, so every semantic pointing at it
+followed automatically. Caution still reads at the dark end (`gold/900` is
+`#523406`, 11.3:1 on white) and the brand gains a usable warm range at the light
+end.
+
+**The brand blue cannot carry body text.** `#238FC8` is 3.60:1 on white — it
+fails AA for anything under 24px. It is the *identity* blue, not the *link*
+blue. Links use `blue/700` (`#00729F`, 5.37:1). This is exactly the distinction
+the two-layer model exists to hold.
+
+### Where each colour appears
+
+| Family | Job |
+| --- | --- |
+| `navy` | Institutional bands, the hero, the footer |
+| `blue` | Links, primary actions, the Community pillar |
+| `teal` | The aqua: `surface/accent-subtle`, and inverse links on navy |
+| `sand` | Warm grounds — `surface/subtle` groups and separates content |
+| `gold` | The Energy Future pillar, and construction-notice feedback |
+| `green` / `red` | Kept: Safety pillar, success and urgent feedback |
+| `stone` | Neutral text ramp only — never tinted |
+
+The cream reads heavy at full section width, so `surface/subtle` uses `sand/50`
+and the full `sand/100` cream is held for feature bands (`surface/stat`) and
+recessed states.
+
+### Verified
+
+1,725 text nodes across all three pages. 375 are icons and 94 sit over
+photography with no painted ancestor; **1,256 were checked against their actual
+nearest painted ground at the AA threshold for their own size and weight, and
+none failed.** Zero unbound values, zero reaching past the semantic layer.
+
+### A flag worth keeping
+
+This palette diverges from the colours sampled off the client's own PDFs
+(`CLAUDE.md` §7) — notably it introduces cream and gold, which appear nowhere in
+the supplied collateral, and softens the cerulean. That is a legitimate
+direction, but it is a **brand decision, not a derivation**, and it should be
+confirmed against the brand guide when it arrives (open question #1).

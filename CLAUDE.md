@@ -246,10 +246,26 @@ timeline markers, and nothing else. Check before you add one.
 - **Two grounds:** warm `stone` neutrals for reading, cool `navy` for
   institutional moments. They alternate down the page.
 
-### Source anchors these were derived from
+### Palette authority
 
-Sampled from the rendered client PDFs — **approximate**, and superseded by the
-tokens above. Kept for traceability when the brand guide arrives.
+The ramps are generated from the **client's five-colour palette** —
+`#143251` navy, `#238FC8` blue, `#AFECF1` aqua, `#F3F1D0` cream, `#D8B471` gold
+— each reproduced at a named step (see `docs/03-design-system.md` §11).
+
+Two things to hold on to:
+
+- **`#238FC8` is the identity blue, not the link blue.** At 3.60:1 on white it
+  fails AA for body text. Links use `blue/700`. Do not "correct" this.
+- **`stone` is never tinted.** It is the text ramp. The warm tint lives in
+  `sand`, which is for grounds only.
+
+The palette introduces cream and gold, which appear nowhere in the supplied
+collateral. That is a brand decision rather than a derivation — confirm it
+against the brand guide (open question #1).
+
+### Source anchors sampled from the client PDFs
+
+**Superseded** by the palette above. Kept for traceability.
 
 | Role in collateral | Sampled | Notes |
 | --- | --- | --- |
