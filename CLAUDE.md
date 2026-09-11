@@ -43,9 +43,13 @@ Four consequences, and they are not negotiable:
 3. **Workforce and economic impact get the most room.** That is the explicit
    instruction: *"Put as much focus as possible on the positives of the
    workforce/econ impact."* Real people, real trades, real numbers, real wages.
-4. **Some readers are sceptical.** Correcting misperceptions means the sceptic is
-   a primary user. Sourcing, dates and footnotes are not legal boilerplate to be
-   hidden — they are the reason a sceptic believes anything else on the page.
+4. **Some readers are sceptical, and specifically so.** "Correct misperceptions"
+   is not abstract: the PA DEP air permit is under appeal by environmental groups
+   and Our Children's Trust, and there is organised concern about water (Two Lick
+   Reservoir), noise, air quality and whether local benefit is real. The sceptic
+   is a primary user. Sourcing, dates and footnotes are not legal boilerplate to
+   be hidden — they are the reason a sceptic believes anything else on the page.
+   Detail in `docs/source/external-context.md`.
 
 **Voice test:** if a sentence could appear on any energy company's website with
 the name swapped out, it is wrong. Replace it with something only true here.
@@ -60,7 +64,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | Stage | Deliverable | Status |
 | --- | --- | --- |
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
-| 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ⬜ Not started |
+| 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ⬜ Not started |
 | 4. Draft site | `prototype/` — responsive HTML/CSS of Phase 1 | ⬜ Not started |
 
@@ -79,7 +83,8 @@ docs/
     fact-sheet.md          Fact Sheet, May 2026 — canonical approved copy.
     iup-deck.md            IUP tour deck, July 2026 — freshest figures.
     site-structure.md      Client IA brief — authority on scope.
-  02-plan.md               (Stage 2) IA, page specs, content model.
+    external-context.md    Secondary research. NOT approved copy — see §5.
+  02-plan.md               IA, page specs, 13-collection CMS model.
   03-design-system.md      (Stage 3) Rationale behind the tokens.
   04-build-notes.md        (Stage 4) Webflow port instructions.
 design-system/
@@ -102,6 +107,13 @@ worse than shipping late.
 1. **Every figure traces to `docs/source/`.** If a number is not in those files,
    it does not go on the page. Do not estimate, do not interpolate, do not round
    for visual balance (`~1,300` is not `1.3K`).
+
+   Sources are tiered. `fact-sheet.md`, `iup-deck.md` and `site-structure.md`
+   are client-supplied and canonical. `external-context.md` is **secondary
+   research and is not publishable** — client-published items in it (tier A) are
+   strong candidates for copy but must be confirmed against the primary
+   document first; press coverage (tier B) needs client sign-off; opposition
+   claims (tier C) never appear on the site, they are what it answers.
 2. **The two footnotes travel with their figures.** Any surface showing
    **10,000+** or **~1,000** carries the corresponding footnote from
    `docs/source/fact-sheet.md`. This includes stat tiles, hero modules, social
@@ -126,7 +138,7 @@ Copy from here, not from memory.
 
 | Figure | Label | Volatility |
 | --- | --- | --- |
-| ~1,500 | Workers active on site *as of July 2026* | **Changes — CMS field, date-stamped** |
+| 1,800+ | Direct-hire tradespeople and skilled contractors active on site *as of September 2026* | **Changes ~monthly — CMS field, date-stamped.** Tier A, confirm wording |
 | 10,000+ | Direct on-site construction-related jobs | Footnote 1 required |
 | ~1,000 | Total direct & indirect permanent high-paying positions in technology, operations and energy infrastructure | Footnote 2 required |
 | Up to 4.4 GW | Energy expected to be produced on-site | Stable |
@@ -134,6 +146,25 @@ Copy from here, not from memory.
 | 3,200+ acres | Natural gas-powered campus designed to meet the needs of America's digital future | Stable |
 | ~3M cubic meters | Earth moved — roughly the volume required to build Egypt's Great Pyramid of Giza | Stable |
 | 7 × GE Vernova 7HA.02 | High-efficiency natural gas turbines in the Power Block | Stable |
+
+### Workforce figures — tier A, confirm before publishing
+
+From the client's own 4 Sep 2026 press release, not from the supplied PDFs. These
+are the stats the brief asked for and no supplied document contained.
+
+| Figure | Label |
+| --- | --- |
+| 9 | Local union organizations represented on site |
+| ~95% | Of the skilled direct-hire craft workforce is from the local area |
+| 135+ | Apprentices training alongside experienced journeymen |
+| ~2,000 | Projected total workers by year-end 2026 |
+
+**Trades on site:** boilermakers, carpenters, electricians, ironworkers,
+laborers, millwrights, operators, pipefitters, teamsters. The nine unions are
+counted but **not named** anywhere public — the named list is still needed.
+
+**Do not publish 4.5 GW.** Widespread in press coverage; both client documents
+say **up to 4.4 GW** and they are newer. See `docs/source/external-context.md`.
 
 **Site address:** Homer City Energy Campus, 1750 Power Plant Rd, Homer City, PA 15748
 
@@ -239,18 +270,19 @@ the first line rather than refactoring later.
 | # | Question | Blocks |
 | --- | --- | --- |
 | 1 | Brand guide: real typefaces, exact colour values, logo vector, clear-space rules. | Stage 3 |
-| 2 | Workforce stats — # from PA, # of apprentices, union list. Not in any supplied source. | Stage 2 page spec, Stage 4 Workforce page |
+| 2 | **Names of the nine unions** + per-union copy for the rollover module. Counts are public; the roster is not. | Stage 4 Workforce page |
 | 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Stage 2 |
 | 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |
+| 5 | **How to handle the live PA DEP air permit appeal.** A transparency site that omits a documented regulatory challenge hands opponents their best argument. This is a client decision, but it is a decision — not an oversight. | Stage 2 FAQ spec |
 
 **Non-blocking — can proceed with a stated assumption:**
 
 | # | Question | Working assumption |
 | --- | --- | --- |
-| 5 | Current site content is unreachable from this environment (egress blocked). Existing FAQ copy and news archive can't be audited. | Build the FAQ structure; client supplies current copy to migrate. |
-| 6 | Does a fuller timeline exist beyond the fact sheet's? | Build the condensed homepage teaser to link to a full timeline page; ship it when content lands. |
-| 7 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | Propose in Stage 2 with a recommendation. |
-| 8 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
+| 6 | Live site is unreachable — **all** outbound HTTPS is blocked by this environment's network policy, not just that domain. Current FAQ and news copy can't be read directly. | Structure recovered via search (see `external-context.md`). Build the architecture; client supplies copy to migrate. |
+| 7 | Does a fuller timeline exist beyond the fact sheet's? | Build the condensed homepage teaser to link to a full timeline page; ship it when content lands. |
+| 8 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | **Resolved:** one "Community" nav item with three child pages. |
+| 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
 
 ---
 

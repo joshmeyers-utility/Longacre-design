@@ -41,8 +41,8 @@ Four stages, reviewed one at a time.
 | Stage | What it produces | Status |
 | --- | --- | --- |
 | **1 · Context** | Source material transcribed, brand inputs captured, rules written | ✅ **Complete** |
-| **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ⬜ Awaiting go-ahead |
-| **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ⬜ Not started |
+| **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
+| **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ⬜ Awaiting go-ahead |
 | **4 · Draft site** | Responsive HTML/CSS draft of the Phase 1 pages | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.
@@ -63,6 +63,11 @@ Read in this order:
      2026. Positioning statement, pillars, timeline, all figures, footnotes.
    - [`iup-deck.md`](docs/source/iup-deck.md) — tour deck, July 2026. Freshest
      numbers, plus the dated construction photo essay.
+   - [`external-context.md`](docs/source/external-context.md) — secondary
+     research. **Not approved copy.** Current site structure, the September 2026
+     workforce release, and what the site has to be credible against.
+3. **[`docs/02-plan.md`](docs/02-plan.md)** — Stage 2. Sitemap, page specs, CMS
+   model, content status.
 
 Arriving in later stages: `docs/02-plan.md`, `docs/03-design-system.md`,
 `design-system/tokens.json`, `design-system/tokens.css`, `prototype/`,
@@ -111,9 +116,14 @@ Blocking the stage listed:
 | Item | Blocks |
 | --- | --- |
 | Brand guide — typefaces, exact colour values, logo vector | Stage 3 |
-| Workforce stats — # from PA, # of apprentices, union list | Stages 2 & 4 |
-| Partner details for Independence and Kovalchick | Stage 2 |
+| Names of the nine unions + per-union copy | Stage 4 Workforce page |
+| Partner details for Independence and Kovalchick | Stage 4 Partners page |
 | Full-resolution photo library + usage rights | Stage 4 |
+| A position on the live PA DEP permit appeal | Stage 4 FAQ |
+
+The workforce stats the brief asked for — ~95% local, 135+ apprentices, 9 unions
+— turned out to be in the client's own 4 September 2026 press release. They need
+confirming against the primary document, but they are no longer blocking.
 
 Non-blocking items and working assumptions are in
 [`CLAUDE.md` §10](CLAUDE.md#10-open-questions).
