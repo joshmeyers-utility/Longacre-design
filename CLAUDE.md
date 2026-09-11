@@ -1,0 +1,266 @@
+# CLAUDE.md — Homer City Energy Campus website
+
+Working context for Claude Code sessions in this repo. Read this first, every session.
+
+---
+
+## 1. What this is
+
+A ground-up redesign of the public website for the **Homer City Energy Campus** —
+a 3,200+ acre natural gas power and data center campus under construction on the
+site of the former Homer City Generating Station in Indiana County, Pennsylvania.
+
+This repo is the **design and content workshop**. The shipped site is built in
+**Webflow**. Nothing here deploys. Everything here is a specification, a token
+set, or a reference implementation that gets ported into Webflow by hand or by an
+AI-assisted Webflow workflow.
+
+**Current site being replaced:** <https://www.homercityredevelopment.com/>
+**Figma (design system + draft):** <https://www.figma.com/design/Jrd1qr29Hi3WvscddRo34r/Longacre>
+— file key `Jrd1qr29Hi3WvscddRo34r`. Currently empty; it is the destination for
+tokens and comps, and is the source of truth once populated.
+
+---
+
+## 2. The pivot that drives every decision
+
+> The site is framed around the **Homer City Energy Campus** — the place, the
+> build, the people — **not** Homer City Redevelopment, the company behind it.
+
+The client's own diagnosis of the current site: *"outdated and feels too much like
+a bland/generic corporate website — it isn't accessible/digestible for community
+and doesn't spotlight the right information clearly."*
+
+Four consequences, and they are not negotiable:
+
+1. **Audience is neighbours, not investors.** Local residents of Homer City and
+   Indiana County looking for information about a very large thing being built
+   near them. Write for them. Not for analysts, not for the trade press.
+2. **The job is transparency, not persuasion.** The brief says: provide
+   transparency on the facts, serve as an information hub, educate, and correct
+   misperceptions. A site that reads as spin fails at all four. Verifiable
+   specifics beat adjectives every time.
+3. **Workforce and economic impact get the most room.** That is the explicit
+   instruction: *"Put as much focus as possible on the positives of the
+   workforce/econ impact."* Real people, real trades, real numbers, real wages.
+4. **Some readers are sceptical.** Correcting misperceptions means the sceptic is
+   a primary user. Sourcing, dates and footnotes are not legal boilerplate to be
+   hidden — they are the reason a sceptic believes anything else on the page.
+
+**Voice test:** if a sentence could appear on any energy company's website with
+the name swapped out, it is wrong. Replace it with something only true here.
+
+---
+
+## 3. How we work: four stages, one gate each
+
+The user asked to be walked through this one step at a time. **Do not run ahead.**
+Finish a stage, present it, wait for a decision, then start the next.
+
+| Stage | Deliverable | Status |
+| --- | --- | --- |
+| 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
+| 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ⬜ Not started |
+| 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ⬜ Not started |
+| 4. Draft site | `prototype/` — responsive HTML/CSS of Phase 1 | ⬜ Not started |
+
+Keep this table current. It is how the user and the next session both know where
+things stand.
+
+---
+
+## 4. Repo map
+
+```
+CLAUDE.md                  This file. Context + rules.
+README.md                  Human orientation: what's here, how to use it.
+docs/
+  source/                  Faithful transcriptions of client source material.
+    fact-sheet.md          Fact Sheet, May 2026 — canonical approved copy.
+    iup-deck.md            IUP tour deck, July 2026 — freshest figures.
+    site-structure.md      Client IA brief — authority on scope.
+  02-plan.md               (Stage 2) IA, page specs, content model.
+  03-design-system.md      (Stage 3) Rationale behind the tokens.
+  04-build-notes.md        (Stage 4) Webflow port instructions.
+design-system/
+  tokens.json              (Stage 3) Design tokens, W3C format.
+  tokens.css               (Stage 3) Same tokens as CSS custom properties.
+prototype/                 (Stage 4) Responsive HTML/CSS draft.
+```
+
+Original client PDFs and the .docx are **not** committed — they live in the
+session upload directory and are transcribed into `docs/source/`. Treat those
+transcriptions as the in-repo record.
+
+---
+
+## 5. Fact discipline — hard rules
+
+This site's whole value is that its numbers can be trusted. Violating these is
+worse than shipping late.
+
+1. **Every figure traces to `docs/source/`.** If a number is not in those files,
+   it does not go on the page. Do not estimate, do not interpolate, do not round
+   for visual balance (`~1,300` is not `1.3K`).
+2. **The two footnotes travel with their figures.** Any surface showing
+   **10,000+** or **~1,000** carries the corresponding footnote from
+   `docs/source/fact-sheet.md`. This includes stat tiles, hero modules, social
+   cards, and any condensed homepage version. No exceptions for layout.
+3. **Date-stamp anything that moves.** "Workers active on site" went ~1,300 (May
+   2026) → ~1,500 (July 2026). It ships as a CMS field with a visible *"as of
+   {month} {year}"*. A stale number on a transparency site is a self-inflicted
+   wound.
+4. **July 2026 beats May 2026.** On conflicts, the IUP deck is newer. Milestones
+   the deck marks complete are complete; milestones only the fact sheet lists as
+   forward-looking need confirmation before being shown as done.
+5. **Projections are labelled as projections.** "Projected", "anticipated",
+   "expected", "up to" are load-bearing words from the source. Keep them.
+6. **Attribute quotes.** Name, role, organisation, and a real photo — or the
+   quote does not run.
+
+---
+
+## 6. Canonical figures
+
+Copy from here, not from memory.
+
+| Figure | Label | Volatility |
+| --- | --- | --- |
+| ~1,500 | Workers active on site *as of July 2026* | **Changes — CMS field, date-stamped** |
+| 10,000+ | Direct on-site construction-related jobs | Footnote 1 required |
+| ~1,000 | Total direct & indirect permanent high-paying positions in technology, operations and energy infrastructure | Footnote 2 required |
+| Up to 4.4 GW | Energy expected to be produced on-site | Stable |
+| $10 Billion | Projected initial capital investment for power infrastructure and site readiness | Stable |
+| 3,200+ acres | Natural gas-powered campus designed to meet the needs of America's digital future | Stable |
+| ~3M cubic meters | Earth moved — roughly the volume required to build Egypt's Great Pyramid of Giza | Stable |
+| 7 × GE Vernova 7HA.02 | High-efficiency natural gas turbines in the Power Block | Stable |
+
+**Site address:** Homer City Energy Campus, 1750 Power Plant Rd, Homer City, PA 15748
+
+**Contact routing** (four distinct inboxes — do not collapse into one form):
+
+| Audience | Address |
+| --- | --- |
+| Job Seekers | HomerCity.Info@Kiewit.com |
+| Community Members | info@homercityredevelopment.com |
+| Vendors & Partners | HomerCity.Info@Kiewit.com |
+| Media Inquiries | press@homercityredevelopment.com |
+
+**The four pillars** — Safety, Infrastructure, Community, Energy Future — are
+fixed brand architecture. Same names, same order, everywhere. Copy in
+`docs/source/fact-sheet.md`.
+
+---
+
+## 7. Brand inputs observed
+
+Sampled from the rendered client PDFs. **Approximate** — PDF rendering shifts
+colour slightly, and no brand guide has been supplied. Confirm before locking
+tokens in Stage 3.
+
+| Role in collateral | Sampled | Notes |
+| --- | --- | --- |
+| Masthead navy | `#161A4B` | Darkest point of the header gradient |
+| Section-bar blue | `#001A85` | Solid bars, white all-caps type |
+| Logo cerulean | `#0B72BE` | Brighter, more approachable than the section bar |
+| Logo / pillar green | `#005D33` | Deep forest green; carries the pillar icons |
+| Stat blue | `#65A4DB` | Large figures, light weight |
+| Pale blue tint | `#E1EDF7` | Stat cells, timeline rail background |
+| Page tint | `#E0E8F0` | Broad background wash |
+
+**Logo:** circular four-petal mark in blue and green; wordmark "HOMER CITY" set
+above a rule-flanked "GENERATION". Needs to be sourced as vector.
+
+**Photography:** the strongest asset in the source material. Aerial and landscape
+frames of the campus set in Indiana County's rolling farmland — green fields,
+forest, the town itself in shot. Plus a dated construction photo essay from
+1969–2023 through July 2026 (`docs/source/iup-deck.md`). This imagery is what
+makes the site feel like a *place* rather than a *company*. Design around it.
+
+**Typography:** not identified. The fact sheet uses a geometric sans for headings
+with letterspaced all-caps labels; the IUP deck falls back to a plain grotesque.
+The fact sheet is the better reference. Treat the typeface as an open question.
+
+---
+
+## 8. Webflow constraints — these shape the code
+
+Everything in `prototype/` must port cleanly into Webflow. Write it that way from
+the first line rather than refactoring later.
+
+- **Flat class naming.** Webflow's class model has no nesting. Use single,
+  self-describing utility-and-block classes (Client-First style:
+  `stat-card`, `stat-card_figure`, `is-large`). No BEM chains that assume a
+  preprocessor, no deep descendant selectors.
+- **Tokens map to Webflow Variables.** Colour, size, and font tokens should be
+  expressible as Webflow variables one-to-one. Avoid tokens that only make sense
+  as a computed value.
+- **Stay inside what the Designer can express.** Flexbox, CSS Grid, and standard
+  properties are native. `:has()`, container queries, complex `calc()` chains and
+  custom properties with fallbacks are not — anything needing them must be
+  deliberately isolated into an Embed and flagged in `docs/04-build-notes.md`.
+- **Motion stays inside Interactions 2.0** where possible: scroll-into-view,
+  scroll-progress, hover, page-load, and click. Anything richer needs a GSAP
+  embed and an explicit call-out — it becomes a maintenance cost for whoever
+  edits the site later.
+- **Identify CMS collections early.** Anything repeating or editable by the
+  client is a Collection, not static markup. Expected: News, FAQ, Partners,
+  Unions/Trades, Testimonials, Downloadable Resources, Timeline Milestones,
+  Stats, and the global Alert banner. Schema is Stage 2 work.
+- **The global alert / construction-update banner** is required by the brief and
+  is the client's fastest lever. Make it CMS-driven and dismissible, with the
+  dismissal remembered.
+
+---
+
+## 9. Quality bars
+
+- **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
+  whole community. That means real text over images (not baked-in type), visible
+  focus states, keyboard paths through every rollover interaction, and captions
+  on video.
+- **Rollovers need a non-hover path.** The brief specifies hover interactions for
+  unions, partners, and commitment icons. Touch and keyboard users must reach the
+  same content — design tap/click and focus behaviour alongside hover, not after.
+- **Assume constrained connections.** Rural county, mobile-first, large photos.
+  Every image gets explicit dimensions, lazy loading below the fold, and modern
+  formats. No layout shift.
+- **Mobile is the primary comp**, not the fallback. Design 375px first.
+- **Plain language.** Expand jargon on first use: GIS is gas insulated
+  switchgear, HRSG is a heat recovery steam generator, EPC is engineering,
+  procurement and construction. A neighbour should not need a glossary.
+
+---
+
+## 10. Open questions
+
+**Blocking — needed before the stage named:**
+
+| # | Question | Blocks |
+| --- | --- | --- |
+| 1 | Brand guide: real typefaces, exact colour values, logo vector, clear-space rules. | Stage 3 |
+| 2 | Workforce stats — # from PA, # of apprentices, union list. Not in any supplied source. | Stage 2 page spec, Stage 4 Workforce page |
+| 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Stage 2 |
+| 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |
+
+**Non-blocking — can proceed with a stated assumption:**
+
+| # | Question | Working assumption |
+| --- | --- | --- |
+| 5 | Current site content is unreachable from this environment (egress blocked). Existing FAQ copy and news archive can't be audited. | Build the FAQ structure; client supplies current copy to migrate. |
+| 6 | Does a fuller timeline exist beyond the fact sheet's? | Build the condensed homepage teaser to link to a full timeline page; ship it when content lands. |
+| 7 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | Propose in Stage 2 with a recommendation. |
+| 8 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
+
+---
+
+## 11. Conventions
+
+- **Branch:** `claude/keen-allen-x6me7z`. Do not push elsewhere.
+- **Commits:** one per stage, descriptive subject, body explaining what changed
+  and why.
+- **Markdown:** wrap prose at ~80 characters. Tables for anything comparative.
+- **Never invent client facts.** If it is not in `docs/source/`, it is an open
+  question — add it to §10 rather than filling the gap.
+- **When a stage lands, update the table in §3** and the status section of
+  `README.md`.
