@@ -43,7 +43,8 @@ Four stages, reviewed one at a time.
 | **1 · Context** | Source material transcribed, brand inputs captured, rules written | ✅ **Complete** |
 | **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
-| **4 · Draft site** | Responsive HTML/CSS draft of the Phase 1 pages | ⬜ Awaiting go-ahead |
+| **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete** — [`docs/04-design-pass.md`](docs/04-design-pass.md) |
+| **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.
 
@@ -71,6 +72,8 @@ Read in this order:
 4. **[`docs/03-design-system.md`](docs/03-design-system.md)** — Stage 3.
    Typography, colour, spacing, motion, and how it all maps to Webflow. Values
    live in [`design-system/`](design-system/) and in Figma.
+5. **[`docs/04-design-pass.md`](docs/04-design-pass.md)** — Stage 4. The
+   artboards, the 14-component library, and the micro-interaction spec.
 
 Arriving in later stages: `docs/02-plan.md`, `docs/03-design-system.md`,
 `design-system/tokens.json`, `design-system/tokens.css`, `prototype/`,
