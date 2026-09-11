@@ -281,3 +281,57 @@ The file now contains **66 strokes total**: 37 single-side hairline dividers
 (FAQ rows, header bottoms, mobile menu rows) and 29 circular timeline markers
 ≤24px where the ring *is* the object and carries complete-versus-upcoming
 without relying on colour. **Zero card outlines.**
+
+
+---
+
+## 9. Third pass — facts as rows, and a technical register
+
+### The Campus: prose to spec rows
+
+The overview carried its hard specs in three paragraphs. Tracing them found
+something worth catching: **"about 50 miles east of Pittsburgh", "within 300
+miles of…" and "decommissioned July 2023" exist only in
+`docs/source/external-context.md`**, which §5 says is not publishable. Inside a
+paragraph, nobody could tell which sentence was sourced and which was not.
+
+The new **Spec Row** component makes that structural. Each fact is a label, a
+value and its source — so provenance travels with the figure instead of with the
+section:
+
+| | |
+| --- | --- |
+| Turbines | Seven GE Vernova 7HA.02 high-efficiency natural gas turbines · *Fact sheet, May 2026 · IUP deck, July 2026* |
+| Output | Up to 4.4 GW · *Fact sheet, May 2026 — projection* |
+| From Pittsburgh | About 50 miles east · *⚠ Not in the supplied documents — needs client confirmation* |
+
+Ten rows in four groups, every one either cited or flagged amber. `Layout=Row`
+on desktop, `Layout=Stacked` at 375 where a fixed label column starves the value
+— same content, same order, arrangement only.
+
+This is the pattern to reuse anywhere the site states a number: Water &
+infrastructure, the turbine detail, permit status.
+
+### Cards
+
+Every reference in this class carries a standfirst; ours had eyebrow and
+headline only. **News Card** gains one line of what actually happened, behind a
+boolean so a self-contained headline can switch it off.
+
+### Borrowed from Performance Lab
+
+Three devices transfer; three deliberately do not.
+
+| Device | Taken | Why |
+| --- | --- | --- |
+| Rule paired with an index | ✅ | Every section header is a hairline with its number at the right end. Orientation on a long scroll, an anchor for deep links, and it is a mark rather than a box |
+| Card header: rule + index | ✅ | Pillar tiles are `01–04` — they are fixed brand architecture, so the numbers are hard-coded and always true |
+| Split-cell button | ✅ | The arrow sits in its own cell behind a hairline; it reads as a control, not an ornament |
+| Edge-cropped display type | ❌ | Clips words. This site is read by neighbours checking facts, not admired |
+| Ghosted oversize background type | ❌ | Costs legibility for style |
+| Their orange, and all-caps labels | ❌ | Wrong brand; and caps were ruled out |
+
+Section numbering is computed from a section's **position in its artboard**, not
+from a running count, so mobile and desktop cannot drift. Verified: identical
+across all seven page pairs. Search and filter blocks are excluded — they are
+controls, and they sit differently at each breakpoint.
