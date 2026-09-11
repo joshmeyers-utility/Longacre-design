@@ -726,3 +726,26 @@ It is the only event in the source material where the subject is neighbours
 rather than machinery, which is exactly what a Community page needs and exactly
 what the rest of the site's photography does not do. Added as a wide band
 between Commitments and Voices, captioned from the fact sheet's own line.
+
+### 12.9 Controls, made consistent
+
+Three small inconsistencies, all the same underlying mistake — a control styled
+by hand in one place and differently in another:
+
+- **The FAQ's selected category was a pale aqua pill** (`surface/accent-subtle`);
+  News's active filter was a navy one (`action/primary-bg`), and so was the
+  FAQ's *mobile* chip. Desktop was the odd one out. Now navy everywhere, which
+  is also the last `surface/accent-subtle` in the file.
+- **Inactive filter chips were filled white on a white ground** — the same
+  invisible-box problem as Contact's route cards, eight more times. Fills
+  removed; the navy chip is the only filled one, which is what makes it read as
+  selected.
+- **The search field was also white on white**, so it did not read as a field at
+  all. Given `surface/subtle` and the `field-x` / `field-y` padding roles.
+
+And the News "Subscribe" section said an RSS feed was available and offered
+nothing to click. It now carries a text link.
+
+**Provenance flags** were sized to hug their text, which pushed the longest of
+them past the edge of the accordion column on FAQ. All 16 now fill their
+container and wrap.
