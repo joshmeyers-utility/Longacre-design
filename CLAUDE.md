@@ -66,7 +66,8 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
-| 4. Draft site | `prototype/` — responsive HTML/CSS of Phase 1 | ⬜ Not started |
+| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete |
+| 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
@@ -86,11 +87,11 @@ docs/
     external-context.md    Secondary research. NOT approved copy — see §5.
   02-plan.md               IA, page specs, 13-collection CMS model.
   03-design-system.md      Rationale behind the tokens.
-  04-build-notes.md        (Stage 4) Webflow port instructions.
+  04-design-pass.md        Artboards, component library, interaction spec.
 design-system/
   tokens.json              Design tokens, W3C format. Generated — don't hand-edit.
   tokens.css               Same tokens as CSS custom properties. Powers prototype/.
-prototype/                 (Stage 4) Responsive HTML/CSS draft.
+(The draft lives in Figma, not in this repo — client decision at Stage 4.)
 ```
 
 Original client PDFs and the .docx are **not** committed — they live in the
@@ -301,9 +302,9 @@ the first line rather than refactoring later.
 | --- | --- | --- |
 | 1 | Brand guide: real typefaces, exact colour values, logo vector, clear-space rules. | Stage 3 |
 | 2 | **Names of the nine unions** + per-union copy for the rollover module. Counts are public; the roster is not. | Stage 4 Workforce page |
-| 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Stage 2 |
+| 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Partners page |
 | 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |
-| 5 | **How to handle the live PA DEP air permit appeal.** A transparency site that omits a documented regulatory challenge hands opponents their best argument. This is a client decision, but it is a decision — not an oversight. | Stage 2 FAQ spec |
+| 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
 
 **Non-blocking — can proceed with a stated assumption:**
 
