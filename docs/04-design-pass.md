@@ -347,3 +347,85 @@ Section numbering is computed from a section's **position in its artboard**, not
 from a running count, so mobile and desktop cannot drift. Verified: identical
 across all seven page pairs. Search and filter blocks are excluded — they are
 controls, and they sit differently at each breakpoint.
+
+
+---
+
+## 10. Editorial pass — space, scale and imagery
+
+Two research passes on Mobbin (one on imagery, one on rhythm) converged on the
+same diagnosis: the page had **one left edge, one width and one heading size**,
+repeated eight times.
+
+### Layout bugs found first
+
+**Seven of nine wrapping grids were dropping columns.** Every one had
+fixed-width children sized for a 1200px column that no longer fitted after
+section padding grew:
+
+| Section | Children | Was | Now |
+| --- | --- | --- | --- |
+| Power block, Resources, Routes | 4 × 588px | **1 per row** | 2 per row at 544 |
+| Trades, Partners, Commitments, News feed | 384px | **2 per row** | 3 per row at 352 |
+
+This is the recurring failure: fixed-width children in a wrapping container
+change column count silently whenever padding moves. Nothing errors; the layout
+just quietly collapses into a narrow column with dead space beside it.
+
+**Six of seven page heroes had no scrim at all** — headline and body text
+directly on photography. Every hero now carries a left-weighted scrim
+(navy at 92% fading to 8% across the frame) plus a top scrim on Home, where the
+header overlays the image.
+
+### Scale hierarchy
+
+The gap between the 104px hero and the 36px section heading was empty, so every
+section read at identical weight. Two levels added:
+
+| Level | Desktop | Mobile | Frequency |
+| --- | --- | --- | --- |
+| Hero | 104 | 44 | 1 |
+| **`type/section-lg` — chapter opener** | **56** | **36** | **max 2 per page** |
+| `type/h2` — standard section | 30 (was 36) | 24 | 4–5 |
+| **`type/lead` — lead paragraph** | **24** | **20** | 1 per section |
+
+The lead paragraph is the cheapest win: a fourth level of contrast inside a
+section without escalating a heading.
+
+### Vertical rhythm
+
+**Section padding is now asymmetric — top is roughly 2× bottom.** Space above a
+heading is what announces it; space below a section's last line is merely
+terminal. Symmetric padding leaves the reader unable to tell which section owns
+the whitespace.
+
+| Role | Top | Bottom |
+| --- | --- | --- |
+| Chapter opener | 200 | 80 |
+| Standard section | 120 | 64 |
+| Navy band | 160 | 160 (the colour edge already separates) |
+| Full-bleed image | 0 | 0 (it butts its neighbours) |
+
+### The rule-and-number stamp is retired
+
+It appeared on all eight sections and had become wallpaper. The index now lives
+inline in the eyebrow — *"06 — Where things stand"* — and the hairline is gone.
+
+### Asymmetry: the register
+
+Sections that were a full-width heading above full-width content are now a
+**280px heading column on the left and a 744px content column on the right**.
+The heading wraps to three or four short lines; the wrap is the point. Applied
+to the Home timeline, Trades on site, the full timeline, Commitments and
+Resources.
+
+This is the direct cure for the empty right half — it moves content there rather
+than decorating it, and marginal headings read as a report rather than a
+brochure.
+
+### Imagery
+
+Two full-bleed photographic bands added to Home, butting their neighbours with
+no padding, each carrying a caption at the page margin naming the photo still
+needed. Combined with the map band, the page now alternates contained and
+full-bleed rather than running one width throughout.
