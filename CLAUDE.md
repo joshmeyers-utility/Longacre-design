@@ -66,7 +66,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
-| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
+| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11–13) |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -208,17 +208,38 @@ correction a one-line change instead of a rebuild.
 | Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-Verified state: **9,668 bound values across both artboard pages, zero unbound,
-zero reaching past the semantic layer, zero tinted grounds, 1,494 contrast
-checks against real painted ancestors, zero failures.** If you add anything,
-bind it.
+Verified state: **9,643 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, zero tinted grounds, 1,475 alpha-composited
+contrast checks, zero failures.** Every one of the 44 glass fills carries its
+blur. If you add anything, bind it.
 
 ### The other rule: strokes are dividers
 
-**A stroke separates two pieces of content. Nothing else.** No card outlines, no
-tile accents, no severity bars, no button borders — those are ground, space, or a
-filled rectangle. The file currently holds 37 hairline dividers and 29 circular
-timeline markers, and nothing else. Check before you add one.
+**A stroke is a divider, or it is the edge of a glass control. Nothing else.**
+No card outlines, no tile accents, no severity bars, no button borders — those
+are ground, space, or a filled rectangle. The one exception is real: a frosted
+control needs a 5% hairline (`border/glass`, `border/glass-light`) or it reads
+as a smudge rather than a pane. Check before you add one.
+
+### Glass is translucency plus blur
+
+**The blur is what makes it glass, not the fill.** A translucent fill on its own
+is a tint; the same fill with the `Glass/blur` effect style behind it reads as a
+material. Always apply both. `surface/glass` (white 5%) and `surface/glass-hover`
+(10%) for controls on dark grounds and imagery, `surface/glass-light` (white 89%)
+for a bright control on a photograph, `surface/glass-nav` (deep navy 82%) for the
+navigation bar that content scrolls under.
+
+**Secondary text on a dark ground is white at 60%** (`text/inverse-secondary`),
+not a warm grey — a warm grey on deep navy reads muddy. Dividers on dark are
+`stone/200` at 25%.
+
+**Contrast on translucent surfaces must be composited, not looked up.** Walking
+up to the nearest solid ancestor and comparing two token values reports passes it
+has not earned the moment anything in the stack is translucent. The sweep
+accumulates every translucent fill up to the first opaque one, blends bottom-up,
+then blends the text's own alpha over that. It found the header subtitle at
+3.74:1 the first time it ran. `docs/03` §15.5.
 
 ### The third rule: a brief is not a caption
 
@@ -428,6 +449,7 @@ the first line rather than refactoring later.
 | 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
 | 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
 | 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
+| 15 | **Is there a Media Kit page?** The client's menu reference shows a seventh nav row for one. It is not in `docs/02-plan.md`, has no page behind it, and the reference's copy for it duplicates the Contact row's. | Left out. Adding a primary-nav item with nothing behind it is a scope decision — one line to add once a page exists. |
 
 ---
 

@@ -687,3 +687,105 @@ tile accents, no band borders. The rule holds.
 **9,434 bound values across both artboard pages, zero unbound, zero reaching
 past the semantic layer, 1,453 contrast checks against real painted ancestors,
 zero failures.**
+
+---
+
+## 15. Glass — translucency, a deeper ground, and a checker that can see it
+
+The client asked for a more modern, more native feel, pointing at
+[cosmos.so](https://www.cosmos.so/) and supplying a reference frame in Figma
+(`node-id=144-2890`): deeper background blue, lighter secondary text, more glass
+on small controls, less repetitive iconography.
+
+### 15.1 A deeper ground
+
+| Token | Was | Now |
+| --- | --- | --- |
+| `color/navy/975` | — | `#031A2E` — a new step below 950, taken from the client's own reference |
+| `surface/brand` | `navy/900` `#1D3D5C` | `navy/975` `#031A2E` |
+| `surface/brand-alt` | `navy/800` `#2C557C` | `navy/950` `#10283D` |
+
+Everything bound to those roles moved with them — the footer, the navy bands,
+the page heroes, the alert banner. Sixteen scrim gradients were repointed to the
+same navy so the scrimmed areas match the ground rather than sitting a shade
+warmer.
+
+### 15.2 Secondary text on dark is white, dialled down
+
+The reference does not use a grey for secondary text on the dark ground. It uses
+**white at 60%**. That is the change that reads as modern: a warm grey
+(`stone/200`, `#E1DEDA`) on a cool deep navy reads muddy, where white at 60%
+stays neutral and recedes cleanly.
+
+| Token | Was | Now | On `surface/brand` |
+| --- | --- | --- | --- |
+| `text/inverse-secondary` | `stone/200` opaque | `base/white-60` | 6.9:1 |
+| `border/divider-inverse` | `navy/800` opaque | `stone/200-25` | hairline |
+
+### 15.3 The glass system
+
+Glass is translucency plus blur. It is not a new hue, and it is not a gradient.
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `surface/glass` | white 5% | A frosted control on a dark ground or on imagery |
+| `surface/glass-hover` | white 10% | The same control, hover and press |
+| `surface/glass-light` | white 89% | A bright frosted control sitting on imagery |
+| `surface/glass-nav` | `navy/975` at 82% | The navigation bar, with content scrolling under it |
+| `border/glass` | white 5% | The edge of a dark frosted control |
+| `border/glass-light` | black 5% | The edge of a light frosted control |
+| `--blur-glass` | 25px | The background blur itself |
+
+Plus one effect style, **`Glass/blur`** — `BACKGROUND_BLUR`, radius 25. **The
+blur is what makes it glass, not the fill.** A translucent fill without the blur
+is just a tint; the same fill with the blur reads as a material. Always apply
+both.
+
+`surface/glass-nav` is 82% rather than the 72% in the reference. At 72% the
+wordmark subtitle measured **3.74:1** over a white page — see §15.5. The
+navigation bar sits over unpredictable content, so it carries more body than a
+chip does.
+
+### 15.4 The one exception to the stroke rule
+
+`CLAUDE.md` §7 says a stroke separates two pieces of content and does nothing
+else. Glass needs an edge — a 5% hairline is how a frosted control reads as a
+pane rather than a smudge — so the rule now names exactly one exception:
+
+> **A stroke is a divider, or it is the edge of a glass control.** Nothing else.
+
+Stating the exception keeps the rule enforceable. Leaving it unstated would mean
+the next person finds a stroke that breaks the rule and concludes the rule is
+decorative.
+
+### 15.5 The contrast checker had to learn about alpha
+
+Every previous pass verified contrast by resolving a text token, walking up to
+the nearest solid painted ancestor, and comparing the two. **That method is blind
+to translucency**, and the moment the system had translucent tokens it started
+reporting passes it had not earned.
+
+The sweep now composites properly: it walks the ancestor chain accumulating
+every translucent fill until it reaches an opaque one, blends them bottom-up to
+get the real ground, then blends the text colour's own alpha over that.
+
+It caught a genuine failure on its first run — the header's "Energy Campus"
+subtitle, `text/inverse-secondary` on `surface/glass-nav` over a white page, at
+**3.74:1** against a 4.5 requirement. Two changes fixed it: the nav glass went
+from 72% to 82%, and the subtitle moved back to the opaque `text/eyebrow-inverse`
+because a wordmark that rides over arbitrary page content cannot be 60% of
+anything.
+
+**Verified after this pass: 9,643 bound values across both artboard pages, zero
+unbound, zero reaching past the semantic layer, 1,475 alpha-composited contrast
+checks, zero failures.** 44 glass fills, 44 blurred nodes — every translucent
+surface carries its blur.
+
+### 15.6 Webflow
+
+`backdrop-filter: blur(25px)` is the port for `Glass/blur`. It needs
+`-webkit-backdrop-filter` alongside it for Safari, and it is expensive to
+composite — use it on the navigation bar and on small controls, never on a
+large scrolling surface. Flag it in `docs/04-build-notes.md`: if the Designer
+cannot express it natively in the project's Webflow version, it becomes a short
+custom-CSS embed rather than a per-element workaround.
