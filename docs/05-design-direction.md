@@ -1,7 +1,12 @@
 # Stage 5 — New design direction
 
 A revised design system for the Homer City Energy Campus site, drawn from nine
-reference sites and rebuilt around **Helvetica Neue**.
+reference sites.
+
+> **Superseded on typography by Stage 6.** The typeface is now **Arial**, which
+> has only Regular and Bold — so §6 below (Helvetica Neue, four weights, and its
+> licensing problem) no longer applies. Everything else here still stands.
+> See [`06-rebuild.md`](06-rebuild.md) §2.
 
 This replaces the visual layer of Stages 3–4. It does **not** touch Stage 1 (the
 source material) or Stage 2 (the IA, page specs and CMS model) — those still
@@ -13,7 +18,7 @@ stand, and the rebuild targets the same pages with the same content.
 | --- | --- |
 | `design-system/build-tokens.py` | The generator. Source of truth for all three files below. |
 | `design-system/tokens.json` | W3C DTCG tokens — the canonical set. |
-| `design-system/figma-variables.json` | Figma-shaped payload: 4 collections, 262 variables, 22 text styles. |
+| `design-system/figma-variables.json` | Figma-shaped payload: 4 collections, 260 variables, 22 text styles. |
 | `design-system/tokens.css` | The same tokens as CSS custom properties. |
 
 Run `python3 design-system/build-tokens.py` to regenerate all three. It runs a
@@ -445,16 +450,17 @@ the others alias it.
 | --- | --- | --- | --- |
 | **Primitives** | Value | 107 | Every colour has `scopes: []` — invisible in every picker. |
 | **Semantic** | Desktop / Mobile | 96 | Colour aliases + space, grid, radius, icon, opacity. |
-| **Typography** | Desktop / Mobile | 40 | Size, line height, tracking, weight. |
+| **Typography** | Desktop / Mobile | 38 | Size, line height, tracking, family, weight. |
 | **Motion** | Value | 19 | Durations, easings, distances, stagger. |
 
 Plus **22 text styles**, each bound to Typography variables rather than carrying
 literal values, so the Desktop/Mobile switch is one artboard setting.
 
-The current Figma file is back to a single `01 Foundations` page — showing Open
-Sans and an `amber` ramp, which is *older* than what `docs/04-design-pass.md`
-describes. Treat it as a blank slate: the Stage 4 component sets and artboards
-are not in the file to migrate.
+**Correction:** this section originally said the Figma file was back to a single
+`01 Foundations` page. That was wrong — all four Stage 4 pages were intact, with
+306 variables and 32 text styles. The `get_metadata` call it rested on listed
+only one page. Stage 6 renamed those pages to `Z · Archive — S4 …` rather than
+deleting them. See [`06-rebuild.md`](06-rebuild.md) §1.
 
 ---
 
@@ -474,15 +480,10 @@ Added to `CLAUDE.md` §10.
 
 ## 13. Next
 
-Stage 6 rebuilds the mobile and desktop artboards from scratch on these tokens:
+**Done — see [`06-rebuild.md`](06-rebuild.md).** Stage 6 built all four Figma
+pages on these tokens, in Arial: 260 variables, 22 text styles, 14 components,
+and 15 artboards (8 mobile at 375, 7 desktop at 1440). Both artboard pages audit
+clean — zero unbound fills, zero overflow.
 
-1. Import `figma-variables.json` — Primitives, then Semantic, Typography, Motion.
-2. Build `01 Foundations` fresh: the eight ramps, the 13-step scale in both
-   modes, the four pillar marks, the grid.
-3. Rebuild the component library against the new rules — every card gone, every
-   shadow gone, controls as pills, links underlined.
-4. Mobile artboards at 375, then desktop at 1440. Same sections, same order, as
-   in Stage 4 §3.
-
-Content, figures and footnotes are unchanged. `CLAUDE.md` §5 and §6 govern every
-number on every artboard exactly as before.
+Content, figures and footnotes are unchanged. `CLAUDE.md` §5 and §6 governed
+every number on every artboard exactly as before.

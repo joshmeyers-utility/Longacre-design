@@ -189,15 +189,25 @@ SEMANTIC = {
 def sem(group, key): return PRIM[SEMANTIC[group][key]]
 
 # --------------------------------------------------------------------------
-# Type — Helvetica Neue
+# Type — Arial
 # --------------------------------------------------------------------------
-FONT_STACK = ['Helvetica Neue', 'HelveticaNeue', 'Helvetica',
-              'Arial', 'Liberation Sans', 'sans-serif']
+# Arial ships Regular and Bold, and nothing else. There is no Arial Light and no
+# Arial Medium, so the system is a genuine two-weight system: display and body
+# in Regular, structure and labels in Bold. The role names below are kept so
+# nothing downstream has to be renamed, but `light` and `regular` both resolve
+# to Regular and `medium` and `bold` both resolve to Bold.
+# Arial first: on the web it is genuinely everywhere. Arimo and Liberation Sans
+# are metrically compatible with it — same advance widths, same line breaks — so
+# a fallback never reflows the layout. Figma has no Arial (it is a licensed
+# Monotype system font and this file has no local fonts), so the artboards are
+# built in Arimo and the family is bound to a variable for a one-line swap.
+FONT_STACK = ['Arial', 'Arimo', 'Liberation Sans', 'Helvetica', 'sans-serif']
+FIGMA_FAMILY = 'Arimo'
 
-# Helvetica Neue weight names -> CSS numeric
-WEIGHTS = {'light': 300, 'regular': 400, 'medium': 500, 'bold': 700}
-HN_CUT  = {'light': '45 Light', 'regular': '55 Roman',
-           'medium': '65 Medium', 'bold': '75 Bold'}
+# Two weights, named for what they are. A token called `light` that renders
+# Regular is the same kind of small lie as a blue label that is not a link.
+WEIGHTS  = {'regular': 400, 'bold': 700}
+FONT_CUT = {'regular': 'Regular', 'bold': 'Bold'}
 
 # px. Desktop / Mobile are the two modes of the Typography collection.
 SIZE = {
@@ -206,40 +216,41 @@ SIZE = {
   '700': (40, 28), '800': (56, 32), '900': (72, 36), '1000':(96, 40),
   '1100':(128, 46),
 }
-LINE_HEIGHT = {'none':1.00, 'statement':0.90, 'hero':0.94, 'display':0.98,
-               'tight':1.04, 'snug':1.08, 'heading':1.20, 'normal':1.30,
+LINE_HEIGHT = {'none':1.00, 'statement':0.92, 'hero':0.96, 'display':1.00,
+               'tight':1.06, 'snug':1.10, 'heading':1.22, 'normal':1.32,
                'body':1.55, 'relaxed':1.60, 'loose':1.70}
-# Helvetica Neue sets loose by contemporary standards: display sizes need more
-# negative tracking than a modern grotesque, and small caps-ish labels need more
-# positive tracking than you would give Geist.
-TRACKING = {'statement':-0.040, 'display':-0.035, 'hero':-0.032, 'tighter':-0.028,
-            'tight':-0.022, 'snug':-0.014, 'slight':-0.008, 'normal':0.0,
+# Arial is metrically compatible with Helvetica and sets loose by contemporary
+# standards, so display sizes still need negative tracking. But Regular is
+# heavier than the Light this system was first drawn for, and heavy letterforms
+# collide sooner — so every display value is eased back about half a step.
+TRACKING = {'statement':-0.035, 'display':-0.030, 'hero':-0.028, 'tighter':-0.024,
+            'tight':-0.018, 'snug':-0.012, 'slight':-0.006, 'normal':0.0,
             'label':0.010, 'wide':0.020, 'eyebrow':0.060}
 
 TYPE = {
   # role              size    weight     line-height   tracking
-  'statement':      ('1100','light',    'statement',  'statement'),
-  'hero':           ('1000','light',    'hero',       'hero'),
-  'display':        ('900', 'light',    'display',    'display'),
-  'h1':             ('800', 'light',    'tight',      'tighter'),
+  'statement':      ('1100','regular',    'statement',  'statement'),
+  'hero':           ('1000','regular',    'hero',       'hero'),
+  'display':        ('900', 'regular',    'display',    'display'),
+  'h1':             ('800', 'regular',    'tight',      'tighter'),
   'h2':             ('700', 'regular',  'snug',       'tight'),
-  'h3':             ('500', 'medium',   'heading',    'snug'),
-  'h4':             ('400', 'medium',   'normal',     'slight'),
-  'lead':           ('400', 'light',    'heading',    'slight'),
+  'h3':             ('500', 'bold',     'heading',    'snug'),
+  'h4':             ('400', 'bold',     'normal',     'slight'),
+  'lead':           ('500', 'regular',  'heading',    'snug'),
   'body-lg':        ('300', 'regular',  'body',       'normal'),
   'body':           ('200', 'regular',  'body',       'normal'),
   'body-sm':        ('100', 'regular',  'normal',     'normal'),
   'caption':        ('75',  'regular',  'normal',     'normal'),
   'footnote':       ('50',  'regular',  'normal',     'normal'),
-  'eyebrow':        ('75',  'medium',   'heading',    'eyebrow'),
-  'label':          ('100', 'medium',   'normal',     'label'),
+  'eyebrow':        ('75',  'bold',     'heading',    'eyebrow'),
+  'label':          ('100', 'bold',     'normal',     'label'),
   'nav':            ('100', 'regular',  'heading',    'normal'),
-  'button':         ('100', 'medium',   'none',       'label'),
-  'quote':          ('600', 'light',    'heading',    'tight'),
-  'stat-figure':    ('1000','light',    'statement',  'statement'),
-  'stat-figure-sm': ('800', 'light',    'hero',       'display'),
+  'button':         ('100', 'bold',     'none',       'label'),
+  'quote':          ('600', 'regular',    'heading',    'tight'),
+  'stat-figure':    ('1000','regular',    'statement',  'statement'),
+  'stat-figure-sm': ('800', 'regular',    'hero',       'display'),
   'stat-label':     ('200', 'regular',  'normal',     'normal'),
-  'wordmark':       ('400', 'medium',   'snug',       'slight'),
+  'wordmark':       ('400', 'bold',     'snug',       'slight'),
 }
 
 # --------------------------------------------------------------------------
@@ -419,11 +430,14 @@ def build_tokens():
       'family': {'sans': {'$type':'fontFamily','$value':FONT_STACK},
                  'icon': {'$type':'fontFamily','$value':['Material Symbols Rounded']}},
       'weight': {k: {'$type':'fontWeight','$value':v} for k, v in WEIGHTS.items()},
-      'cut':    {k: s_(v) for k, v in HN_CUT.items()},
+      'cut':    {k: s_(v) for k, v in FONT_CUT.items()},
       'size':        {k: d(f'{v[0]}px') for k, v in SIZE.items()},
       'size-mobile': {k: d(f'{v[1]}px') for k, v in SIZE.items()},
       'lineHeight':  {k: n(v) for k, v in LINE_HEIGHT.items()},
       'tracking':    {k: d(f'{v}em') for k, v in TRACKING.items()},
+      # Arial's lining figures are already tabular — every digit is the same
+      # advance width — so a ledger column aligns without the feature. Kept for
+      # any substitute face that needs it.
       'numeric':     {'tabular': s_('tnum'), 'proportional': s_('pnum')},
     }
     for role, (size, weight, lh, tr) in TYPE.items():
@@ -434,7 +448,7 @@ def build_tokens():
             'lineHeight':    '{font.lineHeight.%s}' % lh,
             'letterSpacing': '{font.tracking.%s}' % tr},
           '$extensions': {'com.homercity.mobileFontSize': '{font.size-mobile.%s}' % size,
-                          'com.homercity.helveticaNeueCut': HN_CUT[weight]}}
+                          'com.homercity.helveticaNeueCut': FONT_CUT[weight]}}
 
     t['space'] = {str(v): d(f'{v}px') for v in SPACE}
     t['semantic']['space']        = {k: d(f'{v[0]}px') for k, v in SPACE_ROLE.items()}
@@ -519,7 +533,7 @@ def build_figma():
                      'values':{'Desktop':v,'Mobile':v}})
 
     typ = [{'name':'font-family/sans','type':'STRING','scopes':['FONT_FAMILY'],
-            'values':{'Desktop':'Helvetica Neue','Mobile':'Helvetica Neue'}}]
+            'values':{'Desktop':FIGMA_FAMILY,'Mobile':FIGMA_FAMILY}}]
     for k, (dk, mk) in SIZE.items():
         typ.append({'name':f'font-size/{k}','type':'FLOAT','scopes':['FONT_SIZE'],
                     'values':{'Desktop':dk,'Mobile':mk}})
@@ -531,7 +545,7 @@ def build_figma():
                     'unit':'PERCENT','values':{'Desktop':round(v*100,2),'Mobile':round(v*100,2)}})
     for k, v in WEIGHTS.items():
         typ.append({'name':f'font-weight/{k}','type':'STRING','scopes':['FONT_STYLE'],
-                    'values':{'Desktop':HN_CUT[k],'Mobile':HN_CUT[k]}})
+                    'values':{'Desktop':FONT_CUT[k],'Mobile':FONT_CUT[k]}})
 
     mot = []
     for k, v in MOTION['duration'].items():
@@ -549,10 +563,12 @@ def build_figma():
                        'Typography (they alias it). Every colour primitive ships '
                        'with scopes:[] so it cannot be picked directly - components '
                        'bind semantic tokens only.'),
-      'font': {'family':'Helvetica Neue', 'cuts':HN_CUT,
-               'fallbackStack':FONT_STACK,
-               'note':('Helvetica Neue is not a Google font and is a system font on '
-                       'Apple platforms only. See docs/05-design-direction.md §9.')},
+      'font': {'family':'Arial', 'figmaFamily':FIGMA_FAMILY,
+               'cuts':FONT_CUT, 'fallbackStack':FONT_STACK,
+               'note':('Arial ships Regular and Bold only, so this is a genuine '
+                       'two-weight system: display and body Regular, structure '
+                       'and labels Bold. Figma has no Arial, so artboards use '
+                       'Arimo - metrically identical, so nothing reflows.')},
       'collections': [
         {'name':'Primitives','modes':['Value'],'defaultMode':'Value',
          'hiddenFromPublishing':True,'variables':prim},
@@ -564,7 +580,7 @@ def build_figma():
       ],
       'textStyles': [
         {'name':f'type/{role}',
-         'fontFamily':'Helvetica Neue', 'fontStyle':HN_CUT[w],
+         'fontFamily':FIGMA_FAMILY, 'fontStyle':FONT_CUT[w],
          'fontSizeVariable':f'font-size/{size}',
          'lineHeightVariable':f'line-height/{lh}',
          'letterSpacingVariable':f'tracking/{tr}',
@@ -704,7 +720,7 @@ def build_specimen():
     ramp = ''
     for role, (size, w, lh, tr) in TYPE.items():
         ramp += (f'<div class="tr"><div class="tm">type/{role}<br>'
-                 f'<i>{SIZE[size][0]} / {SIZE[size][1]}px &middot; {HN_CUT[w]} &middot; '
+                 f'<i>{SIZE[size][0]} / {SIZE[size][1]}px &middot; {FONT_CUT[w]} &middot; '
                  f'{TRACKING[tr]*100:+.1f}%</i></div>'
                  f'<div class="ts" style="font-size:{SIZE[size][0]}px;'
                  f'font-weight:{WEIGHTS[w]};line-height:{LINE_HEIGHT[lh]};'
@@ -798,8 +814,9 @@ def build_specimen():
   <p class="sub">Token specimen. Every value on this page is read from the same
   data that writes tokens.json, figma-variables.json and tokens.css, so it
   cannot drift. This shows values, not layouts &mdash; it is not a comp.</p>
-  <p class="note">Set in Helvetica Neue where the system has it; otherwise the
-  fallback stack. See docs/05-design-direction.md &sect;6 on licensing.</p>
+  <p class="note">Set in Arial &mdash; Regular and Bold, the only two cuts it
+  has. Nothing to license. Figma builds in Arimo, which is metrically
+  identical.</p>
 
   <h2>Colour primitives</h2>
   <p class="note">Generated in OKLCH. Five ramps reproduce a client palette
@@ -845,8 +862,8 @@ def build_specimen():
   {scrims}
 
   <h2>Type ramp &mdash; desktop / mobile</h2>
-  <p class="note">Rendered at the desktop size. Tracking is tuned to Helvetica
-  Neue, which sets loose by contemporary standards.</p>
+  <p class="note">Rendered at the desktop size. Two weights only &mdash; Arial
+  has no Light and no Medium.</p>
   {ramp}
 </div>
 """

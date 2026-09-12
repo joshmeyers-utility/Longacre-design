@@ -1,22 +1,20 @@
 {
   "$description": "Figma variable payload for the Homer City Energy Campus design system. Import Primitives first, then Semantic and Typography (they alias it). Every colour primitive ships with scopes:[] so it cannot be picked directly - components bind semantic tokens only.",
   "font": {
-    "family": "Helvetica Neue",
+    "family": "Arial",
+    "figmaFamily": "Arimo",
     "cuts": {
-      "light": "45 Light",
-      "regular": "55 Roman",
-      "medium": "65 Medium",
-      "bold": "75 Bold"
+      "regular": "Regular",
+      "bold": "Bold"
     },
     "fallbackStack": [
-      "Helvetica Neue",
-      "HelveticaNeue",
-      "Helvetica",
       "Arial",
+      "Arimo",
       "Liberation Sans",
+      "Helvetica",
       "sans-serif"
     ],
-    "note": "Helvetica Neue is not a Google font and is a system font on Apple platforms only. See docs/05-design-direction.md \u00a79."
+    "note": "Arial ships Regular and Bold only, so this is a genuine two-weight system: display and body Regular, structure and labels Bold. Figma has no Arial, so artboards use Arimo - metrically identical, so nothing reflows."
   },
   "collections": [
     {
@@ -2129,8 +2127,8 @@
             "FONT_FAMILY"
           ],
           "values": {
-            "Desktop": "Helvetica Neue",
-            "Mobile": "Helvetica Neue"
+            "Desktop": "Arimo",
+            "Mobile": "Arimo"
           }
         },
         {
@@ -2296,8 +2294,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 90.0,
-            "Mobile": 90.0
+            "Desktop": 92.0,
+            "Mobile": 92.0
           }
         },
         {
@@ -2308,8 +2306,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 94.0,
-            "Mobile": 94.0
+            "Desktop": 96.0,
+            "Mobile": 96.0
           }
         },
         {
@@ -2320,8 +2318,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 98.0,
-            "Mobile": 98.0
+            "Desktop": 100.0,
+            "Mobile": 100.0
           }
         },
         {
@@ -2332,8 +2330,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 104.0,
-            "Mobile": 104.0
+            "Desktop": 106.0,
+            "Mobile": 106.0
           }
         },
         {
@@ -2344,8 +2342,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 108.0,
-            "Mobile": 108.0
+            "Desktop": 110.0,
+            "Mobile": 110.0
           }
         },
         {
@@ -2356,8 +2354,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 120.0,
-            "Mobile": 120.0
+            "Desktop": 122.0,
+            "Mobile": 122.0
           }
         },
         {
@@ -2368,8 +2366,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": 130.0,
-            "Mobile": 130.0
+            "Desktop": 132.0,
+            "Mobile": 132.0
           }
         },
         {
@@ -2416,8 +2414,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": -4.0,
-            "Mobile": -4.0
+            "Desktop": -3.5,
+            "Mobile": -3.5
           }
         },
         {
@@ -2428,24 +2426,12 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": -3.5,
-            "Mobile": -3.5
+            "Desktop": -3.0,
+            "Mobile": -3.0
           }
         },
         {
           "name": "tracking/hero",
-          "type": "FLOAT",
-          "scopes": [
-            "LETTER_SPACING"
-          ],
-          "unit": "PERCENT",
-          "values": {
-            "Desktop": -3.2,
-            "Mobile": -3.2
-          }
-        },
-        {
-          "name": "tracking/tighter",
           "type": "FLOAT",
           "scopes": [
             "LETTER_SPACING"
@@ -2457,6 +2443,18 @@
           }
         },
         {
+          "name": "tracking/tighter",
+          "type": "FLOAT",
+          "scopes": [
+            "LETTER_SPACING"
+          ],
+          "unit": "PERCENT",
+          "values": {
+            "Desktop": -2.4,
+            "Mobile": -2.4
+          }
+        },
+        {
           "name": "tracking/tight",
           "type": "FLOAT",
           "scopes": [
@@ -2464,8 +2462,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": -2.2,
-            "Mobile": -2.2
+            "Desktop": -1.8,
+            "Mobile": -1.8
           }
         },
         {
@@ -2476,8 +2474,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": -1.4,
-            "Mobile": -1.4
+            "Desktop": -1.2,
+            "Mobile": -1.2
           }
         },
         {
@@ -2488,8 +2486,8 @@
           ],
           "unit": "PERCENT",
           "values": {
-            "Desktop": -0.8,
-            "Mobile": -0.8
+            "Desktop": -0.6,
+            "Mobile": -0.6
           }
         },
         {
@@ -2541,36 +2539,14 @@
           }
         },
         {
-          "name": "font-weight/light",
-          "type": "STRING",
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "values": {
-            "Desktop": "45 Light",
-            "Mobile": "45 Light"
-          }
-        },
-        {
           "name": "font-weight/regular",
           "type": "STRING",
           "scopes": [
             "FONT_STYLE"
           ],
           "values": {
-            "Desktop": "55 Roman",
-            "Mobile": "55 Roman"
-          }
-        },
-        {
-          "name": "font-weight/medium",
-          "type": "STRING",
-          "scopes": [
-            "FONT_STYLE"
-          ],
-          "values": {
-            "Desktop": "65 Medium",
-            "Mobile": "65 Medium"
+            "Desktop": "Regular",
+            "Mobile": "Regular"
           }
         },
         {
@@ -2580,8 +2556,8 @@
             "FONT_STYLE"
           ],
           "values": {
-            "Desktop": "75 Bold",
-            "Mobile": "75 Bold"
+            "Desktop": "Bold",
+            "Mobile": "Bold"
           }
         }
       ]
@@ -2789,8 +2765,8 @@
   "textStyles": [
     {
       "name": "type/statement",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/1100",
       "lineHeightVariable": "line-height/statement",
       "letterSpacingVariable": "tracking/statement",
@@ -2798,14 +2774,14 @@
         "Desktop": 128,
         "Mobile": 46
       },
-      "lineHeightPercent": 90.0,
-      "letterSpacingPercent": -4.0,
+      "lineHeightPercent": 92.0,
+      "letterSpacingPercent": -3.5,
       "case": "ORIGINAL"
     },
     {
       "name": "type/hero",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/1000",
       "lineHeightVariable": "line-height/hero",
       "letterSpacingVariable": "tracking/hero",
@@ -2813,14 +2789,14 @@
         "Desktop": 96,
         "Mobile": 40
       },
-      "lineHeightPercent": 94.0,
-      "letterSpacingPercent": -3.2,
+      "lineHeightPercent": 96.0,
+      "letterSpacingPercent": -2.8,
       "case": "ORIGINAL"
     },
     {
       "name": "type/display",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/900",
       "lineHeightVariable": "line-height/display",
       "letterSpacingVariable": "tracking/display",
@@ -2828,14 +2804,14 @@
         "Desktop": 72,
         "Mobile": 36
       },
-      "lineHeightPercent": 98.0,
-      "letterSpacingPercent": -3.5,
+      "lineHeightPercent": 100.0,
+      "letterSpacingPercent": -3.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/h1",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/800",
       "lineHeightVariable": "line-height/tight",
       "letterSpacingVariable": "tracking/tighter",
@@ -2843,14 +2819,14 @@
         "Desktop": 56,
         "Mobile": 32
       },
-      "lineHeightPercent": 104.0,
-      "letterSpacingPercent": -2.8,
+      "lineHeightPercent": 106.0,
+      "letterSpacingPercent": -2.4,
       "case": "ORIGINAL"
     },
     {
       "name": "type/h2",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/700",
       "lineHeightVariable": "line-height/snug",
       "letterSpacingVariable": "tracking/tight",
@@ -2858,14 +2834,14 @@
         "Desktop": 40,
         "Mobile": 28
       },
-      "lineHeightPercent": 108.0,
-      "letterSpacingPercent": -2.2,
+      "lineHeightPercent": 110.0,
+      "letterSpacingPercent": -1.8,
       "case": "ORIGINAL"
     },
     {
       "name": "type/h3",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "65 Medium",
+      "fontFamily": "Arimo",
+      "fontStyle": "Bold",
       "fontSizeVariable": "font-size/500",
       "lineHeightVariable": "line-height/heading",
       "letterSpacingVariable": "tracking/snug",
@@ -2873,14 +2849,14 @@
         "Desktop": 26,
         "Mobile": 22
       },
-      "lineHeightPercent": 120.0,
-      "letterSpacingPercent": -1.4,
+      "lineHeightPercent": 122.0,
+      "letterSpacingPercent": -1.2,
       "case": "ORIGINAL"
     },
     {
       "name": "type/h4",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "65 Medium",
+      "fontFamily": "Arimo",
+      "fontStyle": "Bold",
       "fontSizeVariable": "font-size/400",
       "lineHeightVariable": "line-height/normal",
       "letterSpacingVariable": "tracking/slight",
@@ -2888,29 +2864,29 @@
         "Desktop": 21,
         "Mobile": 19
       },
-      "lineHeightPercent": 130.0,
-      "letterSpacingPercent": -0.8,
+      "lineHeightPercent": 132.0,
+      "letterSpacingPercent": -0.6,
       "case": "ORIGINAL"
     },
     {
       "name": "type/lead",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
-      "fontSizeVariable": "font-size/400",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
+      "fontSizeVariable": "font-size/500",
       "lineHeightVariable": "line-height/heading",
-      "letterSpacingVariable": "tracking/slight",
+      "letterSpacingVariable": "tracking/snug",
       "fontSize": {
-        "Desktop": 21,
-        "Mobile": 19
+        "Desktop": 26,
+        "Mobile": 22
       },
-      "lineHeightPercent": 120.0,
-      "letterSpacingPercent": -0.8,
+      "lineHeightPercent": 122.0,
+      "letterSpacingPercent": -1.2,
       "case": "ORIGINAL"
     },
     {
       "name": "type/body-lg",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/300",
       "lineHeightVariable": "line-height/body",
       "letterSpacingVariable": "tracking/normal",
@@ -2924,8 +2900,8 @@
     },
     {
       "name": "type/body",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/200",
       "lineHeightVariable": "line-height/body",
       "letterSpacingVariable": "tracking/normal",
@@ -2939,8 +2915,8 @@
     },
     {
       "name": "type/body-sm",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/100",
       "lineHeightVariable": "line-height/normal",
       "letterSpacingVariable": "tracking/normal",
@@ -2948,14 +2924,14 @@
         "Desktop": 14,
         "Mobile": 14
       },
-      "lineHeightPercent": 130.0,
+      "lineHeightPercent": 132.0,
       "letterSpacingPercent": 0.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/caption",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/75",
       "lineHeightVariable": "line-height/normal",
       "letterSpacingVariable": "tracking/normal",
@@ -2963,14 +2939,14 @@
         "Desktop": 13,
         "Mobile": 13
       },
-      "lineHeightPercent": 130.0,
+      "lineHeightPercent": 132.0,
       "letterSpacingPercent": 0.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/footnote",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/50",
       "lineHeightVariable": "line-height/normal",
       "letterSpacingVariable": "tracking/normal",
@@ -2978,14 +2954,14 @@
         "Desktop": 12,
         "Mobile": 12
       },
-      "lineHeightPercent": 130.0,
+      "lineHeightPercent": 132.0,
       "letterSpacingPercent": 0.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/eyebrow",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "65 Medium",
+      "fontFamily": "Arimo",
+      "fontStyle": "Bold",
       "fontSizeVariable": "font-size/75",
       "lineHeightVariable": "line-height/heading",
       "letterSpacingVariable": "tracking/eyebrow",
@@ -2993,14 +2969,14 @@
         "Desktop": 13,
         "Mobile": 13
       },
-      "lineHeightPercent": 120.0,
+      "lineHeightPercent": 122.0,
       "letterSpacingPercent": 6.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/label",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "65 Medium",
+      "fontFamily": "Arimo",
+      "fontStyle": "Bold",
       "fontSizeVariable": "font-size/100",
       "lineHeightVariable": "line-height/normal",
       "letterSpacingVariable": "tracking/label",
@@ -3008,14 +2984,14 @@
         "Desktop": 14,
         "Mobile": 14
       },
-      "lineHeightPercent": 130.0,
+      "lineHeightPercent": 132.0,
       "letterSpacingPercent": 1.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/nav",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/100",
       "lineHeightVariable": "line-height/heading",
       "letterSpacingVariable": "tracking/normal",
@@ -3023,14 +2999,14 @@
         "Desktop": 14,
         "Mobile": 14
       },
-      "lineHeightPercent": 120.0,
+      "lineHeightPercent": 122.0,
       "letterSpacingPercent": 0.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/button",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "65 Medium",
+      "fontFamily": "Arimo",
+      "fontStyle": "Bold",
       "fontSizeVariable": "font-size/100",
       "lineHeightVariable": "line-height/none",
       "letterSpacingVariable": "tracking/label",
@@ -3044,8 +3020,8 @@
     },
     {
       "name": "type/quote",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/600",
       "lineHeightVariable": "line-height/heading",
       "letterSpacingVariable": "tracking/tight",
@@ -3053,14 +3029,14 @@
         "Desktop": 32,
         "Mobile": 25
       },
-      "lineHeightPercent": 120.0,
-      "letterSpacingPercent": -2.2,
+      "lineHeightPercent": 122.0,
+      "letterSpacingPercent": -1.8,
       "case": "ORIGINAL"
     },
     {
       "name": "type/stat-figure",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/1000",
       "lineHeightVariable": "line-height/statement",
       "letterSpacingVariable": "tracking/statement",
@@ -3068,14 +3044,14 @@
         "Desktop": 96,
         "Mobile": 40
       },
-      "lineHeightPercent": 90.0,
-      "letterSpacingPercent": -4.0,
+      "lineHeightPercent": 92.0,
+      "letterSpacingPercent": -3.5,
       "case": "ORIGINAL"
     },
     {
       "name": "type/stat-figure-sm",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "45 Light",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/800",
       "lineHeightVariable": "line-height/hero",
       "letterSpacingVariable": "tracking/display",
@@ -3083,14 +3059,14 @@
         "Desktop": 56,
         "Mobile": 32
       },
-      "lineHeightPercent": 94.0,
-      "letterSpacingPercent": -3.5,
+      "lineHeightPercent": 96.0,
+      "letterSpacingPercent": -3.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/stat-label",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "55 Roman",
+      "fontFamily": "Arimo",
+      "fontStyle": "Regular",
       "fontSizeVariable": "font-size/200",
       "lineHeightVariable": "line-height/normal",
       "letterSpacingVariable": "tracking/normal",
@@ -3098,14 +3074,14 @@
         "Desktop": 16,
         "Mobile": 16
       },
-      "lineHeightPercent": 130.0,
+      "lineHeightPercent": 132.0,
       "letterSpacingPercent": 0.0,
       "case": "ORIGINAL"
     },
     {
       "name": "type/wordmark",
-      "fontFamily": "Helvetica Neue",
-      "fontStyle": "65 Medium",
+      "fontFamily": "Arimo",
+      "fontStyle": "Bold",
       "fontSizeVariable": "font-size/400",
       "lineHeightVariable": "line-height/snug",
       "letterSpacingVariable": "tracking/slight",
@@ -3113,8 +3089,8 @@
         "Desktop": 21,
         "Mobile": 19
       },
-      "lineHeightPercent": 108.0,
-      "letterSpacingPercent": -0.8,
+      "lineHeightPercent": 110.0,
+      "letterSpacingPercent": -0.6,
       "case": "ORIGINAL"
     }
   ]

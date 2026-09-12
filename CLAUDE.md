@@ -68,7 +68,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ⚠️ **Superseded by Stage 5** |
 | 5. Design direction | `docs/05-design-direction.md`, regenerated tokens | ✅ Complete |
-| 6. Rebuild | Figma artboards from scratch, mobile + desktop | ⬜ Not started |
+| 6. Rebuild | `docs/06-rebuild.md` + Figma artboards, mobile + desktop | ✅ Complete |
 | 7. Build | Webflow, from the Stage 6 pass | ⬜ Not started |
 
 **Stage 4 is kept for its component inventory, interaction spec and page
@@ -97,7 +97,8 @@ docs/
   02-plan.md               IA, page specs, 13-collection CMS model.
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
-  05-design-direction.md   THE CURRENT VISUAL SPEC. Read with §7 below.
+  05-design-direction.md   The direction, and why. Read with §7 below.
+  06-rebuild.md            What is actually in Figma now. Read this first.
 design-system/
   build-tokens.py          Generator + 58-check contrast audit. Source of truth.
   tokens.json              W3C DTCG tokens. Generated — don't hand-edit.
@@ -207,9 +208,14 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 `docs/03-design-system.md` explains the *previous* system and is kept for
 traceability — where it disagrees with this section, this section wins.
 
-**262 variables across four collections** (Primitives, Semantic, Typography,
-Motion) and 22 text styles. Typography and Semantic each carry **Desktop and
-Mobile modes**; set the mode on the artboard, never per node.
+**260 variables across four collections** (Primitives, Semantic, Typography,
+Motion) and 22 text styles, live in Figma. Typography and Semantic each carry
+**Desktop and Mobile modes**; set the mode on the artboard, never per node.
+
+⚠️ **A FLOAT variable bound to `lineHeight` or `letterSpacing` resolves as
+PIXELS in Figma**, so 122 (meaning 122%) becomes 122px. Text styles carry both as
+PERCENT literals, and the `line-height/*` and `tracking/*` variables are
+`scopes: []` so the trap cannot be re-introduced from a picker.
 
 ### The direction
 
@@ -295,24 +301,29 @@ move away from. It survives in the footer and as the Infrastructure pillar mark.
   a link. Home's "Project pillars" is the only section that may carry them.
 - **`aqua` has no semantic role.** It exists in the primitives; nothing uses it.
 
-### Type — Helvetica Neue
+### Type — Arial
 
-⚠️ **Licensing is unresolved — open question #15.** Helvetica Neue is not a
-Google font and is a system font on Apple platforms only. Without a Monotype web
-licence roughly 60% of visitors see the Arial fallback.
+**Nothing to license, and it is everywhere.** The CSS stack is
+`Arial, Arimo, "Liberation Sans", Helvetica, sans-serif` — Arimo and Liberation
+Sans are metrically compatible with Arial, so a fallback never reflows the
+layout. **Figma has no Arial** (it is a licensed Monotype system font), so the
+artboards are built in **Arimo** and the family is bound to `font-family/sans`:
+swapping it is one variable edit. See `docs/06-rebuild.md` §1.
 
-- **Weights: 45 Light / 55 Roman / 65 Medium / 75 Bold** (CSS 300/400/500/700).
-  Display runs **Light**. 25 Ultra Light and 35 Thin are excluded — unreadable on
-  a phone in daylight.
-- **Tracking is load-bearing.** Helvetica Neue was drawn for metal and sets loose
-  by contemporary standards; at zero it looks like a 1990s annual report. Display
-  runs −2.2% to −4.0%; body stays at **0** — never tighten reading text;
-  eyebrows run **+6%**.
+- **Arial ships Regular and Bold, and nothing else.** There is no Arial Light and
+  no Arial Medium, so this is a genuine two-weight system: display and body
+  **Regular**, structure and labels **Bold**. Sixteen roles Regular, six Bold.
+  The weight tokens are named `regular` and `bold` — a token called `light` that
+  renders Regular is the same small lie as a blue label that is not a link.
+- **Tracking is load-bearing.** Arial sets loose by contemporary standards; at
+  zero, display type looks like a 1990s annual report. Display runs −1.8% to
+  −3.5%; body stays at **0** — never tighten reading text; eyebrows run **+6%**.
+- **Arial's digits are already tabular**, so a ledger column aligns without
+  `tnum`.
 - **Sentence case everywhere. No all-caps**, labels and buttons included.
 - **Hero** 96/40, `statement` 128/46 (**one per page, maximum**), body 16 at line
   height 1.55 on a 636px measure — 71 characters per line.
-- **Stat figures** are Light in `text/primary`, never a colour, and set with
-  **tabular numerals** (`font/numeric/tabular`) so a ledger column aligns.
+- **Stat figures** are Regular in `text/primary`, never a colour.
 - **Eyebrow:** 13px Medium, +6% tracking, sentence case. Not decoration — it is
   where a section's date-stamp, category or scope lives, per §5.3.
 - **Responsive type:** only font size varies by breakpoint. Line height and
@@ -435,7 +446,6 @@ the first line rather than refactoring later.
 | 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
 | 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
 | 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
-| 15 | **Helvetica Neue licensing.** Not a Google font; a system font on Apple platforms only. Buy a Monotype web licence, accept the Arial fallback for ~60% of visitors, or substitute Neue Haas Grotesk / Inter Tight? Tracking values are tuned to Helvetica Neue's metrics and would need retuning for a substitute. | Stage 6 rebuild |
 | 16 | **Does the client's cream become the page?** `#F3F1D0` now carries the warm band and seeds the page ground, giving an unconfirmed brand colour a job. One token moves if the brand guide disagrees. | Brand sign-off |
 | 17 | **Navy demoted to the footer.** It is the most recognisable colour in the current identity, and Stage 5 replaces it as the dominant dark ground with a warm near-black. Confirm the client will accept that. | Brand sign-off |
 
@@ -449,7 +459,9 @@ the first line rather than refactoring later.
 | 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
 | 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
 | 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
-| 18 | **Icon family.** Material Symbols Rounded was chosen to pair with Geist. Helvetica Neue is a neo-grotesque and pairs better with **Outlined** — but Stage 3 recorded that Figma could not serve Outlined. | Staying on Rounded. Re-test Outlined in Figma before the rebuild; it is a one-token swap. |
+| 18 | **Icon family.** Material Symbols Rounded was chosen to pair with Geist. This environment serves Rounded and Sharp only — no Outlined, and only the **Bold** cut, not the weight 300 the spec asks for. | Using Rounded Bold. Revisit on a machine with the full Material Symbols range. |
+| 20 | **Swap Arimo → Arial in Figma.** The artboards are built in Arimo because this environment has no Arial. Arimo is metrically identical, so nothing reflows. | One variable edit (`font-family/sans`) on a machine that has Arial. |
+| 21 | **Delete the `Z · Archive — S4 …` pages** once the rebuild is signed off. Stage 4 was renamed rather than deleted. | Kept until you say otherwise. |
 | 19 | **Screenshots of seven reference sites.** All but cursor.com and cosmos.so are blocked by this environment's egress policy (403 at the proxy), so Stage 5 is built from published description for those. | Direction as written. Send screenshots or unblock the domains and it gets revised. |
 
 ---
