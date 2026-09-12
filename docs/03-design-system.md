@@ -627,3 +627,63 @@ A further 55 text nodes now sit over photographic hero fills and cannot be
 contrast-checked programmatically — their legibility depends on the gradient
 scrim beneath them, which is a design decision to confirm visually, not a
 computed one.
+
+---
+
+## 14. Editorial pass — the ledger, the band, and two naming defects
+
+Two research passes fed this revision: one on how modern editorial sites
+interleave photography into a long page, one on how they present statistics
+without cards. Both pointed the same way, and both are recorded in
+`docs/04-design-pass.md` §11. This section records only what changed in the
+system.
+
+### 14.1 Two spacing roles that should have existed from the start
+
+Measuring the desktop artboards turned up a real defect: **every desktop
+section's horizontal margin was bound to `space/section-y-lg`** — a *vertical*
+role, pointed sideways because it happened to resolve to 160. It rendered
+correctly and would have ported to Webflow as a variable whose name lies about
+what it does. Seventy-two padding bindings were repointed.
+
+| Token | Value | What it is |
+| --- | --- | --- |
+| `space/container-x-desktop` | 160 | The desktop gutter. 1440 − 2×160 = the 1120 content column. |
+| `space/container-x-wide` | 80 | The wide image-band inset, giving a 1280 band. |
+
+Together with `space/container-x-mobile` (16) and a zero inset, these give the
+four band widths the imagery research identified: **contained 1120 · wide 1280 ·
+full bleed 1440**, and one mobile width. A band's width is now set by its
+parent's horizontal padding — the band component itself never carries a width.
+
+### 14.2 `type/stat-ledger`, and a drift the generator was hiding
+
+`type/stat` is 84px on desktop. `gen.py` believed it was 68. The token files in
+this repo would have built a Webflow site with the wrong figure size, silently.
+Fixed, and the 68px step is now a named role of its own:
+
+| Token | Desktop | Mobile | Use |
+| --- | --- | --- | --- |
+| `type/stat` | 84 | 44 | Stacked stat, where the figure is the whole object |
+| `type/stat-ledger` | 68 | 44 | Ledger figure — one clean step below the 104px hero, so it reads at h1 scale rather than as a second hero |
+
+68 was chosen over the researched 72 because 68 is already a step on the ramp.
+Inventing a primitive to hit a round number from a reference site is how a
+modular scale stops being modular.
+
+> **The general lesson, twice now:** the generator and Figma drift silently, and
+> only a measurement catches it. Anything that changes in Figma has to come back
+> to `gen.py` in the same pass, or the repo quietly becomes wrong.
+
+### 14.3 Strokes — re-verified
+
+37 rectangle dividers, 22 two-pixel timeline markers and 2 four-pixel
+current-milestone markers across both artboard pages. Every uniform-weight
+stroke in the file is a 16×16 circle on the timeline rail. No card outlines, no
+tile accents, no band borders. The rule holds.
+
+### 14.4 Verified after this pass
+
+**9,434 bound values across both artboard pages, zero unbound, zero reaching
+past the semantic layer, 1,453 contrast checks against real painted ancestors,
+zero failures.**

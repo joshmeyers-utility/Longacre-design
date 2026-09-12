@@ -66,7 +66,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 1. Context | `CLAUDE.md`, `README.md`, `docs/source/*` | ✅ Complete |
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
-| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §8) |
+| 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -105,6 +105,9 @@ transcriptions as the in-repo record.
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
 
+0. **"Coal" is not a word this site uses.** It appears in no client document —
+   only in `external-context.md`. The fact sheet's own phrasing is *"the former
+   Homer City Generating Station"*. Use theirs.
 1. **Every figure traces to `docs/source/`.** If a number is not in those files,
    it does not go on the page. Do not estimate, do not interpolate, do not round
    for visual balance (`~1,300` is not `1.3K`).
@@ -205,9 +208,10 @@ correction a one-line change instead of a rebuild.
 | Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
 | Motion | `duration/base`, `ease/appear`, `distance/md` |
 
-Verified state: **6,188 bound values across the component library and all 15
-artboards, zero unbound, zero reaching past the semantic layer.** If you add
-anything, bind it.
+Verified state: **9,668 bound values across both artboard pages, zero unbound,
+zero reaching past the semantic layer, zero tinted grounds, 1,494 contrast
+checks against real painted ancestors, zero failures.** If you add anything,
+bind it.
 
 ### The other rule: strokes are dividers
 
@@ -216,13 +220,62 @@ tile accents, no severity bars, no button borders — those are ground, space, o
 filled rectangle. The file currently holds 37 hairline dividers and 29 circular
 timeline markers, and nothing else. Check before you add one.
 
+### The third rule: a brief is not a caption
+
+**Production notes and published copy never share a field.** A caption that
+reads *"Photography needed at full resolution"* is one forgotten edit away from
+saying exactly that on the live site, under a real photograph. In the **Image
+Band** component the brief lives *inside* the image area — the region the
+photograph destroys — and the caption lives outside it. The same separation
+applies anywhere a placeholder describes what is still missing.
+
+Two consequences:
+
+- **Date is its own field, not part of the caption string.** §5.3 is structural,
+  not a typing convention.
+- **`Kind = Photograph | Rendering`.** The deck's cover is a render of a campus
+  that does not exist yet. On this site, labelling that is the same discipline
+  as the "as of" date.
+
+### And no cards
+
+**A filled box is not a grouping device.** Columns are separated by a hairline
+at the top and by space — never by a white rectangle on a light ground, which is
+the clearest 2015-era signal available and does the job space already does. The
+file had 28 of them; four were white on white, invisible and still in the
+markup. Grounds stay white, near-white and navy: there are **no tinted
+grounds**, and the one that existed (an aqua CTA band) is gone.
+
+### Stats are a ledger, not cards
+
+Figure hard left, explanation in a narrow column hard right, a hairline spanning
+the full width between rows and closing the block. The middle stays empty — the
+rule spanning it is what binds figure to label, which is also why the row needs
+no card and no border. **Required footnotes live in the right-hand column,
+beneath the label**, inside the rule that binds the row. Not an asterisk, not a
+pointer to the page foot. Qualifiers — *Anticipated*, *Projected*, *Up to* — sit
+as an eyebrow directly above the figure rather than buried mid-label.
+
+**Band widths come from the parent's padding, never from the band:**
+`space/container-x-desktop` (160) → contained 1120 · `space/container-x-wide`
+(80) → wide 1280 · zero → full bleed 1440 · `space/container-x-mobile` (16) →
+mobile. Full bleed is spent, not spread: once in the body of the site, never two
+photographic bands adjacent.
+
 - **Type: Geist 300–700** (Google-hosted, ports to Webflow). Replaced Open
   Sans, which was the web's default 2011–2016 and carried that period into the
   design regardless of palette. Hero runs 104px desktop / 44px mobile. Stat
   figures are Light (300) — inherited from the fact sheet — but sit in
   `text/stat-figure` (near-black), not blue.
 - **Sentence case everywhere. No all-caps**, including labels and buttons.
-- **Blue means link.** Nothing else is blue. Labels, eyebrows and metadata are
+- **A pillar colour marks one of the four pillars, and nothing else.** Not a
+  nav card, not a section icon, never a link. Used as decoration it stops being
+  a signal. Home's "Project pillars" is the only section that may carry them.
+- **Blue means link.** Nothing else is blue — **icons included**. An icon is
+  blue only when the icon *is* the control (`arrow_forward`, `add`, `remove`,
+  `download`, `open_in_new`, `expand_more`, `close`, `search`, `menu`). A trade
+  mark, a commitment mark, a resource-type mark or a category mark is
+  `text/primary` on light and `text/inverse-secondary` on navy. Labels, eyebrows and metadata are
   grays (`text/eyebrow` → `stone/700`). A blue label that is not clickable is a
   small lie repeated on every page.
 - **Eyebrow:** 12px SemiBold, 4% tracking, sentence case. Not decoration — it is
@@ -327,6 +380,12 @@ the first line rather than refactoring later.
 
 ## 9. Quality bars
 
+- **Text over a photograph is guaranteed by the scrim, not by a checker.** An
+  automated contrast sweep walks to the nearest *solid* painted ancestor, and a
+  photograph is not one — so it will report a pass no matter what the image
+  does. Hero scrims are set so the weakest point over the text column still
+  clears AA against a pure white photograph (desktop 0.72 at the end of the
+  900px column; mobile 0.88 throughout). Do not lighten them. `docs/04` §12.6.
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible
   focus states, keyboard paths through every rollover interaction, and captions
@@ -355,6 +414,9 @@ the first line rather than refactoring later.
 | 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Partners page |
 | 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |
 | 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
+| 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
+| 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
+| 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
 
 **Non-blocking — can proceed with a stated assumption:**
 
@@ -364,6 +426,8 @@ the first line rather than refactoring later.
 | 7 | Does a fuller timeline exist beyond the fact sheet's? | Build the condensed homepage teaser to link to a full timeline page; ship it when content lands. |
 | 8 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | **Resolved:** one "Community" nav item with three child pages. |
 | 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
+| 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
+| 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
 
 ---
 

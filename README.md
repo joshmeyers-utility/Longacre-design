@@ -43,7 +43,7 @@ Four stages, reviewed one at a time.
 | **1 · Context** | Source material transcribed, brand inputs captured, rules written | ✅ **Complete** |
 | **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
-| **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised — [`docs/04-design-pass.md`](docs/04-design-pass.md) |
+| **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised through an editorial pass — [`docs/04-design-pass.md`](docs/04-design-pass.md) §11–12 |
 | **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.
@@ -73,11 +73,24 @@ Read in this order:
    Typography, colour, spacing, motion, and how it all maps to Webflow. Values
    live in [`design-system/`](design-system/) and in Figma.
 5. **[`docs/04-design-pass.md`](docs/04-design-pass.md)** — Stage 4. The
-   artboards, the 14-component library, and the micro-interaction spec.
+   artboards, the 16-component library, and the micro-interaction spec. §11–12
+   record the editorial pass: the stat ledger, the Image Band component, the
+   half-bleed split, and the copy audit that restructuring the sections forced.
 
-Arriving in later stages: `docs/02-plan.md`, `docs/03-design-system.md`,
-`design-system/tokens.json`, `design-system/tokens.css`, `prototype/`,
-`docs/04-build-notes.md`.
+Arriving in later stages: `prototype/`, `docs/04-build-notes.md`.
+
+### Where the design stands
+
+Both artboard pages verify clean: **9,668 bound values, zero unbound, zero
+reaching past the semantic layer, zero tinted grounds, 1,494 contrast checks
+against real painted ancestors, zero failures.**
+
+**14 amber provenance flags** sit on the artboards, and they are the most
+important thing in the file. Each marks a claim that cannot ship as written —
+the five workforce figures that come from a press release rather than the fact
+sheet, the water answer that traces only to press coverage, the two quote
+placeholders with no attributed speaker, and the permit-appeal answer awaiting
+legal review. See `CLAUDE.md` §10, open questions 2, 5, 10–14.
 
 ---
 
