@@ -781,3 +781,89 @@ which is what the rule was always trying to produce.
 **Final state: 9,668 bound values across both artboard pages, zero unbound,
 zero reaching past the semantic layer, zero tinted grounds, 1,494 contrast
 checks against real painted ancestors, zero failures.**
+
+---
+
+## 13. The glass pass — a native navigation, and less of the same icon
+
+Driven by the client's reference frame (`node-id=144-2890`) and a pointer at
+[cosmos.so](https://www.cosmos.so/). The token work is in
+`docs/03-design-system.md` §15; this section is what changed on screen.
+
+### 13.1 The navigation bar
+
+The header is now a **frosted bar** — `surface/glass-nav` with the `Glass/blur`
+effect style — so page content passes under it rather than stopping at a solid
+white band. White type throughout, on every page.
+
+Three things went with it:
+
+- **The logo mark was a pillar colour used as decoration** (`pillar/infrastructure`
+  teal), which §7 had just outlawed everywhere else. It is a glass circle now.
+- **The Jobs control is a frosted light pill** — `surface/glass-light`, a
+  `border/glass-light` edge, `radius/pill`.
+- **Every Header instance carried a baked white fill** from an earlier pass,
+  which silently overrode the component. Seventeen instances cleared, so the
+  component actually controls the header again.
+
+### 13.2 The mobile menu, rebuilt
+
+| | Was | Now |
+| --- | --- | --- |
+| Ground | `navy/900` | `navy/975` |
+| Close | a bare 40px glyph | a 36px glass chip |
+| Feature | none | a photographic card with a frosted "Apply now" chip |
+| Rows | title + sub + **an arrow, six times** | title + sub, no arrow |
+| Secondary text | warm grey | white at 60% |
+| Index prefix | "01 — Energy Campus" | "Energy Campus" |
+| Bottom | a full-width navy button | the email route, as a link |
+
+**Two deliberate departures from the reference**, both worth a decision:
+
+1. **No "Media Kit" row.** It is not in `docs/02-plan.md`'s IA, there is no page
+   behind it, and the reference's copy for it duplicates the Contact row's.
+   Adding a primary-navigation item with nothing behind it is a scope decision,
+   not a styling one — say the word and it goes in.
+2. **The feature card does not say "Estimated 1,000 long term jobs."** §5.2 is
+   absolute: any surface showing ~1,000 carries footnote 2, and a navigation
+   overlay cannot carry a 350-character footnote. The canonical qualifier is
+   also *anticipated*, not *estimated*, and the canonical label is "total direct
+   and indirect permanent high-paying positions", not "long term jobs". The card
+   reads **"Work on the campus"** instead — a route, not a claim, so it needs no
+   footnote.
+
+### 13.3 A new component: Glass Chip
+
+Four variants — `Tone = Dark | Light` × `Content = Icon | Label`. Dark sits on
+dark grounds and imagery; Light is a bright control on a photograph. Both carry
+the fill, the edge and the blur together.
+
+### 13.4 Less repetitive iconography
+
+An audit counted every Material Symbols glyph repeated three or more times
+within a single section. The result splits cleanly:
+
+**Kept — the icon is the control.** `expand_more` ×9 on the trades rollovers,
+`add` ×6 on the FAQ accordion, `download` ×4 on the resources list. Each marks
+an independently operable row; removing them removes the affordance.
+
+**Removed — the icon carried no information.** 24 glyphs across both
+breakpoints:
+
+| Where | What | Why |
+| --- | --- | --- |
+| Project pillars | `arrow_forward` ×4 | "Learn more" is already a blue link; the arrow repeated four times in a row says nothing |
+| Community routes | `arrow_forward` ×3 | Same |
+| Community partners | `corporate_fare` ×5 | **The clearest case.** Five partners, five identical generic building icons. An icon that is the same for every row is not distinguishing anything — it is texture. Partner logos replace it. |
+
+Plus the six stacked arrows in the mobile menu, gone in the rebuild.
+
+### 13.5 Two things the audit turned up that were not about style
+
+- **"The Campus" had no navigation link.** There is a Campus page, fully built,
+  and the header nav went Workforce / Community / FAQ & Resources / News /
+  Contact. Added, first, on both header variants.
+- **Three Header instances were stacked in the mobile hero**, plus a leftover
+  `device-chrome` mockup frame sitting inside the mobile Home artboard. Both
+  came from earlier reference work. The duplicates are removed; the scratch
+  frame was moved out of the artboard rather than deleted.

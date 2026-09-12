@@ -112,6 +112,17 @@
   --color-stone-900: #3D3B36;
   --color-stone-950: #282622;
 
+  /* ------------------------------------------- deep navy + glass alphas */
+  --color-navy-975: #031A2E;
+  --color-navy-975-82: rgba(3, 26, 46, 0.82);
+  --color-white-05: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.10);
+  --color-white-60: rgba(255, 255, 255, 0.60);
+  --color-white-72: rgba(255, 255, 255, 0.72);
+  --color-white-89: rgba(255, 255, 255, 0.89);
+  --color-black-05: rgba(0, 0, 0, 0.05);
+  --color-stone-200-25: rgba(225, 222, 218, 0.25);
+
   /* ------------------------------------------------------------ spacing */
   /* 2px base unit. Token name == pixel value. */
   --space-0: 0px;
@@ -136,6 +147,10 @@
   --space-120: 120px;
   --space-160: 160px;
   --space-200: 200px;
+
+  /* --------------------------------------------------------------- blur */
+  /* Pairs with the Glass/blur effect style in Figma. Webflow: backdrop-filter. */
+  --blur-glass: 25px;
 
   /* ----------------------------------------------------------- typography */
   --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
@@ -236,13 +251,17 @@
   --surface-default: var(--color-white);
   --surface-subtle: var(--color-stone-50);
   --surface-sunken: var(--color-stone-100);
-  --surface-brand: var(--color-navy-900);
-  --surface-brand-alt: var(--color-navy-800);
+  --surface-brand: var(--color-navy-975);
+  --surface-brand-alt: var(--color-navy-950);
   --surface-accent: var(--color-blue-800);
   --surface-accent-subtle: var(--color-teal-100);
   --surface-stat: var(--color-stone-50);
   --surface-accent-strong: var(--color-blue-700);
   --surface-media: var(--color-stone-200);
+  --surface-glass: var(--color-white-05);
+  --surface-glass-hover: var(--color-white-10);
+  --surface-glass-light: var(--color-white-89);
+  --surface-glass-nav: var(--color-navy-975-82);
   /* text */
   --text-primary: var(--color-stone-900);
   --text-secondary: var(--color-stone-800);
@@ -251,7 +270,7 @@
   --text-link: var(--color-blue-800);
   --text-link-hover: var(--color-blue-900);
   --text-inverse: var(--color-white);
-  --text-inverse-secondary: var(--color-stone-200);
+  --text-inverse-secondary: var(--color-white-60);
   --text-inverse-link: var(--color-teal-200);
   --text-on-accent: var(--color-white);
   --text-stat-figure: var(--color-stone-900);
@@ -262,7 +281,7 @@
   /* border */
   --border-subtle: var(--color-stone-200);
   --border-divider: var(--color-stone-200);
-  --border-divider-inverse: var(--color-navy-800);
+  --border-divider-inverse: var(--color-stone-200-25);
   --border-default: var(--color-stone-300);
   --border-strong: var(--color-stone-400);
   --border-brand: var(--color-navy-800);
@@ -270,6 +289,8 @@
   --border-focus: var(--color-blue-600);
   --border-focus-inverse: var(--color-blue-400);
   --border-inverse: var(--color-navy-800);
+  --border-glass: var(--color-white-05);
+  --border-glass-light: var(--color-black-05);
   /* action */
   --action-primary-bg: var(--color-blue-800);
   --action-primary-bg-hover: var(--color-blue-900);

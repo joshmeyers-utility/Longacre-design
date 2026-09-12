@@ -73,17 +73,19 @@ Read in this order:
    Typography, colour, spacing, motion, and how it all maps to Webflow. Values
    live in [`design-system/`](design-system/) and in Figma.
 5. **[`docs/04-design-pass.md`](docs/04-design-pass.md)** — Stage 4. The
-   artboards, the 16-component library, and the micro-interaction spec. §11–12
+   artboards, the 17-component library, and the micro-interaction spec. §11–12
    record the editorial pass: the stat ledger, the Image Band component, the
    half-bleed split, and the copy audit that restructuring the sections forced.
+   §13 records the glass pass: a frosted navigation bar, the rebuilt mobile
+   menu, and the icon-repetition audit.
 
 Arriving in later stages: `prototype/`, `docs/04-build-notes.md`.
 
 ### Where the design stands
 
-Both artboard pages verify clean: **9,668 bound values, zero unbound, zero
-reaching past the semantic layer, zero tinted grounds, 1,494 contrast checks
-against real painted ancestors, zero failures.**
+Both artboard pages verify clean: **9,643 bound values, zero unbound, zero
+reaching past the semantic layer, zero tinted grounds, 1,475 alpha-composited
+contrast checks, zero failures.**
 
 **14 amber provenance flags** sit on the artboards, and they are the most
 important thing in the file. Each marks a claim that cannot ship as written —
