@@ -67,6 +67,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
+| 4b. Art direction | `docs/art-direction/t1-energy.json`, fresh Figma file `ANpwfYe7Zq4c7Lc4cxAWi2` | ✅ Complete |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -88,9 +89,13 @@ docs/
   02-plan.md               IA, page specs, 13-collection CMS model.
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
+  art-direction/
+    t1-energy.json         Stage 4b art direction, derived from t1energy.com.
+                           Supersedes parts of §7 — see its `supersedes` block.
 design-system/
-  tokens.json              Design tokens, W3C format. Generated — don't hand-edit.
-  tokens.css               Same tokens as CSS custom properties. Powers prototype/.
+  tokens.json              Stage 3 tokens, W3C format. Superseded by 4b for the
+                           new Figma file; still the record of the earlier pass.
+  tokens.css               Same tokens as CSS custom properties.
 (The draft lives in Figma, not in this repo — client decision at Stage 4.)
 ```
 
@@ -188,6 +193,18 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 ---
 
 ## 7. Design system
+
+> **⚠️ Superseded in part by Stage 4b.** A second art direction, derived from
+> [t1energy.com](https://t1energy.com/) and built on a new client seed palette,
+> lives in [`docs/art-direction/t1-energy.json`](art-direction/t1-energy.json)
+> and is realised in the fresh Figma file `ANpwfYe7Zq4c7Lc4cxAWi2`. It changes
+> four rules below — **no cards**, **no tinted grounds**, **square surfaces**,
+> and **the neutral-text floor** — and adds a second type family. Its
+> `supersedes` block states each change and why. **Everything in §5 (fact
+> discipline), §6 (canonical figures) and §9 (quality bars) is unchanged and
+> still binding.** The section below remains the record of the Stage 3/4 pass
+> and of the client's five-colour brand palette, which open question 17 asks
+> whether 4b replaces.
 
 **Resolved in Stage 3, revised during the Stage 4 modern pass.** Full rationale
 in `docs/03-design-system.md`; values in `design-system/tokens.json` and
@@ -416,6 +433,10 @@ the first line rather than refactoring later.
 | 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
 | 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
 | 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
+| 15 | **Confirm the seed hex values.** The Stage 4b palette was supplied as swatch images and the values are visually sampled: blue `#3F74AB`, paper `#F5F5F5`, grays `#F8F8F8` → `#1D1D1F`. A one-degree error in the blue changes which step is the link colour. | 4b build |
+| 16 | **Sign off the three derived signal colours** (`#A9610B` construction, `#9E2A22` urgent, `#2F6B4F` affirm). None is seeded — the seeds contain no warm hue — and an alert banner needs distinguishable severities. Currently the design avoids them entirely: the urgent bar is near-black. | Alert banner |
+| 17 | **Does Stage 4b supersede the client's five-colour brand palette?** (`#143251` navy, `#238FC8` blue, `#AFECF1` aqua, `#F3F1D0` cream, `#D8B471` gold.) The new seeds share neither the aqua, the cream nor the gold, and 4b is monochrome plus one blue. | Brand reconciliation |
+| 18 | **Pillar colours have nowhere to live in 4b.** §7 says a pillar colour marks one of the four pillars; 4b is monochrome with blue reserved for links. The pillars currently render as numbered text. Confirm this is acceptable or supply a second signal. | Home, Community |
 | 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
 
 **Non-blocking — can proceed with a stated assumption:**
@@ -433,7 +454,8 @@ the first line rather than refactoring later.
 
 ## 11. Conventions
 
-- **Branch:** `claude/keen-allen-x6me7z`. Do not push elsewhere.
+- **Branch:** `claude/admiring-fermat-t84cgt` (Stage 4b). Earlier stages were on
+  `claude/keen-allen-x6me7z`. Do not push elsewhere.
 - **Commits:** one per stage, descriptive subject, body explaining what changed
   and why.
 - **Markdown:** wrap prose at ~80 characters. Tables for anything comparative.

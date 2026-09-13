@@ -1,0 +1,745 @@
+{
+  "$schema": "https://schemas.longacre.dev/art-direction/1.0.0",
+  "id": "t1-energy",
+  "version": "2.0.0",
+  "generated": "2026-09-13",
+  "title": "Art direction reference — t1energy.com",
+  "purpose": "A reading of the reference site's visual system, abstracted to principles and tokens, then translated for the Homer City Energy Campus site. This is an art-direction brief, not a clone target. Anything marked in `doNotCopy` is T1's property or T1's meaning and must not travel.",
+  "source": {
+    "reference": "https://t1energy.com/",
+    "designedBy": "MOUTHWASH Studio (identity + site), logo with Moniker, T1 Sans by Daniel Wenzel at 26A1",
+    "capture": {
+      "method": "direct screenshots (v2) — superseding indirect inference (v1)",
+      "reason": "t1energy.com and every published case-study domain are egress-blocked in this environment. v1.0.0 of this file was reconstructed from search-indexed case-study prose. The client then supplied four direct screenshots of the live site, which corrected several structural readings — see `corrections`.",
+      "screenshotsSupplied": [
+        "Top navigation over hero media",
+        "Hero with Discover button and announcement card",
+        "Technology section — accordion with circular controls",
+        "Company section — stat treatment and rounded media"
+      ],
+      "confidence": "high on layout, radius, colour temperature, component form and type treatment; medium on exact pixel metrics, which are still Homer City decisions rather than measurements",
+      "stillUnverified": [
+        "Exact hex values and type sizes — estimated from screenshots at unknown scale",
+        "Section order across the full homepage",
+        "Motion and hover behaviour, which no still frame can show",
+        "Whether the neon green accent the case study describes appears anywhere in these views — it does not"
+      ]
+    },
+    "evidence": [
+      {
+        "claim": "Modular grid system pulled from T1's primary output — solar cells. Individual blocks act as building components across the identity: they form the logomark, generate the icon library, and structure the website UI.",
+        "via": "the-brandidentity.com case study (search-indexed)"
+      },
+      {
+        "claim": "The mark is constructed from a grid of solar-inspired blocks reflecting strength, resilience, flexibility and scale.",
+        "via": "the-brandidentity.com case study (search-indexed)"
+      },
+      {
+        "claim": "T1 Sans is a bespoke typeface juxtaposing round and sharp edges, drawn from the 'T' and '1' letterforms. The tension reads as static in print and resolves through motion in digital.",
+        "via": "the-brandidentity.com / mouthwash.studio (search-indexed)"
+      },
+      {
+        "claim": "The round-to-sharp transition is experienced through UX details and subtle hover states on the website.",
+        "via": "the-brandidentity.com case study (search-indexed)"
+      },
+      {
+        "claim": "Palette is reserved, with 'quiet confidence', deliberately avoiding the bright reds and oranges that read as hazard in industrial settings. A neon green accent replaces renewable-energy forest green.",
+        "via": "the-brandidentity.com case study (search-indexed)"
+      },
+      {
+        "claim": "Process and innovation are explained visually rather than verbally. The design is 'deep with detail without feeling dense'.",
+        "via": "the-brandidentity.com case study (search-indexed)"
+      },
+      {
+        "claim": "Block-based page architecture: mission, manufacturing (cell to module), supply chain, layer-by-layer technology detail, key figures, news feed.",
+        "via": "radianz.tech build case study (search-indexed)"
+      },
+      {
+        "claim": "Homepage hero copy is a single declarative sentence of what the company builds and why: 'T1 Energy is building domestic solar & battery supply chains to invigorate America with scalable, reliable, and low cost energy.'",
+        "via": "t1energy.com indexed meta description"
+      }
+    ]
+  },
+  "thesis": "The reference resolves a hard industrial subject into something a non-expert can read, by making the company's own unit of production the unit of the layout. Everything is a block; blocks tile into an array; the array is the page. Brutalist structure, softened only where a human touches it. Explanation happens visually, in sequence, not in paragraphs.",
+  "principles": [
+    {
+      "id": "P1",
+      "name": "The product is the grid",
+      "reference": "A solar cell tiles into a module; a module tiles into an array. That geometry is the logo, the icon set, and the page layout.",
+      "translation": "Homer City's unit is not a solar cell — copying one would be borrowing T1's meaning. Our unit is the campus parcel: a 3,200-acre site laid out as a survey grid of functional blocks (power block, GIS, compressor station, water treatment, mod yard, data center campus). The page tiles the same way the site does.",
+      "test": "If a module could be swapped for a square of any other brand's product and mean the same thing, the motif is decorative and should be cut."
+    },
+    {
+      "id": "P2",
+      "name": "Show the process, don't describe it",
+      "reference": "Cell to module to array; layer-by-layer PV construction — taught in pictures and sequence, not prose.",
+      "translation": "Demolition to foundation to first steel to turbine set. The July 2026 photo essay already is this sequence. Gas in, turbine, HRSG, grid out is the same move for the power block. Neither needs a paragraph.",
+      "test": "A neighbour should understand what is being built having read only the eyebrow labels."
+    },
+    {
+      "id": "P3",
+      "name": "Reserved palette, one accent, no hazard colour",
+      "reference": "Restrained neutrals; bright red and orange avoided because they carry hazard meaning on an industrial site; one contemporary accent.",
+      "translation": "Adopt wholesale, and it is sharper here than at T1: this is an active construction site where red and amber are live safety signals. Reserve them strictly for the alert banner's Construction and Urgent severities so they still mean something. Our single accent is the seeded blue.",
+      "test": "Count the saturated colours visible in one viewport. More than one and something is decorative."
+    },
+    {
+      "id": "P4",
+      "name": "Softness is radius, and it is generous",
+      "reference": "A pill-shaped translucent nav floating over the media; ~32-40px corners on every photograph and card; fully circular +/− controls. Almost nothing in the layout is square.",
+      "translation": "Adopt directly. Media and cards take radius/media (32); every control is a pill or a circle. The \"brutalism\" half of the phrase lives in the type and the bare open ground, not in sharp corners.",
+      "test": "A square corner anywhere in the layout is a bug. The only hard edges are the edges of the viewport."
+    },
+    {
+      "id": "P5",
+      "name": "Deep with detail, without density",
+      "reference": "A great deal of technical information, paced so it never reads as a wall.",
+      "translation": "The sceptic needs sources, dates and footnotes on the page — CLAUDE.md section 5 requires it. Pacing is what stops that from becoming a document dump: one idea per module, generous field around each, footnotes bound to their own figure rather than pooled at the page foot.",
+      "test": "Every module states one thing. If it states two, it is two modules."
+    },
+    {
+      "id": "P6",
+      "name": "Open ground, not containers",
+      "reference": "Content sits directly on one continuous warm off-white ground. Sections are separated by space alone — no cards, no rules, no tinted bands, no gutters.",
+      "translation": "Adopt directly. The only filled surfaces in the system are translucent overlays floating on media (nav, announcement card) and the dark footer. Everything else is type and photographs on bare ground.",
+      "test": "Delete every filled rectangle that is not a photograph or an overlay. If the page still reads, it was built right."
+    }
+  ],
+  "doNotCopy": [
+    "T1 Sans. Bespoke, licensed to T1, and drawn from their own letterforms. We use Geist.",
+    "The neon green accent. It is T1's single most identifying colour and carries their sustainability argument. Our accent is the seeded blue.",
+    "The solar-cell motif and any cell/wafer/module iconography. It is a literal picture of T1's product and means nothing here.",
+    "The cell-to-module-to-array explanatory diagram as a form. The idea (P2) travels; the specific diagram does not.",
+    "Any copy. The hero sentence quoted above is evidence of structure only."
+  ],
+  "palette": {
+    "note": "Seeds supplied by the client as swatch images on 2026-09-13. Hex values below are visually sampled from those images and MUST be confirmed against the source file before build — see openQuestions.OQ-A1. Every ramp step is derived from a seed; every pairing below is contrast-computed, not estimated.",
+    "seeds": {
+      "blue": "#3F74AB",
+      "paper": "#F5F5F5",
+      "grays": [
+        "#F8F8F8",
+        "#EDEDEC",
+        "#DFDFDE",
+        "#D2D1CD",
+        "#AAAAAA",
+        "#808080",
+        "#1D1D1F"
+      ]
+    },
+    "ramps": {
+      "ink": {
+        "50": "#F8F8F8",
+        "100": "#EDEDEC",
+        "200": "#DFDFDE",
+        "300": "#D2D1CD",
+        "400": "#BEBEBC",
+        "500": "#AAAAAA",
+        "600": "#959595",
+        "700": "#808080",
+        "750": "#66666A",
+        "800": "#585859",
+        "900": "#313132",
+        "950": "#1D1D1F"
+      },
+      "blue": {
+        "50": "#EFF3F8",
+        "100": "#DAE5F1",
+        "200": "#B8CEE5",
+        "300": "#8FB2D6",
+        "400": "#6493C4",
+        "500": "#3F74AB",
+        "600": "#366493",
+        "700": "#29517A",
+        "800": "#1D3F62",
+        "900": "#132D49",
+        "950": "#0D2033"
+      },
+      "signal": {
+        "construction": "#A9610B",
+        "urgent": "#9E2A22",
+        "affirm": "#2F6B4F"
+      }
+    },
+    "contrastFindings": [
+      {
+        "finding": "The seeded mid-gray #808080 (ink/700) reaches only 3.95:1 on white. It cannot carry body text.",
+        "consequence": "ink/700 is demoted to a 3:1 role — large text, icon marks, UI edges. A new step ink/750 (#66666A) was interpolated to carry metadata and eyebrows: 5.72:1 on white, 5.24:1 on paper, 4.88:1 on the ink/100 field. ink/750 is the AA floor for neutral text in this system.",
+        "rule": "Nothing lighter than ink/750 may carry text on any ground."
+      },
+      {
+        "finding": "The seeded blue #3F74AB reaches 4.89:1 on white — it passes AA for body text on its own.",
+        "consequence": "Unlike the previous palette (where #238FC8 failed at 3.60:1 and links had to jump to a darker step), the identity blue and the link blue can be the same family. But on the paper ground #F5F5F5 the seed drops to 4.48:1, a hair under AA.",
+        "rule": "Links are blue/600 (#366493) on every ground — 6.17:1 on white, 5.66:1 on paper, 5.27:1 on the field. blue/500 is the identity/large-display step only."
+      },
+      {
+        "finding": "White on navy blue/950 is 16.52:1; blue/200 on navy is 10.22:1.",
+        "consequence": "Navy bands have full headroom for both primary and secondary inverse text.",
+        "rule": "On navy: text/inverse = #FFFFFF, text/inverse-secondary = blue/200."
+      },
+      {
+        "finding": "The signal colours are derived, not seeded. None of the three appears in the client's swatches.",
+        "consequence": "They exist only because a construction-alert banner needs three distinguishable severities and the seeds offer no warm hue at all.",
+        "rule": "Flagged for client sign-off — see openQuestions.OQ-A2. They appear nowhere except the alert banner."
+      },
+      {
+        "finding": "Against the new warm off-white ground ink/100 (#EDEDEC): ink/950 is 14.37:1, ink/800 is 6.20:1, ink/750 is 4.88:1, blue/600 is 5.27:1.",
+        "consequence": "Every text role clears AA on the single ground. ink/700 (#808080) is 3.62:1 there and remains non-text only.",
+        "rule": "ink/750 stays the AA floor for neutral text. Muted accordion rows at rest may use ink/700 ONLY when they are large text (≥24px), where 3:1 applies."
+      }
+    ],
+    "semantic": {
+      "surface/page": "ink/100",
+      "surface/raised": "#FFFFFF",
+      "surface/overlay": "ink/950 @ 42% + 24px blur",
+      "surface/overlay-strong": "ink/950 @ 62% + 24px blur",
+      "surface/inverse": "ink/950",
+      "text/primary": "ink/950",
+      "text/secondary": "ink/800",
+      "text/meta": "ink/750",
+      "text/muted": "ink/700",
+      "text/inverse": "#FFFFFF",
+      "text/inverse-secondary": "ink/300",
+      "text/link": "blue/600",
+      "text/stat-figure": "ink/950",
+      "action/primary-bg": "blue/600",
+      "action/primary-text": "#FFFFFF",
+      "action/overlay-bg": "surface/overlay",
+      "action/overlay-text": "#FFFFFF",
+      "action/quiet-bg": "#FFFFFF",
+      "action/quiet-text": "ink/950",
+      "mark/default": "ink/950",
+      "mark/inverse": "#FFFFFF"
+    },
+    "groundRules": [
+      "One ground: ink/100 (#EDEDEC), a warm off-white, runs the length of every page. It is not a section device — it is the paper.",
+      "White is not the page. It appears only inside circular icon buttons and the rare raised card.",
+      "No coloured bands. No navy. The client direction is explicit: blue lives on links and CTAs and nowhere else.",
+      "The footer is ink/950 near-black rather than navy — institutional weight without introducing a second hue.",
+      "Overlays on media are translucent near-black with a blur, never a solid fill."
+    ]
+  },
+  "typography": {
+    "note": "T1 Sans is bespoke and unavailable. Geist is the closest available register. Heading weights are set lighter than the previous pass — the reference sets headlines and stats at Regular and Light, which is most of what makes the pages feel open.",
+    "families": {
+      "sans": {
+        "family": "Geist",
+        "weights": [
+          300,
+          400,
+          500,
+          600,
+          700
+        ],
+        "role": "everything readable"
+      },
+      "mono": {
+        "family": "Geist Mono",
+        "weights": [
+          400,
+          500
+        ],
+        "role": "the technical register — module labels, coordinates, figure units, 'as of' stamps, file metadata, milestone dates"
+      }
+    },
+    "monoRationale": "The reference explains a technical subject without technical prose. A mono face does that job structurally: it marks a string as instrument-read rather than written. Here it carries exactly the things CLAUDE.md section 5 requires to be visible and dated — the 'as of September 2026' stamp, footnote markers, permit numbers, file sizes. It makes provenance look like provenance.",
+    "case": "Sentence case everywhere, including mono labels. This is the one deliberate divergence from the reference, which sets labels in mono ALL-CAPS. CLAUDE.md §7 stands; the mono face and the square bullet carry the technical register instead of capitals.",
+    "scale": {
+      "display": {
+        "size": 88,
+        "mobile": 40,
+        "weight": 400,
+        "lineHeight": "104%",
+        "tracking": "-2.5%",
+        "role": "hero only"
+      },
+      "h1": {
+        "size": 64,
+        "mobile": 36,
+        "weight": 400,
+        "lineHeight": "108%",
+        "tracking": "-2%"
+      },
+      "h2": {
+        "size": 44,
+        "mobile": 30,
+        "weight": 400,
+        "lineHeight": "112%",
+        "tracking": "-1.5%"
+      },
+      "h3": {
+        "size": 28,
+        "mobile": 22,
+        "weight": 400,
+        "lineHeight": "124%",
+        "tracking": "-1%"
+      },
+      "h4": {
+        "size": 20,
+        "mobile": 18,
+        "weight": 500,
+        "lineHeight": "132%",
+        "tracking": "-0.5%"
+      },
+      "lead": {
+        "size": 22,
+        "mobile": 18,
+        "weight": 400,
+        "lineHeight": "150%",
+        "tracking": "-1%"
+      },
+      "body": {
+        "size": 17,
+        "mobile": 16,
+        "weight": 400,
+        "lineHeight": "158%",
+        "tracking": "0%"
+      },
+      "small": {
+        "size": 15,
+        "mobile": 14,
+        "weight": 400,
+        "lineHeight": "150%",
+        "tracking": "0%"
+      },
+      "footnote": {
+        "size": 13,
+        "mobile": 13,
+        "weight": 400,
+        "lineHeight": "146%",
+        "tracking": "0%"
+      },
+      "stat-figure": {
+        "size": 96,
+        "mobile": 52,
+        "weight": 300,
+        "lineHeight": "96%",
+        "tracking": "-3%"
+      },
+      "stat-figure-sm": {
+        "size": 56,
+        "mobile": 36,
+        "weight": 300,
+        "lineHeight": "100%",
+        "tracking": "-2.5%"
+      },
+      "label-mono": {
+        "size": 12,
+        "mobile": 12,
+        "weight": 400,
+        "lineHeight": "130%",
+        "tracking": "3%",
+        "family": "mono"
+      },
+      "eyebrow": {
+        "size": 12,
+        "mobile": 12,
+        "weight": 500,
+        "lineHeight": "120%",
+        "tracking": "4%"
+      },
+      "accordion-row": {
+        "size": 26,
+        "mobile": 20,
+        "weight": 400,
+        "lineHeight": "130%",
+        "tracking": "-1%"
+      }
+    },
+    "responsive": "Only font size varies by breakpoint, carried by a Desktop/Mobile mode on the Typography collection. Line height and tracking are percentages so they scale on their own. Set the mode on the artboard, never per node.",
+    "bullet": "A small filled square (7px) precedes every section label, set in mark/default. It is the smallest expression of the identity grid and the one motif carried over from the reference."
+  },
+  "grid": {
+    "desktop": {
+      "width": 1440,
+      "columns": 12,
+      "gutter": 24,
+      "margin": 80,
+      "contentWidth": 1280
+    },
+    "mobile": {
+      "width": 375,
+      "columns": 4,
+      "gutter": 16,
+      "margin": 16,
+      "contentWidth": 343
+    },
+    "bandWidths": {
+      "note": "Band width comes from the parent's horizontal padding, never from the band itself.",
+      "contained": {
+        "padding": 160,
+        "width": 1120
+      },
+      "wide": {
+        "padding": 80,
+        "width": 1280
+      },
+      "fullBleed": {
+        "padding": 0,
+        "width": 1440
+      }
+    },
+    "spacing": {
+      "base": 2,
+      "roles": {
+        "stack-xs": 8,
+        "stack-sm": 12,
+        "stack-md": 20,
+        "stack-lg": 32,
+        "stack-xl": 48,
+        "stack-2xl": 80,
+        "section-y": 160,
+        "section-y-mobile": 80,
+        "overlay-padding": 24,
+        "card-padding": 32
+      }
+    },
+    "radius": {
+      "note": "Principle P4 — softness is radius, applied broadly.",
+      "media": 32,
+      "card": 32,
+      "overlay": 32,
+      "thumb": 16,
+      "control": 999,
+      "iconButton": 999,
+      "square": 0
+    },
+    "asymmetry": {
+      "rule": "The content column sits right of centre. The left half is empty, or holds a single rounded image, or carries provenance set small.",
+      "contentColumn": {
+        "x": 720,
+        "width": 640
+      },
+      "mediaColumn": {
+        "x": 80,
+        "width": 560
+      },
+      "why": "Emptiness is the reference's primary compositional device, and here it earns a second job: the empty column is where footnotes, \"as of\" stamps and source lines live without crowding the thing they qualify."
+    }
+  },
+  "components": {
+    "alertBanner": {
+      "role": "Global, CMS-driven, above the header. The client's fastest lever.",
+      "severities": [
+        "Info",
+        "Construction",
+        "Urgent"
+      ],
+      "treatment": "Full-bleed band. Severity changes the ground colour and the mono label only — layout, type size and dismiss affordance never move.",
+      "behaviour": "Dismissible, dismissal remembered per visitor, a new alert reappears. Scheduled start/end dates. role=status, never traps focus."
+    },
+    "header": {
+      "role": "No bar. Two independent floating elements over the hero media.",
+      "logo": "Standalone at top-left, x=48 y=32, set in mark/inverse directly on the photograph. No container.",
+      "navPill": {
+        "form": "Pill capsule, radius/control, height 56, translucent surface/overlay with a 24px blur",
+        "position": "top-right, x from right margin 48, y 32",
+        "items": [
+          "The Campus",
+          "Workforce",
+          "Community",
+          "FAQ & Resources",
+          "News",
+          "Contact"
+        ],
+        "itemGap": 40,
+        "type": "Small, text/inverse, sentence case",
+        "externalMarker": "A trailing ↗ marks any item that leaves the site"
+      },
+      "cta": "The Jobs button sits as a separate pill immediately right of the nav capsule, filled action/primary-bg — the one saturated element in the viewport.",
+      "innerPages": "On grounds without hero media the capsule becomes solid surface/inverse so it keeps its contrast.",
+      "mobile": "Logo left, a single Menu pill right carrying a 3×3 dot-grid icon. The Jobs pill stays visible beside it."
+    },
+    "hero": {
+      "treatment": "Full-bleed photograph, scrim, real text over it. Headline at display size, one lead sentence, two buttons.",
+      "scrim": "Set so the weakest point over the text column clears AA against a pure white photograph — desktop 0.72 at the end of the text column, mobile 0.88 throughout. A contrast checker cannot verify this: it walks to the nearest solid painted ancestor and a photograph is not one. Do not lighten.",
+      "mediaLabel": "Every hero carries a mono kind/date label — 'Photograph · July 2026' or 'Rendering'. Required, not decorative: the deck's cover is a render of a campus that does not exist yet."
+    },
+    "sequence": {
+      "role": "The P2 device: timeline, photo essay, and the power-block explainer all use it.",
+      "treatment": "Horizontal array of modules, each a mono date label + image + one line. Status is carried by the label, not by colour.",
+      "instances": [
+        "Project timeline",
+        "1969–2023 to 2026 photo essay",
+        "Gas in → turbine → HRSG → grid out"
+      ]
+    },
+    "button": {
+      "primary": {
+        "bg": "action/primary-bg",
+        "text": "action/primary-text",
+        "radius": "pill",
+        "note": "The only saturated element on a page."
+      },
+      "overlay": {
+        "bg": "surface/overlay",
+        "text": "#FFFFFF",
+        "radius": "pill",
+        "note": "Over media only — the hero Discover-style control."
+      },
+      "quiet": {
+        "bg": "#FFFFFF",
+        "text": "ink/950",
+        "radius": "pill",
+        "note": "Hairline ink/300 edge. Used on the open ground."
+      },
+      "icon": {
+        "bg": "#FFFFFF",
+        "radius": "pill",
+        "size": 56,
+        "note": "Circular. Accordion +/−, carousel advance."
+      },
+      "case": "Sentence case. Never all-caps."
+    },
+    "footer": {
+      "treatment": "ink/950 near-black band, radius 0 (it meets the viewport edge). Four contact routes kept distinct — the brief specifies four inboxes and they must not collapse into one form. Carries the two standing footnotes."
+    },
+    "announcementCard": {
+      "role": "Floating card at bottom-right of the hero. Carries the single most current thing on the site.",
+      "form": "Translucent surface/overlay-strong, radius/overlay (32), 24px padding, blurred.",
+      "contents": "Square bullet + sentence-case mono label, then a two-to-three-line headline in text/inverse, then a rounded thumbnail at radius/thumb (16) on the right.",
+      "homerCityUse": "This is the right home for the construction-update banner the brief requires — it is more current-feeling than a full-width strip and it does not push the hero down. Urgent severity is the exception: it takes a full-width bar above everything, because a blasting notice must not be dismissible furniture."
+    },
+    "statOpen": {
+      "role": "Replaces the v1 stat module. Every stat array on the site.",
+      "form": "No container. Figure at 96px Light in text/stat-figure, with a mono sentence-case label directly beneath in text/meta. Separated from the next stat by stack-2xl (80) vertically.",
+      "rules": [
+        "The qualifier (Up to / Projected / Anticipated) sits as a mono label above the figure.",
+        "Required footnotes and 'as of' stamps sit in the empty left column, aligned to the figure's baseline.",
+        "Figures are near-black, never blue — blue means link.",
+        "Never round a figure for visual balance."
+      ]
+    },
+    "accordion": {
+      "role": "FAQ, the trades roster, commitments, and the power-block explainer.",
+      "form": "Rows on open ground with no dividers. Row label at accordion-row size. A circular white icon button sits at the right of each row carrying + when closed and − when open.",
+      "states": "Closed rows sit in text/muted (ink/700, permissible at 26px where the 3:1 large-text threshold applies); the open row moves to text/primary.",
+      "accessibility": "The circular control is a real button with an accessible name, not a decorative glyph. Rows are keyboard reachable and every answer stays in the DOM."
+    }
+  },
+  "motion": {
+    "reference": "The round-to-sharp tension of the letterforms resolves through motion; hover states carry the detail.",
+    "translation": "Motion resolves structure, it does not decorate. Modules settle into their array on reveal; the hairline gutter is what animates. Nothing overshoots.",
+    "tokens": {
+      "duration/fast": 120,
+      "duration/base": 240,
+      "duration/slow": 420,
+      "ease/appear": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "ease/interact": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "ease/transition": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "distance/sm": 8,
+      "distance/md": 16
+    },
+    "constraints": [
+      "Stays inside Webflow Interactions 2.0 where possible: scroll-into-view, scroll-progress, hover, page-load, click. Anything richer needs a GSAP embed and an explicit call-out.",
+      "prefers-reduced-motion support is not optional."
+    ]
+  },
+  "imagery": {
+    "reference": "Industrial subject matter shot plainly; explanation carried visually.",
+    "translation": "The client's aerial and landscape frames are the strongest asset in the source material — the campus set in Indiana County farmland, with the town in shot. This imagery is what makes the site read as a place rather than a company.",
+    "rules": [
+      "Square corners on all media. Radius is for controls only.",
+      "Every image carries a mono kind label: Photograph or Rendering. Non-negotiable — see CLAUDE.md section 7.",
+      "Date is a structured field, never part of the caption string.",
+      "Production notes and published captions never share a field. A brief lives inside the image area the photograph will destroy; the caption lives outside it.",
+      "Full bleed is spent, not spread: never two photographic bands adjacent.",
+      "Explicit dimensions, lazy loading below the fold, modern formats. Rural county, mobile-first, constrained connections. No layout shift."
+    ]
+  },
+  "sectionArchetypes": [
+    {
+      "id": "A1",
+      "name": "Hero",
+      "from": "T1 hero — one declarative sentence over full-bleed media",
+      "grid": "full bleed",
+      "ground": "photo + scrim"
+    },
+    {
+      "id": "A2",
+      "name": "Orientation",
+      "from": "T1 mission block",
+      "grid": "wide",
+      "ground": "white",
+      "note": "Three short paragraphs: what, where, what stage now."
+    },
+    {
+      "id": "A3",
+      "name": "Stat sequence",
+      "from": "T1 key figures",
+      "grid": "asymmetric",
+      "ground": "open",
+      "note": "Open ground, one stat per row, provenance in the empty column."
+    },
+    {
+      "id": "A4",
+      "name": "Sequence",
+      "from": "T1 cell → module → array",
+      "grid": "wide",
+      "ground": "white"
+    },
+    {
+      "id": "A5",
+      "name": "Accordion list",
+      "from": "T1 supply chain / technology blocks",
+      "grid": "asymmetric",
+      "ground": "open",
+      "note": "Circular +/− controls, no dividers."
+    },
+    {
+      "id": "A6",
+      "name": "Statement",
+      "from": "T1 mission statement moment",
+      "grid": "asymmetric",
+      "ground": "open",
+      "note": "Was an institutional navy band in v1. Now type on bare ground — the emphasis comes from scale and surrounding emptiness."
+    },
+    {
+      "id": "A7",
+      "name": "Editorial split",
+      "from": "T1 layer-by-layer detail",
+      "grid": "wide",
+      "ground": "white",
+      "note": "Media one side, text the other."
+    },
+    {
+      "id": "A8",
+      "name": "Index / feed",
+      "from": "T1 news feed",
+      "grid": "wide",
+      "ground": "white"
+    }
+  ],
+  "supersedes": {
+    "note": "This art direction changes four standing rules in CLAUDE.md section 7. Each is a deliberate consequence of the reference, flagged for the user's decision — not a silent override.",
+    "changes": [
+      {
+        "rule": "CLAUDE.md section 7 — 'And no cards: a filled box is not a grouping device.'",
+        "change": "The module array is the reference's core structural device and cannot be adopted without filled boxes.",
+        "reconciliation": "The original rule targets decorative white cards floating on a light ground — 2015-era boxing that does what space already does. Our module inverts that: the module is white and the GROUND is tinted, the gap between modules is field showing through rather than a drawn border, and nothing is stroked, shadowed or rounded. The rule's intent — no decorative boxing — is kept; its letter is not."
+      },
+      {
+        "rule": "CLAUDE.md section 7 — 'No tinted grounds; the sand family is used by no semantic role.'",
+        "change": "A tinted field (ink/100) is now load-bearing: it is what makes module gutters visible.",
+        "reconciliation": "It is a neutral from the client's own seeded gray ramp, not a warm sand wash, and it is structural rather than decorative."
+      },
+      {
+        "rule": "CLAUDE.md section 7 — 'stone/700 is the floor for neutral text.'",
+        "change": "Under the new seeds the equivalent step fails AA at 3.95:1. The floor moves to ink/750 (#66666A).",
+        "reconciliation": "The rule's intent (a hard AA floor for neutral text) is unchanged; only the step that satisfies it moved, because the seeds moved."
+      },
+      {
+        "rule": "CLAUDE.md section 7 — implicitly a single type family.",
+        "change": "Geist Mono is added as a second family for the technical/provenance register.",
+        "reconciliation": "It carries the date stamps, footnote markers and source metadata that section 5 already requires to be visible. It makes a fact-discipline requirement legible as a design signal."
+      }
+    ],
+    "unchanged": [
+      "All of CLAUDE.md section 5 (fact discipline) and section 6 (canonical figures) apply without modification.",
+      "'Blue means link' holds — the accent is blue/600 and nothing else is blue, icons included.",
+      "A pillar colour marks one of the four pillars and nothing else.",
+      "Sentence case everywhere; no all-caps.",
+      "WCAG 2.2 AA, non-negotiable. Rollovers need a non-hover path.",
+      "Mobile is the primary comp for the responsive pass."
+    ]
+  },
+  "openQuestions": [
+    {
+      "id": "OQ-A1",
+      "question": "Confirm the seed hex values. The palette was supplied as swatch images and the values here are visually sampled: blue #3F74AB, paper #F5F5F5, and a seven-step gray ramp #F8F8F8 → #1D1D1F.",
+      "blocks": "Build. A one-degree error in the blue changes which step is the link colour.",
+      "severity": "blocking"
+    },
+    {
+      "id": "OQ-A2",
+      "question": "Sign off the three derived signal colours (construction #A9610B, urgent #9E2A22, affirm #2F6B4F). None is seeded — the seeds contain no warm hue, and a construction-alert banner needs three distinguishable severities.",
+      "blocks": "Alert banner",
+      "severity": "blocking"
+    },
+    {
+      "id": "OQ-A3",
+      "question": "Does this art direction supersede the client's five-colour brand palette (navy #143251, blue #238FC8, aqua #AFECF1, cream #F3F1D0, gold #D8B471) recorded in CLAUDE.md section 7, or sit alongside it? The new seeds share neither the aqua, the cream nor the gold.",
+      "blocks": "Any brand-guide reconciliation",
+      "severity": "blocking"
+    },
+    {
+      "id": "OQ-A4",
+      "question": "Capture t1energy.com directly. Every metric in this file is a Homer City decision, not a measurement — the reference was reconstructed from case-study text because the domain is egress-blocked here.",
+      "blocks": "Nothing. Would raise confidence from inference to measurement.",
+      "severity": "non-blocking"
+    },
+    {
+      "id": "OQ-A5",
+      "question": "Geist stands in for the bespoke T1 Sans. If the brand guide (CLAUDE.md open question #1) names a real typeface, it replaces Geist and the whole scale re-points to it.",
+      "blocks": "Nothing — the scale is tokenised and re-points in one change.",
+      "severity": "non-blocking"
+    }
+  ],
+  "corrections": [
+    {
+      "v1Claim": "The page is built from a hard modular grid of square white blocks separated by 1px gutters.",
+      "reality": "The modular grid lives in the LOGO and the icon set. The page itself is open, asymmetric and nearly empty — content sits directly on the ground with almost no containers at all.",
+      "cause": "The case study’s phrase \"individual blocks structure the website’s UI design\" was read as page layout. It describes the identity system.",
+      "impact": "Load-bearing. The entire module-array device is removed."
+    },
+    {
+      "v1Claim": "\"Brutalism and softness\" means square structure with radius reserved for controls.",
+      "reality": "Softness IS radius, applied broadly and generously — a pill-shaped floating nav, ~32-40px on photographs and cards, fully circular +/− buttons. Very little in the layout is square.",
+      "cause": "Inverted reading of the same phrase.",
+      "impact": "Load-bearing. Radius roles re-pointed from 0/6 to 32/pill."
+    },
+    {
+      "v1Claim": "The header is a solid white bar with a hairline base rule.",
+      "reality": "There is no bar. The logo sits alone at top-left directly on the hero media, and the nav is a translucent, blurred, pill-shaped capsule floating at top-right. A \"Menu\" pill with a 3×3 dot-grid icon appears on inner pages.",
+      "cause": "Assumed a conventional header pattern.",
+      "impact": "Header rebuilt."
+    },
+    {
+      "v1Claim": "Two grounds alternate — warm neutral for reading, navy for institutional moments.",
+      "reality": "The site is effectively monochrome: one warm off-white ground throughout, near-black type, white and translucent-dark overlays. No coloured institutional bands. The neon green the case study describes appears in none of the supplied views.",
+      "cause": "Carried over from the previous Homer City design pass rather than read from the reference.",
+      "impact": "Navy bands removed. Client direction: blue is reserved for links and CTAs only."
+    },
+    {
+      "v1Claim": "Stat figures sit inside white modules in a tiled array.",
+      "reality": "Stat figures are very large, light-weight, and sit on the open ground with a small mono label directly beneath. No container, no array, no rules. They are separated by vertical space alone.",
+      "cause": "Consequence of the module-array error.",
+      "impact": "Stat component rebuilt on open ground; figure size raised 72 → 96."
+    },
+    {
+      "v1Claim": "Sections run full-width with even columns.",
+      "reality": "Layout is strongly asymmetric. The left half of the screen is frequently empty or holds a single rounded image; the content column sits right of centre. Emptiness is the primary compositional device.",
+      "cause": "Not visible in prose descriptions.",
+      "impact": "Grid re-specified as an asymmetric two-column system."
+    },
+    {
+      "v1Claim": "Section labels are sentence-case eyebrows.",
+      "reality": "T1 sets them as mono ALL-CAPS preceded by a small filled square — \"■ TECHNOLOGY\", \"■ COMPANY\" — and uses the same mono caps for every stat label.",
+      "cause": "Not visible in prose descriptions.",
+      "impact": "Partially adopted. CLAUDE.md §7 forbids all-caps and the client chose to keep that rule, so labels take the mono face and the square bullet but stay sentence case. This is a deliberate, recorded divergence from the reference — see `clientDirection`."
+    }
+  ],
+  "clientDirection": {
+    "decidedOn": "2026-09-13",
+    "softness": "Match T1 fully. Pill nav and buttons, 32px radius on media and cards, circular icon buttons. Square corners leave the system.",
+    "labelCase": "Keep sentence case. CLAUDE.md §7 stands. Mono face and the square bullet carry the technical register instead of capitals — the one point where this design deliberately diverges from the reference.",
+    "colour": "Blue on links and CTAs only. Pages read monochrome. No navy institutional bands.",
+    "density": "Follow T1's spacing and accept longer pages. Required footnotes, 'as of' stamps and source lines sit small in the empty column — the space is where provenance lives."
+  },
+  "openGround": {
+    "name": "Open ground",
+    "definition": "There is no container system. Content sits on one continuous warm off-white ground, separated by vertical space and by the asymmetric grid.",
+    "theOnlyFilledSurfaces": [
+      "The floating nav pill (translucent over media)",
+      "The announcement card (translucent over media)",
+      "Circular icon buttons (white)",
+      "Photographs, at radius/media",
+      "The footer (ink/950)"
+    ],
+    "rules": [
+      "No cards on the page ground. No tinted bands. No rules or dividers between sections.",
+      "A section states one thing, and is separated from the next by section-y (160px).",
+      "Provenance — footnote, source, \"as of\" date — sits in the empty column beside the thing it qualifies, never pooled at the page foot."
+    ]
+  }
+}
