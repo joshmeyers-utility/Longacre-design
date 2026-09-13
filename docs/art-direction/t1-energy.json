@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.longacre.dev/art-direction/1.0.0",
   "id": "t1-energy",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "generated": "2026-09-13",
   "title": "Art direction reference — t1energy.com",
   "purpose": "A reading of the reference site's visual system, abstracted to principles and tokens, then translated for the Homer City Energy Campus site. This is an art-direction brief, not a clone target. Anything marked in `doNotCopy` is T1's property or T1's meaning and must not travel.",
@@ -15,7 +15,9 @@
         "Top navigation over hero media",
         "Hero with Discover button and announcement card",
         "Technology section — accordion with circular controls",
-        "Company section — stat treatment and rounded media"
+        "Company section — stat treatment and rounded media",
+        "Expanded navigation — mega-menu panel with grouped children and two footer CTAs",
+        "Blog index — control bar, three-column grid, byline meta and category chips"
       ],
       "confidence": "high on layout, radius, colour temperature, component form and type treatment; medium on exact pixel metrics, which are still Homer City decisions rather than measurements",
       "stillUnverified": [
@@ -125,7 +127,9 @@
         "#AAAAAA",
         "#808080",
         "#1D1D1F"
-      ]
+      ],
+      "actionColour": "#0C73CD",
+      "blueNote": "The original seed blue #3F74AB no longer anchors the ramp and currently has no semantic role. Confirm whether it is retired or reassigned."
     },
     "ramps": {
       "ink": {
@@ -143,17 +147,17 @@
         "950": "#1D1D1F"
       },
       "blue": {
-        "50": "#EFF3F8",
-        "100": "#DAE5F1",
-        "200": "#B8CEE5",
-        "300": "#8FB2D6",
-        "400": "#6493C4",
-        "500": "#3F74AB",
-        "600": "#366493",
-        "700": "#29517A",
-        "800": "#1D3F62",
-        "900": "#132D49",
-        "950": "#0D2033"
+        "50": "#F0F7FE",
+        "100": "#DEEEFD",
+        "200": "#BDDEFB",
+        "300": "#93C9F9",
+        "400": "#51A9F5",
+        "500": "#1A8DF2",
+        "600": "#0C73CD",
+        "700": "#0A5CA3",
+        "800": "#0A4981",
+        "900": "#09365D",
+        "950": "#082640"
       },
       "signal": {
         "construction": "#A9610B",
@@ -166,11 +170,6 @@
         "finding": "The seeded mid-gray #808080 (ink/700) reaches only 3.95:1 on white. It cannot carry body text.",
         "consequence": "ink/700 is demoted to a 3:1 role — large text, icon marks, UI edges. A new step ink/750 (#66666A) was interpolated to carry metadata and eyebrows: 5.72:1 on white, 5.24:1 on paper, 4.88:1 on the ink/100 field. ink/750 is the AA floor for neutral text in this system.",
         "rule": "Nothing lighter than ink/750 may carry text on any ground."
-      },
-      {
-        "finding": "The seeded blue #3F74AB reaches 4.89:1 on white — it passes AA for body text on its own.",
-        "consequence": "Unlike the previous palette (where #238FC8 failed at 3.60:1 and links had to jump to a darker step), the identity blue and the link blue can be the same family. But on the paper ground #F5F5F5 the seed drops to 4.48:1, a hair under AA.",
-        "rule": "Links are blue/600 (#366493) on every ground — 6.17:1 on white, 5.66:1 on paper, 5.27:1 on the field. blue/500 is the identity/large-display step only."
       },
       {
         "finding": "White on navy blue/950 is 16.52:1; blue/200 on navy is 10.22:1.",
@@ -186,6 +185,11 @@
         "finding": "Against the new warm off-white ground ink/100 (#EDEDEC): ink/950 is 14.37:1, ink/800 is 6.20:1, ink/750 is 4.88:1, blue/600 is 5.27:1.",
         "consequence": "Every text role clears AA on the single ground. ink/700 (#808080) is 3.62:1 there and remains non-text only.",
         "rule": "ink/750 stays the AA floor for neutral text. Muted accordion rows at rest may use ink/700 ONLY when they are large text (≥24px), where 3:1 applies."
+      },
+      {
+        "finding": "The supplied action colour #0C73CD is 4.83:1 on white but only 4.12:1 on the #EDEDEC page ground.",
+        "consequence": "It clears AA as a button fill — white on it is 4.83:1 — but fails as link text on the page ground, which is where most links live.",
+        "rule": "action/primary-bg = blue/600 (#0C73CD), the supplied colour, used filled. text/link = blue/700 (#0A5CA3) at 5.83:1 on the ground and 6.83:1 on white. text/link-inverse = blue/500 (#1A8DF2) at 4.92:1 on the near-black footer."
       }
     ],
     "semantic": {
@@ -200,7 +204,7 @@
       "text/muted": "ink/700",
       "text/inverse": "#FFFFFF",
       "text/inverse-secondary": "ink/300",
-      "text/link": "blue/600",
+      "text/link": "blue/700",
       "text/stat-figure": "ink/950",
       "action/primary-bg": "blue/600",
       "action/primary-text": "#FFFFFF",
@@ -209,7 +213,9 @@
       "action/quiet-bg": "#FFFFFF",
       "action/quiet-text": "ink/950",
       "mark/default": "ink/950",
-      "mark/inverse": "#FFFFFF"
+      "mark/inverse": "#FFFFFF",
+      "text/link-inverse": "blue/500",
+      "surface/overlay-panel": "ink/950 @ 86% + 24px blur"
     },
     "groundRules": [
       "One ground: ink/100 (#EDEDEC), a warm off-white, runs the length of every page. It is not a section device — it is the paper.",
@@ -438,8 +444,7 @@
           "The Campus",
           "Workforce",
           "Community",
-          "FAQ & Resources",
-          "News",
+          "Newsroom",
           "Contact"
         ],
         "itemGap": 40,
@@ -448,7 +453,14 @@
       },
       "cta": "The Jobs button sits as a separate pill immediately right of the nav capsule, filled action/primary-bg — the one saturated element in the viewport.",
       "innerPages": "On grounds without hero media the capsule becomes solid surface/inverse so it keeps its contrast.",
-      "mobile": "Logo left, a single Menu pill right carrying a 3×3 dot-grid icon. The Jobs pill stays visible beside it."
+      "mobile": "Logo left, a single Menu pill right carrying a 3×3 dot-grid icon. The Jobs pill stays visible beside it.",
+      "megaMenu": {
+        "form": "The bar expands downward into a second panel at radius/overlay (32), separated by an 8px gap, same width as the bar.",
+        "ground": "surface/overlay-panel — ink/950 at 86%, darker than the bar's 62%, so dimmed children clear AA.",
+        "columns": "One column per top-level item, aligned under its parent. Children in text/inverse-secondary; the bar stays white.",
+        "footer": "Two full-width CTA pills, label left and arrow pushed to the right edge.",
+        "accessibility": "Opens on hover AND on focus/click, closes on Escape, and every child is in the tab order. Hover is never the only path."
+      }
     },
     "hero": {
       "treatment": "Full-bleed photograph, scrim, real text over it. Headline at display size, one lead sentence, two buttons.",
@@ -515,6 +527,13 @@
       "form": "Rows on open ground with no dividers. Row label at accordion-row size. A circular white icon button sits at the right of each row carrying + when closed and − when open.",
       "states": "Closed rows sit in text/muted (ink/700, permissible at 26px where the 3:1 large-text threshold applies); the open row moves to text/primary.",
       "accessibility": "The circular control is a real button with an accessible name, not a decorative glyph. Rows are keyboard reachable and every answer stays in the DOM."
+    },
+    "blogIndex": {
+      "controlBar": "A row of label:value controls — Filter: All types · Sort by: Most recent · View: Grid 3 col. Label in text/primary, value in text/meta, small chevron. Mono throughout.",
+      "grid": "Three columns, 40px gutter, 80px row gap.",
+      "card": "Media at radius/media, then a meta line (date in text/primary, separator, issuer in text/meta), then the headline at H3, then a category chip.",
+      "chip": "Pill at surface/field with text/secondary. Categories: Workforce · Construction · Community · Permits.",
+      "types": "Three content types in one collection — press release, media statement, supportive coverage. Coverage items link out and credit the outlet."
     }
   },
   "motion": {
@@ -657,6 +676,24 @@
       "severity": "blocking"
     },
     {
+      "id": "OQ-A6",
+      "question": "Does regrouping FAQ & Resources and News under a single Newsroom parent stand? It changes the approved Stage 2 sitemap.",
+      "blocks": "Nav and URL structure",
+      "severity": "blocking"
+    },
+    {
+      "id": "OQ-A7",
+      "question": "The seed blue #3F74AB no longer has a role now that #0C73CD anchors the ramp. Retire it, or give it one?",
+      "blocks": "Nothing — flagged so it is a decision rather than a silent drop.",
+      "severity": "non-blocking"
+    },
+    {
+      "id": "OQ-A8",
+      "question": "Are the mega-menu children anchor links inside their parent page, or separate routes? The nav implies routes; the comps currently build them as sections.",
+      "blocks": "URL map and the remaining page comps",
+      "severity": "blocking"
+    },
+    {
       "id": "OQ-A3",
       "question": "Does this art direction supersede the client's five-colour brand palette (navy #143251, blue #238FC8, aqua #AFECF1, cream #F3F1D0, gold #D8B471) recorded in CLAUDE.md section 7, or sit alongside it? The new seeds share neither the aqua, the cream nor the gold.",
       "blocks": "Any brand-guide reconciliation",
@@ -717,6 +754,18 @@
       "reality": "T1 sets them as mono ALL-CAPS preceded by a small filled square — \"■ TECHNOLOGY\", \"■ COMPANY\" — and uses the same mono caps for every stat label.",
       "cause": "Not visible in prose descriptions.",
       "impact": "Partially adopted. CLAUDE.md §7 forbids all-caps and the client chose to keep that rule, so labels take the mono face and the square bullet but stay sentence case. This is a deliberate, recorded divergence from the reference — see `clientDirection`."
+    },
+    {
+      "v1Claim": "The nav is a flat list of links.",
+      "reality": "The bar expands downward into a second rounded panel. Each top-level item is a parent whose children sit in a column directly beneath it. Children are dimmed relative to the bar. The panel closes with two full-width CTA pills, arrows pushed to the far right edge.",
+      "cause": "Only the collapsed state was visible in the earlier screenshots.",
+      "impact": "Nav rebuilt as a mega-menu; site IA regrouped to match — see `informationArchitecture`."
+    },
+    {
+      "v1Claim": "The news index is a plain grid of cards.",
+      "reality": "It opens with a row of label:value dropdown controls (Sort by: Most recent, View mode: Grid 3 col), then a three-column grid. Each item carries a meta line of date plus byline, a headline, and a small category chip beneath it. The grid images are square-cornered, unlike the rounded media elsewhere on the site.",
+      "cause": "Not visible in prose descriptions.",
+      "impact": "Blog index rebuilt. The square-cornered grid images were NOT adopted — see `deliberateDivergences`."
     }
   ],
   "clientDirection": {
@@ -724,7 +773,8 @@
     "softness": "Match T1 fully. Pill nav and buttons, 32px radius on media and cards, circular icon buttons. Square corners leave the system.",
     "labelCase": "Keep sentence case. CLAUDE.md §7 stands. Mono face and the square bullet carry the technical register instead of capitals — the one point where this design deliberately diverges from the reference.",
     "colour": "Blue on links and CTAs only. Pages read monochrome. No navy institutional bands.",
-    "density": "Follow T1's spacing and accept longer pages. Required footnotes, 'as of' stamps and source lines sit small in the empty column — the space is where provenance lives."
+    "density": "Follow T1's spacing and accept longer pages. Required footnotes, 'as of' stamps and source lines sit small in the empty column — the space is where provenance lives.",
+    "actionColour": "#0C73CD, supplied 2026-09-13. Pinned at blue/600 and the blue ramp is regenerated around it. It replaces the seed blue #3F74AB as the anchor of the blue family; the seed blue now has no semantic role and needs a decision."
   },
   "openGround": {
     "name": "Open ground",
@@ -741,5 +791,81 @@
       "A section states one thing, and is separated from the next by section-y (160px).",
       "Provenance — footnote, source, \"as of\" date — sits in the empty column beside the thing it qualifies, never pooled at the page foot."
     ]
+  },
+  "deliberateDivergences": [
+    {
+      "reference": "Section and stat labels set in mono ALL-CAPS.",
+      "ours": "Mono face, sentence case.",
+      "why": "CLAUDE.md §7 forbids all-caps and the client chose to keep that rule. The mono face and the square bullet carry the technical register instead."
+    },
+    {
+      "reference": "Dimmed mega-menu child items sit at roughly 3.4:1 against the panel.",
+      "ours": "Panel ground darkened from 0.62 to 0.86 alpha so dimmed children reach 6.10:1.",
+      "why": "The visual hierarchy is preserved; the accessibility failure is not. WCAG 2.2 AA is non-negotiable for a public information site."
+    },
+    {
+      "reference": "Blog-index grid images are square-cornered.",
+      "ours": "Blog images take radius/media (32) like every other photograph.",
+      "why": "P4 makes radius the system-wide expression of softness, and the client chose to match it fully. A single square-cornered grid would read as a bug rather than a decision. One token flips this if the client prefers the reference."
+    },
+    {
+      "reference": "Numeric dates (09.04.26) and a personal byline (Posted by <author>).",
+      "ours": "Spelled-out dates (4 September 2026) and the issuing organisation in the byline slot.",
+      "why": "CLAUDE.md §9 requires plain language — a numeric date is ambiguous and slower to read. Press releases have no author; for supportive coverage the outlet is the thing worth crediting, and crediting it is part of the transparency argument."
+    },
+    {
+      "reference": "Facility pages named with underscore codes (G1_Dallas, G2_Austin, HQ_Austin).",
+      "ours": "Plain names.",
+      "why": "The convention encodes T1's multi-facility structure. Homer City is one site; borrowing the codes would imply a scale that does not exist."
+    }
+  ],
+  "informationArchitecture": {
+    "readingOfTheReference": "Five top-level items. Three are parents holding children grouped by kind, two are external destinations marked with a trailing arrow and placed last. The blog sits under a parent rather than in the bar. Children are revealed in the expanded panel, never as a flat list.",
+    "changeFromStage2": "This regroups the approved Stage 2 sitemap. FAQ & Resources and News were separate top-level items; they now sit together under a Newsroom parent, which is where a sceptic's whole journey — the answer, the release, the filing — lives in one place. Flagged for the client rather than assumed.",
+    "nav": [
+      {
+        "label": "The Campus",
+        "children": [
+          "Overview",
+          "Power block",
+          "Water & site",
+          "Timeline",
+          "Site history"
+        ]
+      },
+      {
+        "label": "Workforce",
+        "children": [
+          "Overview",
+          "Trades on site",
+          "Apprenticeships",
+          "How to apply"
+        ]
+      },
+      {
+        "label": "Community",
+        "children": [
+          "Partners",
+          "Our commitments",
+          "Voices"
+        ]
+      },
+      {
+        "label": "Newsroom",
+        "children": [
+          "News",
+          "FAQ & answers",
+          "Downloads",
+          "Permits & filings ↗"
+        ]
+      },
+      {
+        "label": "Contact",
+        "children": []
+      }
+    ],
+    "panelCTAs": "Jobs (light, filled) and Get in touch (translucent). Jobs leads — the reference puts Get in touch first, but the brief says put as much focus as possible on workforce.",
+    "externalMarker": "A trailing ↗ marks anything leaving the site. Permits & filings points at PA DEP, which is the point: the sceptic should be able to reach the primary source, not our description of it.",
+    "unresolved": "The nav now declares children that do not all exist as separate comps. In the reference, 'Overview' as a first child implies each parent is a hub with real child pages. Here, most children (Power block, Water & site, Timeline, Trades on site, Apprenticeships, How to apply) are currently sections inside their parent page — which is defensible given the client chose the reference's long-page spacing, and would make them anchor links rather than routes. Decide which: anchor links keep seven pages, separate routes adds roughly ten more and changes the URL map in docs/02-plan.md §2."
   }
 }
