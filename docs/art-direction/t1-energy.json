@@ -249,7 +249,7 @@
       }
     },
     "monoRationale": "The reference explains a technical subject without technical prose. A mono face does that job structurally: it marks a string as instrument-read rather than written. Here it carries exactly the things CLAUDE.md section 5 requires to be visible and dated — the 'as of September 2026' stamp, footnote markers, permit numbers, file sizes. It makes provenance look like provenance.",
-    "case": "Sentence case everywhere, including mono labels. This is the one deliberate divergence from the reference, which sets labels in mono ALL-CAPS. CLAUDE.md §7 stands; the mono face and the square bullet carry the technical register instead of capitals.",
+    "case": "Sentence case everywhere, including mono labels. The reference sets section and stat labels in mono ALL-CAPS preceded by a small filled square; this design takes neither. The mono face alone carries the technical register.",
     "scale": {
       "display": {
         "size": 88,
@@ -353,7 +353,7 @@
       }
     },
     "responsive": "Only font size varies by breakpoint, carried by a Desktop/Mobile mode on the Typography collection. Line height and tracking are percentages so they scale on their own. Set the mode on the artboard, never per node.",
-    "bullet": "A small filled square (7px) precedes every section label, set in mark/default. It is the smallest expression of the identity grid and the one motif carried over from the reference."
+    "labelMark": "None. Section labels are mono text with no preceding mark. The reference's square bullet was built and then removed at the client's direction — see `clientDirection.labelMark`."
   },
   "grid": {
     "desktop": {
@@ -509,7 +509,7 @@
     "announcementCard": {
       "role": "Floating card at bottom-right of the hero. Carries the single most current thing on the site.",
       "form": "Translucent surface/overlay-strong, radius/overlay (32), 24px padding, blurred.",
-      "contents": "Square bullet + sentence-case mono label, then a two-to-three-line headline in text/inverse, then a rounded thumbnail at radius/thumb (16) on the right.",
+      "contents": "Sentence-case mono label, then a two-to-three-line headline in text/inverse, then a rounded thumbnail at radius/thumb (16) on the right.",
       "homerCityUse": "This is the right home for the construction-update banner the brief requires — it is more current-feeling than a full-width strip and it does not push the hero down. Urgent severity is the exception: it takes a full-width bar above everything, because a blasting notice must not be dismissible furniture."
     },
     "statOpen": {
@@ -753,7 +753,7 @@
       "v1Claim": "Section labels are sentence-case eyebrows.",
       "reality": "T1 sets them as mono ALL-CAPS preceded by a small filled square — \"■ TECHNOLOGY\", \"■ COMPANY\" — and uses the same mono caps for every stat label.",
       "cause": "Not visible in prose descriptions.",
-      "impact": "Partially adopted. CLAUDE.md §7 forbids all-caps and the client chose to keep that rule, so labels take the mono face and the square bullet but stay sentence case. This is a deliberate, recorded divergence from the reference — see `clientDirection`."
+      "impact": "Neither adopted. CLAUDE.md §7 forbids all-caps and the client chose to keep that rule; the square bullet was built and then removed at the client's direction. Labels are mono, sentence case, unmarked."
     },
     {
       "v1Claim": "The nav is a flat list of links.",
@@ -771,10 +771,11 @@
   "clientDirection": {
     "decidedOn": "2026-09-13",
     "softness": "Match T1 fully. Pill nav and buttons, 32px radius on media and cards, circular icon buttons. Square corners leave the system.",
-    "labelCase": "Keep sentence case. CLAUDE.md §7 stands. Mono face and the square bullet carry the technical register instead of capitals — the one point where this design deliberately diverges from the reference.",
+    "labelCase": "Keep sentence case. CLAUDE.md §7 stands. The mono face carries the technical register instead of capitals — the point where this design deliberately diverges from the reference.",
     "colour": "Blue on links and CTAs only. Pages read monochrome. No navy institutional bands.",
     "density": "Follow T1's spacing and accept longer pages. Required footnotes, 'as of' stamps and source lines sit small in the empty column — the space is where provenance lives.",
-    "actionColour": "#0C73CD, supplied 2026-09-13. Pinned at blue/600 and the blue ramp is regenerated around it. It replaces the seed blue #3F74AB as the anchor of the blue family; the seed blue now has no semantic role and needs a decision."
+    "actionColour": "#0C73CD, supplied 2026-09-13. Pinned at blue/600 and the blue ramp is regenerated around it. It replaces the seed blue #3F74AB as the anchor of the blue family; the seed blue now has no semantic role and needs a decision.",
+    "labelMark": "No mark before section labels. The reference's small filled square was built across the file and removed at the client's direction on 2026-09-13 — 38 instances across components, page comps and the foundations board. Labels are mono text alone."
   },
   "openGround": {
     "name": "Open ground",
@@ -794,9 +795,9 @@
   },
   "deliberateDivergences": [
     {
-      "reference": "Section and stat labels set in mono ALL-CAPS.",
-      "ours": "Mono face, sentence case.",
-      "why": "CLAUDE.md §7 forbids all-caps and the client chose to keep that rule. The mono face and the square bullet carry the technical register instead."
+      "reference": "Section and stat labels set in mono ALL-CAPS, preceded by a small filled square.",
+      "ours": "Mono face, sentence case, no preceding mark.",
+      "why": "CLAUDE.md §7 forbids all-caps and the client chose to keep that rule. The square bullet was built and then removed at the client's direction — it was the last decorative mark in the system, and the mono face already does the work of separating a label from body copy."
     },
     {
       "reference": "Dimmed mega-menu child items sit at roughly 3.4:1 against the panel.",
