@@ -421,6 +421,12 @@
         "width": 560
       },
       "why": "Emptiness is the reference's primary compositional device, and here it earns a second job: the empty column is where footnotes, \"as of\" stamps and source lines live without crowding the thing they qualify."
+    },
+    "rhythm": {
+      "rule": "A section states one thing and is broken when it outgrows roughly one and a half viewports. Length is not depth — a long section is usually two sections that have not been separated yet.",
+      "howToSplit": "Split a long stat run by theme rather than by count. The homepage seven-figure block became \"what the build is worth to people who live here\" (jobs and investment) and \"how big it is\" (site and scale), which is a more useful division than four-and-three.",
+      "sectionPadding": "120px top and bottom for gridded sections, 160px for asymmetric editorial ones. The image band supplies its own break and needs no extra padding around it.",
+      "imageCadence": "Roughly one full-bleed band every three or four sections. Two per page is the ceiling."
     }
   },
   "components": {
@@ -513,11 +519,18 @@
       "homerCityUse": "This is the right home for the construction-update banner the brief requires — it is more current-feeling than a full-width strip and it does not push the hero down. Urgent severity is the exception: it takes a full-width bar above everything, because a blasting notice must not be dismissible furniture."
     },
     "statOpen": {
-      "role": "Replaces the v1 stat module. Every stat array on the site.",
-      "form": "No container. Figure at 96px Light in text/stat-figure, with a mono sentence-case label directly beneath in text/meta. Separated from the next stat by stack-2xl (80) vertically.",
+      "role": "Every stat array on the site. No container, no rule — figures sit on the open ground in a grid.",
+      "form": "Figure at 96px Light in text/stat-figure. A mono qualifier line above it, a mono label beneath, and a footnote slot beneath that.",
+      "grid": {
+        "twoUp": "620px cells, 40px gutter, 56-88px row gap. Used in a full-width band (1280 content) for figures with long labels or required footnotes.",
+        "threeUp": "400px cells, 40px gutter, 56px row gap. Used for short figures with short labels.",
+        "never": "A single vertical stack. Seven figures stacked ran 1,768px on the homepage and read as a list rather than a set."
+      },
+      "baselineRule": "The qualifier line reserves its space even when a figure has no qualifier, so every figure in a row sits on a common baseline. In Webflow this is a min-height on the qualifier element, not an empty text node.",
       "rules": [
-        "The qualifier (Up to / Projected / Anticipated) sits as a mono label above the figure.",
-        "Required footnotes and 'as of' stamps sit in the empty left column, aligned to the figure's baseline.",
+        "The qualifier (Up to / Projected / Anticipated) sits ABOVE the figure, never buried mid-label.",
+        "A volatile figure carries its \"as of\" date as the qualifier — the eyebrow is where a date-stamp lives.",
+        "Required footnotes sit in full inside the cell, beneath the label. Not an asterisk, not a pointer to the page foot.",
         "Figures are near-black, never blue — blue means link.",
         "Never round a figure for visual balance."
       ]
@@ -534,6 +547,13 @@
       "card": "Media at radius/media, then a meta line (date in text/primary, separator, issuer in text/meta), then the headline at H3, then a category chip.",
       "chip": "Pill at surface/field with text/secondary. Categories: Workforce · Construction · Community · Permits.",
       "types": "Three content types in one collection — press release, media statement, supportive coverage. Coverage items link out and credit the outlet."
+    },
+    "imageBand": {
+      "role": "Full-bleed photographic break between sections. The main device for stopping a page reading as one long column.",
+      "form": "1440 x 520 image area meeting both viewport edges, then a caption row inside the 80px page margin.",
+      "corners": "Square. This is the one place hard edges are correct under P4 — the image meets the viewport edge, which is the only hard edge the system allows.",
+      "caption": "A mono kind label (Photograph or Rendering, plus date) and a caption, both OUTSIDE the image area. The production brief sits INSIDE it, in the region a real photograph destroys.",
+      "spend": "Spent, not spread: never two adjacent, and no more than two per page."
     }
   },
   "motion": {
@@ -775,7 +795,8 @@
     "colour": "Blue on links and CTAs only. Pages read monochrome. No navy institutional bands.",
     "density": "Follow T1's spacing and accept longer pages. Required footnotes, 'as of' stamps and source lines sit small in the empty column — the space is where provenance lives.",
     "actionColour": "#0C73CD, supplied 2026-09-13. Pinned at blue/600 and the blue ramp is regenerated around it. It replaces the seed blue #3F74AB as the anchor of the blue family; the seed blue now has no semantic role and needs a decision.",
-    "labelMark": "No mark before section labels. The reference's small filled square was built across the file and removed at the client's direction on 2026-09-13 — 38 instances across components, page comps and the foundations board. Labels are mono text alone."
+    "labelMark": "No mark before section labels. The reference's small filled square was built across the file and removed at the client's direction on 2026-09-13 — 38 instances across components, page comps and the foundations board. Labels are mono text alone.",
+    "gridAndRhythm": "Stats are gridded, not stacked. Sections are broken before they run long, and full-bleed imagery separates them. Applied 2026-09-13: the homepage stat stack split into two gridded sections, the Workforce figures regridded three-up, and five image bands added across Home, Workforce, The Campus, Community and FAQ."
   },
   "openGround": {
     "name": "Open ground",
