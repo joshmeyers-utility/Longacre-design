@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.longacre.dev/art-direction/1.0.0",
   "id": "t1-energy",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "generated": "2026-09-13",
   "title": "Art direction reference — t1energy.com",
   "purpose": "A reading of the reference site's visual system, abstracted to principles and tokens, then translated for the Homer City Energy Campus site. This is an art-direction brief, not a clone target. Anything marked in `doNotCopy` is T1's property or T1's meaning and must not travel.",
@@ -190,20 +190,41 @@
         "finding": "The supplied action colour #0C73CD is 4.83:1 on white but only 4.12:1 on the #EDEDEC page ground.",
         "consequence": "It clears AA as a button fill — white on it is 4.83:1 — but fails as link text on the page ground, which is where most links live.",
         "rule": "action/primary-bg = blue/600 (#0C73CD), the supplied colour, used filled. text/link = blue/700 (#0A5CA3) at 5.83:1 on the ground and 6.83:1 on white. text/link-inverse = blue/500 (#1A8DF2) at 4.92:1 on the near-black footer."
+      },
+      {
+        "finding": "blue/500 (#1A8DF2) reaches 3.42:1 under white, 2.92:1 on the ink/100 ground, and 4.92:1 on the ink/950 band.",
+        "consequence": "One blue cannot do all three jobs. The ramp splits by ground: blue/600 fills buttons (white label 4.83:1), blue/700 carries link text on light ground (5.83:1), blue/500 carries link text on the dark bands (4.92:1) where the darker steps collapse to 3.49:1 and 2.46:1.",
+        "rule": "action/primary-bg = blue/600. text/link = blue/700. text/link-inverse = blue/500. A link that changes ground changes step."
+      },
+      {
+        "finding": "The hero overlay panels run at 50%, not 62%. Measured against a pure-white photograph through the hero scrim, the weakest point of the nav capsule is 5.73:1 and of the announcement card 5.56:1 under white text.",
+        "consequence": "50% holds for white, but ink/300 metadata on the same panel falls to 3.64:1 because the scrim has decayed to 0.33 by the right edge of the frame.",
+        "rule": "Secondary text on a translucent panel over media uses text/on-overlay-secondary (ink/100, 4.75:1), not text/inverse-secondary. The two are different problems: solid ink has 10:1 of headroom, a 50% panel over a bright photograph has none."
+      },
+      {
+        "finding": "text/muted at ink/700 passed only by the large-text exemption. Accordion rows are 26px on desktop (3:1 applies, 3.37:1 passes) and 20px on mobile (4.5:1 applies, 3.37:1 fails).",
+        "consequence": "Twenty accordion labels failed on the mobile boards while the identical desktop rows passed. A responsive type ramp can move real copy across the large-text threshold without anything visibly changing.",
+        "rule": "text/muted = ink/750. Check AA at the smallest mode a token renders in, not the largest."
+      },
+      {
+        "finding": "text/meta (ink/750) reaches 4.88:1 on the ink/100 page ground but only 4.29:1 on the ink/200 placeholder field.",
+        "consequence": "Production briefs set inside image placeholders sat just under the floor — 17 of them across both breakpoints.",
+        "rule": "On surface/field, metadata steps to text/secondary (ink/800, 5.33:1)."
       }
     ],
     "semantic": {
       "surface/page": "ink/100",
       "surface/raised": "#FFFFFF",
       "surface/overlay": "ink/950 @ 42% + 24px blur",
-      "surface/overlay-strong": "ink/950 @ 62% + 24px blur",
+      "surface/overlay-strong": "ink/950 @ 50% + 24px blur",
       "surface/inverse": "ink/950",
       "text/primary": "ink/950",
       "text/secondary": "ink/800",
       "text/meta": "ink/750",
-      "text/muted": "ink/700",
+      "text/muted": "ink/750",
       "text/inverse": "#FFFFFF",
       "text/inverse-secondary": "ink/300",
+      "text/on-overlay-secondary": "ink/100",
       "text/link": "blue/700",
       "text/stat-figure": "ink/950",
       "action/primary-bg": "blue/600",
@@ -444,13 +465,13 @@
       "role": "No bar. Two independent floating elements over the hero media.",
       "logo": "Standalone at top-left, x=48 y=32, set in mark/inverse directly on the photograph. No container.",
       "navPill": {
-        "form": "Pill capsule, radius/control, height 56, translucent surface/overlay with a 24px blur",
+        "form": "Rounded bar at radius/chrome (16), height 47, translucent surface/overlay-strong at 50% with a 24px blur. Not a pill — client direction 2026-09-13. The capsule only materialises over media; on the dark inner-page bands it dissolves into the ground and the items read as plain text.",
         "position": "top-right, x from right margin 48, y 32",
         "items": [
           "The Campus",
           "Workforce",
           "Community",
-          "Newsroom",
+          "Media",
           "Contact"
         ],
         "itemGap": 40,
@@ -462,14 +483,14 @@
       "mobile": "Logo left, a single Menu pill right carrying a 3×3 dot-grid icon. The Jobs pill stays visible beside it.",
       "megaMenu": {
         "form": "The bar expands downward into a second panel at radius/overlay (32), separated by an 8px gap, same width as the bar.",
-        "ground": "surface/overlay-panel — ink/950 at 86%, darker than the bar's 62%, so dimmed children clear AA.",
+        "ground": "surface/overlay-panel — ink/950 at 86%, darker than the bar's 50%, so dimmed children clear AA.",
         "columns": "One column per top-level item, aligned under its parent. Children in text/inverse-secondary; the bar stays white.",
         "footer": "Two full-width CTA pills, label left and arrow pushed to the right edge.",
         "accessibility": "Opens on hover AND on focus/click, closes on Escape, and every child is in the tab order. Hover is never the only path."
       }
     },
     "hero": {
-      "treatment": "Full-bleed photograph, scrim, real text over it. Headline at display size, one lead sentence, two buttons.",
+      "treatment": "Full-bleed photograph, scrim, real text over it. Headline at font-size/h2 (44 desktop / 30 mobile) rather than display — client direction 2026-09-13. No lead sentence: the orientation section below carries it. Two buttons, the filled one first. Announcement cards float bottom-right on desktop and stack under the copy on mobile.",
       "scrim": "Set so the weakest point over the text column clears AA against a pure white photograph — desktop 0.72 at the end of the text column, mobile 0.88 throughout. A contrast checker cannot verify this: it walks to the nearest solid painted ancestor and a photograph is not one. Do not lighten.",
       "mediaLabel": "Every hero carries a mono kind/date label — 'Photograph · July 2026' or 'Rendering'. Required, not decorative: the deck's cover is a render of a campus that does not exist yet."
     },
@@ -484,7 +505,7 @@
     },
     "button": {
       "primary": {
-        "bg": "action/primary-bg",
+        "bg": "action/primary-bg (blue/600)",
         "text": "action/primary-text",
         "radius": "pill",
         "note": "The only saturated element on a page."
@@ -507,15 +528,16 @@
         "size": 56,
         "note": "Circular. Accordion +/−, carousel advance."
       },
-      "case": "Sentence case. Never all-caps."
+      "case": "Sentence case. Never all-caps.",
+      "metrics": "Vertical padding space/8, horizontal space/24, radius/pill. Height follows the label's line box: 43 desktop, 41 mobile. Client direction 2026-09-13 — the button reads as a line of type in a capsule, not a slab."
     },
     "footer": {
       "treatment": "ink/950 near-black band, radius 0 (it meets the viewport edge). Four contact routes kept distinct — the brief specifies four inboxes and they must not collapse into one form. Carries the two standing footnotes."
     },
     "announcementCard": {
       "role": "Floating card at bottom-right of the hero. Carries the single most current thing on the site.",
-      "form": "Translucent surface/overlay-strong, radius/overlay (32), 24px padding, blurred.",
-      "contents": "Sentence-case mono label, then a two-to-three-line headline in text/inverse, then a rounded thumbnail at radius/thumb (16) on the right.",
+      "form": "Translucent surface/overlay-strong at 50%, radius/overlay (32), 16px padding, blurred. Thumbnail at radius/thumb (16) — 109px desktop, 96px mobile so the headline keeps a readable measure. The card hugs its copy; it never holds a fixed height.",
+      "contents": "Sentence-case mono label carrying category and date, then a two-to-three-line headline in text/inverse, then the thumbnail. The label is text/on-overlay-secondary, not text/inverse-secondary — see contrastFindings.",
       "homerCityUse": "This is the right home for the construction-update banner the brief requires — it is more current-feeling than a full-width strip and it does not push the hero down. Urgent severity is the exception: it takes a full-width bar above everything, because a blasting notice must not be dismissible furniture."
     },
     "statOpen": {
@@ -738,6 +760,24 @@
       "question": "Geist stands in for the bespoke T1 Sans. If the brand guide (CLAUDE.md open question #1) names a real typeface, it replaces Geist and the whole scale re-points to it.",
       "blocks": "Nothing — the scale is tokenised and re-points in one change.",
       "severity": "non-blocking"
+    },
+    {
+      "id": "OQ-A10",
+      "question": "Is the fourth nav item 'Media' or 'Newsroom'? The client typed 'Media' over the hero instance on 2026-09-13; it has been propagated to the component and all fourteen instances across both breakpoints.",
+      "blocks": "Nav, URL map, docs/02-plan.md §2",
+      "note": "Related to OQ-A6. 'Newsroom' was the parent that grouped News with FAQ & Resources; 'Media' reads narrower and may not want FAQ under it."
+    },
+    {
+      "id": "OQ-A11",
+      "question": "The two hero announcement cards carry identical copy under different dates (9/24 and 9/21), and both dates are ahead of today.",
+      "blocks": "Home hero content",
+      "note": "Mirrored to mobile as-is rather than invented around. Two real construction updates are needed, or the hero should carry one card."
+    },
+    {
+      "id": "OQ-A12",
+      "question": "Contact had a page hero on the mobile board and none on desktop. It has been restored on desktop from the mobile copy so the two match and Contact matches the other six pages.",
+      "blocks": "Nothing — flagged so it can be removed if it was deliberately cut.",
+      "note": "Copy is the mobile board's own, not new writing."
     }
   ],
   "corrections": [
@@ -805,7 +845,9 @@
     "actionColour": "#0C73CD, supplied 2026-09-13. Pinned at blue/600 and the blue ramp is regenerated around it. It replaces the seed blue #3F74AB as the anchor of the blue family; the seed blue now has no semantic role and needs a decision.",
     "labelMark": "No mark before section labels. The reference's small filled square was built across the file and removed at the client's direction on 2026-09-13 — 38 instances across components, page comps and the foundations board. Labels are mono text alone.",
     "gridAndRhythm": "Stats are gridded, not stacked. Sections are broken before they run long, and full-bleed imagery separates them. Applied 2026-09-13: the homepage stat stack split into two gridded sections, the Workforce figures regridded three-up, and five image bands added across Home, Workforce, The Campus, Community and FAQ.",
-    "imageryAndResponsive": "Placeholder imagery applied across all photographic slots 2026-09-13, using the client-supplied hero image. Logo, map and blocked-content slots deliberately stay flat grey — a photograph there would misrepresent what is actually missing. A full 375px mobile set was derived for all seven pages."
+    "imageryAndResponsive": "Placeholder imagery applied across all photographic slots 2026-09-13, using the client-supplied hero image. Logo, map and blocked-content slots deliberately stay flat grey — a photograph there would misrepresent what is actually missing. A full 375px mobile set was derived for all seven pages.",
+    "desktopRevision": "Client art-directed the desktop file directly on 2026-09-13 and asked for the changes to be rippled out. Four edits, all made at the token or component layer, so they had already reached every desktop instance: button padding re-pointed to space/8 vertical (43px tall desktop, 41 mobile); the nav capsule moved off radius/pill to a 16px radius and its panel from 62% to 50%; the hero headline re-bound from display to font-size/h2; and dark surface/inverse bands painted into the page rhythm. Two further edits did not survive review: action/primary-bg and text/link were both re-pointed to blue/500, which fails AA as a button fill (3.42:1 with a white label) and on the page ground (2.92:1). blue/500 was kept where it does clear — text/link-inverse on the dark bands, 4.92:1 — and the fill and light-ground link returned to blue/600 and blue/700.",
+    "sectionRhythm": "Colour breaks the scroll. Light ink/100 ground is the default; surface/inverse bands and full-bleed photography alternate into it so no two reading sections sit adjacent. Home runs photo → ground → photo → ground → dark → ground → photo → ground → ground → dark → ground → dark footer. Inner pages open dark: page top and page hero are one continuous surface/inverse block under the floating nav."
   },
   "openGround": {
     "name": "Open ground",
@@ -911,14 +953,16 @@
       "Every stack hugs its content. This is the failure that clips things: a frame converted from wrap keeps its old fixed height and silently crops the items below the fold.",
       "Anything pinned wider than the 343px content column becomes FILL.",
       "Desktop-tall media (440-560px) is capped to 240px so a photograph does not eat the whole screen.",
-      "Section margins go 80 to 16; section padding goes 120-160 to 64."
+      "Section margins go 80 to 16; section padding goes 120-160 to 64.",
+      "A FILL child inside a column that hugs has nothing to fill, and Figma resolves it by freezing the child's height and clipping. This is the quiet one: 35 frames were affected, and eight of them had collapsed to 1px — three of four project pillars, three of four sequence steps and two of three news items were invisible on mobile while the section around them looked finished. Audit by comparing every clipping frame's content bottom against its height, not by eye."
     ],
     "mobileSpecifics": [
       "The nav capsule is replaced by a Menu pill. The Jobs button stays in the bar beside it — the brief is explicit that the one thing a tradesperson came for is never behind a toggle.",
       "Hero scrim goes to 0.88-0.92 throughout rather than a horizontal ramp, because the text column spans the full width.",
       "Hero CTAs stack full-width.",
-      "The announcement card stacks copy over thumbnail and runs the full content width.",
-      "Stats are one per row, and the blank qualifier line that holds the desktop baseline is dropped — with a single column there is no row to align to."
+      "The announcement card keeps copy and thumbnail side by side but drops the thumbnail to 96px; the card hugs, so two stack inside an 800px hero.",
+      "Stats are one per row, and the blank qualifier line that holds the desktop baseline is dropped — with a single column there is no row to align to.",
+      "Button labels hug. A label left at FILL in a 145px column wraps to two lines and doubles the button's height."
     ],
     "typography": "Only font size varies by breakpoint, carried by the Typography collection Desktop/Mobile modes and set on the artboard. Line height and tracking are percentages and scale on their own."
   }

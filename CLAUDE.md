@@ -301,7 +301,12 @@ photographic bands adjacent.
   bands mark institutional moments. **No tinted grounds** — the `sand` family
   exists in the primitives but is used by no semantic role.
 - **`stone/700` is the floor for neutral text** — the lightest step that clears
-  4.5:1 on white. Nothing lighter may carry text on any ground.
+  4.5:1 on white. Nothing lighter may carry text on any ground. **In 4b the floor
+  is `ink/750` `#66666A`** (5.72:1 on white, 4.88:1 on the page ground) and steps to
+  `ink/800` on the `ink/200` placeholder field. `ink/700` `#808080` clears nothing —
+  it is a 3:1 role only. Check the floor at the *smallest* mode a token renders in:
+  accordion rows passed at 26px desktop on the large-text exemption and failed at
+  20px mobile.
 - **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render
   size. Not Outlined — Figma does not have it.
 - **Spacing:** 2px base unit; the primitive name is the pixel value
@@ -437,8 +442,11 @@ the first line rather than refactoring later.
 | 16 | **Sign off the three derived signal colours** (`#A9610B` construction, `#9E2A22` urgent, `#2F6B4F` affirm). None is seeded — the seeds contain no warm hue — and an alert banner needs distinguishable severities. Currently the design avoids them entirely: the urgent bar is near-black. | Alert banner |
 | 17 | **Does Stage 4b supersede the client's five-colour brand palette?** (`#143251` navy, `#238FC8` blue, `#AFECF1` aqua, `#F3F1D0` cream, `#D8B471` gold.) The new seeds share neither the aqua, the cream nor the gold, and 4b is monochrome plus one blue. | Brand reconciliation |
 | 18 | **Pillar colours have nowhere to live in 4b.** §7 says a pillar colour marks one of the four pillars; 4b is monochrome with blue reserved for links. The pillars currently render as numbered text. Confirm this is acceptable or supply a second signal. | Home, Community |
-| 19 | **Action colour `#0C73CD` fails AA as link text on the page ground** (4.12:1 on `#EDEDEC`). It clears as a button fill — white on it is 4.83:1 — so the design uses it filled and steps link text down to `blue/700` `#0A5CA3` (5.83:1). Confirm, or lighten the page ground. | 4b build |
+| 19 | **The blue splits into three steps by ground, and one of them is client-chosen.** `blue/600` `#0C73CD` fills buttons (white label 4.83:1); `blue/700` `#0A5CA3` is link text on the light ground (5.83:1); `blue/500` `#1A8DF2` is link text on the dark bands (4.92:1, where 600 and 700 collapse to 3.49 and 2.46). The client re-pointed all three to `blue/500` on 2026-09-13; the two that failed were returned. Confirm the split, or lighten the page ground so one step can do more work. | 4b build |
 | 20 | **Does FAQ & Resources + News under one "Newsroom" parent stand?** Stage 4b regroups the approved Stage 2 sitemap to follow the reference's mega-menu pattern. | Nav, URL map |
+| 22 | **Is the fourth nav item "Media" or "Newsroom"?** The client typed "Media" over the homepage hero on 2026-09-13; it is now the component's word on all fourteen instances. But "Newsroom" was the parent that grouped News with FAQ & Resources, and "Media" reads narrower — it may not want FAQ under it. Answering this answers #20. | Nav, URL map |
+| 23 | **The two hero announcement cards carry identical copy under different dates** (9/24 and 9/21), and both dates run ahead of today. Mirrored to mobile as-is rather than invented around. Two real construction updates, or the hero carries one card. | Home hero |
+| 24 | **Contact had a page hero on mobile and none on desktop.** Restored on desktop from the mobile board's own copy, so the two match and Contact matches the other six pages. Flagged in case it was cut deliberately. | Nothing — confirm or remove |
 | 21 | **Are mega-menu children anchor links or separate routes?** The nav implies routes; the comps build them as sections of their parent page. Routes adds ~10 page comps and changes `docs/02-plan.md` §2. | Remaining comps |
 | 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
 
