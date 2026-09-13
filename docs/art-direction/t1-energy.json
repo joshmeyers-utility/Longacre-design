@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.longacre.dev/art-direction/1.0.0",
   "id": "t1-energy",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "generated": "2026-09-13",
   "title": "Art direction reference — t1energy.com",
   "purpose": "A reading of the reference site's visual system, abstracted to principles and tokens, then translated for the Homer City Energy Campus site. This is an art-direction brief, not a clone target. Anything marked in `doNotCopy` is T1's property or T1's meaning and must not travel.",
@@ -553,7 +553,9 @@
       "form": "1440 x 520 image area meeting both viewport edges, then a caption row inside the 80px page margin.",
       "corners": "Square. This is the one place hard edges are correct under P4 — the image meets the viewport edge, which is the only hard edge the system allows.",
       "caption": "A mono kind label (Photograph or Rendering, plus date) and a caption, both OUTSIDE the image area. The production brief sits INSIDE it, in the region a real photograph destroys.",
-      "spend": "Spent, not spread: never two adjacent, and no more than two per page."
+      "spend": "Spent, not spread: never two adjacent, and no more than two per page.",
+      "placeholder": "All photographic slots currently carry one placeholder image supplied by the client. Because each slot has a different aspect ratio, FILL crops it differently and no two read as the same frame — but this is one asset standing in for many. Every slot needs its own photograph in production, and the brief inside each slot says which.",
+      "briefChip": "The production brief sits on a translucent chip inside the image area so it stays legible over any photograph, light or dark. Without it the note disappears against the very thing it is describing."
     }
   },
   "motion": {
@@ -714,6 +716,12 @@
       "severity": "blocking"
     },
     {
+      "id": "OQ-A9",
+      "question": "The hero placeholder is a data-centre interior, but the campus data centres are not built yet — so it is almost certainly stock or a rendering. The hero currently labels itself \"Photograph · July 2026\". Confirm the kind label before launch.",
+      "blocks": "Launch. This is open question 10 in CLAUDE.md made concrete.",
+      "severity": "blocking"
+    },
+    {
       "id": "OQ-A3",
       "question": "Does this art direction supersede the client's five-colour brand palette (navy #143251, blue #238FC8, aqua #AFECF1, cream #F3F1D0, gold #D8B471) recorded in CLAUDE.md section 7, or sit alongside it? The new seeds share neither the aqua, the cream nor the gold.",
       "blocks": "Any brand-guide reconciliation",
@@ -796,7 +804,8 @@
     "density": "Follow T1's spacing and accept longer pages. Required footnotes, 'as of' stamps and source lines sit small in the empty column — the space is where provenance lives.",
     "actionColour": "#0C73CD, supplied 2026-09-13. Pinned at blue/600 and the blue ramp is regenerated around it. It replaces the seed blue #3F74AB as the anchor of the blue family; the seed blue now has no semantic role and needs a decision.",
     "labelMark": "No mark before section labels. The reference's small filled square was built across the file and removed at the client's direction on 2026-09-13 — 38 instances across components, page comps and the foundations board. Labels are mono text alone.",
-    "gridAndRhythm": "Stats are gridded, not stacked. Sections are broken before they run long, and full-bleed imagery separates them. Applied 2026-09-13: the homepage stat stack split into two gridded sections, the Workforce figures regridded three-up, and five image bands added across Home, Workforce, The Campus, Community and FAQ."
+    "gridAndRhythm": "Stats are gridded, not stacked. Sections are broken before they run long, and full-bleed imagery separates them. Applied 2026-09-13: the homepage stat stack split into two gridded sections, the Workforce figures regridded three-up, and five image bands added across Home, Workforce, The Campus, Community and FAQ.",
+    "imageryAndResponsive": "Placeholder imagery applied across all photographic slots 2026-09-13, using the client-supplied hero image. Logo, map and blocked-content slots deliberately stay flat grey — a photograph there would misrepresent what is actually missing. A full 375px mobile set was derived for all seven pages."
   },
   "openGround": {
     "name": "Open ground",
@@ -889,5 +898,28 @@
     "panelCTAs": "Jobs (light, filled) and Get in touch (translucent). Jobs leads — the reference puts Get in touch first, but the brief says put as much focus as possible on workforce.",
     "externalMarker": "A trailing ↗ marks anything leaving the site. Permits & filings points at PA DEP, which is the point: the sceptic should be able to reach the primary source, not our description of it.",
     "unresolved": "The nav now declares children that do not all exist as separate comps. In the reference, 'Overview' as a first child implies each parent is a hub with real child pages. Here, most children (Power block, Water & site, Timeline, Trades on site, Apprenticeships, How to apply) are currently sections inside their parent page — which is defensible given the client chose the reference's long-page spacing, and would make them anchor links rather than routes. Decide which: anchor links keep seven pages, separate routes adds roughly ten more and changes the URL map in docs/02-plan.md §2."
+  },
+  "responsive": {
+    "breakpoints": {
+      "desktop": 1440,
+      "mobile": 375
+    },
+    "principle": "Everything is auto-layout. Nothing is positioned absolutely except elements that float over hero media — the logo, the nav capsule, the Jobs pill, the hero copy block and the announcement card. Every other frame is a stack or a row that reflows.",
+    "howMobileDerives": [
+      "Wide rows become stacks. Any horizontal auto-layout spanning more than ~300px of content flips to vertical; pills, meta lines, marks and button groups stay horizontal.",
+      "Wrapped grids become single columns. layoutWrap is switched off and the frame becomes vertical, so nothing depends on a cell width that no longer fits.",
+      "Every stack hugs its content. This is the failure that clips things: a frame converted from wrap keeps its old fixed height and silently crops the items below the fold.",
+      "Anything pinned wider than the 343px content column becomes FILL.",
+      "Desktop-tall media (440-560px) is capped to 240px so a photograph does not eat the whole screen.",
+      "Section margins go 80 to 16; section padding goes 120-160 to 64."
+    ],
+    "mobileSpecifics": [
+      "The nav capsule is replaced by a Menu pill. The Jobs button stays in the bar beside it — the brief is explicit that the one thing a tradesperson came for is never behind a toggle.",
+      "Hero scrim goes to 0.88-0.92 throughout rather than a horizontal ramp, because the text column spans the full width.",
+      "Hero CTAs stack full-width.",
+      "The announcement card stacks copy over thumbnail and runs the full content width.",
+      "Stats are one per row, and the blank qualifier line that holds the desktop baseline is dropped — with a single column there is no row to align to."
+    ],
+    "typography": "Only font size varies by breakpoint, carried by the Typography collection Desktop/Mobile modes and set on the artboard. Line height and tracking are percentages and scale on their own."
   }
 }
