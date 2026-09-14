@@ -1,8 +1,8 @@
 {
   "$schema": "https://schemas.longacre.dev/art-direction/1.0.0",
   "id": "t1-energy",
-  "version": "2.3.0",
-  "generated": "2026-09-13",
+  "version": "2.4.0",
+  "generated": "2026-09-14",
   "title": "Art direction reference — t1energy.com",
   "purpose": "A reading of the reference site's visual system, abstracted to principles and tokens, then translated for the Homer City Energy Campus site. This is an art-direction brief, not a clone target. Anything marked in `doNotCopy` is T1's property or T1's meaning and must not travel.",
   "source": {
@@ -210,6 +210,11 @@
         "finding": "text/meta (ink/750) reaches 4.88:1 on the ink/100 page ground but only 4.29:1 on the ink/200 placeholder field.",
         "consequence": "Production briefs set inside image placeholders sat just under the floor — 17 of them across both breakpoints.",
         "rule": "On surface/field, metadata steps to text/secondary (ink/800, 5.33:1)."
+      },
+      {
+        "finding": "The timeline's quiet date pill needed a filled mid-grey carrying a 12px white label. ink/700 is the obvious mid step and fails at 3.95:1.",
+        "consequence": "ink/750 is the lightest step that clears 4.5:1 against white, at 5.72:1 — the same step the text floor landed on, arrived at from the opposite direction.",
+        "rule": "surface/marker-quiet = ink/750. The neutral floor governs a ground carrying light text exactly as it governs text on a light ground."
       }
     ],
     "semantic": {
@@ -218,6 +223,7 @@
       "surface/overlay": "ink/950 @ 42% + 24px blur",
       "surface/overlay-strong": "ink/950 @ 50% + 24px blur",
       "surface/inverse": "ink/950",
+      "surface/marker-quiet": "ink/750",
       "text/primary": "ink/950",
       "text/secondary": "ink/800",
       "text/meta": "ink/750",
@@ -495,13 +501,31 @@
       "mediaLabel": "Every hero carries a mono kind/date label — 'Photograph · July 2026' or 'Rendering'. Required, not decorative: the deck's cover is a render of a campus that does not exist yet."
     },
     "sequence": {
-      "role": "The P2 device: timeline, photo essay, and the power-block explainer all use it.",
-      "treatment": "Horizontal array of modules, each a mono date label + image + one line. Status is carried by the label, not by colour.",
+      "role": "The P2 device, built as the Timeline stage component set: one dated milestone on a shared vertical axis.",
+      "treatment": "A date pill sits centred on the axis; a 1px rail drops from it; the copy — title over one or two lines of body — sits 48px clear of the axis and alternates side to side down the page. No thumbnail, no container, no rule around the copy. The pill and the rail are the only filled shapes in the section.",
+      "variants": {
+        "Side": "Left | Right | Stacked. Left and Right alternate down the desktop spine. Stacked is the 375px form.",
+        "State": "Current | Past. Exactly one stage per timeline is Current — the most recent milestone."
+      },
+      "states": {
+        "Current": "Pill surface/inverse with text/inverse; rail surface/inverse.",
+        "Past": "Pill and rail both surface/marker-quiet, pill label text/inverse.",
+        "bodyCopy": "text/secondary in both states. The reference dims the body copy of past items as well as their markers. This is a transparency timeline and the evidence does not get dimmed — only the marker changes."
+      },
+      "metrics": {
+        "axis": "Dead centre of the 1280 container, held by two FILL spacers either side of the pill, so the axis does not move when a date string gets longer.",
+        "pill": "12px mono, 3% tracking, 8/16 padding, radius/pill. 32px tall — which puts the centre of its left cap at x=16.",
+        "copyColumn": "400px fixed, 48px clear of the axis. Right-aligned on the left of the spine, left-aligned on the right.",
+        "rhythm": "24px pill to rail, 24px rail to the next pill, and the rail overruns the copy by 24px at each end so it reads as a rail rather than an underline.",
+        "title": "font-size/h4 Medium, down from the 28px h3 the column form used. The pill is the loud element; the title is subordinate to it."
+      },
+      "heading": "Centred — eyebrow, headline and spine share one axis, and the headline is held to 840px so it breaks like the reference's. This is the only centred heading in the system; every other section heading stays left. A centred spine under a left-aligned heading has nothing to hang from.",
+      "replaces": "The four-across column form, which carried a 260px image slot per step. The same placeholder photograph appeared four times in a row in every timeline, and the production brief inside each slot was repeated with it — 16 slots and 16 briefs across the two breakpoints.",
       "instances": [
-        "Project timeline",
-        "1969–2023 to 2026 photo essay",
-        "Gas in → turbine → HRSG → grid out"
-      ]
+        "Home — Timeline (4 stages)",
+        "The Campus — Full timeline (4 stages)"
+      ],
+      "stillToBuild": "The 1969–2023 photo essay and the gas → turbine → HRSG → grid out explainer were both slated for this device and neither is built. The photo essay is image-led and should not reuse the stage as it now stands."
     },
     "button": {
       "primary": {
@@ -778,6 +802,18 @@
       "question": "Contact had a page hero on the mobile board and none on desktop. It has been restored on desktop from the mobile copy so the two match and Contact matches the other six pages.",
       "blocks": "Nothing — flagged so it can be removed if it was deliberately cut.",
       "note": "Copy is the mobile board's own, not new writing."
+    },
+    {
+      "id": "OQ-A13",
+      "question": "The Campus timeline dated \"on-site headcount crosses 1,000\" to March 2026. No client document gives a March 2026 headcount — the earliest dated count anywhere is ~1,300 as of May 2026.",
+      "blocks": "The Campus — Full timeline",
+      "note": "The figure was an interpolation between dated counts, which §5.1 forbids. Removed while rebuilding the stage; the milestone now reads \"Construction workforce mobilized with Kiewit Power Constructors and the local building trades\", which is sourced. A real March 2026 count restores it."
+    },
+    {
+      "id": "OQ-A14",
+      "question": "The Campus page's \"Full timeline\" promises every dated milestone, lists four, and they are not the four the homepage teaser lists. Home shows first steel (April 2026) and Unit 5 HRSG (July 2026); The Campus shows workforce mobilization (March 2026) and full construction (June 2026). Neither set contains the other.",
+      "blocks": "The Campus — Full timeline, Home — Timeline",
+      "note": "A homepage teaser should be a subset of the page it teases, and a heading that says \"every\" has to mean it. The tour deck's photo essay carries more dated milestones than either page shows. Needs the client's milestone list."
     }
   ],
   "corrections": [
@@ -847,7 +883,8 @@
     "gridAndRhythm": "Stats are gridded, not stacked. Sections are broken before they run long, and full-bleed imagery separates them. Applied 2026-09-13: the homepage stat stack split into two gridded sections, the Workforce figures regridded three-up, and five image bands added across Home, Workforce, The Campus, Community and FAQ.",
     "imageryAndResponsive": "Placeholder imagery applied across all photographic slots 2026-09-13, using the client-supplied hero image. Logo, map and blocked-content slots deliberately stay flat grey — a photograph there would misrepresent what is actually missing. A full 375px mobile set was derived for all seven pages.",
     "desktopRevision": "Client art-directed the desktop file directly on 2026-09-13 and asked for the changes to be rippled out. Four edits, all made at the token or component layer, so they had already reached every desktop instance: button padding re-pointed to space/8 vertical (43px tall desktop, 41 mobile); the nav capsule moved off radius/pill to a 16px radius and its panel from 62% to 50%; the hero headline re-bound from display to font-size/h2; and dark surface/inverse bands painted into the page rhythm. Two further edits did not survive review: action/primary-bg and text/link were both re-pointed to blue/500, which fails AA as a button fill (3.42:1 with a white label) and on the page ground (2.92:1). blue/500 was kept where it does clear — text/link-inverse on the dark bands, 4.92:1 — and the fill and light-ground link returned to blue/600 and blue/700.",
-    "sectionRhythm": "Colour breaks the scroll. Light ink/100 ground is the default; surface/inverse bands and full-bleed photography alternate into it so no two reading sections sit adjacent. Home runs photo → ground → photo → ground → dark → ground → photo → ground → ground → dark → ground → dark footer. Inner pages open dark: page top and page hero are one continuous surface/inverse block under the floating nav."
+    "sectionRhythm": "Colour breaks the scroll. Light ink/100 ground is the default; surface/inverse bands and full-bleed photography alternate into it so no two reading sections sit adjacent. Home runs photo → ground → photo → ground → dark → ground → photo → ground → ground → dark → ground → dark footer. Inner pages open dark: page top and page hero are one continuous surface/inverse block under the floating nav.",
+    "timelineRevision": "Supplied 2026-09-14 as a reference frame: a vertical centred spine, date pills sitting on the axis, content alternating left and right of it, and one marker carrying an accent while the rest sit quiet. Applied to both timelines and to the 375px set. Two things could not be copied literally. The reference's accent is a warm orange; blue here means link and no second signal colour is signed off (open questions 16 and 18), so the loud/quiet ramp is carried by the ink ramp instead — ink/950 pill and rail on the most recent milestone, ink/750 on the rest. And the reference sets its item titles in all-caps, which CLAUDE.md §7 forbids; they stay sentence case."
   },
   "openGround": {
     "name": "Open ground",
@@ -890,6 +927,11 @@
       "reference": "Facility pages named with underscore codes (G1_Dallas, G2_Austin, HQ_Austin).",
       "ours": "Plain names.",
       "why": "The convention encodes T1's multi-facility structure. Homer City is one site; borrowing the codes would imply a scale that does not exist."
+    },
+    {
+      "reference": "The live timeline milestone is marked in warm orange — pill and rail — and past milestones drop to grey along with their body copy.",
+      "ours": "The current milestone takes an ink/950 pill and rail and past ones ink/750. Body copy stays text/secondary throughout.",
+      "why": "Blue is the only colour in this system and it means link (CLAUDE.md §7); no second signal colour is signed off (open questions 16 and 18). The ink ramp carries the same loud-to-quiet ramp without inventing a hue. Dimming the body of past milestones would dim the evidence on a site whose whole job is transparency — so only the marker changes."
     }
   ],
   "informationArchitecture": {
@@ -962,7 +1004,8 @@
       "Hero CTAs stack full-width.",
       "The announcement card keeps copy and thumbnail side by side but drops the thumbnail to 96px; the card hugs, so two stack inside an 800px hero.",
       "Stats are one per row, and the blank qualifier line that holds the desktop baseline is dropped — with a single column there is no row to align to.",
-      "Button labels hug. A label left at FILL in a 145px column wraps to two lines and doubles the button's height."
+      "Button labels hug. A label left at FILL in a 145px column wraps to two lines and doubles the button's height.",
+      "The timeline spine moves from centre to left. The rail sits at x=16, which is exactly the centre of the date pill's left cap, so the two stay aligned whatever the date string; copy indents 20px from the rail and fills the rest of the column. Alternating sides would leave about 145px per side at 375."
     ],
     "typography": "Only font size varies by breakpoint, carried by the Typography collection Desktop/Mobile modes and set on the artboard. Line height and tracking are percentages and scale on their own."
   }

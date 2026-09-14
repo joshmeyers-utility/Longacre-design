@@ -306,7 +306,9 @@ photographic bands adjacent.
   `ink/800` on the `ink/200` placeholder field. `ink/700` `#808080` clears nothing —
   it is a 3:1 role only. Check the floor at the *smallest* mode a token renders in:
   accordion rows passed at 26px desktop on the large-text exemption and failed at
-  20px mobile.
+  20px mobile. The same step is the floor in the other direction — a *filled*
+  marker carrying light text. `surface/marker-quiet` is `ink/750` because white
+  12px on it reaches 5.72:1 where `ink/700` reaches 3.95:1.
 - **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render
   size. Not Outlined — Figma does not have it.
 - **Spacing:** 2px base unit; the primitive name is the pixel value
@@ -447,6 +449,8 @@ the first line rather than refactoring later.
 | 22 | **Is the fourth nav item "Media" or "Newsroom"?** The client typed "Media" over the homepage hero on 2026-09-13; it is now the component's word on all fourteen instances. But "Newsroom" was the parent that grouped News with FAQ & Resources, and "Media" reads narrower — it may not want FAQ under it. Answering this answers #20. | Nav, URL map |
 | 23 | **The two hero announcement cards carry identical copy under different dates** (9/24 and 9/21), and both dates run ahead of today. Mirrored to mobile as-is rather than invented around. Two real construction updates, or the hero carries one card. | Home hero |
 | 24 | **Contact had a page hero on mobile and none on desktop.** Restored on desktop from the mobile board's own copy, so the two match and Contact matches the other six pages. Flagged in case it was cut deliberately. | Nothing — confirm or remove |
+| 25 | **The Campus timeline dated "on-site headcount crosses 1,000" to March 2026.** No client document gives a March 2026 headcount — the earliest dated count anywhere is ~1,300 as of May 2026, so the figure was an interpolation between dated counts, which §5.1 forbids. Removed while rebuilding the stage; the milestone now reads "Construction workforce mobilized with Kiewit Power Constructors and the local building trades", which is sourced. A real March 2026 count restores it. | The Campus — Full timeline |
+| 26 | **The "Full timeline" promises every dated milestone, lists four, and they are not the four the homepage lists.** Home shows first steel (April 2026) and Unit 5 HRSG (July 2026); The Campus shows workforce mobilization (March 2026) and full construction (June 2026). Neither set contains the other. A teaser should be a subset of the page it teases, and a heading that says *every* has to mean it. The tour deck's photo essay carries more dated milestones than either page shows. | The Campus — Full timeline, Home — Timeline |
 | 21 | **Are mega-menu children anchor links or separate routes?** The nav implies routes; the comps build them as sections of their parent page. Routes adds ~10 page comps and changes `docs/02-plan.md` §2. | Remaining comps |
 | 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
 
@@ -458,7 +462,7 @@ the first line rather than refactoring later.
 | 7 | Does a fuller timeline exist beyond the fact sheet's? | Build the condensed homepage teaser to link to a full timeline page; ship it when content lands. |
 | 8 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | **Resolved:** one "Community" nav item with three child pages. |
 | 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
-| 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
+| 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. Applied on the boards 2026-09-14 — the Home timeline stage now reads **April 2026** and its body records both of the deck's dates. |
 | 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
 
 ---
