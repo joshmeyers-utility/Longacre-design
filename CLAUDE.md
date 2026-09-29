@@ -18,8 +18,10 @@ AI-assisted Webflow workflow.
 **Current site being replaced:** <https://www.homercityredevelopment.com/>
 **Figma (current):** <https://www.figma.com/design/ANpwfYe7Zq4c7Lc4cxAWi2/Longacre>
 — file key `ANpwfYe7Zq4c7Lc4cxAWi2`. Pages: `01 · Foundations` (design system,
-source of truth), `03 · Desktop` (first-pass artboards on the old 7-page IA),
-`04 · Site v2` (sitemap + pages built from the Sep 2026 content outline).
+source of truth), `02 · Components`, `03 · Desktop` and `04 · Mobile`
+(first-pass artboards on the old 7-page IA), `05 · Site v2` (sitemap `115:7`,
+Home `116:2`, production notes `120:172` — built from the Sep 2026 content
+outline). New component: `Nav pill — site v2` (`114:84`).
 **Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
 
 ---
@@ -69,7 +71,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
-| 4b. Site v2 | `docs/source/content-outline.md` → Figma `04 · Site v2`: sitemap + Home | 🟨 In progress — Home in review |
+| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap + Home | 🟨 In progress — Home in review |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
