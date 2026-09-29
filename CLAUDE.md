@@ -27,7 +27,8 @@ Campus partners `153:496`, Local partners `153:710`, Campus pillars `153:902`,
 Meet our workforce `155:578`, Job opportunities `155:896`,
 Community stewardship `156:653`, Water stewardship `156:856`, Sound `156:1104`,
 Health & safety `157:723`, Economic impact `157:935`, Giving back `157:1205`,
-FAQs `158:816`, Contact us `158:1215` (each with an annotation key to its right) — built from the Sep 2026 content outline). New components: `Nav pill — site v2`
+FAQs `158:816`, Contact us `158:1215`, News & resources hub `162:1005`,
+and seven News & resources child templates `163:1030`–`163:2259` (each with an annotation key to its right) — built from the Sep 2026 content outline). New components: `Nav pill — site v2`
 (`114:84`), `Annotation pin` (`126:166`, review-only, never ported).
 **Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
 
@@ -78,7 +79,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
-| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap, Home, Campus future, Development timeline, Power plant & fuel supply, Data centers, Campus history, Campus partners, Local partners, Campus pillars, Meet our workforce, Job opportunities, Community stewardship + 6 child pages, FAQs, Contact us — News & resources not yet built | 🟨 In progress — annotated, in review |
+| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap, Home, Campus future, Development timeline, Power plant & fuel supply, Data centers, Campus history, Campus partners, Local partners, Campus pillars, Meet our workforce, Job opportunities, Community stewardship + 6 child pages, FAQs, Contact us, News & resources hub + 7 child templates — expanded nav panel not yet built | 🟨 In progress — annotated, in review |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
