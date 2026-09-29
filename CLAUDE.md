@@ -31,7 +31,8 @@ FAQs `158:816`, Contact us `158:1215`, News & resources hub `162:1005`,
 and seven News & resources child templates `163:1030`–`163:2259` (each with an annotation key to its right) — built from the Sep 2026 content outline). Expanded nav review artboard `169:1746`
 (key below it). New components: `Nav pill — site v2` (`114:84`), `Nav panel —
 site v2 — expanded` (`169:1745`), `Footer — site v2` (`168:1544`, used on every
-Site v2 page — never detach), `Annotation pin` (`126:166`, review-only, never
+Site v2 page — never detach), the **Section library — site v2** (`175:15`,
+14 `Section / …` masters; see `docs/05-section-library.md`), `Annotation pin` (`126:166`, review-only, never
 ported). `01 · Foundations` is generated from the file's variables and text
 styles (29 Sep 2026) — when a variable changes, update the page from it, never
 the other way round.
@@ -106,6 +107,7 @@ docs/
     site-structure.md      Client IA brief — authority on scope.
     external-context.md    Secondary research. NOT approved copy — see §5.
   02-plan.md               IA, page specs, 13-collection CMS model.
+  05-section-library.md    Site v2 section inventory → 14 patterns, grounds.
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
 design-system/
@@ -136,6 +138,12 @@ transcriptions as the in-repo record.
 > is the client's dated site photo set and the Homer City Generation logo,
 > dropped into the Figma page. A photo never stands in for a named place it
 > does not show (Two Lick Reservoir and the data center stay placeholders).
+>
+> **Cream added + sections consolidated (29 Sep 2026):** `surface/cream`
+> (→ `color/cream/100` `#F2EFE9`) carries splits, statement lines, stats with
+> media and questions with media; panels inside it are white. Every section is
+> one of the 14 patterns in `docs/05-section-library.md` — reuse a pattern
+> before inventing one.
 >
 > **Grounds added (29 Sep 2026, client request):** `surface/green`
 > (→ `signal/affirm`) and `surface/blue` (→ `blue/900`, panels on
