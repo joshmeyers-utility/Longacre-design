@@ -74,6 +74,9 @@ are flagged amber in Figma until the client resolves them.
 | Safety pillar | "Safety is our #1 priority" (17) · "Safety is every HCG employee's #1 priority" (fact sheet) | Deck wording | **Confirm** |
 | Legacy site attributes | Three items after "including:" + "Experienced Local Workforce" (13) | Four attributes | **Confirm** grouping |
 | Partner names | Role + description, no name heading (16) | Logos carry the name | **Needed** — vector logos |
+| Local share | "95%" (20) · "~95%" (4 Sep press release) | 95% | **Confirm** |
+| Spotlight heading | "Meet Our Workers / IBEW Local 5 Worker Spotlights" (19) | "Meet our workers" | **Confirm** |
+| Union pages | "[LEARN MORE – add link to each union page later]" (22) | Held | **Needed** — not in sitemap |
 
 ---
 
