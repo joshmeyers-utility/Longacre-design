@@ -20,7 +20,7 @@ AI-assisted Webflow workflow.
 — file key `ANpwfYe7Zq4c7Lc4cxAWi2`. Pages: `01 · Foundations` (design system,
 source of truth), `02 · Components`, `03 · Desktop` and `04 · Mobile`
 (first-pass artboards on the old 7-page IA), `05 · Site v2` (sitemap `115:7`,
-Home `116:2` + key `126:201`, Campus future `127:198` + key `128:277` — built
+Home `116:2` + key `134:238`, Campus future `127:198` + key `134:387` — built
 from the Sep 2026 content outline). New components: `Nav pill — site v2`
 (`114:84`), `Annotation pin` (`126:166`, review-only, never ported).
 **Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
@@ -116,6 +116,14 @@ transcriptions as the in-repo record.
 > (design-system rule, not a rewrite). Anything missing or contradictory is
 > left out or shown as a labelled placeholder, and flagged with a numbered
 > amber `Annotation pin` on the canvas plus a keyed note beside the artboard.
+>
+> **Site v2 styling (29 Sep 2026):** sections alternate `surface/page`,
+> `surface/module` (white), `surface/inverse` and full-bleed photo bands — never
+> two of the same ground adjacent, never a dark band against the footer. CTAs
+> are `Button` pills; photo tiles carry a translucent overlay panel. Imagery
+> is the client's dated site photo set and the Homer City Generation logo,
+> dropped into the Figma page. A photo never stands in for a named place it
+> does not show (Two Lick Reservoir and the data center stay placeholders).
 
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
