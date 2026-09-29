@@ -20,8 +20,9 @@ AI-assisted Webflow workflow.
 — file key `ANpwfYe7Zq4c7Lc4cxAWi2`. Pages: `01 · Foundations` (design system,
 source of truth), `02 · Components`, `03 · Desktop` and `04 · Mobile`
 (first-pass artboards on the old 7-page IA), `05 · Site v2` (sitemap `115:7`,
-Home `116:2` + key `134:238`, Campus future `127:198` + key `134:387` — built
-from the Sep 2026 content outline). New components: `Nav pill — site v2`
+Home `116:2` + key `141:423`, Campus future `127:198` + key `141:570`,
+Development timeline `140:236` + key `141:679` — built from the Sep 2026
+content outline). New components: `Nav pill — site v2`
 (`114:84`), `Annotation pin` (`126:166`, review-only, never ported).
 **Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
 
@@ -72,7 +73,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
-| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap, Home, Campus future | 🟨 In progress — annotated, in review |
+| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap, Home, Campus future, Development timeline | 🟨 In progress — annotated, in review |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -124,6 +125,16 @@ transcriptions as the in-repo record.
 > is the client's dated site photo set and the Homer City Generation logo,
 > dropped into the Figma page. A photo never stands in for a named place it
 > does not show (Two Lick Reservoir and the data center stay placeholders).
+>
+> **Grounds added (29 Sep 2026, client request):** `surface/green`
+> (→ `signal/affirm`) and `surface/blue` (→ `blue/900`, panels on
+> `surface/blue-raised` → `blue/800`). Only `text/inverse` on green
+> (inverse-secondary fails 4.5:1). Blue ground is an explicit exception to
+> "blue means link", so neither ground carries text links — pill buttons only.
+> **Home is the only page with a photo hero; sub-pages open on a plain
+> `surface/inverse` hero** (label left, Display H1 right). The timeline lives
+> on the Development timeline page, on green, because that is the only page
+> the deck gives timeline content to.
 
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
