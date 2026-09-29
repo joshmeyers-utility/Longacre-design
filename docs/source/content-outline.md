@@ -71,6 +71,9 @@ are flagged amber in Figma until the client resolves them.
 | Turbine model | "7HA 02" (9) · "7HA.02" (7, fact sheet) | Verbatim per slide | **Confirm** typo |
 | PJM capacity projection | "predicts … capacity deficiency by the end of this decade" (10) | As written | **Needs source + date** |
 | Power flow diagram | Four labels, no layout (11) | Plant → grid → customer + homes | **Confirm** |
+| Safety pillar | "Safety is our #1 priority" (17) · "Safety is every HCG employee's #1 priority" (fact sheet) | Deck wording | **Confirm** |
+| Legacy site attributes | Three items after "including:" + "Experienced Local Workforce" (13) | Four attributes | **Confirm** grouping |
+| Partner names | Role + description, no name heading (16) | Logos carry the name | **Needed** — vector logos |
 
 ---
 
