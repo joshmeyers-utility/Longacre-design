@@ -45,6 +45,7 @@ Four stages, reviewed one at a time.
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
 | **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised through an editorial pass — [`docs/04-design-pass.md`](docs/04-design-pass.md) §11–12 |
 | **4b · Site v2** | New 8-section sitemap and pages from the Sep 2026 content outline ([`docs/source/content-outline.md`](docs/source/content-outline.md)), in Figma `05 · Site v2` | 🟨 **In progress** — sitemap, Home, Campus future, Development timeline, Power plant, Data centers, Campus history the three Who we are pages both Careers pages and all Community stewardship pages, FAQs, Contact and News & resources (hub + 7 child templates), expanded nav and shared footer in review; mobile deferred |
+| **4c · Site v3** | All 27 pages rebuilt at 1920 from the new section designs, in Figma `06 · Site v3 — desktop` ([`docs/06-site-v3.md`](docs/06-site-v3.md)) | 🟨 **In review** — annotated; mobile deferred |
 | **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.

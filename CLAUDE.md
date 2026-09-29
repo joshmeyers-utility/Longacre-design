@@ -33,7 +33,10 @@ and seven News & resources child templates `163:1030`–`163:2259` (each with an
 site v2 — expanded` (`169:1745`), `Footer — site v2` (`168:1544`, used on every
 Site v2 page — never detach), the **Section library — site v2** (`175:15`,
 14 `Section / …` masters; see `docs/05-section-library.md`), `Annotation pin` (`126:166`, review-only, never
-ported). `01 · Foundations` is generated from the file's variables and text
+ported). **`06 · Site v3 — desktop` (`192:2`)** — all 27 pages rebuilt at 1920px from the
+new sections on the `New UI` page (`188:5459`), each with an annotation key;
+see `docs/06-site-v3.md`. Home `196:526` … NR · Community spotlights
+`202:6435`. `01 · Foundations` is generated from the file's variables and text
 styles (29 Sep 2026) — when a variable changes, update the page from it, never
 the other way round.
 **Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
@@ -86,6 +89,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
 | 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap, Home, Campus future, Development timeline, Power plant & fuel supply, Data centers, Campus history, Campus partners, Local partners, Campus pillars, Meet our workforce, Job opportunities, Community stewardship + 6 child pages, FAQs, Contact us, News & resources hub + 7 child templates, expanded nav (desktop), shared footer; Foundations synced to variables — mobile deferred | 🟨 In progress — annotated, in review |
+| 4c. Site v3 | Figma `06 · Site v3 — desktop`: 27 pages rebuilt at 1920 from the New UI sections — mobile deferred | 🟨 In review |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -108,6 +112,7 @@ docs/
     external-context.md    Secondary research. NOT approved copy — see §5.
   02-plan.md               IA, page specs, 13-collection CMS model.
   05-section-library.md    Site v2 section inventory → 14 patterns, grounds.
+  06-site-v3.md            Site v3: New UI sections → pages, decisions.
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
 design-system/
