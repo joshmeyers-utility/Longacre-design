@@ -20,8 +20,9 @@ AI-assisted Webflow workflow.
 — file key `ANpwfYe7Zq4c7Lc4cxAWi2`. Pages: `01 · Foundations` (design system,
 source of truth), `02 · Components`, `03 · Desktop` and `04 · Mobile`
 (first-pass artboards on the old 7-page IA), `05 · Site v2` (sitemap `115:7`,
-Home `116:2`, production notes `120:172` — built from the Sep 2026 content
-outline). New component: `Nav pill — site v2` (`114:84`).
+Home `116:2` + key `126:201`, Campus future `127:198` + key `128:277` — built
+from the Sep 2026 content outline). New components: `Nav pill — site v2`
+(`114:84`), `Annotation pin` (`126:166`, review-only, never ported).
 **Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
 
 ---
@@ -71,7 +72,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
-| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap + Home | 🟨 In progress — Home in review |
+| 4b. Site v2 | `docs/source/content-outline.md` → Figma `05 · Site v2`: sitemap, Home, Campus future | 🟨 In progress — annotated, in review |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -108,6 +109,13 @@ transcriptions as the in-repo record.
 ---
 
 ## 5. Fact discipline — hard rules
+
+> **Client directive (29 Sep 2026): deck copy only.** Every word on a page comes
+> verbatim from `docs/source/content-outline.md`. We write no copy — not
+> headings, not eyebrows, not link labels. Title case is set in sentence case
+> (design-system rule, not a rewrite). Anything missing or contradictory is
+> left out or shown as a labelled placeholder, and flagged with a numbered
+> amber `Annotation pin` on the canvas plus a keyed note beside the artboard.
 
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
