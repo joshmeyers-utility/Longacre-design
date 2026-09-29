@@ -66,6 +66,11 @@ are flagged amber in Figma until the client resolves them.
 | Worker videos | "[There are 3 videos we can embed]" (19) | Placeholder | **Needed** — files |
 | Water source | Two Lick Reservoir, owned and operated by Homer City Generation (25) | As written | **Resolves open question #14** |
 | Withdrawal point | "Two Lick Reservoir" (25, 26) · "Two Lick Creek" (25, 26) | Both, as written | Confirm the relationship in one line |
+| Power stat strip | "Planned Capacity", "Advanced Turbines" labels with no figure (9) | "Figure not supplied" | **Needed** — likely up to 4.4 GW and 7 turbines |
+| Fact sheet link on Power page | "Download our Water Fact Sheet Here" (9) | As written | **Confirm** — power fact sheet intended? No file |
+| Turbine model | "7HA 02" (9) · "7HA.02" (7, fact sheet) | Verbatim per slide | **Confirm** typo |
+| PJM capacity projection | "predicts … capacity deficiency by the end of this decade" (10) | As written | **Needs source + date** |
+| Power flow diagram | Four labels, no layout (11) | Plant → grid → customer + homes | **Confirm** |
 
 ---
 
