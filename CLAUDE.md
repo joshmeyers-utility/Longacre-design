@@ -16,9 +16,11 @@ set, or a reference implementation that gets ported into Webflow by hand or by a
 AI-assisted Webflow workflow.
 
 **Current site being replaced:** <https://www.homercityredevelopment.com/>
-**Figma (design system + draft):** <https://www.figma.com/design/Jrd1qr29Hi3WvscddRo34r/Longacre>
-— file key `Jrd1qr29Hi3WvscddRo34r`. Currently empty; it is the destination for
-tokens and comps, and is the source of truth once populated.
+**Figma (current):** <https://www.figma.com/design/ANpwfYe7Zq4c7Lc4cxAWi2/Longacre>
+— file key `ANpwfYe7Zq4c7Lc4cxAWi2`. Pages: `01 · Foundations` (design system,
+source of truth), `03 · Desktop` (first-pass artboards on the old 7-page IA),
+`04 · Site v2` (sitemap + pages built from the Sep 2026 content outline).
+**Superseded:** `Jrd1qr29Hi3WvscddRo34r` — the earlier Stage 3/4 file.
 
 ---
 
@@ -67,6 +69,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
+| 4b. Site v2 | `docs/source/content-outline.md` → Figma `04 · Site v2`: sitemap + Home | 🟨 In progress — Home in review |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -81,6 +84,8 @@ CLAUDE.md                  This file. Context + rules.
 README.md                  Human orientation: what's here, how to use it.
 docs/
   source/                  Faithful transcriptions of client source material.
+    content-outline.md     Website content outline, 28 Sep 2026 — NEWEST.
+                           Authority on sitemap and page copy.
     fact-sheet.md          Fact Sheet, May 2026 — canonical approved copy.
     iup-deck.md            IUP tour deck, July 2026 — freshest figures.
     site-structure.md      Client IA brief — authority on scope.
@@ -105,9 +110,9 @@ transcriptions as the in-repo record.
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
 
-0. **"Coal" is not a word this site uses.** It appears in no client document —
-   only in `external-context.md`. The fact sheet's own phrasing is *"the former
-   Homer City Generating Station"*. Use theirs.
+0. ~~"Coal" is not a word this site uses.~~ **Retired Sep 2026.** The client's
+   own content outline says "former coal plant" throughout; client decision is
+   to use their wording. Still: use it as they do — as history, not as a foil.
 1. **Every figure traces to `docs/source/`.** If a number is not in those files,
    it does not go on the page. Do not estimate, do not interpolate, do not round
    for visual balance (`~1,300` is not `1.3K`).
@@ -126,7 +131,11 @@ worse than shipping late.
    2026) → ~1,500 (July 2026). It ships as a CMS field with a visible *"as of
    {month} {year}"*. A stale number on a transparency site is a self-inflicted
    wound.
-4. **July 2026 beats May 2026.** On conflicts, the IUP deck is newer. Milestones
+4. **Newest beats older.** Sep 2026 content outline > July 2026 IUP deck > May
+   2026 fact sheet — except where the outline contradicts itself or rounds a
+   figure the fact sheet states precisely; then the canonical wording in §6
+   wins and the conflict is logged in `content-outline.md`. On older
+   conflicts, the IUP deck is newer. Milestones
    the deck marks complete are complete; milestones only the fact sheet lists as
    forward-looking need confirmation before being shown as done.
 5. **Projections are labelled as projections.** "Projected", "anticipated",
@@ -151,10 +160,11 @@ Copy from here, not from memory.
 | ~3M cubic meters | Earth moved — roughly the volume required to build Egypt's Great Pyramid of Giza | Stable |
 | 7 × GE Vernova 7HA.02 | High-efficiency natural gas turbines in the Power Block | Stable |
 
-### Workforce figures — tier A, confirm before publishing
+### Workforce figures — now in client copy (content outline, slide 20)
 
-From the client's own 4 Sep 2026 press release, not from the supplied PDFs. These
-are the stats the brief asked for and no supplied document contained.
+First found in the 4 Sep 2026 press release; the Sep 2026 content outline now
+carries them with footnotes, so they are canonical. Footnotes 1–2 travel with
+9 and 95% the same way footnotes 1–2 above travel with their figures.
 
 | Figure | Label |
 | --- | --- |
@@ -165,7 +175,9 @@ are the stats the brief asked for and no supplied document contained.
 
 **Trades on site:** boilermakers, carpenters, electricians, ironworkers,
 laborers, millwrights, operators, pipefitters, teamsters. The nine unions are
-counted but **not named** anywhere public — the named list is still needed.
+counted but **not named** in full — the outline's quotes name three (Boilermakers
+Local 154, IBEW Local 5, Plumbers & Pipefitters Local 354); the roster is still
+needed.
 
 **Do not publish 4.5 GW.** Widespread in press coverage; both client documents
 say **up to 4.4 GW** and they are newer. See `docs/source/external-context.md`.
@@ -188,6 +200,25 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 ---
 
 ## 7. Design system
+
+> **Superseded in part (Sep 2026).** The client chose the design foundations in
+> Figma `ANpwfYe7Zq4c7Lc4cxAWi2` › `01 · Foundations` as the source of truth.
+> Where that page and this section disagree, **the Figma page wins**:
+>
+> | Topic | This section says | Foundations says (wins) |
+> | --- | --- | --- |
+> | Corners | `radius/surface` 0 — surfaces square | Media and cards 32px; every control a pill or circle |
+> | Strokes | Hairline dividers between content | No dividers — open ground |
+> | Palette | Navy/blue/aqua/cream/gold, `stone` + `navy` grounds | Ink ramp (seeds `#F5F5F5`…`#1D1D1F`) + blue ramp on action `#0C73CD` |
+> | Link blue | `blue/700` | `blue/700` `#0A5CA3`; `blue/500` `#1A8DF2` on the dark footer |
+> | Neutral text floor | `stone/700` | `ink/750` `#66666A` |
+> | Labels | Geist 12px SemiBold | Geist Mono, sentence case |
+>
+> Unchanged and still binding: semantic tokens only, blue means link, sentence
+> case, a brief is not a caption, scrims guaranteed, provenance beside the
+> figure, pillar colours only on pillars. `design-system/tokens.*` still hold
+> the older values and need regenerating from the Foundations page before
+> Stage 5.
 
 **Resolved in Stage 3, revised during the Stage 4 modern pass.** Full rationale
 in `docs/03-design-system.md`; values in `design-system/tokens.json` and
@@ -416,7 +447,10 @@ the first line rather than refactoring later.
 | 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
 | 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
 | 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
-| 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
+| 14 | ✅ **Resolved Sep 2026** by the content outline (slides 25–26): Two Lick Reservoir, owned and operated by Homer City Generation; campus-wide use in line with the former plant's historical levels. Old text kept for the record: **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
+
+| 15 | **Content outline conflicts** — efficiency (40% vs 30%), CO₂ (60% vs 60–65%), years of operation (54 / 55 / 55+), workforce date (4 vs 7 Sep), turbine delivery (Sept vs late 2026), and a missing footnote ⁵ behind "zero OSHA-recordable incidents". Full table in `content-outline.md`. | Launch |
+| 16 | **Content the outline marks TBD:** Data Centers page (from Amazon), Sound page, Giving Back, local partner names, NextEra inclusion, FAQ answers, the alert text-signup number, union logos, the three worker videos. | Those pages |
 
 **Non-blocking — can proceed with a stated assumption:**
 
@@ -433,7 +467,9 @@ the first line rather than refactoring later.
 
 ## 11. Conventions
 
-- **Branch:** `claude/keen-allen-x6me7z`. Do not push elsewhere.
+- **Branch:** the session's designated branch (currently
+  `claude/jolly-mccarthy-mk4ote`; Stages 1–4 were on `claude/keen-allen-x6me7z`,
+  merged).
 - **Commits:** one per stage, descriptive subject, body explaining what changed
   and why.
 - **Markdown:** wrap prose at ~80 characters. Tables for anything comparative.
