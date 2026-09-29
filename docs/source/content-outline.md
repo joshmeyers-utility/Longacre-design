@@ -77,6 +77,12 @@ are flagged amber in Figma until the client resolves them.
 | Local share | "95%" (20) · "~95%" (4 Sep press release) | 95% | **Confirm** |
 | Spotlight heading | "Meet Our Workers / IBEW Local 5 Worker Spotlights" (19) | "Meet our workers" | **Confirm** |
 | Union pages | "[LEARN MORE – add link to each union page later]" (22) | Held | **Needed** — not in sitemap |
+| Water usage footnote | "…when it was operational.1" (25) — no footnote text | Marker kept | **Needed** |
+| Water Key Facts | "Key Facts" heading, no content (25) | Placeholder | **Needed** |
+| $10B footnote | "site readiness1" (28) — no footnote text | Marker kept | **Needed** |
+| Jobs wording | "nearly 10,000" · "approximately 1,000" (28) vs 10,000+ · ~1,000 | Deck wording + slide-20 footnotes beside | **Confirm** |
+| Health & Safety sequence | "1 2 3 4 5" with no content (27) | Three points shown | **Confirm** |
+| Giving Back title | Three candidate titles (30) | "Giving back" | **Confirm** |
 
 ---
 

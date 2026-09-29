@@ -44,7 +44,7 @@ Four stages, reviewed one at a time.
 | **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
 | **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised through an editorial pass — [`docs/04-design-pass.md`](docs/04-design-pass.md) §11–12 |
-| **4b · Site v2** | New 8-section sitemap and pages from the Sep 2026 content outline ([`docs/source/content-outline.md`](docs/source/content-outline.md)), in Figma `05 · Site v2` | 🟨 **In progress** — sitemap, Home, Campus future, Development timeline, Power plant, Data centers, Campus history the three Who we are pages and both Careers pages in review |
+| **4b · Site v2** | New 8-section sitemap and pages from the Sep 2026 content outline ([`docs/source/content-outline.md`](docs/source/content-outline.md)), in Figma `05 · Site v2` | 🟨 **In progress** — sitemap, Home, Campus future, Development timeline, Power plant, Data centers, Campus history the three Who we are pages both Careers pages and all Community stewardship pages in review |
 | **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.
