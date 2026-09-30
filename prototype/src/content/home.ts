@@ -27,13 +27,13 @@ export const site = {
   address: ['1750 Power Plant Rd', 'Homer City, PA 15748'], // iup-deck slide 6
 };
 
-// Nav labels follow the Figma direction board. Only the homepage exists, so
-// each item points at the section on this page that covers it.
-export type PageId = 'home' | 'workforce';
+// Nav labels follow the Figma direction board. Items with a page of their own
+// link to it; the rest point at the homepage section that covers them.
+export type PageId = 'home' | 'workforce' | 'campus';
 
 /** Which page each nav item lives on. `hash` items are homepage sections. */
 export const nav = [
-  { label: 'What we’re building', href: '#power-block' },
+  { label: 'What we’re building', href: 'campus.html', page: 'campus' as PageId },
   { label: 'Who we are', href: '#history' },
   { label: 'Careers', href: 'workforce.html', page: 'workforce' as PageId },
   { label: 'Community stewardship', href: '#pillars' },
@@ -51,9 +51,12 @@ export const navCta = { label: 'Contact us', href: '#contact' };
 export const navMenu: { label: string; page?: PageId; href?: string; links: { label: string; href: string; page?: PageId }[] }[] = [
   {
     label: 'What we’re building',
+    page: 'campus',
     links: [
-      { label: 'The Power Block', href: '#power-block' },
-      { label: 'By the numbers', href: '#numbers' },
+      { label: 'Overview', href: 'campus.html', page: 'campus' },
+      { label: 'The site tour', href: 'campus.html#tour' },
+      { label: 'Build progress', href: 'campus.html#progress' },
+      { label: 'By the numbers', href: 'campus.html#numbers' },
     ],
   },
   {
@@ -114,7 +117,7 @@ export const hero = {
   // Assembled from fact-sheet figures and the deck's construction status.
   intro:
     'A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.',
-  cta: { label: 'See what we’re building', href: '#power-block' },
+  cta: { label: 'See what we’re building', href: 'campus.html' },
   media: {
     kind: 'Photograph',
     brief:
@@ -241,7 +244,7 @@ export const powerBlock = {
     { id: 'compressor', name: 'Gas compressor station', detail: 'Fuel supply' },
     { id: 'water', name: 'Water treatment facility', detail: 'Water treatment area', stamp: 'April 2026' },
   ] satisfies Facility[],
-  cta: { label: 'Read the common questions', href: '#faq' },
+  cta: { label: 'Take the site tour', href: 'campus.html#tour' },
   media: {
     kind: 'Photograph',
     brief: 'Powerblock aerial looking north (IUP deck photo essay)',

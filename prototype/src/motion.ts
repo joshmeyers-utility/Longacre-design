@@ -18,6 +18,7 @@ const TARGETS = [
   '.trade-tile',
   '.growth-chart',
   '.apply',
+  '.tour-stop',
   '.split_media',
   '.site-footer_grid > *',
 ].join(',');

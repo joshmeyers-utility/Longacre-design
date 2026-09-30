@@ -1,8 +1,8 @@
 import { useEffect, useId, useState } from 'react';
-import { AlertBar, SiteHeader } from '../components/Header';
+import { AlertBar } from '../components/Header';
+import { PageHero } from '../components/PageHero';
 import { SiteFooter, StatBlock } from '../components/Sections';
-import { Button, Flag, Icon, MediaFrame, notesOn, Picture, PlaceholderTag, SectionHead } from '../components/primitives';
-import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
+import { Button, Flag, Icon, MediaFrame, SectionHead } from '../components/primitives';
 import { workforcePage as page } from '../content/workforce';
 import { initReveals, scrollToHash } from '../motion';
 
@@ -23,7 +23,7 @@ export function WorkforcePage() {
         Skip to content
       </a>
       <AlertBar />
-      <PageHero />
+      <Hero />
       <main id="main">
         <WorkforceNumbers />
         <GrowthChart />
@@ -39,37 +39,15 @@ export function WorkforcePage() {
 
 /* ---------------------------------------------------------------- Hero */
 
-/** The homepage hero, shorter and without the news cards. */
-function PageHero() {
+function Hero() {
   const { hero } = page;
   return (
-    <section className="hero is-page theme-dark" aria-labelledby="hero-title">
-      <div className="hero_media">
-        <Picture photo={placeholderPhoto} alt={placeholderAlt} sizes="100vw" eager className="hero_picture" />
-      </div>
-      <div className="hero_scrim" aria-hidden="true" />
-      <SiteHeader current="workforce" />
-      {notesOn && (
-        <div className="hero_tag">
-          <PlaceholderTag media={hero.media} />
-        </div>
-      )}
-      <div className="hero_body">
-        <div className="hero_copy">
-          <p className="eyebrow">{hero.eyebrow}</p>
-          <h1 className="heading-xl" id="hero-title">
-            {hero.headline}
-          </h1>
-          <p className="body-lg hero_intro">{hero.intro}</p>
-          <div className="button-row">
-            <Button href={`mailto:${page.apply.email}`}>Find work on the campus</Button>
-            <Button href="#trades" tier="secondary">
-              See the nine trades
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero current="workforce" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} media={hero.media}>
+      <Button href={`mailto:${page.apply.email}`}>Find work on the campus</Button>
+      <Button href="#trades" tier="secondary">
+        See the nine trades
+      </Button>
+    </PageHero>
   );
 }
 

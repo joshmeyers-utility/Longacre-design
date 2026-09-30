@@ -1355,7 +1355,6 @@ address {
 .trade-tile {
   display: flex;
   border-radius: var(--radius-card);
-  transition: transform var(--motion-duration-base) var(--ease-out);
 }
 /* The whole tile is the link. Icon and arrow on top, name at the foot,
  * description between. The description always holds its space, so
@@ -1406,8 +1405,10 @@ address {
   align-self: end;
   color: var(--color-text-secondary);
   opacity: 0;
+  transform: translateY(8px);
   transition:
-    opacity var(--motion-duration-base) var(--ease-out),
+    opacity var(--motion-duration-slow) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out),
     color var(--motion-duration-base) var(--ease-out);
 }
 .trade-tile_name {
@@ -1419,6 +1420,7 @@ address {
 @media (hover: none) {
   .trade-tile_desc {
     opacity: 1;
+    transform: none;
   }
   .trade-tile_more-icon.is-add {
     opacity: 0;
@@ -1440,6 +1442,7 @@ address {
 .trade-tile_link:focus-visible .trade-tile_desc {
   color: var(--color-text-inverse);
   opacity: 1;
+  transform: none;
 }
 .trade-tile_link:focus-visible .trade-tile_more {
   background: var(--color-text-inverse);
@@ -1454,9 +1457,6 @@ address {
   transform: none;
 }
 @media (hover: hover) and (pointer: fine) {
-  .trade-tile:hover {
-    transform: translateY(-2px);
-  }
   .trade-tile_link:hover {
     background: var(--color-bg-inverse);
     color: var(--color-text-inverse);
@@ -1464,6 +1464,7 @@ address {
   .trade-tile_link:hover .trade-tile_desc {
     color: var(--color-text-inverse);
     opacity: 1;
+    transform: none;
   }
   .trade-tile_link:hover .trade-tile_more {
     background: var(--color-text-inverse);
@@ -1839,5 +1840,195 @@ address {
   }
   .timeline_list::after {
     transform: none;
+  }
+}
+
+/* ============================================================ campus */
+/* ------------------------------------------------------------- tour
+ * Heading on the left sticks while the numbered stops scroll by on the
+ * right. The rail beside the stops fills with scroll, as the timeline's. */
+.tour {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-layout-column-gap);
+}
+.tour_head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-md);
+  max-width: 40rem;
+}
+.tour_list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-layout-column-gap);
+  padding-left: var(--space-gap-xl);
+}
+.tour_list::before,
+.tour_list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--size-rail);
+  border-radius: var(--radius-control);
+}
+.tour_list::before {
+  background: var(--color-border-subtle);
+}
+.tour_list::after {
+  background: var(--color-border-strong);
+  transform: scaleY(var(--rail-progress, 1));
+  transform-origin: top;
+}
+.tour-stop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+  scroll-margin-top: var(--space-gap-xl);
+}
+.tour-stop_copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-gap-sm);
+  min-width: 0;
+}
+.tour-stop_number {
+  color: var(--color-text-secondary);
+}
+.tour-stop_stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-gap-xs);
+  margin-top: var(--space-gap-xs);
+}
+/* A dated stage: a flat chip, not a pill — it is not clickable. */
+.tour-stop_stage {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-gap-xs);
+  padding: var(--space-gap-xs) var(--space-gap-sm);
+  border-radius: var(--radius-media-sm);
+  background: var(--color-bg-surface);
+}
+.tour-stop_media .media_frame {
+  aspect-ratio: 4 / 3;
+}
+
+/* ------------------------------------------------------ photo essay
+ * A horizontal strip. The first card lines up with the page's content
+ * edge; the strip bleeds off the right. Snap keeps a card at the left. */
+.essay {
+  overflow: hidden;
+}
+.essay_head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-gap-md);
+}
+.essay_controls {
+  display: flex;
+  gap: var(--space-gap-xs);
+}
+.essay_controls .icon-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.essay_track {
+  --essay-inset: max(var(--space-layout-gutter), calc((100vw - 1600px) / 2 + var(--space-layout-gutter)));
+  display: flex;
+  column-gap: var(--space-gap-md);
+  margin-top: var(--space-layout-column-gap);
+  padding: 0 var(--essay-inset) var(--space-gap-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--essay-inset);
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.essay_track::-webkit-scrollbar {
+  display: none;
+}
+.essay_track:focus-visible {
+  outline-offset: -4px;
+}
+.essay-card {
+  flex: 0 0 min(78vw, 20rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xs);
+  scroll-snap-align: start;
+}
+.essay-card .media {
+  margin-bottom: var(--space-gap-sm);
+}
+.essay-card .media_frame {
+  aspect-ratio: 4 / 5;
+}
+.essay-card_date {
+  color: var(--color-text-secondary);
+}
+.essay_rail {
+  position: relative;
+  height: var(--size-rail);
+  margin-top: var(--space-gap-xl);
+  border-radius: var(--radius-control);
+  background: var(--color-border-subtle);
+  overflow: hidden;
+}
+.essay_rail-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-border-strong);
+  transform-origin: left;
+  transition: transform var(--motion-duration-fast) var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .essay_head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+  .essay_head .section-head,
+  .essay_head > p {
+    grid-column: 1;
+  }
+  .essay_controls {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Heading sticks on the left; stops scroll on the right. */
+  .tour {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: var(--space-layout-column-gap);
+    align-items: start;
+  }
+  .tour_head {
+    position: sticky;
+    top: var(--space-gap-xl);
+  }
+  .tour-stop {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-gap-xl);
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour_list::after {
+    transform: none;
+  }
+  .essay_track {
+    scroll-behavior: auto;
   }
 }

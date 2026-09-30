@@ -1,7 +1,7 @@
-# Prototype — homepage and Careers
+# Prototype — homepage, The Campus and Careers
 
-A React + TypeScript reference implementation of the homepage and the Careers
-(Workforce) page, laid out after
+A React + TypeScript reference implementation of the homepage, The Campus
+page and the Careers (Workforce) page, laid out after
 the Figma direction board (file `K7Mb6ksBE9it30ff9gb9CA`, Page 1) and styled
 entirely from `../design-system/tokens.css`. It ports to Webflow; it does not
 deploy.
@@ -11,7 +11,7 @@ deploy.
 ```sh
 cd prototype
 npm install
-npm run dev        # http://localhost:5173 and /workforce.html
+npm run dev        # http://localhost:5173, /campus.html and /workforce.html
 ```
 
 Each page is its own HTML file, as it will be in Webflow, so moving between
@@ -19,8 +19,8 @@ them is a real page load and the cross-page fade runs.
 
 - Review notes (provenance flags, placeholder-image tags, and FAQ questions
   with no sourced answer) are hidden by default. `?notes=on` shows them.
-- `npm run build:preview` writes `dist/preview/index.html` and
-  `dist/preview/workforce.html`: each page as one self-contained file (JS and
+- `npm run build:preview` writes `dist/preview/index.html`, `campus.html`
+  and `workforce.html`: each page as one self-contained file (JS and
   CSS inline, fonts from Google Fonts with the icon font subset to the glyphs
   in use) that opens straight from disk. They link to each other by filename,
   so keep them in one folder. `node scripts/build-preview.mjs <dir> --hosted`
@@ -43,8 +43,11 @@ them is a real page load and the cross-page fade runs.
 | `src/components/primitives.tsx` | Icon, Button, Flag, MediaFrame, SectionHead. |
 | `src/components/Header.tsx` | Alert banner, header, nav pill, mobile menu. |
 | `src/components/Sections.tsx` | The homepage sections, plus `StatBlock` and `SiteFooter`, shared with other pages. |
+| `src/content/campus.ts` | Every Campus-page string, sourced the same way. Says what the page leaves out (water source, fuel agreements, site map) and why. |
+| `src/components/PageHero.tsx` | The inner-page hero, shared by The Campus and Careers. |
+| `src/pages/Campus.tsx` | The Campus page: hero, figures, site tour, photo essay, timeline, questions. |
 | `src/pages/Workforce.tsx` | The Careers page: hero, figures, growth chart, trade tiles, apprentices, long view, how to apply. |
-| `index.html`, `workforce.html`, `src/main.tsx`, `src/workforce.tsx` | One HTML file and entry per page. |
+| `index.html`, `campus.html`, `workforce.html`, `src/main.tsx`, `src/campus.tsx`, `src/workforce.tsx` | One HTML file and entry per page. |
 | `src/styles/site.css` | All styling. Flat Client-First class names, role tokens only. |
 
 Fonts are self-hosted from npm (Geist, Material Symbols Rounded), so it runs
@@ -73,6 +76,32 @@ Webflow: a grid div with the same placement (each trigger and column given
 its column number), a hover/click interaction that adds `is-open` to
 `nav-menu`, and one that sets `is-active` on the hovered item's column. The
 Designer's own Dropdown component is per-item and cannot share a panel.
+
+## The Campus page
+
+Built from `docs/02-plan.md` §5.2 ("What we're building" in the nav). Hero,
+four site figures, the timeline and the footer are shared parts. Two new
+components:
+
+- **Site tour** (`tour`, `tour-stop`): the deck's four tour stops (Power
+  Block, GIS, gas compressor station, water treatment facility), numbered,
+  beside a heading that sticks from 1024px. A rail beside the stops fills
+  with scroll, as the timeline's does. Each stop lists the dates it was
+  photographed, from the photo essay. The plain-language "what it does"
+  copy is general, not client copy, and carries a "confirm" flag.
+- **Photo essay** (`essay`, `essay-card`): the deck's twelve dated stages,
+  1969–2023 to July 2026, as a horizontal strip. Swipe, scroll, arrow
+  buttons or keyboard (the strip is focusable); snap keeps a card at the
+  left edge and a rail under it shows progress. In Webflow: a CMS list in a
+  flex row with `overflow-x: auto` and scroll snap as custom properties;
+  the arrows need a small embed script.
+
+Left out until content exists: the water source and volume (CLAUDE.md §10
+#14 — the water stop says only that the facility exists, with a red flag
+under `?notes=on`), fuel supply agreements (the fact sheet lists them, the
+newer deck doesn't), the labelled site map, and a before/after "then and
+now" (needs the real photographs). Every essay frame shows the stand-in
+photo for now, so its stage name sits under the frame as a label.
 
 ## Careers page
 

@@ -1,7 +1,7 @@
 // Packs each page into one self-contained HTML file: JS and CSS inline,
 // images as data: URIs, fonts from Google Fonts with Material Symbols subset
 // to the glyphs in use. Pages link to each other by relative filename
-// (index.html ↔ workforce.html), so keep the files in one folder.
+// (index.html ↔ campus.html ↔ workforce.html), so keep the files in one folder.
 //
 //   npm run build:preview            → dist/preview/{index,workforce}.html
 //   node scripts/build-preview.mjs <dir>
@@ -32,13 +32,14 @@ color:var(--color-status-warning-text);font:var(--type-label-sm);letter-spacing:
 
 const pages = [
   { id: 'index', title: 'Homer City Energy Campus', description: 'Facts, figures and construction updates from the Homer City Energy Campus in Indiana County, Pennsylvania.' },
+  { id: 'campus', title: 'The Campus — Homer City Energy Campus', description: 'What is being built at the Homer City Energy Campus: the site tour, build photographs, figures and timeline, with sources.' },
   { id: 'workforce', title: 'Careers — Homer City Energy Campus', description: 'The trades, figures and hiring contact for the Homer City Energy Campus workforce.' },
 ];
 
 // Icons in use across all pages — keep in sync when adding an <Icon name=…>.
 // Alphabetical, as the Google Fonts API requires.
 const icons = [
-  'add', 'arrow_forward', 'arrow_outward', 'carpenter', 'close', 'construction', 'electrical_services',
+  'add', 'arrow_back', 'arrow_forward', 'arrow_outward', 'carpenter', 'close', 'construction', 'electrical_services',
   'engineering', 'fact_check', 'front_loader', 'local_fire_department', 'local_shipping',
   'menu', 'photo_camera', 'plumbing', 'report', 'settings', 'view_in_ar',
 ].sort();
