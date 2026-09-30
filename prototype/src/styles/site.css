@@ -81,6 +81,12 @@ address {
   color: var(--color-text-primary);
 }
 
+/* Ease-out for every reveal (fast start, long gentle settle). In Webflow:
+ * Interactions easing "outQuint", or this curve as a custom value. */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* `hidden` must win over any display rule (pillar and FAQ panels, menu). */
 [hidden] {
   display: none !important;
@@ -793,10 +799,14 @@ address {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity var(--motion-duration-slow) ease-out;
+  transform: scale(1.02);
+  transition:
+    opacity var(--motion-duration-slow) var(--ease-out),
+    transform 900ms var(--ease-out);
 }
 .pillars_frame.is-active {
   opacity: 1;
+  transform: none;
 }
 .pillars_frame .media_frame {
   height: 100%;
@@ -810,7 +820,7 @@ address {
   padding-left: var(--space-gap-lg);
   margin-left: calc(var(--size-rail) * -1);
   border-left: var(--size-rail) solid transparent;
-  transition: border-color var(--motion-duration-base) ease-out;
+  transition: border-color var(--motion-duration-slow) var(--ease-out);
 }
 .pillar.is-open {
   border-left-color: var(--color-border-strong);
@@ -821,19 +831,49 @@ address {
   padding: var(--space-gap-xs) 0;
   text-align: left;
   color: var(--color-text-secondary);
-  transition: color var(--motion-duration-fast) ease-out;
+  transition: color var(--motion-duration-slow) var(--ease-out);
 }
 .pillar_toggle:hover,
 .pillar.is-open .pillar_toggle {
   color: var(--color-text-primary);
+}
+/* Opens and shuts by animating its row from 0fr to 1fr, so the titles
+ * below glide rather than jump. Plain CSS grid — Webflow sets the row
+ * track as a custom value and swaps it with an "is-open" combo class. */
+.pillar_body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--motion-duration-slow) var(--ease-out);
+}
+.pillar.is-open .pillar_body {
+  grid-template-rows: 1fr;
 }
 .pillar_panel {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-gap-md);
-  padding: var(--space-gap-xs) 0 var(--space-gap-lg);
+  min-height: 0;
+  overflow: hidden;
   max-width: 34rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--motion-duration-base) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out);
+}
+/* Content fades in once the row has started to open, and out first on close. */
+.pillar.is-open .pillar_panel {
+  opacity: 1;
+  transform: none;
+  transition-delay: 120ms;
+}
+/* Padding lives inside the clipped area so a shut panel is truly 0 tall. */
+.pillar_panel > :first-child {
+  margin-top: var(--space-gap-xs);
+}
+.pillar_panel > :last-child {
+  margin-bottom: var(--space-gap-lg);
 }
 
 /* -------------------------------------------------------------- faq */
@@ -869,9 +909,43 @@ address {
 .faq-row_toggle:hover .icon-button.is-open {
   background: var(--color-action-icon-bg-selected);
 }
+.faq-row_body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--motion-duration-slow) var(--ease-out);
+}
+.faq-row.is-open .faq-row_body {
+  grid-template-rows: 1fr;
+}
 .faq-row_answer {
+  min-height: 0;
+  overflow: hidden;
   max-width: 44rem;
-  padding-bottom: var(--space-gap-lg);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--motion-duration-base) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out);
+}
+.faq-row.is-open .faq-row_answer {
+  opacity: 1;
+  transform: none;
+  transition-delay: 120ms;
+}
+/* Bottom space inside the clipped area, so a shut row is truly 0 tall. */
+.faq-row_answer > :last-child {
+  margin-bottom: var(--space-gap-lg);
+}
+.faq-row_icon {
+  transition: transform var(--motion-duration-slow) var(--ease-out);
+}
+.faq-row.is-open .faq-row_icon {
+  transform: rotate(135deg);
+}
+.icon-button {
+  transition:
+    background-color var(--motion-duration-base) var(--ease-out),
+    color var(--motion-duration-base) var(--ease-out);
 }
 
 /* ----------------------------------------------------------- footer */
@@ -1156,11 +1230,6 @@ address {
   transition-delay: calc(var(--reveal-order, 0) * 80ms);
 }
 
-/* Click: content that a control just revealed fades or rises in. */
-.pillar_panel:not([hidden]),
-.faq-row_answer:not([hidden]) {
-  animation: fade var(--motion-duration-base) ease-out backwards;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,

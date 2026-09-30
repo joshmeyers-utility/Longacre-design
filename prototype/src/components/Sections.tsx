@@ -19,7 +19,7 @@ import {
 } from '../content/home';
 import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
 import type { Milestone, Stat } from '../content/types';
-import { Button, Flag, Icon, MediaFrame, Picture, PlaceholderTag, SectionHead } from './primitives';
+import { Button, Flag, Icon, MediaFrame, notesOn, Picture, PlaceholderTag, SectionHead } from './primitives';
 import { SiteHeader } from './Header';
 
 /* ---------------------------------------------------------------- Hero */
@@ -32,9 +32,11 @@ export function Hero() {
       </div>
       <div className="hero_scrim" aria-hidden="true" />
       <SiteHeader />
-      <div className="hero_tag">
-        <PlaceholderTag media={hero.media} />
-      </div>
+      {notesOn && (
+        <div className="hero_tag">
+          <PlaceholderTag media={hero.media} />
+        </div>
+      )}
       <div className="hero_body">
         <div className="hero_copy">
           <h1 className="heading-xl" id="hero-title">
@@ -321,12 +323,17 @@ export function Pillars() {
                         {p.name}
                       </button>
                     </h3>
-                    <div className="pillar_panel" id={`${base}-${p.id}`} hidden={!isOpen}>
-                      <p className="body-lg text-secondary">{p.copy}</p>
-                      <a className="text-link" href={p.href}>
-                        {p.linkLabel}
-                        <Icon name="arrow_forward" />
-                      </a>
+                    {/* Always rendered so it can animate open and shut; `inert`
+                     * keeps a closed panel's link out of the tab order and the
+                     * accessibility tree, as `hidden` did. */}
+                    <div className="pillar_body" id={`${base}-${p.id}`} inert={!isOpen}>
+                      <div className="pillar_panel">
+                        <p className="body-lg text-secondary">{p.copy}</p>
+                        <a className="text-link" href={p.href}>
+                          {p.linkLabel}
+                          <Icon name="arrow_forward" />
+                        </a>
+                      </div>
                     </div>
                   </li>
                 );
@@ -366,8 +373,11 @@ function pinnedProgress(r: DOMRect, stage: HTMLElement | null) {
 
 /* ----------------------------------------------------------------- FAQ */
 
+/** Questions without a sourced answer only appear with review notes on. */
+const shownFaqs = faqs.filter((f) => f.answer || notesOn);
+
 export function Faq() {
-  const [open, setOpen] = useState<string | null>(faqs[0].id);
+  const [open, setOpen] = useState<string | null>(shownFaqs[0].id);
   const base = useId();
   return (
     <section className="section theme-dark" id="faq" aria-labelledby="faq-title">
@@ -379,10 +389,10 @@ export function Faq() {
           <Button href={navCta.href}>Ask us a question</Button>
         </div>
         <ul className="faq_list">
-          {faqs.map((f) => {
+          {shownFaqs.map((f) => {
             const isOpen = open === f.id;
             return (
-              <li className="faq-row" key={f.id}>
+              <li className={`faq-row${isOpen ? ' is-open' : ''}`} key={f.id}>
                 <h3>
                   <button
                     className="faq-row_toggle"
@@ -392,14 +402,18 @@ export function Faq() {
                     onClick={() => setOpen(isOpen ? null : f.id)}
                   >
                     <span className="heading-md">{f.question}</span>
+                    {/* One + that turns a quarter-and-a-half into ×, rather than a swapped glyph. */}
                     <span className={`icon-button${isOpen ? ' is-open' : ''}`} aria-hidden="true">
-                      <Icon name={isOpen ? 'close' : 'add'} size="md" />
+                      <Icon name="add" size="md" className="faq-row_icon" />
                     </span>
                   </button>
                 </h3>
-                <div className="faq-row_answer" id={`${base}-${f.id}`} hidden={!isOpen}>
-                  {f.answer && <p className="body-lg text-secondary">{f.answer}</p>}
-                  <Flag provenance={f.provenance} />
+                {/* Same open/shut technique as the pillars; `inert` stands in for `hidden`. */}
+                <div className="faq-row_body" id={`${base}-${f.id}`} inert={!isOpen}>
+                  <div className="faq-row_answer">
+                    {f.answer && <p className="body-lg text-secondary">{f.answer}</p>}
+                    <Flag provenance={f.provenance} />
+                  </div>
                 </div>
               </li>
             );

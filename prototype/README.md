@@ -13,7 +13,8 @@ npm install
 npm run dev        # http://localhost:5173
 ```
 
-- `?flags=off` hides the provenance flags, for clean screenshots.
+- Review notes (provenance flags, placeholder-image tags, and FAQ questions
+  with no sourced answer) are hidden by default. `?notes=on` shows them.
 - `npm run build:preview` writes `dist/preview.html`: the whole page as one
   self-contained file (JS and CSS inline, fonts from Google Fonts with the icon
   font subset to the glyphs in use) that opens straight from disk. Add any new

@@ -35,14 +35,19 @@ export function Button({ href, tier = 'primary', icon = 'arrow_forward', childre
 
 /* ---------------------------------------------------------------- Flag */
 
-const flagsOn = typeof window === 'undefined' || new URLSearchParams(window.location.search).get('flags') !== 'off';
+/**
+ * Review notes — provenance flags and placeholder-image tags — are off by
+ * default so the page reads as the finished site. Add ?notes=on to see them.
+ * They stay in the data either way.
+ */
+export const notesOn = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('notes') === 'on';
 
 /**
  * Provenance flag. Marks copy that cannot ship as written. Hidden with
- * ?flags=off for clean screenshots — never removed from the data.
+ * default; ?notes=on shows them. Never removed from the data.
  */
 export function Flag({ provenance }: { provenance: Provenance }) {
-  if (provenance.tier === 'canonical' || !flagsOn) return null;
+  if (provenance.tier === 'canonical' || !notesOn) return null;
   const label = provenance.tier === 'confirm' ? 'Confirm before launch' : 'Not sourced — cannot ship';
   return (
     <span className={`flag is-${provenance.tier}`} role="note">
@@ -81,6 +86,7 @@ export function Picture({ photo, alt, sizes, eager = false, className = '' }: { 
 
 /** Tag inside a frame while it shows the stand-in photo. Carries the brief. */
 export function PlaceholderTag({ media }: { media: Media }) {
+  if (!notesOn) return null;
   return (
     <span className="placeholder-tag">
       <Icon name={media.kind === 'Rendering' ? 'view_in_ar' : 'photo_camera'} />
