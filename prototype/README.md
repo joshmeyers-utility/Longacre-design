@@ -61,11 +61,26 @@ offline.
 | Commitments tabs (Water, Health & safety…) | The four pillars in the same tab-and-rail pattern | Pillar copy is sourced; the commitment copy (and the water answer) is not |
 | Primary button `#0081F1` | `#0067C3` | AA contrast (library decision) |
 | Homer City Generation logo | Placeholder mark + "Homer City Energy Campus" | No vector logo supplied (open question #1) |
-| Photography | Briefed placeholders | Photo library and rights outstanding (open question #4) |
+| Photography | One stand-in photo (`src/assets/placeholder-*.webp`) in every slot, tagged *Placeholder image* with its brief inside the frame; captions withheld | Photo library and rights outstanding (open question #4). A caption naming a specific shot would be false under a stock photo |
+| Timeline tabs | One continuous scroll, grouped by year; each year label sticks while its milestones pass, and each group's rail fills with scroll | Keep scrolling through the milestones instead of switching tabs |
 
 Sections not built yet from `docs/02-plan.md` §5.1: Orientation, Map (no labelled
 site asset), Latest news as a full section (only one sourced news item exists —
 it runs as a hero card).
+
+## Breakpoints
+
+Mobile first, and checked at 320, 375, 480, 600, 768, 900, 1024, 1100,
+1199, 1200, 1280, 1439, 1440, 1680 and 1920px: no horizontal scroll, no
+clipped text, AA over the photograph at every width.
+
+| From | What changes |
+| --- | --- |
+| 0 | One column. Hero on a flat strong scrim. |
+| 768 | Desktop type sizes. Stats and workforce figures two across, trades three across, news cards in a row. Stat figures scale with the width until 1440. |
+| 1024 | Text and image sit side by side. Timeline year labels move into their own column. FAQ splits into intro and list. |
+| 1200 | Full nav pill replaces the menu button. |
+| 1440 | Hero copy and news cards side by side, over a two-layer scrim. |
 
 ## Before this goes to Webflow
 
@@ -84,7 +99,7 @@ it runs as a hero card).
   | Hero copy rises in, news cards slide in | Page load | `hero_copy` children, `news-card` |
   | Rise in with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `pillar`, `faq-row`, `split_media`, footer columns |
   | Rail fills top to bottom | While scrolling in view | `timeline_list` progress segment |
-  | Opened content fades in; new year rises in | Click | `pillar_panel`, `faq-row_answer`, pillar image, `milestone` |
+  | Opened content fades in | Click | `pillar_panel`, `faq-row_answer`, pillar image |
   | Card lifts 2px, arrow nudges | Hover | `news-card`, `button_well` |
 
   Figures never count up — a transparency site should not display a number

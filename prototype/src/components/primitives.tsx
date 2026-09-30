@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import type { Media, Provenance } from '../content/types';
+import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
+import type { Media, Photo, Provenance } from '../content/types';
 
 /* ---------------------------------------------------------------- Icon */
 
@@ -53,24 +54,61 @@ export function Flag({ provenance }: { provenance: Provenance }) {
   );
 }
 
+/* ------------------------------------------------------------- Picture */
+
+/**
+ * Responsive image. Explicit width/height reserve the space (no layout
+ * shift); below-the-fold images load lazily. `sizes` tells the browser which
+ * width it needs, so a phone fetches the 800px file.
+ */
+export function Picture({ photo, alt, sizes, eager = false, className = '' }: { photo: Photo; alt: string; sizes: string; eager?: boolean; className?: string }) {
+  return (
+    <img
+      className={`picture ${className}`}
+      src={photo.src}
+      srcSet={photo.srcSet}
+      sizes={sizes}
+      width={photo.width}
+      height={photo.height}
+      alt={alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      {...(eager ? { fetchPriority: 'high' as const } : {})}
+      style={photo.focus ? { objectPosition: photo.focus } : undefined}
+    />
+  );
+}
+
+/** Tag inside a frame while it shows the stand-in photo. Carries the brief. */
+export function PlaceholderTag({ media }: { media: Media }) {
+  return (
+    <span className="placeholder-tag">
+      <Icon name={media.kind === 'Rendering' ? 'view_in_ar' : 'photo_camera'} />
+      <span>
+        <strong>Placeholder image.</strong> {media.kind} needed: {media.brief}
+      </span>
+    </span>
+  );
+}
+
 /* --------------------------------------------------------- Media frame */
 
 /**
- * Image slot. Until photography lands, the production brief sits inside the
- * frame — the region the photograph will cover — so it can never leak into
- * the caption. `shape` picks the comps' corner treatment.
+ * Image slot. Shows the real photograph when there is one; until then the
+ * stand-in, with the production brief tagged *inside* the frame and the
+ * caption withheld — a caption naming a specific shot would be false under a
+ * stock photo. `shape` picks the comps' corner treatment.
  */
-export function MediaFrame({ media, shape = 'feature', className = '' }: { media: Media; shape?: 'feature' | 'feature-cut' | 'card' | 'thumb'; className?: string }) {
+export function MediaFrame({ media, shape = 'feature', sizes = '(min-width: 1024px) 50vw, 100vw', className = '' }: { media: Media; shape?: 'feature' | 'feature-cut' | 'card' | 'thumb'; sizes?: string; className?: string }) {
+  const photo = media.photo ?? placeholderPhoto;
+  const isPlaceholder = !media.photo;
   return (
     <figure className={`media ${className}`}>
-      <div className={`media_frame is-${shape}`} role="img" aria-label={media.alt}>
-        <div className="media_brief" aria-hidden="true">
-          <Icon name={media.kind === 'Rendering' ? 'view_in_ar' : 'photo_camera'} />
-          <span className="media_kind">{media.kind} needed</span>
-          <span className="media_note">{media.brief}</span>
-        </div>
+      <div className={`media_frame is-${shape}`}>
+        <Picture photo={photo} alt={isPlaceholder ? placeholderAlt : media.alt} sizes={sizes} />
+        {isPlaceholder && <PlaceholderTag media={media} />}
       </div>
-      {(media.caption || media.date) && (
+      {!isPlaceholder && (media.caption || media.date) && (
         <figcaption className="media_caption">
           {media.caption && <span>{media.caption}</span>}
           {media.date && <span className="media_date">{media.date}</span>}

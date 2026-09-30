@@ -191,16 +191,21 @@ address {
   display: inline-flex;
   align-items: center;
   gap: var(--space-padding-button-gap);
-  height: var(--size-control-lg);
+  min-height: var(--size-control-lg);
+  max-width: 100%;
   padding: var(--space-padding-button-end) var(--space-padding-button-end) var(--space-padding-button-end) var(--space-padding-button-start);
   border-radius: var(--radius-control);
   font: var(--type-label-lg);
   letter-spacing: var(--type-label-lg-tracking);
   text-decoration: none;
-  white-space: nowrap;
   transition: background-color var(--motion-duration-fast) ease-out;
 }
+/* The label wraps rather than pushing the pill off a 320px screen. */
+.button_label {
+  min-width: 0;
+}
 .button_well {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -285,10 +290,12 @@ address {
   display: flex;
   flex-direction: column;
   gap: var(--space-gap-sm);
+  min-width: 0;
 }
 .media_frame {
   position: relative;
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--color-bg-surface-subtle);
@@ -303,19 +310,35 @@ address {
 .media_frame.is-card {
   border-radius: var(--radius-card);
 }
-.media_brief,
-.hero_brief {
-  position: absolute;
-  inset: auto var(--space-padding-card) var(--space-padding-card) var(--space-padding-card);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-gap-xs);
-  color: var(--color-text-tertiary);
-  font: var(--type-body-sm);
+/* Fills whatever frame holds it; the frame sets the shape. */
+.picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.media_kind {
-  font: var(--type-eyebrow);
-  letter-spacing: var(--type-eyebrow-tracking);
+/* Placeholder tag: sits inside the image, where the real photo will go. */
+.placeholder-tag {
+  position: absolute;
+  left: var(--space-padding-card);
+  bottom: var(--space-padding-card);
+  right: var(--space-padding-card);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-gap-xs);
+  width: fit-content;
+  max-width: 28rem;
+  padding: var(--space-padding-control-y) var(--space-padding-control-x);
+  border-radius: var(--radius-media-sm);
+  background: var(--color-scrim-strong);
+  color: var(--color-text-inverse);
+  font: var(--type-body-xs);
+}
+.theme-dark .placeholder-tag {
+  color: var(--color-text-primary);
+}
+.placeholder-tag strong {
+  font-weight: var(--font-weight-medium);
 }
 .media_caption {
   display: flex;
@@ -493,13 +516,18 @@ address {
   inset: 0;
   background: var(--color-bg-surface-subtle);
 }
-.hero_brief {
+.hero_picture {
+  object-position: 80% 50%;
+}
+.hero_tag {
+  position: relative;
+  z-index: 1;
   display: none; /* no room beside the headline on a phone */
-  inset: auto var(--space-layout-gutter) auto auto;
-  top: calc(var(--size-control-lg) + var(--space-layout-column-gap));
-  max-width: 22rem;
-  text-align: right;
-  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-gap-md) var(--space-layout-gutter) 0;
+}
+.hero_tag .placeholder-tag {
+  position: static;
 }
 /* Guarantees AA over any photograph: never lighter than scrim/strong behind
  * the text column (CLAUDE.md §9). */
@@ -561,9 +589,9 @@ address {
   justify-content: center;
   width: var(--size-media-thumb);
   height: var(--size-media-thumb);
+  overflow: hidden;
   border-radius: var(--radius-media-sm);
   background: var(--color-bg-raised);
-  color: var(--color-text-tertiary);
 }
 .news-card_copy {
   display: flex;
@@ -664,48 +692,40 @@ address {
 .timeline_head {
   display: flex;
   flex-direction: column;
-  gap: var(--space-gap-lg);
+  gap: var(--space-gap-sm);
+  max-width: 44rem;
   margin-bottom: var(--space-layout-column-gap);
 }
-.tabs {
-  display: inline-flex;
-  align-self: flex-start;
-  padding: var(--space-padding-nav);
-  border-radius: var(--radius-control);
-  background: var(--color-bg-raised);
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-layout-column-gap);
 }
-.tab {
-  height: var(--size-control-sm);
-  padding: var(--space-padding-control-y) var(--space-padding-control-x);
-  border-radius: var(--radius-control);
-  font: var(--type-label-md);
-  color: var(--color-text-secondary);
+.timeline_group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-lg);
 }
-.tab[aria-selected='true'] {
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-}
-.timeline_phase {
-  margin-bottom: var(--space-gap-xl);
+/* Sticks while its milestones scroll by. On a phone it pins to the top of
+ * the screen over a solid ground; on desktop it rides down its column. */
+.timeline_label {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xs);
+  padding: var(--space-gap-md) 0;
+  background: var(--color-bg-surface);
 }
 .timeline_list {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-gap-xl);
   padding-left: var(--space-gap-xl);
 }
-/* The rail: track plus a filled progress segment (Rail component). */
-.timeline_list::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--size-rail);
-  border-radius: var(--radius-control);
-  background: var(--color-border-subtle);
-}
-/* Progress segment. Full at rest; scroll drives --rail-progress from 0 to 1. */
+.timeline_list::before,
 .timeline_list::after {
   content: '';
   position: absolute;
@@ -714,16 +734,22 @@ address {
   left: 0;
   width: var(--size-rail);
   border-radius: var(--radius-control);
+}
+.timeline_list::before {
+  background: var(--color-border-subtle);
+}
+/* Progress segment. Full at rest; scroll drives --rail-progress from 0 to 1. */
+.timeline_list::after {
   background: var(--color-border-strong);
   transform: scaleY(var(--rail-progress, 1));
   transform-origin: top;
 }
 .milestone {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-gap-xs);
-  max-width: 34rem;
+  max-width: 40rem;
+  min-width: 0;
 }
 
 /* ---------------------------------------------------------- pillars */
@@ -865,31 +891,22 @@ address {
   .facility_stamp {
     grid-column: 2;
   }
-  .timeline_head {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
   .site-footer_grid {
     grid-template-columns: 2fr 1fr 1fr;
   }
+  /* Cards sit in a row under the copy, inside the flat strong scrim. */
   .hero_news {
-    align-self: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  .hero_brief {
-    display: flex;
+  .news-card {
+    flex: 1 1 22rem;
+    max-width: 30rem;
   }
 }
 
 /* ===================================================== ≥ 1024px */
 @media (min-width: 1024px) {
-  .nav-pill {
-    display: block;
-  }
-  .icon-button.is-menu,
-  .mobile-menu {
-    display: none;
-  }
   .split {
     flex-direction: row;
     align-items: center;
@@ -905,40 +922,26 @@ address {
   .split_media {
     max-width: 50rem;
   }
-  .hero_body {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  /* Photograph shows through on the right; text column keeps scrim/strong. */
-  .hero_scrim {
-    background: linear-gradient(90deg, var(--color-scrim-strong) 0%, var(--color-scrim-strong) 55%, var(--color-scrim-weak) 100%);
-  }
   .faq {
     flex-direction: row;
   }
   .faq_intro {
     flex: 0 0 32%;
   }
-  /* Alternating timeline around a centre rail, as in the direction board. */
-  .timeline_list {
-    grid-template-columns: 1fr 1fr;
-    column-gap: calc(var(--space-layout-column-gap) * 2);
-    padding-left: 0;
+  /* Year label in its own column, riding down beside its milestones. */
+  .timeline_group {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) minmax(0, 2fr);
+    column-gap: var(--space-layout-column-gap);
+    align-items: start;
   }
-  .timeline_list::before,
-  .timeline_list::after {
-    left: calc(50% - var(--size-rail) / 2);
+  .timeline_label {
+    top: var(--space-gap-xl);
+    padding: 0;
+    background: none;
   }
-  .milestone:nth-child(odd) {
-    grid-column: 1;
-    justify-self: end;
-    text-align: right;
-    align-items: flex-end;
-  }
-  .milestone:nth-child(even) {
-    grid-column: 2;
-    margin-top: var(--space-layout-column-gap);
+  .hero_tag {
+    display: flex;
   }
 }
 
@@ -947,7 +950,11 @@ address {
   /* Display is 128px from 768 up; scale it down until a column can hold
    * "10,000+" at full size. One clamp() — expressible in Webflow. */
   .stat_figure:not(.is-large) {
-    font-size: clamp(var(--type-heading-xl-size), 8.4vw, var(--type-display-size));
+    font-size: clamp(var(--type-heading-xl-size), 8vw, var(--type-display-size));
+  }
+  /* Workforce figures share a narrower column beside the photo. */
+  .stat_figure.is-large {
+    font-size: clamp(var(--type-heading-lg-size), 5vw, var(--type-heading-xl-size));
   }
 }
 
@@ -965,6 +972,46 @@ address {
   border-radius: var(--radius-control);
   background: var(--color-action-primary-bg);
   color: var(--color-action-primary-text);
+}
+
+/* ===================================================== ≥ 1200px */
+/* The full nav needs about 1150px beside the logo; below that, the menu. */
+@media (min-width: 1200px) {
+  .nav-pill {
+    display: block;
+  }
+  .icon-button.is-menu,
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* ===================================================== ≥ 1440px */
+@media (min-width: 1440px) {
+  .hero_body {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  /* Copy holds the left 58%, inside the strong band of the scrim. */
+  .hero_copy {
+    flex: 0 1 58%;
+  }
+  .hero_news {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .news-card {
+    flex: none;
+    max-width: 26rem;
+  }
+  /* Two layers: strong behind the headline column, and rising from the
+   * bottom edge behind the news cards. Never lighter than CLAUDE.md §9. */
+  .hero_scrim {
+    background:
+      linear-gradient(0deg, var(--color-scrim-strong) 0%, var(--color-scrim-strong) 50%, transparent 80%),
+      linear-gradient(90deg, var(--color-scrim-strong) 0%, var(--color-scrim-strong) 62%, var(--color-scrim-weak) 100%);
+  }
 }
 
 /* ============================================================ motion
@@ -1039,10 +1086,6 @@ address {
 }
 .split_media.is-swapped .media_frame {
   animation: fade var(--motion-duration-slow) ease-out backwards;
-}
-.timeline_list.is-switched > .milestone {
-  animation: rise var(--motion-duration-slow) ease-out backwards;
-  animation-delay: calc(var(--reveal-order, 0) * 60ms);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -30,6 +30,16 @@ let css = read('.css')
 let js = read('.js');
 if (js.includes('</script')) js = js.replaceAll('</script', '<\\/script');
 
+// Images ship inside the page as data: URIs (previews allow no other host).
+const mime = { webp: 'image/webp', jpg: 'image/jpeg', png: 'image/png', svg: 'image/svg+xml' };
+for (const f of assets) {
+  const ext = f.split('.').pop();
+  if (!mime[ext]) continue;
+  const uri = `data:${mime[ext]};base64,${readFileSync(join(dist, 'assets', f)).toString('base64')}`;
+  js = js.replaceAll(`/assets/${f}`, uri);
+  css = css.replaceAll(`/assets/${f}`, uri);
+}
+
 const fonts =
   'https://fonts.googleapis.com/css2?family=Geist:wght@300..700' +
   '&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,300,0,0' +

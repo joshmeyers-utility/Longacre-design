@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
 import { trackScrollProgress } from '../motion';
 import {
   announcements,
@@ -17,8 +17,9 @@ import {
   stats,
   workforce,
 } from '../content/home';
-import type { Stat } from '../content/types';
-import { Button, Flag, Icon, MediaFrame, SectionHead } from './primitives';
+import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
+import type { Milestone, Stat } from '../content/types';
+import { Button, Flag, Icon, MediaFrame, Picture, PlaceholderTag, SectionHead } from './primitives';
 import { SiteHeader } from './Header';
 
 /* ---------------------------------------------------------------- Hero */
@@ -26,15 +27,14 @@ import { SiteHeader } from './Header';
 export function Hero() {
   return (
     <section className="hero theme-dark" aria-labelledby="hero-title">
-      <div className="hero_media" role="img" aria-label={hero.media.alt}>
-        <div className="hero_brief" aria-hidden="true">
-          <Icon name="photo_camera" />
-          <span className="media_kind">{hero.media.kind} needed</span>
-          <span className="media_note">{hero.media.brief}</span>
-        </div>
+      <div className="hero_media">
+        <Picture photo={placeholderPhoto} alt={placeholderAlt} sizes="100vw" eager className="hero_picture" />
       </div>
       <div className="hero_scrim" aria-hidden="true" />
       <SiteHeader />
+      <div className="hero_tag">
+        <PlaceholderTag media={hero.media} />
+      </div>
       <div className="hero_body">
         <div className="hero_copy">
           <h1 className="heading-xl" id="hero-title">
@@ -48,8 +48,8 @@ export function Hero() {
         <aside className="hero_news" id="news" aria-label="Latest updates">
           {announcements.map((a) => (
             <a className="news-card" href={a.href} key={a.id}>
-              <span className="news-card_thumb" aria-hidden="true">
-                <Icon name="photo_camera" />
+              <span className="news-card_thumb">
+                <Picture photo={placeholderPhoto} alt="" sizes="100px" eager />
               </span>
               <span className="news-card_copy">
                 <span className="eyebrow">
@@ -193,35 +193,43 @@ export function History() {
 
 const phases = ['2025', '2026', 'Upcoming'] as const;
 
-export function Timeline() {
-  const [active, setActiveRaw] = useState<(typeof phases)[number]>('2026');
-  // After the first switch, a new year's milestones rise in (click trigger).
-  const [switched, setSwitched] = useState(false);
-  const setActive = (p: (typeof phases)[number]) => {
-    setSwitched(true);
-    setActiveRaw(p);
-  };
-  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const base = useId();
+/** One year's milestones. Its rail fills as the group scrolls past. */
+function MilestoneGroup({ phase, items }: { phase: (typeof phases)[number]; items: Milestone[] }) {
   const list = useRef<HTMLOListElement>(null);
-
-  // The rail fills as the list passes the middle of the screen (scroll progress).
   useEffect(() => {
     const el = list.current;
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     return trackScrollProgress(el, (p) => el.style.setProperty('--rail-progress', p.toFixed(3)));
-  }, [active]); // the list remounts per year, so re-attach to the new one
+  }, []);
 
-  const onKey = (e: KeyboardEvent, i: number) => {
-    const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-    if (!d) return;
-    e.preventDefault();
-    const next = (i + d + phases.length) % phases.length;
-    setActive(phases[next]);
-    tabs.current[next]?.focus();
-  };
+  const headingId = `milestones-${phase}`;
+  return (
+    <section className="timeline_group" aria-labelledby={headingId}>
+      {/* Sticks while its milestones scroll by, so the year is always in view. */}
+      <div className="timeline_label">
+        <h3 className="heading-md" id={headingId}>
+          {phase}
+        </h3>
+        <p className="body-sm text-secondary">{milestonePhases[phase]}</p>
+      </div>
+      <ol className="timeline_list" ref={list}>
+        {items.map((m, i) => (
+          <li className="milestone" key={m.id} style={{ '--reveal-order': Math.min(i, 5) } as CSSProperties}>
+            <p className="eyebrow milestone_date">
+              {m.month}
+              {typeof m.year === 'number' ? ` ${m.year}` : ''}
+            </p>
+            <p className="heading-xs">{m.title}</p>
+            <Flag provenance={m.provenance} />
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
 
-  const items = milestones.filter((m) => String(m.year) === active);
+/** Every milestone in one continuous scroll, grouped by year. */
+export function Timeline() {
   return (
     <section className="section is-surface" id="timeline" aria-labelledby="timeline-title">
       <div className="container">
@@ -229,45 +237,12 @@ export function Timeline() {
           <h2 className="heading-lg" id="timeline-title">
             Key milestones
           </h2>
-          <div className="tabs" role="tablist" aria-label="Milestone year">
-            {phases.map((p, i) => (
-              <button
-                key={p}
-                ref={(el) => {
-                  tabs.current[i] = el;
-                }}
-                className="tab"
-                role="tab"
-                type="button"
-                id={`${base}-${p}`}
-                aria-selected={active === p}
-                aria-controls={`${base}-panel`}
-                tabIndex={active === p ? 0 : -1}
-                onClick={() => setActive(p)}
-                onKeyDown={(e) => onKey(e, i)}
-              >
-                {p}
-              </button>
-            ))}
-          </div>
+          <p className="body-lg text-secondary">From demolition in March 2025 to what comes next.</p>
         </div>
-        <div className="timeline" role="tabpanel" id={`${base}-panel`} aria-labelledby={`${base}-${active}`}>
-          <p className="heading-md timeline_phase">
-            {active} | {milestonePhases[active]}
-          </p>
-          <ol className={`timeline_list${switched ? ' is-switched' : ''}`} ref={list} key={active}>
-            {items.map((m, i) => (
-              <li className="milestone" key={m.id} style={{ '--reveal-order': Math.min(i, 5) } as CSSProperties}>
-                <span className="milestone_node" aria-hidden="true" />
-                <p className="eyebrow milestone_date">
-                  {m.month}
-                  {typeof m.year === 'number' ? ` ${m.year}` : ''}
-                </p>
-                <p className="heading-xs">{m.title}</p>
-                <Flag provenance={m.provenance} />
-              </li>
-            ))}
-          </ol>
+        <div className="timeline">
+          {phases.map((p) => (
+            <MilestoneGroup key={p} phase={p} items={milestones.filter((m) => String(m.year) === p)} />
+          ))}
         </div>
       </div>
     </section>

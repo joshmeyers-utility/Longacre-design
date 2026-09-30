@@ -45,6 +45,16 @@ export interface Stat {
 
 export type MediaKind = 'Photograph' | 'Rendering';
 
+/** An image file. Explicit dimensions stop layout shift (CLAUDE.md §9). */
+export interface Photo {
+  src: string;
+  srcSet?: string;
+  width: number;
+  height: number;
+  /** object-position, so a crop keeps the subject in frame. */
+  focus?: string;
+}
+
 /**
  * An image slot. `brief` is a production note and renders *inside* the image
  * area, where a real photograph will cover it. `caption` and `date` are
@@ -56,6 +66,8 @@ export interface Media {
   alt: string;
   caption?: string;
   date?: string;
+  /** The real photograph. Until it exists, the placeholder stands in. */
+  photo?: Photo;
 }
 
 export interface Pillar {
