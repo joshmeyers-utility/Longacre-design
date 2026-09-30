@@ -1,5 +1,10 @@
 # Stage 3 — Design system
 
+> **Superseded.** This describes the Stage 3 system (navy/stone/sand, Figma file
+> `Jrd1qr29Hi3WvscddRo34r`). The live library was rebuilt from scratch against the
+> new comps — see [`05-variable-library.md`](05-variable-library.md). Kept as the
+> record of Stage 3; its values no longer match `design-system/`.
+
 Typography, colour, spacing and motion for the Homer City Energy Campus site.
 
 | Where | What |

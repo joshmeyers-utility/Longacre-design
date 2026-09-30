@@ -12,9 +12,9 @@ acts as a reference implementation for the Webflow build.
 | | |
 | --- | --- |
 | **Current site** | <https://www.homercityredevelopment.com/> |
-| **Figma** | [Longacre](https://www.figma.com/design/Jrd1qr29Hi3WvscddRo34r/Longacre) — design system + comps |
+| **Figma** | [New comps + variable library](https://www.figma.com/design/K7Mb6ksBE9it30ff9gb9CA/Untitled) — current · [Longacre](https://www.figma.com/design/Jrd1qr29Hi3WvscddRo34r/Longacre) — Stage 3/4, superseded |
 | **Build platform** | Webflow, AI-assisted |
-| **Branch** | `claude/keen-allen-x6me7z` |
+| **Branch** | `claude/gracious-planck-fm9kww` (earlier stages: `claude/keen-allen-x6me7z`) |
 
 ---
 
@@ -44,6 +44,7 @@ Four stages, reviewed one at a time.
 | **2 · Plan** | Sitemap, page-by-page section specs, Webflow CMS schema, Phase 1/2 scope | ✅ **Complete** — [`docs/02-plan.md`](docs/02-plan.md) |
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
 | **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised through an editorial pass — [`docs/04-design-pass.md`](docs/04-design-pass.md) §11–12 |
+| **4b · Variable library v2** | Tokens rebuilt from scratch against the new comps: 3 collections, Light/Dark and Desktop/Mobile modes, showcase pages | ✅ **Complete** — [`docs/05-variable-library.md`](docs/05-variable-library.md) |
 | **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.
@@ -69,9 +70,12 @@ Read in this order:
      workforce release, and what the site has to be credible against.
 3. **[`docs/02-plan.md`](docs/02-plan.md)** — Stage 2. Sitemap, page specs, CMS
    model, content status.
-4. **[`docs/03-design-system.md`](docs/03-design-system.md)** — Stage 3.
-   Typography, colour, spacing, motion, and how it all maps to Webflow. Values
-   live in [`design-system/`](design-system/) and in Figma.
+4. **[`docs/05-variable-library.md`](docs/05-variable-library.md)** — the
+   current token system, rebuilt against the new comps: decisions, the colour
+   and spacing map with its evidence, verification, and the comp copy that
+   breaks the fact rules. Values live in [`design-system/`](design-system/),
+   exported from Figma. ([`docs/03`](docs/03-design-system.md) is the
+   superseded Stage 3 system.)
 5. **[`docs/04-design-pass.md`](docs/04-design-pass.md)** — Stage 4. The
    artboards, the 16-component library, and the micro-interaction spec. §11–12
    record the editorial pass: the stat ledger, the Image Band component, the
