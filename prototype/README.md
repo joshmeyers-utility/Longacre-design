@@ -147,8 +147,12 @@ split, media frame and footer classes. Two new components:
   on three columns; hover or focus any column for its source; "Show as a
   table" holds every value.
 - **Trade tiles** (`trade-grid`, `trade-tile`): nine tiles, each a link out
-  to its trade's union in a new tab. Hover or keyboard focus turns the tile
-  ink, shows the description, and turns the + into an outward arrow. On
+  to its trade's union in a new tab. Hover or keyboard focus fills the tile
+  with ink from the arrow well outward (one scaled circle, `trade-tile_wash`,
+  so it never fades through grey), turns the text as the ink reaches it,
+  inverts the well, turns the + into an outward arrow, then raises the
+  description. Leaving, the text turns back first and the ink pulls back
+  in about 120ms, so nothing lingers on the white tile. On
   touch the description and arrow show from the start. The description
   always holds its space, so the tile never resizes. The links go to each
   trade's international union for now, flagged, until the nine locals are
@@ -244,7 +248,7 @@ changes. A bright or white-sky photo will fail.
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
   | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
   | Card lifts 2px, arrow nudges | Hover | `news-card` (`news-card_arrow`), `button_well` |
-  | Tile turns ink, description fades in, + hands over to an outward arrow | Hover (and focus) | `trade-tile_link`, `trade-tile_desc`, `trade-tile_more-icon` |
+  | Ink circle grows from the arrow well to fill the tile; text turns, + hands over to an outward arrow, description rises in | Hover (and focus) | `trade-tile_wash` (scale 0 → 1), `trade-tile_link`, `trade-tile_more-icon`, `trade-tile_desc` |
 
   Figures never count up — a transparency site should not display a number
   that is not true, even for half a second. Everything is off under

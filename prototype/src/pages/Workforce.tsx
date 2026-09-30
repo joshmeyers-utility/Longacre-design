@@ -185,9 +185,9 @@ function GrowthChart() {
 
 /**
  * Nine tiles, each a link out to its trade's union (opens in a new tab).
- * Pointer hover or keyboard focus turns the tile ink and shows the
- * description; the + turns into an outward arrow to say the link leaves
- * the site. On touch there is no hover, so the description sits on the
+ * Pointer hover or keyboard focus fills the tile with ink from the arrow
+ * well outward and shows the description; the + turns into an outward
+ * arrow to say the link leaves the site. On touch there is no hover, so the description sits on the
  * tile face instead. Every description is in the DOM either way.
  */
 function Trades() {
@@ -208,6 +208,7 @@ function Trades() {
                     <span className="sr-only">, {t.union} (opens in a new tab)</span>
                   </span>
                   <span className="icon-button trade-tile_more" aria-hidden="true">
+                    <span className="trade-tile_wash" />
                     <Icon name="add" className="trade-tile_more-icon is-add" />
                     <Icon name="arrow_outward" className="trade-tile_more-icon is-out" />
                   </span>
