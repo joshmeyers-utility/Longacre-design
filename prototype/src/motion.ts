@@ -14,7 +14,6 @@ const TARGETS = [
   '.trades_item',
   '.facility',
   '.milestone',
-  '.pillar',
   '.faq-row',
   '.split_media',
   '.site-footer_grid > *',
@@ -58,15 +57,18 @@ export function initReveals(): () => void {
 
 /**
  * Scroll progress, 0 → 1, of an element passing the middle of the viewport.
- * Stands in for Webflow's "while scrolling in view" trigger.
+ * Stands in for Webflow's "while scrolling in view" trigger. `measure` swaps
+ * the default for another mapping, such as a pinned section's travel.
  */
-export function trackScrollProgress(el: HTMLElement, onProgress: (p: number) => void): () => void {
+export function trackScrollProgress(
+  el: HTMLElement,
+  onProgress: (p: number) => void,
+  measure: (r: DOMRect) => number = passingMiddle,
+): () => void {
   let frame = 0;
   const update = () => {
     frame = 0;
-    const r = el.getBoundingClientRect();
-    const line = window.innerHeight * 0.6;
-    onProgress(Math.min(1, Math.max(0, (line - r.top) / r.height)));
+    onProgress(Math.min(1, Math.max(0, measure(el.getBoundingClientRect()))));
   };
   const onScroll = () => {
     if (!frame) frame = requestAnimationFrame(update);
@@ -79,4 +81,8 @@ export function trackScrollProgress(el: HTMLElement, onProgress: (p: number) => 
     window.removeEventListener('scroll', onScroll);
     window.removeEventListener('resize', onScroll);
   };
+}
+
+function passingMiddle(r: DOMRect) {
+  return (window.innerHeight * 0.6 - r.top) / r.height;
 }

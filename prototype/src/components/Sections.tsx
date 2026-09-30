@@ -251,56 +251,117 @@ export function Timeline() {
 
 /* ------------------------------------------------------------- Pillars */
 
+/**
+ * Scroll-driven accordion. The section is a tall track; the stage inside it
+ * pins while the reader scrolls, and each quarter of the track opens the next
+ * pillar. A click jumps the page to that pillar's quarter, so scroll position
+ * and the open pillar never disagree. Where the stage cannot pin (a short
+ * landscape phone), it falls back to a plain click accordion.
+ */
 export function Pillars() {
-  const [open, setOpenRaw] = useState(pillars[0].id);
-  const [touched, setTouched] = useState(false);
-  const setOpen = (id: string) => {
-    setTouched(true);
-    setOpenRaw(id);
-  };
+  const [open, setOpen] = useState(0);
+  const track = useRef<HTMLElement>(null);
+  const stage = useRef<HTMLDivElement>(null);
+  const jumping = useRef<number | null>(null);
   const base = useId();
-  const current = pillars.find((p) => p.id === open) ?? pillars[0];
+
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    return trackScrollProgress(
+      el,
+      (p) => {
+        if (!isPinned(stage.current)) return;
+        const i = Math.min(pillars.length - 1, Math.floor(p * pillars.length));
+        // While a click is scrolling the page, ignore the pillars it passes.
+        if (jumping.current !== null) {
+          if (i !== jumping.current) return;
+          jumping.current = null;
+        }
+        setOpen(i);
+      },
+      (r) => pinnedProgress(r, stage.current),
+    );
+  }, []);
+
+  const jumpTo = (i: number) => {
+    setOpen(i);
+    const el = track.current;
+    if (!el || !isPinned(stage.current)) return;
+    const { travel, pinTop } = pinGeometry(el.offsetHeight, stage.current);
+    const top = el.getBoundingClientRect().top + window.scrollY - pinTop + travel * ((i + 0.5) / pillars.length);
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    jumping.current = i;
+    window.setTimeout(() => (jumping.current = null), 1200);
+    window.scrollTo({ top, behavior: smooth ? 'smooth' : 'auto' });
+  };
 
   return (
-    <section className="section" id="pillars" aria-labelledby="pillars-title">
-      <div className="container split">
-        <div className="split_copy">
-          <p className="eyebrow">Community stewardship</p>
-          <h2 className="sr-only" id="pillars-title">
-            Project pillars
-          </h2>
-          <ul className="pillar-list">
-            {pillars.map((p) => {
-              const isOpen = p.id === open;
-              return (
-                <li className={`pillar${isOpen ? ' is-open' : ''}`} key={p.id}>
-                  <h3>
-                    <button
-                      className="pillar_toggle heading-lg"
-                      type="button"
-                      aria-expanded={isOpen}
-                      aria-controls={`${base}-${p.id}`}
-                      onClick={() => setOpen(p.id)}
-                    >
-                      {p.name}
-                    </button>
-                  </h3>
-                  <div className="pillar_panel" id={`${base}-${p.id}`} hidden={!isOpen}>
-                    <p className="body-lg text-secondary">{p.copy}</p>
-                    <a className="text-link" href={p.href}>
-                      {p.linkLabel}
-                      <Icon name="arrow_forward" />
-                    </a>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+    <section className="pillars" id="pillars" aria-labelledby="pillars-title" ref={track}>
+      <div className="pillars_stage" ref={stage}>
+        <div className="container pillars_layout">
+          <div className="pillars_copy">
+            <p className="eyebrow">Community stewardship</p>
+            <h2 className="sr-only" id="pillars-title">
+              Project pillars
+            </h2>
+            <ul className="pillar-list">
+              {pillars.map((p, i) => {
+                const isOpen = i === open;
+                return (
+                  <li className={`pillar${isOpen ? ' is-open' : ''}`} key={p.id}>
+                    <h3>
+                      <button
+                        className="pillar_toggle heading-lg"
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-controls={`${base}-${p.id}`}
+                        onClick={() => jumpTo(i)}
+                      >
+                        {p.name}
+                      </button>
+                    </h3>
+                    <div className="pillar_panel" id={`${base}-${p.id}`} hidden={!isOpen}>
+                      <p className="body-lg text-secondary">{p.copy}</p>
+                      <a className="text-link" href={p.href}>
+                        {p.linkLabel}
+                        <Icon name="arrow_forward" />
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          {/* All four frames are stacked; the open pillar's fades in. */}
+          <div className="pillars_media">
+            {pillars.map((p, i) => (
+              <MediaFrame
+                media={p.media}
+                shape="feature"
+                className={`pillars_frame${i === open ? ' is-active' : ''}`}
+                key={p.id}
+              />
+            ))}
+          </div>
         </div>
-        <MediaFrame media={current.media} shape="feature" className={`split_media${touched ? ' is-swapped' : ''}`} key={current.id} />
       </div>
     </section>
   );
+}
+
+const isPinned = (el: HTMLElement | null) => !!el && getComputedStyle(el).position === 'sticky';
+
+/** How far the stage travels while pinned, and where it pins. */
+function pinGeometry(trackHeight: number, stage: HTMLElement | null) {
+  const pinTop = stage ? parseFloat(getComputedStyle(stage).top) || 0 : 0;
+  return { travel: trackHeight - (stage?.offsetHeight ?? window.innerHeight), pinTop };
+}
+
+/** 0 when the stage first pins, 1 when it lets go. */
+function pinnedProgress(r: DOMRect, stage: HTMLElement | null) {
+  const { travel, pinTop } = pinGeometry(r.height, stage);
+  return travel > 0 ? (pinTop - r.top) / travel : 0;
 }
 
 /* ----------------------------------------------------------------- FAQ */

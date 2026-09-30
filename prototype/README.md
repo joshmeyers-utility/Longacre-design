@@ -72,15 +72,21 @@ it runs as a hero card).
 
 Mobile first, and checked at 320, 375, 480, 600, 768, 900, 1024, 1100,
 1199, 1200, 1280, 1439, 1440, 1680 and 1920px: no horizontal scroll, no
-clipped text, AA over the photograph at every width.
+clipped text. Hero text is sampled against the pixels actually painted
+behind it (headline ≥ 3:1 large text, everything else ≥ 4.5:1) at 11 viewport
+sizes from 320×568 to 2560×1440 — lowest is 3.53:1 on the headline and
+5.02:1 on the intro. **That check is only as good as the photo:** the scrim
+was lightened to let the image show, so re-run it when the hero image
+changes. A bright or white-sky photo will fail.
 
 | From | What changes |
 | --- | --- |
-| 0 | One column. Hero on a flat strong scrim. |
+| 0 | One column. Hero scrim rises from the bottom edge and clears toward the top. Pillars pin as one screen (capped at 1000px) and scroll through in turn. |
+| height < 640 | Pillars stop pinning and become a plain click accordion — a landscape or 320px phone cannot hold copy and photo on one screen. |
 | 768 | Desktop type sizes. Stats and workforce figures two across, trades three across, news cards in a row. Stat figures scale with the width until 1440. |
-| 1024 | Text and image sit side by side. Timeline year labels move into their own column. FAQ splits into intro and list. |
+| 1024 | Text and image sit side by side; the pinned pillar photo fills the stage height. Timeline year labels move into their own column. FAQ splits into intro and list. |
 | 1200 | Full nav pill replaces the menu button. |
-| 1440 | Hero copy and news cards side by side, over a two-layer scrim. |
+| 1440 | Hero copy and news cards side by side; the scrim rises from the bottom with a light wash behind the headline column. |
 
 ## Before this goes to Webflow
 
@@ -90,6 +96,11 @@ clipped text, AA over the photograph at every width.
 - **`backdrop-filter`** (frosted nav and cards) is a custom property in Webflow;
   the solid `bg/glass` fill underneath keeps text legible where it is
   unsupported.
+- **The pinned pillars** use `position: sticky` and two `min()`/`max()`
+  values for the 1000px cap — custom values in Webflow. Switching the open
+  pillar from scroll position needs a small embed script (Interactions 2.0
+  can animate across scroll progress but cannot set `aria-expanded`); the
+  click accordion works without it.
 - **One `clamp()`** scales the stat figures between 768 and 1439px. Webflow
   accepts it as a custom value.
 - **Motion** maps one-to-one onto Interactions 2.0 — no GSAP:
@@ -97,9 +108,11 @@ clipped text, AA over the photograph at every width.
   | Effect | Trigger | Targets |
   | --- | --- | --- |
   | Hero copy rises in, news cards slide in | Page load | `hero_copy` children, `news-card` |
-  | Rise in with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `pillar`, `faq-row`, `split_media`, footer columns |
+  | Rise in with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `faq-row`, `split_media`, footer columns |
   | Rail fills top to bottom | While scrolling in view | `timeline_list` progress segment |
-  | Opened content fades in | Click | `pillar_panel`, `faq-row_answer`, pillar image |
+  | Pillars open in turn as the pinned stage scrolls, each over a quarter of its travel; the photo cross-fades | While scrolling in view (section `pillars`, sticky `pillars_stage`) | `pillar_panel`, `pillars_frame` |
+  | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
+  | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
   | Card lifts 2px, arrow nudges | Hover | `news-card`, `button_well` |
 
   Figures never count up — a transparency site should not display a number

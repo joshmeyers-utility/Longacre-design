@@ -529,12 +529,14 @@ address {
 .hero_tag .placeholder-tag {
   position: static;
 }
-/* Guarantees AA over any photograph: never lighter than scrim/strong behind
- * the text column (CLAUDE.md §9). */
+/* Rises from the bottom edge, where the copy sits, and clears toward the
+ * top so the photograph reads. Lighter than the old flat scrim, so it is
+ * only as safe as the photo behind it: re-run the contrast sample in
+ * prototype/README.md whenever the hero image changes (CLAUDE.md §9). */
 .hero_scrim {
   position: absolute;
   inset: 0;
-  background: var(--color-scrim-strong);
+  background: linear-gradient(0deg, var(--color-scrim-strong) 0%, var(--color-scrim-strong) 20%, var(--color-scrim-weak) 75%, transparent 100%);
 }
 .hero_body {
   position: relative;
@@ -752,7 +754,54 @@ address {
   min-width: 0;
 }
 
-/* ---------------------------------------------------------- pillars */
+/* ---------------------------------------------------------- pillars
+ * A tall track with a pinned stage. The stage is one screen, capped at
+ * 1000px and centred on taller screens; the track adds 65svh of scroll per
+ * pillar. Webflow: section + sticky div, with "while scrolling in view" on
+ * the section driving each pillar across its quarter of the track.
+ */
+.pillars {
+  position: relative;
+  height: 360svh; /* 100svh stage + 4 × 65svh of travel */
+}
+.pillars_stage {
+  position: sticky;
+  top: max(0px, calc(50svh - 31.25rem));
+  display: flex;
+  height: min(100svh, 62.5rem);
+  padding: var(--space-layout-gutter) 0;
+}
+.pillars_layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-layout-column-gap);
+  width: 100%;
+}
+.pillars_copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-gap-xl);
+}
+/* Fills whatever height the copy leaves; the four frames stack inside. */
+.pillars_media {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 8rem;
+}
+.pillars_frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--motion-duration-slow) ease-out;
+}
+.pillars_frame.is-active {
+  opacity: 1;
+}
+.pillars_frame .media_frame {
+  height: 100%;
+  aspect-ratio: auto;
+}
 .pillar-list {
   width: 100%;
   border-left: var(--size-rail) solid var(--color-border-subtle);
@@ -894,7 +943,7 @@ address {
   .site-footer_grid {
     grid-template-columns: 2fr 1fr 1fr;
   }
-  /* Cards sit in a row under the copy, inside the flat strong scrim. */
+  /* Cards sit in a row under the copy, in the strong band of the scrim. */
   .hero_news {
     flex-direction: row;
     flex-wrap: wrap;
@@ -942,6 +991,35 @@ address {
   }
   .hero_tag {
     display: flex;
+  }
+  .pillars_layout {
+    flex-direction: row;
+    align-items: center;
+  }
+  .pillars_copy {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .pillars_media {
+    align-self: stretch;
+    max-width: 50rem;
+  }
+}
+
+/* Too short to pin (a landscape phone, a 320px phone): the copy and photo
+ * would not fit one screen, so it becomes a plain click accordion. */
+@media (max-height: 639px) {
+  .pillars {
+    height: auto;
+  }
+  .pillars_stage {
+    position: relative;
+    top: 0;
+    height: auto;
+  }
+  .pillars_media {
+    flex: none;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -993,7 +1071,7 @@ address {
     align-items: flex-end;
     justify-content: space-between;
   }
-  /* Copy holds the left 58%, inside the strong band of the scrim. */
+  /* Copy holds the left 58%; cards ride the bottom-right corner. */
   .hero_copy {
     flex: 0 1 58%;
   }
@@ -1005,12 +1083,12 @@ address {
     flex: none;
     max-width: 26rem;
   }
-  /* Two layers: strong behind the headline column, and rising from the
-   * bottom edge behind the news cards. Never lighter than CLAUDE.md §9. */
+  /* Two layers: rising from the bottom edge, and a side wash behind the
+   * headline column that clears toward the photo's subject on the right. */
   .hero_scrim {
     background:
-      linear-gradient(0deg, var(--color-scrim-strong) 0%, var(--color-scrim-strong) 50%, transparent 80%),
-      linear-gradient(90deg, var(--color-scrim-strong) 0%, var(--color-scrim-strong) 62%, var(--color-scrim-weak) 100%);
+      linear-gradient(0deg, var(--color-scrim-strong) 0%, transparent 55%),
+      linear-gradient(90deg, var(--color-scrim-weak) 0%, var(--color-scrim-weak) 50%, transparent 80%);
   }
 }
 
@@ -1069,7 +1147,6 @@ address {
 .trades_item,
 .facility,
 .milestone,
-.pillar,
 .faq-row,
 .split_media,
 .site-footer_grid > * {
@@ -1083,9 +1160,6 @@ address {
 .pillar_panel:not([hidden]),
 .faq-row_answer:not([hidden]) {
   animation: fade var(--motion-duration-base) ease-out backwards;
-}
-.split_media.is-swapped .media_frame {
-  animation: fade var(--motion-duration-slow) ease-out backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

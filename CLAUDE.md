@@ -305,12 +305,14 @@ the first line rather than refactoring later.
 
 ## 9. Quality bars
 
-- **Text over a photograph is guaranteed by the scrim, not by a checker.** An
-  automated contrast sweep walks to the nearest *solid* painted ancestor, and a
-  photograph is not one — so it will report a pass no matter what the image
-  does. Hero scrims are set so the weakest point over the text column still
-  clears AA against a pure white photograph (desktop 0.72 at the end of the
-  900px column; mobile 0.88 throughout). Do not lighten them. `docs/04` §12.6.
+- **Text over a photograph is guaranteed by measurement, not by a checker.**
+  An automated contrast sweep walks to the nearest *solid* painted ancestor,
+  and a photograph is not one — so it will report a pass no matter what the
+  image does. The hero scrim was lightened at the user's request (Sep 2026) so
+  the photograph reads; it no longer clears AA against a pure white image. It
+  is verified instead by sampling the pixels actually painted behind each text
+  block (`prototype/README.md` § Breakpoints). **Re-run that sample whenever
+  the hero photo changes**, and darken the scrim rather than ship a failure.
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible
   focus states, keyboard paths through every rollover interaction, and captions
