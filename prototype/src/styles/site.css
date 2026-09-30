@@ -25,6 +25,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* Ink behind the page, so the load fade rises out of the same dark as
+   * the hero instead of flashing white. */
+  background: var(--color-bg-inverse);
 }
 body {
   margin: 0;
@@ -204,7 +207,7 @@ address {
   font: var(--type-label-lg);
   letter-spacing: var(--type-label-lg-tracking);
   text-decoration: none;
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition: background-color var(--motion-duration-fast) var(--ease-out);
 }
 /* The label wraps rather than pushing the pill off a 320px screen. */
 .button_label {
@@ -218,7 +221,7 @@ address {
   width: var(--size-control-md);
   height: var(--size-control-md);
   border-radius: var(--radius-control);
-  transition: transform var(--motion-duration-base) ease-out;
+  transition: transform var(--motion-duration-base) var(--ease-out);
 }
 .button:hover .button_well {
   transform: translateX(2px);
@@ -260,7 +263,7 @@ address {
   border-radius: var(--radius-control);
   background: var(--color-action-icon-bg);
   color: var(--color-action-icon-icon);
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition: background-color var(--motion-duration-fast) var(--ease-out);
 }
 .icon-button.is-open {
   background: var(--color-action-icon-bg-selected);
@@ -479,7 +482,7 @@ address {
   font: var(--type-label-md);
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition: background-color var(--motion-duration-fast) var(--ease-out);
 }
 .nav-item:hover {
   background: var(--color-action-nav-bg-hover);
@@ -581,10 +584,10 @@ address {
   -webkit-backdrop-filter: blur(200px);
   backdrop-filter: blur(200px);
   text-decoration: none;
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition: background-color var(--motion-duration-fast) var(--ease-out);
 }
 .news-card {
-  transition: background-color var(--motion-duration-fast) ease-out, transform var(--motion-duration-base) ease-out;
+  transition: background-color var(--motion-duration-fast) var(--ease-out), transform var(--motion-duration-base) var(--ease-out);
 }
 .news-card:hover {
   background: var(--color-bg-glass);
@@ -1202,29 +1205,57 @@ address {
   }
 }
 
-/* Page load: hero copy rises in order, then the news cards slide in. */
+/* Page load: the page fades up in 300ms, then the hero appears in order —
+ * headline, intro, button, then the news cards. Whole sequence is under a
+ * second. Webflow: a Page Load interaction (page fade + the same stagger);
+ * CSS-only here, so nothing waits on JavaScript. */
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+}
+/* #root is where React draws; in Webflow, where the markup is already in
+ * the page at load, put this on the body. */
+#root {
+  animation: page-in 300ms var(--ease-out) backwards;
+}
 .hero_copy > * {
-  animation: rise var(--motion-duration-slow) ease-out backwards;
+  animation: rise 700ms var(--ease-out) backwards;
+  animation-delay: 150ms;
 }
 .hero_copy > :nth-child(2) {
-  animation-delay: 120ms;
+  animation-delay: 250ms;
 }
 .hero_copy > :nth-child(3) {
-  animation-delay: 240ms;
+  animation-delay: 350ms;
 }
 .news-card {
-  animation: enter-side var(--motion-duration-slow) ease-out backwards;
-  animation-delay: 360ms;
+  animation: enter-side 700ms var(--ease-out) backwards;
+  animation-delay: 450ms;
 }
 .news-card + .news-card {
-  animation-delay: 480ms;
+  animation-delay: 550ms;
 }
 
-/* Scroll into view. Held state is dimmed, never invisible — the page reads
- * complete even if the observer never fires. */
+/* Between pages (once there is more than one): the old page fades out and
+ * the new one fades in, 250ms, same curve. Native cross-document view
+ * transitions — in Webflow, paste into the site-wide <head> custom code.
+ * Browsers without support simply load the page with its own fade above. */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 250ms;
+  animation-timing-function: var(--ease-out);
+}
+
+/* Scroll into view: each block fades and rises into place as it arrives.
+ * Only blocks still below the fold when the page loads are held back, and
+ * only once the script is running, so the page is never blank without it. */
 .is-reveal-pending {
-  opacity: 0.35;
-  transform: translateY(32px);
+  opacity: 0;
+  transform: translateY(24px);
 }
 .numbers_title,
 .section-head,
@@ -1237,8 +1268,8 @@ address {
 .split_media,
 .site-footer_grid > * {
   transition:
-    opacity var(--motion-duration-slow) ease-out,
-    transform var(--motion-duration-slow) ease-out;
+    opacity 600ms var(--ease-out),
+    transform 800ms var(--ease-out);
   transition-delay: calc(var(--reveal-order, 0) * 80ms);
 }
 

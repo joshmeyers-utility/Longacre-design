@@ -108,8 +108,9 @@ changes. A bright or white-sky photo will fail.
 
   | Effect | Trigger | Targets |
   | --- | --- | --- |
-  | Hero copy rises in, news cards slide in | Page load | `hero_copy` children, `news-card` |
-  | Rise in with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `faq-row`, `split_media`, footer columns |
+  | Page fades up from ink in 300ms, then hero copy rises in and news cards slide in (under 1s in all) | Page load | `body` (`#root` here), `hero_copy` children, `news-card` |
+  | Cross-fade between pages, 250ms | Native view transition — `@view-transition` in site-wide head code | root |
+  | Fade and rise into place with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `faq-row`, `split_media`, footer columns |
   | Rail fills top to bottom | While scrolling in view | `timeline_list` progress segment |
   | Pillars open in turn as the pinned stage scrolls, each over a quarter of its travel; the photo cross-fades | While scrolling in view (section `pillars`, sticky `pillars_stage`) | `pillar_panel`, `pillars_frame` |
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
