@@ -14,6 +14,10 @@ npm run dev        # http://localhost:5173
 ```
 
 - `?flags=off` hides the provenance flags, for clean screenshots.
+- `npm run build:preview` writes `dist/preview.html`: the whole page as one
+  self-contained file (JS and CSS inline, fonts from Google Fonts with the icon
+  font subset to the glyphs in use) that opens straight from disk. Add any new
+  icon name to the list in `scripts/build-preview.mjs`.
 - `npm run build` typechecks and builds to `dist/`.
 - To bring the alert back after dismissing it, clear site data for
   `localhost:5173` (it is stored under `hcec-alert-dismissed`).

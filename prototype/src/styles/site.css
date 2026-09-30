@@ -136,6 +136,7 @@ address {
   flex-shrink: 0;
   font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  overflow: hidden; /* if the icon font is slow or blocked, the ligature name stays in its box */
   font-variation-settings: 'wght' 300, 'FILL' 0, 'GRAD' 0, 'opsz' 20;
 }
 .icon.is-sm {
