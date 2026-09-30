@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { PageShell } from '../components/Page';
 import { PageHero } from '../components/PageHero';
-import { Button, Flag, Icon, SectionHead } from '../components/primitives';
+import { Button, CopyButton, Flag, SectionHead } from '../components/primitives';
 import { contactPage as page } from '../content/contact';
 
 /**
@@ -43,29 +42,6 @@ function Routes() {
         <Flag provenance={page.response} />
       </div>
     </section>
-  );
-}
-
-/**
- * Copies the address, for readers whose mail link opens nothing. The
- * address stays selectable text either way. Webflow: a small embed.
- */
-function CopyButton({ text, label }: { text: string; label: string }) {
-  const [done, setDone] = useState(false);
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setDone(true);
-      window.setTimeout(() => setDone(false), 2000);
-    } catch {
-      /* Clipboard refused: the address is plain text beside the button. */
-    }
-  };
-  return (
-    <button className="copy-button label-md" type="button" onClick={copy} aria-label={label}>
-      <Icon name={done ? 'check' : 'content_copy'} />
-      <span aria-live="polite">{done ? 'Copied' : 'Copy'}</span>
-    </button>
   );
 }
 

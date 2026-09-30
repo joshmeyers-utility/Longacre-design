@@ -86,7 +86,7 @@ export const navMenu: NavGroup[] = [
     label: 'Resources',
     links: [
       { label: 'FAQs', href: 'faq.html', page: 'faq' },
-      { label: 'News', page: 'news' },
+      { label: 'News', href: 'news.html', page: 'news' },
     ],
   },
   { label: 'Contact', href: 'contact.html', page: 'contact', links: [] },
@@ -158,7 +158,7 @@ export const announcements: Announcement[] = [
     date: 'September 2026',
     headline:
       'Homer City Energy Campus workforce grows to more than 1,800 workers, including members of 9 building and construction trade unions',
-    href: '#news',
+    href: 'news-workforce-1800.html',
     media: {
       kind: 'Photograph',
       brief: 'Crew on site, faces visible',

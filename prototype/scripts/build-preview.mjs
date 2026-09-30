@@ -36,6 +36,8 @@ const pages = [
   { id: 'workforce', title: 'Careers — Homer City Energy Campus', description: 'The trades, figures and hiring contact for the Homer City Energy Campus workforce.' },
   { id: 'contact', title: 'Contact — Homer City Energy Campus', description: 'The four inboxes for the Homer City Energy Campus — job seekers, neighbours, vendors and the media — and where the campus is.' },
   { id: 'faq', title: 'FAQs — Homer City Energy Campus', description: 'Questions neighbours ask about the Homer City Energy Campus — the project, water, living nearby, jobs, safety and permits — answered with sources.' },
+  { id: 'news', title: 'News — Homer City Energy Campus', description: 'Press releases, media statements and coverage of the Homer City Energy Campus.' },
+  { id: 'news-workforce-1800', title: 'Workforce grows to more than 1,800 — Homer City Energy Campus', description: 'Press release, 4 September 2026: the Homer City Energy Campus workforce grows to more than 1,800 workers.' },
 ];
 
 // Icons in use across all pages — keep in sync when adding an <Icon name=…>.

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
 import type { Media, Photo, Provenance } from '../content/types';
 
@@ -135,5 +135,30 @@ export function SectionHead({ eyebrow, title, id }: { eyebrow?: string; title: s
         {title}
       </h2>
     </header>
+  );
+}
+
+/* --------------------------------------------------------------- Copy */
+
+/**
+ * Copies an address or link, for readers whose mail link opens nothing.
+ * The text stays selectable beside it either way. Webflow: a small embed.
+ */
+export function CopyButton({ text, label, children = 'Copy' }: { text: string; label: string; children?: ReactNode }) {
+  const [done, setDone] = useState(false);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setDone(true);
+      window.setTimeout(() => setDone(false), 2000);
+    } catch {
+      /* Clipboard refused: the address is plain text beside the button. */
+    }
+  };
+  return (
+    <button className="copy-button label-md" type="button" onClick={copy} aria-label={label}>
+      <Icon name={done ? 'check' : 'content_copy'} />
+      <span aria-live="polite">{done ? 'Copied' : children}</span>
+    </button>
   );
 }
