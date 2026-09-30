@@ -1,5 +1,5 @@
-import React, { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
-import { bindActiveWhileInProgress, bindScrollProgress, pageScroll, trackScrollProgress } from '../motion';
+import { useEffect, useId, useRef, useState, type CSSProperties } from 'react';
+import { trackScrollProgress } from '../motion';
 import {
   announcements,
   contacts,
@@ -19,24 +19,19 @@ import {
 } from '../content/home';
 import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
 import type { Milestone, Stat } from '../content/types';
-import { Button, Chip, Flag, Icon, MediaFrame, Picture, PlaceholderTag, SectionHead, useScrollProgress } from './primitives';
+import { Button, Flag, Icon, MediaFrame, Picture, PlaceholderTag, SectionHead } from './primitives';
+import { SiteHeader } from './Header';
 
 /* ---------------------------------------------------------------- Hero */
 
-/**
- * From 1024px the hero pins under the page and the next section slides over
- * it; as it goes, the frame shrinks to 96% and rounds its corners (T1's
- * peel). `--progress` runs 0 → 1 over the first 60% of a viewport of scroll.
- */
 export function Hero() {
-  const frame = useScrollProgress<HTMLDivElement>(pageScroll(0.6));
   return (
     <section className="hero theme-dark" aria-labelledby="hero-title">
-      <div className="hero_frame" ref={frame}>
       <div className="hero_media">
         <Picture photo={placeholderPhoto} alt={placeholderAlt} sizes="100vw" eager className="hero_picture" />
       </div>
       <div className="hero_scrim" aria-hidden="true" />
+      <SiteHeader />
       <div className="hero_tag">
         <PlaceholderTag media={hero.media} />
       </div>
@@ -70,7 +65,6 @@ export function Hero() {
           ))}
         </aside>
       </div>
-      </div>
     </section>
   );
 }
@@ -100,8 +94,8 @@ function StatBlock({ stat, size = 'display', flag = true }: { stat: Stat; size?:
 export function Numbers() {
   return (
     <section className="section theme-dark" aria-labelledby="numbers-title">
-      <div className="container aside-layout">
-        <h2 className="eyebrow has-bullet aside-layout_aside numbers_title" id="numbers-title">
+      <div className="container">
+        <h2 className="heading-sm numbers_title" id="numbers-title">
           Campus by the numbers
         </h2>
         <div className="numbers_grid">
@@ -118,7 +112,7 @@ export function Numbers() {
 
 export function Workforce() {
   return (
-    <section className="section workforce" id="workforce" aria-labelledby="workforce-title">
+    <section className="section" id="workforce" aria-labelledby="workforce-title">
       <div className="container split">
         <div className="split_copy">
           <SectionHead eyebrow="Careers" title={workforce.heading} id="workforce-title" />
@@ -131,68 +125,44 @@ export function Workforce() {
           <Flag provenance={workforce.stats[0].provenance} />
           <Button href={workforce.cta.href}>{workforce.cta.label}</Button>
         </div>
-        <MediaFrame media={workforce.media} shape="feature-cut" className="split_media" parallax />
+        <MediaFrame media={workforce.media} shape="feature-cut" className="split_media" />
       </div>
-      <div className="container aside-layout">
-        <h3 className="eyebrow has-bullet aside-layout_aside trades_title">Nine trades on site</h3>
-        <RailList className="trades">
+      <div className="container">
+        <h3 className="heading-xs trades_title">Nine trades on site</h3>
+        <ul className="trades">
           {workforce.trades.map((t) => (
             <li className="trades_item" key={t.name}>
               <Icon name={t.icon} size="md" className="trades_icon" />
               <span className="body-lg">{t.name}</span>
             </li>
           ))}
-        </RailList>
+        </ul>
       </div>
     </section>
   );
 }
 
-/** A list whose left rail fills as it scrolls past — the timeline's rail, reusable. */
-function RailList({ className, children }: { className: string; children: React.ReactNode }) {
-  const ref = useScrollProgress<HTMLUListElement>();
-  return (
-    <ul className={`rail-list ${className}`} ref={ref}>
-      {children}
-    </ul>
-  );
-}
-
 /* --------------------------------------------------------- Power Block */
 
-/**
- * The seven facilities as a chip row; the selected chip's detail shows in a
- * panel over the photo. Click, not scroll: a list of seven is scanned, not
- * paced. Every facility is still in the DOM for search and screen readers.
- */
 export function PowerBlock() {
-  const [selected, setSelected] = useState(powerBlock.facilities[0].id);
-  const base = useId();
-  const current = powerBlock.facilities.find((f) => f.id === selected) ?? powerBlock.facilities[0];
   return (
     <section className="section is-surface" id="power-block" aria-labelledby="power-title">
       <div className="container split is-reversed">
         <div className="split_copy">
           <SectionHead eyebrow="What we’re building" title={powerBlock.heading} id="power-title" />
           <p className="body-lg text-secondary">{powerBlock.intro}</p>
-          <div className="chip-row" role="group" aria-label="Facilities">
+          <ul className="facility-list">
             {powerBlock.facilities.map((f) => (
-              <Chip key={f.id} selected={f.id === selected} onSelect={() => setSelected(f.id)}>
-                {f.name}
-              </Chip>
+              <li className="facility" key={f.id}>
+                <span className="heading-xs">{f.name}</span>
+                <span className="body-sm text-secondary">{f.detail}</span>
+                {f.stamp && <span className="eyebrow facility_stamp">{f.stamp}</span>}
+              </li>
             ))}
-          </div>
+          </ul>
           <Button href={powerBlock.cta.href}>{powerBlock.cta.label}</Button>
         </div>
-        <div className="split_media facility-stage">
-          <MediaFrame media={powerBlock.media} shape="feature" parallax />
-          {/* Re-keyed on selection so the panel fades in each time. */}
-          <div className="facility-panel theme-dark" key={current.id} id={`${base}-facility`} aria-live="polite">
-            <p className="heading-xs">{current.name}</p>
-            <p className="body-sm text-secondary">{current.detail}</p>
-            {current.stamp && <p className="eyebrow">{current.stamp}</p>}
-          </div>
-        </div>
+        <MediaFrame media={powerBlock.media} shape="feature" className="split_media" />
       </div>
     </section>
   );
@@ -213,7 +183,7 @@ export function History() {
           ))}
           <Button href={history.cta.href}>{history.cta.label}</Button>
         </div>
-        <MediaFrame media={history.media} shape="feature" className="split_media" parallax />
+        <MediaFrame media={history.media} shape="feature" className="split_media" />
       </div>
     </section>
   );
@@ -226,22 +196,15 @@ const phases = ['2025', '2026', 'Upcoming'] as const;
 /** One year's milestones. Its rail fills as the group scrolls past. */
 function MilestoneGroup({ phase, items }: { phase: (typeof phases)[number]; items: Milestone[] }) {
   const list = useRef<HTMLOListElement>(null);
-  const group = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = list.current;
-    if (!el || !group.current) return;
-    const offRail = bindScrollProgress(el, undefined);
-    // The year whose milestones are passing reads as primary; the rest, tertiary.
-    const offActive = bindActiveWhileInProgress(group.current);
-    return () => {
-      offRail();
-      offActive();
-    };
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    return trackScrollProgress(el, (p) => el.style.setProperty('--rail-progress', p.toFixed(3)));
   }, []);
 
   const headingId = `milestones-${phase}`;
   return (
-    <section className="timeline_group" aria-labelledby={headingId} ref={group}>
+    <section className="timeline_group" aria-labelledby={headingId}>
       {/* Sticks while its milestones scroll by, so the year is always in view. */}
       <div className="timeline_label">
         <h3 className="heading-md" id={headingId}>
@@ -429,8 +392,8 @@ export function Faq() {
                     onClick={() => setOpen(isOpen ? null : f.id)}
                   >
                     <span className="heading-md">{f.question}</span>
-                    <span className={`icon-button is-toggle${isOpen ? ' is-open' : ''}`} aria-hidden="true">
-                      <Icon name={isOpen ? 'remove' : 'add'} size="md" />
+                    <span className={`icon-button${isOpen ? ' is-open' : ''}`} aria-hidden="true">
+                      <Icon name={isOpen ? 'close' : 'add'} size="md" />
                     </span>
                   </button>
                 </h3>
@@ -453,16 +416,18 @@ export function SiteFooter() {
   return (
     <footer className="site-footer theme-dark" id="contact">
       <div className="container site-footer_grid">
-        <div className="site-footer_contact">
+        <div>
           <p className="eyebrow">Get in touch</p>
-          <p className="heading-md">Who do you need to reach?</p>
-          <div className="chip-row">
+          <ul className="contact-list">
             {contacts.map((c) => (
-              <Chip key={c.audience} href={`mailto:${c.email}`} meta={c.email} icon="mail">
-                {c.audience}
-              </Chip>
+              <li key={c.audience}>
+                <span className="body-sm text-secondary">{c.audience}</span>
+                <a className="text-link body-lg" href={`mailto:${c.email}`}>
+                  {c.email}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <div>
           <p className="eyebrow">Location</p>

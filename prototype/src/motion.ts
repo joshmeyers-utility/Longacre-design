@@ -12,8 +12,7 @@ const TARGETS = [
   '.timeline_head',
   '.stat',
   '.trades_item',
-  '.chip-row > *',
-  '.facility-stage',
+  '.facility',
   '.milestone',
   '.faq-row',
   '.split_media',
@@ -84,30 +83,6 @@ export function trackScrollProgress(
   };
 }
 
-export function passingMiddle(r: DOMRect) {
+function passingMiddle(r: DOMRect) {
   return (window.innerHeight * 0.6 - r.top) / r.height;
-}
-
-/** 0 as the element's top enters at the bottom edge, 1 as its bottom leaves the top. */
-export function throughViewport(r: DOMRect) {
-  return (window.innerHeight - r.top) / (window.innerHeight + r.height);
-}
-
-/** Page scroll as a share of `fraction` of one viewport — for things pinned at the top. */
-export const pageScroll = (fraction: number) => () => window.scrollY / (window.innerHeight * fraction);
-
-/**
- * Writes scroll progress (0 → 1) into `--progress` on the element, so CSS can
- * drive transforms from it. One number per element, the way both reference
- * sites work; in Webflow this is a "while scrolling in view" interaction
- * animating the same properties directly.
- */
-export function bindScrollProgress(el: HTMLElement, measure: (r: DOMRect) => number = throughViewport): () => void {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return () => {};
-  return trackScrollProgress(el, (p) => el.style.setProperty('--progress', p.toFixed(3)), measure);
-}
-
-/** Toggles a class while the element's progress is inside (0, 1). */
-export function bindActiveWhileInProgress(el: HTMLElement, className = 'is-active', measure: (r: DOMRect) => number = passingMiddle): () => void {
-  return trackScrollProgress(el, (p) => el.classList.toggle(className, p > 0 && p < 1), measure);
 }

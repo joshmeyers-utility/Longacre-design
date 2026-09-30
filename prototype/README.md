@@ -81,11 +81,11 @@ changes. A bright or white-sky photo will fail.
 
 | From | What changes |
 | --- | --- |
-| 0 | One column. Hero scrim rises from the bottom edge and clears toward the top. Header is fixed: logo pill and menu button at rest, one capsule past 80px of scroll. Facilities are a chip row; the selected one's detail sits in a panel over the photo. Contact routes are chips. Pillars pin as one screen (capped at 1000px) and scroll through in turn. |
+| 0 | One column. Hero scrim rises from the bottom edge and clears toward the top. Pillars pin as one screen (capped at 1000px) and scroll through in turn. |
 | height < 640 | Pillars stop pinning and become a plain click accordion — a landscape or 320px phone cannot hold copy and photo on one screen. |
 | 768 | Desktop type sizes. Stats and workforce figures two across, trades three across, news cards in a row. Stat figures scale with the width until 1440. |
-| 1024 | The hero pins and the page slides over it while the hero frame shrinks to 96% and rounds (the peel). Photos get parallax inside their frames. Numbers and trades take the aside layout (sticky eyebrow beside the content). Text and image sit side by side; the pinned pillar photo fills the stage height. Timeline year labels move into their own column. FAQ splits into intro and list. |
-| 1200 | Full nav pill replaces the menu button; docked, the mark and the nav share one capsule. |
+| 1024 | Text and image sit side by side; the pinned pillar photo fills the stage height. Timeline year labels move into their own column. FAQ splits into intro and list. |
+| 1200 | Full nav pill replaces the menu button. |
 | 1440 | Hero copy and news cards side by side; the scrim rises from the bottom with a light wash behind the headline column. |
 
 ## Before this goes to Webflow
@@ -96,15 +96,6 @@ changes. A bright or white-sky photo will fail.
 - **`backdrop-filter`** (frosted nav and cards) is a custom property in Webflow;
   the solid `bg/glass` fill underneath keeps text legible where it is
   unsupported.
-- **Two motion values live in `site.css`, not the library yet:**
-  `--motion-ease-out` (`cubic-bezier(.16, 1, .3, 1)`, the one curve every
-  transition uses) and `--motion-duration-slower` (666ms, the image zoom).
-  Add both to the Figma Semantic collection as `motion/ease/out` and
-  `motion/duration/slower`, then move them into `tokens.css`.
-- **Scroll-driven values** (`--progress` on the hero frame, parallax frames
-  and rails) are the prototype's stand-in for "while scrolling in view". In
-  Webflow, animate scale, border-radius and transform directly on those
-  elements; no custom property is needed.
 - **The pinned pillars** use `position: sticky` and two `min()`/`max()`
   values for the 1000px cap — custom values in Webflow. Switching the open
   pillar from scroll position needs a small embed script (Interactions 2.0
@@ -117,19 +108,11 @@ changes. A bright or white-sky photo will fail.
   | Effect | Trigger | Targets |
   | --- | --- | --- |
   | Hero copy rises in, news cards slide in | Page load | `hero_copy` children, `news-card` |
-  | Hero frame scales to 96% and rounds to `radius/media-lg` as the page slides over it | While scrolling in view (hero, 0 → 60vh) | `hero_frame` |
-  | Logo pill and nav pill merge into one capsule | While page is scrolling (past 80px) — or a second fixed header that fades in | `site-header_bar`, `site-header_logo`, `nav-pill` |
-  | Photo travels 12% inside its rounded frame | While scrolling in view | `media_frame.is-parallax` → `picture` |
-  | Rail fills top to bottom beside a list | While scrolling in view | `rail-list::after`, `timeline_list::after` |
-  | Year label goes primary while its milestones pass | While scrolling in view | `timeline_group.is-active` |
   | Rise in with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `faq-row`, `split_media`, footer columns |
   | Rail fills top to bottom | While scrolling in view | `timeline_list` progress segment |
   | Pillars open in turn as the pinned stage scrolls, each over a quarter of its travel; the photo cross-fades | While scrolling in view (section `pillars`, sticky `pillars_stage`) | `pillar_panel`, `pillars_frame` |
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
-  | Opened content fades in | Click | `pillar_panel`, `faq-row_answer`, `facility-panel` |
-  | + turns to – with a half turn | Click | `icon-button.is-toggle` |
-  | Photo zooms 3.3% over 666ms | Hover / focus | `news-card` → `picture` |
-  | Every pill presses to 98.5% | Pressed state | `button`, `chip`, `icon-button`, `nav-item`, `news-card`, `pillar_toggle` |
+  | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
   | Card lifts 2px, arrow nudges | Hover | `news-card`, `button_well` |
 
   Figures never count up — a transparency site should not display a number

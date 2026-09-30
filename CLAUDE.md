@@ -70,7 +70,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
 | 4b. Variable library v2 | `docs/05-variable-library.md`, `design-system/tokens.*`, Figma file `K7Mb6…` | ✅ Complete — rebuilt from scratch against the new comps |
 | 4c. React prototype | `prototype/` — homepage, from the new comps + tokens | ✅ Homepage built — other pages not started |
-| 4d. Motion pass | `docs/06-motion-plan.md`, then `prototype/` | ✅ Built on the homepage — `06` §8 lists the reusable pieces |
+| 4d. Motion pass | `docs/06-motion-plan.md`, then `prototype/` | 🟡 Plan written — waiting on the five decisions in `06` §6 |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -93,7 +93,7 @@ docs/
   03-design-system.md      Stage 3 token rationale. Superseded by 05.
   04-design-pass.md        Artboards, component library, interaction spec.
   05-variable-library.md   The current token system: decisions, map, verification.
-  06-motion-plan.md        Motion + layout plan from the T1 / Joby references; §8 is what was built.
+  06-motion-plan.md        Motion + layout plan from the T1 / Joby references. Awaiting decisions (its §6).
 design-system/
   tokens.json              Design tokens, W3C format. Exported from Figma — don't hand-edit.
   tokens.css               Same tokens as CSS custom properties. Powers prototype/.

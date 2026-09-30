@@ -1,5 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
-import { bindScrollProgress, throughViewport } from '../motion';
+import type { ReactNode } from 'react';
 import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
 import type { Media, Photo, Provenance } from '../content/types';
 
@@ -55,52 +54,6 @@ export function Flag({ provenance }: { provenance: Provenance }) {
   );
 }
 
-/* ---------------------------------------------------------------- Chip */
-
-/**
- * Pill with a label and a round arrow well — T1's chip. One component for
- * facility selectors, contact routes and any short list of choices. Renders
- * a button when `onSelect` is given, a link when `href` is.
- */
-export function Chip({ href, onSelect, selected = false, meta, icon = 'arrow_forward', children }: { href?: string; onSelect?: () => void; selected?: boolean; meta?: string; icon?: string; children: ReactNode }) {
-  const inner = (
-    <>
-      <span className="chip_copy">
-        <span className="chip_label">{children}</span>
-        {meta && <span className="chip_meta">{meta}</span>}
-      </span>
-      <span className="chip_well">
-        <Icon name={icon} />
-      </span>
-    </>
-  );
-  const cls = `chip${selected ? ' is-selected' : ''}`;
-  if (href) {
-    return (
-      <a className={cls} href={href}>
-        {inner}
-      </a>
-    );
-  }
-  return (
-    <button className={cls} type="button" aria-pressed={selected} onClick={onSelect}>
-      {inner}
-    </button>
-  );
-}
-
-/* ---------------------------------------------------------- Scroll hook */
-
-/** Drives `--progress` on the element while it passes through the viewport. */
-export function useScrollProgress<T extends HTMLElement>(measure: (r: DOMRect) => number = throughViewport, enabled = true) {
-  const ref = useRef<T>(null);
-  useEffect(() => {
-    if (!enabled || !ref.current) return;
-    return bindScrollProgress(ref.current, measure);
-  }, [measure, enabled]);
-  return ref;
-}
-
 /* ------------------------------------------------------------- Picture */
 
 /**
@@ -146,15 +99,12 @@ export function PlaceholderTag({ media }: { media: Media }) {
  * caption withheld — a caption naming a specific shot would be false under a
  * stock photo. `shape` picks the comps' corner treatment.
  */
-export function MediaFrame({ media, shape = 'feature', sizes = '(min-width: 1024px) 50vw, 100vw', className = '', parallax = false }: { media: Media; shape?: 'feature' | 'feature-cut' | 'card' | 'thumb'; sizes?: string; className?: string; parallax?: boolean }) {
+export function MediaFrame({ media, shape = 'feature', sizes = '(min-width: 1024px) 50vw, 100vw', className = '' }: { media: Media; shape?: 'feature' | 'feature-cut' | 'card' | 'thumb'; sizes?: string; className?: string }) {
   const photo = media.photo ?? placeholderPhoto;
   const isPlaceholder = !media.photo;
-  // Joby's section-entry parallax: the photo travels inside its frame as the
-  // frame crosses the viewport. Desktop only — the CSS ignores --progress below 1024px.
-  const frame = useScrollProgress<HTMLDivElement>(throughViewport, parallax);
   return (
     <figure className={`media ${className}`}>
-      <div className={`media_frame is-${shape}${parallax ? ' is-parallax' : ''}`} ref={frame}>
+      <div className={`media_frame is-${shape}`}>
         <Picture photo={photo} alt={isPlaceholder ? placeholderAlt : media.alt} sizes={sizes} />
         {isPlaceholder && <PlaceholderTag media={media} />}
       </div>
