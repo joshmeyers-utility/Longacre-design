@@ -155,6 +155,8 @@
   --size-48: 48px;
   /* size/56 */
   --size-56: 56px;
+  /* size/80 */
+  --size-80: 80px;
   /* size/100 */
   --size-100: 100px;
   /* size/200 */
@@ -294,7 +296,7 @@
   --size-icon-md: var(--size-24);
   --size-rail: var(--size-4);
   --size-dot: var(--size-2);
-  --size-media-thumb: var(--size-100);
+  --size-media-thumb: var(--size-80);
   --size-media-milestone: var(--size-200);
   --radius-control: var(--radius-full);
   --radius-card: var(--radius-32);

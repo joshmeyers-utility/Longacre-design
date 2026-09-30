@@ -533,11 +533,16 @@ html {
 /* ------------------------------------------------------ mega menu
  * Bar and panel share one grid (T1). Row 1 is the bar: every item hugs its
  * label, 8px apart, so the pill is only as wide as its items. Row 2 holds
- * the columns of links; each spans the full width and takes a quarter of
- * it (its offset is set inline), so a long link never widens an item.
- * Row 3 is the two wide pills. Items with a single destination (FAQs,
- * News) are plain links with no column. The nav's own height is the
- * bar's, so the open panel hangs over the hero instead of pushing it down.
+ * each item's column of links, in that item's own track, so the links sit
+ * straight under their heading. A column has no width of its own (its
+ * links overflow it), so a long link never widens its item; items with no
+ * sub-pages (FAQs, News, Contact) leave their column empty. Row 3 is the
+ * two wide pills. The nav's own height is the bar's, so the open panel
+ * hangs over the hero instead of pushing it down.
+ *
+ * Content rule: a link may be wider than its item, but not so wide that it
+ * reaches the next item's link on the same row (prototype/README.md
+ * § Mega menu).
  */
 .nav-menu {
   display: none;
@@ -605,8 +610,7 @@ html {
 .nav-menu_column {
   position: relative;
   grid-row: 2;
-  grid-column: 1 / -1;
-  width: 25%;
+  width: 0;
   min-width: 0;
   align-self: start;
   display: flex;
@@ -618,9 +622,11 @@ html {
   display: block;
   padding: var(--space-gap-xs) 0;
   color: var(--color-text-secondary);
-  font: var(--type-label-lg);
-  letter-spacing: var(--type-label-lg-tracking);
-  white-space: nowrap; /* a track is as wide as its item or its longest link */
+  /* The bar's own size, so a column's longest link stays clear of the
+   * next heading's links. */
+  font: var(--type-label-md);
+  letter-spacing: var(--type-label-md-tracking);
+  white-space: nowrap; /* links overflow their zero-width column */
   text-decoration: none;
   transition: color var(--motion-duration-base) var(--ease-out);
 }
@@ -731,6 +737,29 @@ html {
   z-index: -1;
   padding: calc(var(--size-control-lg) + var(--space-gap-xl) * 2) var(--space-layout-gutter) var(--space-gap-xl);
   overflow-y: auto;
+  /* Closed: faded out and out of reach. Open: fades in over the page. */
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--motion-duration-base) var(--ease-out),
+    visibility 0s linear var(--motion-duration-base);
+}
+.mobile-menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+/* Each label, link and the pill row rise 12px into place in turn. */
+.mobile-menu_item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--motion-duration-slow) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out);
+}
+.mobile-menu.is-open .mobile-menu_item {
+  opacity: 1;
+  transform: none;
 }
 .mobile-menu_list {
   display: flex;

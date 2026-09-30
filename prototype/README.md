@@ -75,14 +75,24 @@ own dark version when the brand files arrive (CLAUDE.md §10 #1).
 From 1200px the nav is a T1-style mega menu (`nav-menu`). The bar and the
 panel under it share one CSS grid: row 1 holds the items, each hugging its
 label with an 8px gap, so the pill is only as wide as its items. Row 2 holds
-the four columns of links, each a quarter of the panel (spanning the whole
-grid, offset by a percentage margin), so a long link never widens an item.
-Row 3 holds two wide pills (Contact us, Find work on the campus). FAQs and
-News & resources have one destination each and stay plain links with no
-column.
+each item's column of links in that item's own track, so every link sits
+straight under its heading. Columns have zero width and their links overflow
+them, so a long link never widens its heading. FAQs, News & resources and
+Contact us have no sub-pages and leave their column blank. Row 3 holds two
+wide pills (Contact us, Find work on the campus). Links are set at the bar's
+own size (`label-md`).
+
+Content rule for editors: a link may run wider than its heading, but must
+not reach the next heading's link on the same row. Re-check after adding a
+link; today the tightest pair is Careers "Overview" and "Project pillars",
+27px apart at 1440.
 
 - **Mouse:** hover opens it and brightens the column under the pointer.
   Moving off it closes it after 200ms.
+- **Phone menu:** fades in over 300ms while its labels, links and pills
+  rise 12px into place 35ms apart (capped at the eleventh); closing fades
+  it all out together. Closed, it is `inert`. Webflow: Interactions 2.0
+  click trigger with a staggered move-and-fade on the items.
 - **Keyboard and touch:** click, tap or Enter opens and closes it. Tab moves
   from an item into its links and on to the next item. Escape closes it and
   returns focus.
@@ -203,6 +213,11 @@ changes. A bright or white-sky photo will fail.
 | 1440 | Hero copy and news cards side by side; the scrim rises from the bottom with a light wash behind the headline column. |
 
 ## Before this goes to Webflow
+
+- **New token, not yet in Figma:** `size/80` (primitive), now aliased by
+  `size/media/thumb` in both modes (the news-card image, 100 → 80px). It is
+  in `design-system/tokens.*`; add the variable to Figma file `K7Mb6…` and
+  re-point `size/media/thumb` there so the export matches.
 
 - **The icon font is 5.4 MB.** Fine locally; unacceptable for a rural,
   mobile-first audience. In Webflow, load Material Symbols Rounded from Google

@@ -117,8 +117,6 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
   };
 
   const panelId = `${base}-panel`;
-  // Each group's quarter of the panel, in order: 0, 1, 2, 3.
-  const columnIndex = navMenu.map((_, i) => navMenu.slice(0, i).filter((m) => m.links.length).length);
   return (
     <nav
       className={`nav-menu${open ? ' is-open' : ''}${className ? ` ${className}` : ''}`}
@@ -172,7 +170,7 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
               </button>
               <ul
                 className={`nav-menu_column${isActive ? ' is-active' : ''}`}
-                style={{ marginLeft: `${columnIndex[i] * 25}%` } as CSSProperties}
+                style={{ gridColumn: i + 1 } as CSSProperties}
                 id={`${panelId}-${i}`}
                 inert={!open}
                 onPointerEnter={() => setActive(i)}
@@ -245,6 +243,10 @@ export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: Page
     };
   }, []);
   const light = tone === 'light' && !docked;
+  // Menu items enter 35ms apart, capped so the last is never left waiting.
+  let order = 0;
+  const still = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stagger = (): CSSProperties => ({ transitionDelay: open && !still ? `${80 + Math.min(order++, 10) * 35}ms` : '0ms' });
 
   useEffect(() => {
     if (!open) return;
@@ -288,15 +290,22 @@ export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: Page
           </button>
         </div>
 
-        {/* Same groups as the mega menu, stacked: a label, then its links. */}
-        <div id="mobile-menu" className={`mobile-menu theme-dark${open ? ' is-open' : ''}`} hidden={!open}>
+        {/* Same groups as the mega menu, stacked: a label, then its links.
+         * Always in the page so it can fade; inert while closed. Items rise
+         * in one after another on open (delays inline, so they only apply
+         * on the way in) and all leave together on close. */}
+        <div id="mobile-menu" className={`mobile-menu theme-dark${open ? ' is-open' : ''}`} inert={!open}>
           <ul className="mobile-menu_list">
             {navMenu.map((group) => (
               <li className="mobile-menu_group" key={group.label}>
-                {group.links.length > 0 && <p className="eyebrow mobile-menu_label">{group.label}</p>}
+                {group.links.length > 0 && (
+                  <p className="eyebrow mobile-menu_label mobile-menu_item" style={stagger()}>
+                    {group.label}
+                  </p>
+                )}
                 <ul>
                   {(group.links.length ? group.links : [{ label: group.label, href: group.href!, page: undefined }]).map((l) => (
-                    <li key={l.href}>
+                    <li className="mobile-menu_item" key={l.href} style={stagger()}>
                       <a className="mobile-menu_link" href={pageHref(l.href, current)} aria-current={l.page === current ? 'page' : undefined} onClick={() => setOpen(false)}>
                         {l.label}
                         <Icon name="arrow_forward" />
@@ -307,7 +316,7 @@ export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: Page
               </li>
             ))}
           </ul>
-          <div className="mobile-menu_ctas">
+          <div className="mobile-menu_ctas mobile-menu_item" style={stagger()}>
             {navMenuCtas.map((c) => (
               <a className={`nav-menu_cta is-${c.tone}`} href={pageHref(c.href, current)} key={c.label} onClick={() => setOpen(false)}>
                 {c.label}
