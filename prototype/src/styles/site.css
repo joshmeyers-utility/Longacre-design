@@ -783,12 +783,25 @@ address {
   flex-direction: column;
   gap: var(--space-gap-xs);
 }
-.news-card_more {
-  display: inline-flex;
+/* Kind and date on the left, the arrow pushed to the right, both grey. */
+.news-card_meta {
+  display: flex;
   align-items: center;
   gap: var(--space-gap-xs);
-  color: var(--color-text-link);
-  font: var(--type-body-sm);
+}
+.news-card_arrow {
+  margin-left: auto;
+  transition: transform var(--motion-duration-base) var(--ease-out);
+}
+.news-card:hover .news-card_arrow {
+  transform: translateX(4px);
+}
+.news-card_headline {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 .news-card .flag {
   grid-column: 1 / -1;

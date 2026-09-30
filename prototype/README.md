@@ -208,7 +208,7 @@ changes. A bright or white-sky photo will fail.
   | Pillars open in turn as the pinned stage scrolls, each over a quarter of its travel; the photo cross-fades | While scrolling in view (section `pillars`, sticky `pillars_stage`) | `pillar_panel`, `pillars_frame` |
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
   | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
-  | Card lifts 2px, arrow nudges | Hover | `news-card`, `button_well` |
+  | Card lifts 2px, arrow nudges | Hover | `news-card` (`news-card_arrow`), `button_well` |
   | Tile turns ink, description fades in, + hands over to an outward arrow | Hover (and focus) | `trade-tile_link`, `trade-tile_desc`, `trade-tile_more-icon` |
 
   Figures never count up — a transparency site should not display a number

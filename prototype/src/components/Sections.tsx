@@ -56,13 +56,12 @@ export function Hero() {
                 <Picture photo={placeholderPhoto} alt="" sizes="100px" eager />
               </span>
               <span className="news-card_copy">
-                <span className="eyebrow">
+                <span className="eyebrow news-card_meta">
                   {a.kind} · {a.date}
+                  <Icon name="arrow_forward" className="news-card_arrow" />
                 </span>
-                <span className="body-sm">{a.headline}</span>
-                <span className="news-card_more">
-                  Read more <Icon name="arrow_forward" />
-                </span>
+                {/* Clamped to two lines on screen; the full headline stays in the markup. */}
+                <span className="body-sm news-card_headline">{a.headline}</span>
               </span>
               <Flag provenance={a.provenance} />
             </a>
