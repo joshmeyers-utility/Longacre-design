@@ -45,7 +45,7 @@ Four stages, reviewed one at a time.
 | **3 · Design system** | Typography, colour, spacing, motion — as tokens, in Figma and in CSS | ✅ **Complete** — [`docs/03-design-system.md`](docs/03-design-system.md) |
 | **4 · Design pass** | Mobile-first artboards and a component library, in Figma | ✅ **Complete**, revised through an editorial pass — [`docs/04-design-pass.md`](docs/04-design-pass.md) §11–12 |
 | **4b · Variable library v2** | Tokens rebuilt from scratch against the new comps: 3 collections, Light/Dark and Desktop/Mobile modes, showcase pages | ✅ **Complete** — [`docs/05-variable-library.md`](docs/05-variable-library.md) |
-| **4c · React prototype** | Homepage as a local React + TypeScript site, styled only from the tokens, with provenance flags on unconfirmed copy | ✅ **Homepage** — [`prototype/`](prototype/README.md) |
+| **4c · React prototype** | Homepage as a local React + TypeScript site, styled only from the tokens, with provenance flags on unconfirmed copy | ✅ **Homepage and every nav page** — [`prototype/`](prototype/README.md) |
 | **5 · Build** | Webflow, from the approved Figma pass | ⬜ Not started |
 
 Each stage gets presented for a decision before the next one starts.

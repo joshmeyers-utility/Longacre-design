@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import { AlertBar } from '../components/Header';
+import { LinkTile } from '../components/LinkTile';
 import { PageHero } from '../components/PageHero';
 import { SiteFooter, StatBlock } from '../components/Sections';
 import { Button, Flag, Icon, MediaFrame, SectionHead } from '../components/primitives';
@@ -191,34 +192,14 @@ function GrowthChart() {
  * tile face instead. Every description is in the DOM either way.
  */
 function Trades() {
-  const base = useId();
   return (
     <section className="section is-surface" id="trades" aria-labelledby="trades-title">
       <div className="container">
         <SectionHead eyebrow="Nine trades on site" title="Who does what" id="trades-title" />
         <ul className="trade-grid">
-          {page.trades.map((t) => {
-            const descId = `${base}-${t.name}`;
-            return (
-              <li className="trade-tile" key={t.name}>
-                <a className="trade-tile_link" href={t.href} target="_blank" rel="noopener" aria-describedby={descId}>
-                  <Icon name={t.icon} size="md" className="trade-tile_icon" />
-                  <span className="trade-tile_name heading-sm">
-                    {t.name}
-                    <span className="sr-only">, {t.union} (opens in a new tab)</span>
-                  </span>
-                  <span className="icon-button trade-tile_more" aria-hidden="true">
-                    <span className="trade-tile_wash" />
-                    <Icon name="add" className="trade-tile_more-icon is-add" />
-                    <Icon name="arrow_outward" className="trade-tile_more-icon is-out" />
-                  </span>
-                  <span className="trade-tile_desc body-md" id={descId}>
-                    {t.description}
-                  </span>
-                </a>
-              </li>
-            );
-          })}
+          {page.trades.map((t) => (
+            <LinkTile key={t.name} icon={t.icon} name={t.name} description={t.description} href={t.href} hidden={`, ${t.union} (opens in a new tab)`} />
+          ))}
         </ul>
         <Flag provenance={page.tradeProvenance} />
         <Flag provenance={page.tradeLinkProvenance} />

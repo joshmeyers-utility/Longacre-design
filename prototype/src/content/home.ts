@@ -69,17 +69,17 @@ export const navMenu: NavGroup[] = [
     label: 'Who we are',
     links: [
       // Phase 2 "Site History" (§2): the 1969–2023 → 2026 photo essay.
-      { label: 'Our history', page: 'history' },
+      { label: 'Our history', href: 'history.html', page: 'history' },
       { label: 'Careers', href: 'workforce.html', page: 'workforce' },
     ],
   },
   {
     label: 'Community',
     links: [
-      { label: 'Overview', page: 'community' },
-      { label: 'Campus partners', page: 'partners' },
-      { label: 'Our commitments', page: 'commitments' },
-      { label: 'Voices', page: 'voices' },
+      { label: 'Overview', href: 'community.html', page: 'community' },
+      { label: 'Campus partners', href: 'partners.html', page: 'partners' },
+      { label: 'Our commitments', href: 'commitments.html', page: 'commitments' },
+      { label: 'Voices', href: 'voices.html', page: 'voices' },
     ],
   },
   {
@@ -243,8 +243,8 @@ export const pillars: Pillar[] = [
     id: 'community',
     name: 'Community',
     copy: 'We are investing in Pennsylvania for the long term, operating as a genuine community partner and becoming one of the state’s leading employers.',
-    href: '#workforce',
-    linkLabel: 'Meet the workforce',
+    href: 'community.html',
+    linkLabel: 'See the community pages',
     media: { kind: 'Photograph', brief: 'Community open house — residents, not staff', alt: 'Residents at the community open house' },
   },
   {

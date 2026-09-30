@@ -8,7 +8,7 @@ import react from '@vitejs/plugin-react';
 // cross-document view transition (site.css) fades between them.
 // PAGE=<name> builds a single page with no shared chunks — the preview
 // packer inlines each one into its own self-contained file.
-const pages = { index: 'index.html', workforce: 'workforce.html', campus: 'campus.html', contact: 'contact.html', faq: 'faq.html', news: 'news.html', 'news-workforce-1800': 'news-workforce-1800.html' };
+const pages = { index: 'index.html', workforce: 'workforce.html', campus: 'campus.html', contact: 'contact.html', faq: 'faq.html', news: 'news.html', 'news-workforce-1800': 'news-workforce-1800.html', community: 'community.html', partners: 'partners.html', commitments: 'commitments.html', voices: 'voices.html', history: 'history.html' };
 // Vite runs this file in Node; `globalThis` avoids pulling in @types/node.
 const only = (globalThis as { process?: { env: Record<string, string | undefined> } }).process?.env.PAGE as keyof typeof pages | undefined;
 

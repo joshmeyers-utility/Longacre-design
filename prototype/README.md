@@ -1,7 +1,7 @@
-# Prototype — homepage, The Campus and Careers
+# Prototype — every page in the nav
 
-A React + TypeScript reference implementation of the homepage, The Campus
-page and the Careers (Workforce) page, laid out after
+A React + TypeScript reference implementation of the homepage and every
+page the nav links to (table below), laid out after
 the Figma direction board (file `K7Mb6ksBE9it30ff9gb9CA`, Page 1) and styled
 entirely from `../design-system/tokens.css`. It ports to Webflow; it does not
 deploy.
@@ -11,7 +11,7 @@ deploy.
 ```sh
 cd prototype
 npm install
-npm run dev        # http://localhost:5173, /campus.html and /workforce.html
+npm run dev        # http://localhost:5173, then /campus.html, /faq.html …
 ```
 
 Each page is its own HTML file, as it will be in Webflow, so moving between
@@ -19,16 +19,16 @@ them is a real page load and the cross-page fade runs.
 
 - Review notes (provenance flags, placeholder-image tags, and FAQ questions
   with no sourced answer) are hidden by default. `?notes=on` shows them.
-- `npm run build:preview` writes `dist/preview/index.html`, `campus.html`
-  and `workforce.html`: each page as one self-contained file (JS and
+- `npm run build:preview` writes every page to `dist/preview/`: each page as one self-contained file (JS and
   CSS inline, fonts from Google Fonts with the icon font subset to the glyphs
   in use) that opens straight from disk. They link to each other by filename,
   so keep them in one folder. `node scripts/build-preview.mjs <dir> --hosted`
   is the version for a shareable link: it adds a small "Design prototype · not
   the live site" corner tag, since a hosted page must never pass for the
   client's live site. Add any new icon name to the list in
-  `scripts/build-preview.mjs`, and any new page to both that list and
-  `vite.config.ts`.
+  `scripts/build-preview.mjs`. A new page needs an HTML file, a
+  three-line entry in `src/` (`mountPage(<ThePage />)`), and a line in both
+  that script's page list and `vite.config.ts`.
 - `npm run build` typechecks and builds to `dist/`.
 - To bring the alert back after dismissing it, clear site data for
   `localhost:5173` (it is stored under `hcec-alert-dismissed`).
@@ -47,7 +47,11 @@ them is a real page load and the cross-page fade runs.
 | `src/components/PageHero.tsx` | The inner-page hero, shared by The Campus and Careers. |
 | `src/pages/Campus.tsx` | The Campus page: hero, figures, site tour, photo essay, timeline, questions. |
 | `src/pages/Workforce.tsx` | The Careers page: hero, figures, growth chart, trade tiles, apprentices, long view, how to apply. |
-| `index.html`, `campus.html`, `workforce.html`, `src/main.tsx`, `src/campus.tsx`, `src/workforce.tsx` | One HTML file and entry per page. |
+| `src/content/{contact,faq,news,community,history}.ts` | The other pages' content, sourced the same way. Each file's header says what it leaves out and why. |
+| `src/components/Page.tsx` | `PageShell` (skip link, alert, hero, main, footer, reveals) and `mountPage`, used by every inner page. |
+| `src/components/LinkTile.tsx` | The trade tile, shared by Careers and Campus partners. |
+| `src/pages/*.tsx` | One component per page. |
+| `*.html`, `src/*.tsx` | One HTML file and entry per page. |
 | `src/styles/site.css` | All styling. Flat Client-First class names, role tokens only. |
 
 Fonts are self-hosted from npm (Geist, Material Symbols Rounded), so it runs
@@ -62,33 +66,37 @@ ink sections too. A slot keeps its resting height, so docking never moves
 the page, and anchor jumps stop below it (`scroll-padding-top`). Webflow:
 Interactions 2.0 "page scrolled" adds `is-docked` to `site-header`.
 
-**What is in it.** Four headings and Contact us, from the sitemap in
-`docs/02-plan.md` §2. Every entry is a page, never a jump to a section:
+**What is in it.** Five headings, as T1 has, from the sitemap in
+`docs/02-plan.md` §2. Every entry is a page, never a jump to a section, and
+every page in the prototype has a home in it:
 
 | Heading | Pages |
 | --- | --- |
-| What we're building | The Campus |
-| Who we are | Our history *(soon)*, Careers |
-| Community stewardship | Community, Campus partners, Our commitments, Voices *(all soon)* |
-| Resources | FAQs, News *(soon)* |
+| The campus | Overview (`campus.html`) |
+| Who we are | Our history (`history.html`), Careers (`workforce.html`) |
+| Community | Overview (`community.html`), Campus partners, Our commitments, Voices |
+| Resources | FAQs (`faq.html`), News (`news.html`, and its item pages) |
+| Contact | — a page of its own (`contact.html`); its column stays empty |
 
-A page not built yet has no `href` in `content/home.ts`: it shows grey with
-a small "Soon", is not a link and is skipped by Tab (screen readers hear
-"coming soon"). Give it an `href` when the page exists and it becomes a
-link everywhere — menu, phone menu and footer.
+The heading a page sits under stays white while you are on it. A page with
+no `href` in `content/home.ts` shows grey with a small "Soon", is not a link
+and is skipped by Tab; none is left, but the state stays for the next page
+the sitemap adds.
 
-**Layout (from 1024px).** The bar and panel share one grid: row 1 is the
-logo, the four headings and Contact us, spread with the same gap between
-every pair (`justify-content: space-between`, and the logo and Contact us
-offset by an item's side padding so the ends match). Row 2 holds each
-heading's pages in its own column, the first letter of each page under the
-first letter of its heading. Columns have no width of their own, so a long
-page name never pushes the headings apart; between 1024 and 1199 "Soon"
-drops under its name to stay clear of the next column. Row 3 is two wide
-pills. The panel is solid ink, so a white page never shows through.
+**Layout (from 1024px).** T1's, copied: one dark shape. The bar is 60px
+with 24px corners; open, the solid ink panel drops behind it from its top
+edge, so bar and panel read as one surface with the (raised grey) bar
+sitting on it. Bar and panel share one grid: row 1 is the logo and the
+five headings, spread with the same gap between every pair
+(`justify-content: space-between`, the logo offset by a heading's side
+padding so the ends match). Row 2 holds each heading's pages in its own
+column, the first letter of each page under the first letter of its
+heading. Columns have no width of their own, so a long page name never
+pushes the headings apart. Row 3 is T1's two wide pills: Get in touch
+(light, to Contact) and Careers (dark).
 
-**Type and state.** Headings and pages share one size (`label-md`, `label-lg`
-from 1200). Everything is grey at rest and turns full white on hover, for
+**Type and state.** Headings and pages share one size (`label-lg`, then
+`heading-xs` from 1200 — T1's scale). Everything is grey at rest and turns full white on hover, for
 the open heading and its column, and for the page you are on.
 
 - **Mouse:** hover opens it; moving off closes it after 200ms.
@@ -164,6 +172,26 @@ Left out until the content exists: union names and local numbers (CLAUDE.md
 person), and apprenticeship programme detail. The trade descriptions are
 general, plain-language descriptions of each trade, not client copy, and
 carry a "confirm" flag (`?notes=on`).
+
+## The other pages
+
+All of them are light-hero pages built from the same parts. What each one
+can say is limited by `docs/source/`; the gaps are flagged, not filled.
+
+| Page | What is on it | Waiting on |
+| --- | --- | --- |
+| Our history | Then-and-now pair, the deck's 12 dated photo-essay stages on the tour's rail, the milestone timeline | Full-resolution photographs (§10 #4) |
+| Community | Three route cards with their strongest figure; the two 2025 community milestones | Open-house photograph |
+| Campus partners | Homer City Generation, Kiewit, GE Vernova as trade tiles linking out | Independence and Kovalchick (§10 #3) — notes only; logos |
+| Our commitments | The brief's six, each with only the figures and dated facts on record; required footnotes under their figures | A sourced commitment for Health, Water and Giving back (flagged red) |
+| Voices | Speaker filter and a plain "no quotes yet" — nothing unattributed runs | Named, photographed, signed-off quotes (§5.6) |
+| FAQs | 19 sourced answers in the plan's six categories, search, category chips, a source line on every answer, a deep link per question (`faq.html#water`) | Water, noise, traffic, hours, lighting, emissions, monitoring, taxes, a hotline — 10 questions, shown with notes on; the appeal answer needs legal sign-off (§10 #5); a "last reviewed" date per answer |
+| News | Items newest first, type chips once there is more than one type; one item page (`news-workforce-1800.html`) with a copy-link button and the press inbox | The release text as issued, the March 2026 release, the archive, an RSS feed (Webflow's collection RSS) |
+| Contact | The four inboxes with copy buttons; the address | A response time, a liaison or hotline, a site access policy before any map or gate photo (§10 #11) |
+
+The FAQ search and chips, and the News type chips, are a small embed in
+Webflow (or Finsweet CMS Filter). The homepage FAQ module now reads the
+same list by id, so an answer is written once.
 
 ## Content rules it enforces
 
