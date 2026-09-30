@@ -77,5 +77,18 @@ it runs as a hero card).
   unsupported.
 - **One `clamp()`** scales the stat figures between 768 and 1439px. Webflow
   accepts it as a custom value.
+- **Motion** maps one-to-one onto Interactions 2.0 — no GSAP:
+
+  | Effect | Trigger | Targets |
+  | --- | --- | --- |
+  | Hero copy rises in, news cards slide in | Page load | `hero_copy` children, `news-card` |
+  | Rise in with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `pillar`, `faq-row`, `split_media`, footer columns |
+  | Rail fills top to bottom | While scrolling in view | `timeline_list` progress segment |
+  | Opened content fades in; new year rises in | Click | `pillar_panel`, `faq-row_answer`, pillar image, `milestone` |
+  | Card lifts 2px, arrow nudges | Hover | `news-card`, `button_well` |
+
+  Figures never count up — a transparency site should not display a number
+  that is not true, even for half a second. Everything is off under
+  `prefers-reduced-motion`.
 - **The alert ticker** is a CSS animation; in Webflow it is an Interactions 2.0
   loop, or a small embed. The dismiss-and-remember logic needs an embed script.

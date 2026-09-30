@@ -1,4 +1,5 @@
-import { useId, useRef, useState, type KeyboardEvent } from 'react';
+import { useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { trackScrollProgress } from '../motion';
 import {
   announcements,
   contacts,
@@ -193,9 +194,23 @@ export function History() {
 const phases = ['2025', '2026', 'Upcoming'] as const;
 
 export function Timeline() {
-  const [active, setActive] = useState<(typeof phases)[number]>('2026');
+  const [active, setActiveRaw] = useState<(typeof phases)[number]>('2026');
+  // After the first switch, a new year's milestones rise in (click trigger).
+  const [switched, setSwitched] = useState(false);
+  const setActive = (p: (typeof phases)[number]) => {
+    setSwitched(true);
+    setActiveRaw(p);
+  };
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const base = useId();
+  const list = useRef<HTMLOListElement>(null);
+
+  // The rail fills as the list passes the middle of the screen (scroll progress).
+  useEffect(() => {
+    const el = list.current;
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    return trackScrollProgress(el, (p) => el.style.setProperty('--rail-progress', p.toFixed(3)));
+  }, [active]); // the list remounts per year, so re-attach to the new one
 
   const onKey = (e: KeyboardEvent, i: number) => {
     const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
@@ -240,9 +255,9 @@ export function Timeline() {
           <p className="heading-md timeline_phase">
             {active} | {milestonePhases[active]}
           </p>
-          <ol className="timeline_list">
-            {items.map((m) => (
-              <li className="milestone" key={m.id}>
+          <ol className={`timeline_list${switched ? ' is-switched' : ''}`} ref={list} key={active}>
+            {items.map((m, i) => (
+              <li className="milestone" key={m.id} style={{ '--reveal-order': Math.min(i, 5) } as CSSProperties}>
                 <span className="milestone_node" aria-hidden="true" />
                 <p className="eyebrow milestone_date">
                   {m.month}
@@ -262,7 +277,12 @@ export function Timeline() {
 /* ------------------------------------------------------------- Pillars */
 
 export function Pillars() {
-  const [open, setOpen] = useState(pillars[0].id);
+  const [open, setOpenRaw] = useState(pillars[0].id);
+  const [touched, setTouched] = useState(false);
+  const setOpen = (id: string) => {
+    setTouched(true);
+    setOpenRaw(id);
+  };
   const base = useId();
   const current = pillars.find((p) => p.id === open) ?? pillars[0];
 
@@ -302,7 +322,7 @@ export function Pillars() {
             })}
           </ul>
         </div>
-        <MediaFrame media={current.media} shape="feature" className="split_media" key={current.id} />
+        <MediaFrame media={current.media} shape="feature" className={`split_media${touched ? ' is-swapped' : ''}`} key={current.id} />
       </div>
     </section>
   );

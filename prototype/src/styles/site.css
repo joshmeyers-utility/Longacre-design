@@ -548,8 +548,12 @@ address {
   text-decoration: none;
   transition: background-color var(--motion-duration-fast) ease-out;
 }
+.news-card {
+  transition: background-color var(--motion-duration-fast) ease-out, transform var(--motion-duration-base) ease-out;
+}
 .news-card:hover {
   background: var(--color-bg-glass);
+  transform: translateY(-2px);
 }
 .news-card_thumb {
   display: inline-flex;
@@ -699,7 +703,20 @@ address {
   left: 0;
   width: var(--size-rail);
   border-radius: var(--radius-control);
+  background: var(--color-border-subtle);
+}
+/* Progress segment. Full at rest; scroll drives --rail-progress from 0 to 1. */
+.timeline_list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--size-rail);
+  border-radius: var(--radius-control);
   background: var(--color-border-strong);
+  transform: scaleY(var(--rail-progress, 1));
+  transform-origin: top;
 }
 .milestone {
   position: relative;
@@ -909,7 +926,8 @@ address {
     column-gap: calc(var(--space-layout-column-gap) * 2);
     padding-left: 0;
   }
-  .timeline_list::before {
+  .timeline_list::before,
+  .timeline_list::after {
     left: calc(50% - var(--size-rail) / 2);
   }
   .milestone:nth-child(odd) {
@@ -947,4 +965,94 @@ address {
   border-radius: var(--radius-control);
   background: var(--color-action-primary-bg);
   color: var(--color-action-primary-text);
+}
+
+/* ============================================================ motion
+ * Every effect below maps to one Webflow Interactions 2.0 trigger:
+ * page load, scroll into view, scroll progress, click, or hover.
+ * Durations are tokens; tokens.css collapses them to 1ms under
+ * prefers-reduced-motion, and the block at the end switches keyframes off.
+ */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes enter-side {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Page load: hero copy rises in order, then the news cards slide in. */
+.hero_copy > * {
+  animation: rise var(--motion-duration-slow) ease-out backwards;
+}
+.hero_copy > :nth-child(2) {
+  animation-delay: 120ms;
+}
+.hero_copy > :nth-child(3) {
+  animation-delay: 240ms;
+}
+.news-card {
+  animation: enter-side var(--motion-duration-slow) ease-out backwards;
+  animation-delay: 360ms;
+}
+.news-card + .news-card {
+  animation-delay: 480ms;
+}
+
+/* Scroll into view. Held state is dimmed, never invisible — the page reads
+ * complete even if the observer never fires. */
+.is-reveal-pending {
+  opacity: 0.35;
+  transform: translateY(32px);
+}
+.numbers_title,
+.section-head,
+.timeline_head,
+.stat,
+.trades_item,
+.facility,
+.milestone,
+.pillar,
+.faq-row,
+.split_media,
+.site-footer_grid > * {
+  transition:
+    opacity var(--motion-duration-slow) ease-out,
+    transform var(--motion-duration-slow) ease-out;
+  transition-delay: calc(var(--reveal-order, 0) * 80ms);
+}
+
+/* Click: content that a control just revealed fades or rises in. */
+.pillar_panel:not([hidden]),
+.faq-row_answer:not([hidden]) {
+  animation: fade var(--motion-duration-base) ease-out backwards;
+}
+.split_media.is-swapped .media_frame {
+  animation: fade var(--motion-duration-slow) ease-out backwards;
+}
+.timeline_list.is-switched > .milestone {
+  animation: rise var(--motion-duration-slow) ease-out backwards;
+  animation-delay: calc(var(--reveal-order, 0) * 60ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .timeline_list::after {
+    transform: none;
+  }
 }
