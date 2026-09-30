@@ -461,27 +461,27 @@ address {
   height: var(--size-control-sm);
 }
 /* ------------------------------------------------------ mega menu
- * Bar and panel share one grid (T1): row 1 is the bar's items, row 2 each
- * item's column of links, row 3 the two wide pills. Every track is as wide
- * as its item or its longest link, so links never wrap; the nav stretches
- * to 66rem and any spare width spreads the items out. Items with a single
- * destination (FAQs, News) are plain links with no column. The nav's own height is the bar's, so the
- * open panel hangs over the hero instead of pushing it down.
+ * Bar and panel share one grid (T1). Row 1 is the bar: every item hugs its
+ * label, 8px apart, so the pill is only as wide as its items. Row 2 holds
+ * the columns of links; each spans the full width and takes a quarter of
+ * it (its offset is set inline), so a long link never widens an item.
+ * Row 3 is the two wide pills. Items with a single destination (FAQs,
+ * News) are plain links with no column. The nav's own height is the
+ * bar's, so the open panel hangs over the hero instead of pushing it down.
  */
 .nav-menu {
   display: none;
   position: relative;
   z-index: 3;
-  flex: 1 1 auto;
-  max-width: 66rem;
   margin-left: auto;
   height: calc(var(--size-control-sm) + var(--space-padding-nav) * 2);
 }
 .nav-menu_grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, minmax(max-content, 1fr)) max-content;
+  grid-template-columns: repeat(7, max-content);
   grid-template-rows: auto auto auto;
+  column-gap: var(--space-gap-xs);
   align-items: center;
   padding: var(--space-padding-nav);
 }
@@ -519,8 +519,7 @@ address {
   justify-self: start;
 }
 .nav-menu_contact {
-  grid-column: -2;
-  justify-self: end;
+  grid-column: 7;
 }
 /* Open: the items dim except the one in use, as T1's do. */
 .nav-menu.is-open .nav-menu_trigger {
@@ -536,6 +535,9 @@ address {
 .nav-menu_column {
   position: relative;
   grid-row: 2;
+  grid-column: 1 / -1;
+  width: 25%;
+  min-width: 0;
   align-self: start;
   display: flex;
   flex-direction: column;
@@ -1351,95 +1353,130 @@ address {
   margin-top: var(--space-layout-column-gap);
 }
 .trade-tile {
-  position: relative;
-  min-height: 13rem;
+  display: flex;
   border-radius: var(--radius-card);
-  background: var(--color-bg-canvas);
   transition: transform var(--motion-duration-base) var(--ease-out);
 }
-/* The whole tile is the button: icon top-left, name bottom-left. */
-.trade-tile_toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+/* The whole tile is the link. Icon and arrow on top, name at the foot,
+ * description between. The description always holds its space, so
+ * showing it never resizes the tile or shifts the grid. */
+.trade-tile_link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
+  column-gap: var(--space-gap-sm);
+  row-gap: var(--space-gap-sm);
   width: 100%;
-  height: 100%;
-  min-height: inherit;
+  min-height: 13rem;
   padding: var(--space-padding-card);
   border-radius: inherit;
-  text-align: left;
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition:
+    background-color var(--motion-duration-base) var(--ease-out),
+    color var(--motion-duration-base) var(--ease-out);
 }
 .trade-tile_icon {
-  color: var(--color-text-primary);
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
 }
-/* + in the corner stays above the description and turns into ×. */
 .trade-tile_more {
-  position: absolute;
-  top: var(--space-padding-card);
-  right: var(--space-padding-card);
-  z-index: 2;
+  grid-row: 1;
+  grid-column: 2;
+  display: grid;
   width: var(--size-control-sm);
   height: var(--size-control-sm);
 }
+/* The + and the outward arrow share the well; one hands over to the other. */
 .trade-tile_more-icon {
-  transition: transform var(--motion-duration-slow) var(--ease-out);
+  grid-area: 1 / 1;
+  transition:
+    transform var(--motion-duration-slow) var(--ease-out),
+    opacity var(--motion-duration-base) var(--ease-out);
 }
-/* The description rises over the tile face on an ink ground. The tile
- * never changes size, so the grid never shifts. Clicks pass through to
- * the button underneath. */
-.trade-tile_desc {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--space-gap-sm);
-  padding: var(--space-padding-card);
-  padding-right: calc(var(--space-padding-card) + var(--size-control-sm));
-  border-radius: inherit;
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-  pointer-events: none;
+.trade-tile_more-icon.is-out {
   opacity: 0;
-  transform: translateY(8px);
+  transform: rotate(-45deg) scale(0.6);
+}
+.trade-tile_desc {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  align-self: end;
+  color: var(--color-text-secondary);
+  opacity: 0;
   transition:
     opacity var(--motion-duration-base) var(--ease-out),
-    transform var(--motion-duration-slow) var(--ease-out);
+    color var(--motion-duration-base) var(--ease-out);
 }
-.trade-tile.is-open .trade-tile_desc,
-.trade-tile_toggle:focus-visible + .trade-tile_desc {
-  opacity: 1;
-  transform: none;
+.trade-tile_name {
+  grid-row: 3;
+  grid-column: 1 / -1;
 }
-.trade-tile.is-open .trade-tile_more-icon {
-  transform: rotate(135deg);
-}
-/* On the ink ground the corner button inverts, so the × keeps its circle. */
-.trade-tile.is-open .trade-tile_more {
-  background: var(--color-text-inverse);
-  color: var(--color-bg-inverse);
-}
-/* Hover previews on a real pointer only; touch goes straight to tap. */
-@media (hover: hover) and (pointer: fine) {
-  .trade-tile:hover {
-    transform: translateY(-2px);
+/* Touch has no hover, so the description sits on the white tile face
+ * and the well shows the outward arrow from the start. */
+@media (hover: none) {
+  .trade-tile_desc {
+    opacity: 1;
   }
-  .trade-tile_toggle:hover + .trade-tile_desc {
+  .trade-tile_more-icon.is-add {
+    opacity: 0;
+  }
+  .trade-tile_more-icon.is-out {
     opacity: 1;
     transform: none;
   }
 }
-.trade-tile_toggle:focus-visible {
+/* Hover (a real pointer) or keyboard focus: the tile turns ink, the
+ * description shows, and the + becomes the outward arrow. */
+.trade-tile_link:focus-visible {
   outline-offset: 4px;
 }
-.trade-tile_desc-name {
+.trade-tile_link:focus-visible {
+  background: var(--color-bg-inverse);
   color: var(--color-text-inverse);
 }
-.trade-tile_desc p {
-  font: var(--type-body-md);
-  letter-spacing: var(--type-body-md-tracking);
+.trade-tile_link:focus-visible .trade-tile_desc {
+  color: var(--color-text-inverse);
+  opacity: 1;
+}
+.trade-tile_link:focus-visible .trade-tile_more {
+  background: var(--color-text-inverse);
+  color: var(--color-bg-inverse);
+}
+.trade-tile_link:focus-visible .trade-tile_more-icon.is-add {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+.trade-tile_link:focus-visible .trade-tile_more-icon.is-out {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .trade-tile:hover {
+    transform: translateY(-2px);
+  }
+  .trade-tile_link:hover {
+    background: var(--color-bg-inverse);
+    color: var(--color-text-inverse);
+  }
+  .trade-tile_link:hover .trade-tile_desc {
+    color: var(--color-text-inverse);
+    opacity: 1;
+  }
+  .trade-tile_link:hover .trade-tile_more {
+    background: var(--color-text-inverse);
+    color: var(--color-bg-inverse);
+  }
+  .trade-tile_link:hover .trade-tile_more-icon.is-add {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+  }
+  .trade-tile_link:hover .trade-tile_more-icon.is-out {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ------------------------------------------------------------ apply */
@@ -1479,7 +1516,7 @@ address {
   .trade-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .trade-tile {
+  .trade-tile_link {
     min-height: 16rem;
   }
   .numbers_grid {
@@ -1666,12 +1703,6 @@ address {
     width: var(--size-control-md);
     object-fit: cover;
     object-position: left center;
-  }
-  /* Menu links at the bar's own size until 1440, so the widest columns
-   * (Careers, Who we are) still fit beside the mark. */
-  .nav-menu_link {
-    font: var(--type-label-md);
-    letter-spacing: var(--type-label-md-tracking);
   }
 }
 

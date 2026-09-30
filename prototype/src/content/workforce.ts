@@ -22,6 +22,13 @@ const tradeCopy: Provenance = {
   note: 'General description of the trade, written for plain language — not client copy. Confirm with Kiewit or the unions, and add each union’s name and local number (CLAUDE.md §10 #2).',
 };
 
+/** Each tile links out to its trade's international union — a stand-in. */
+const tradeLinks: Provenance = {
+  tier: 'confirm',
+  source: 'direction-board',
+  note: 'Links go to each trade’s international union, not the local on site: the nine locals are not named (CLAUDE.md §10 #2). Swap each for its local’s page, or its apprenticeship page, once named.',
+};
+
 export const workforcePage = {
   hero: {
     eyebrow: 'Careers',
@@ -57,19 +64,20 @@ export const workforcePage = {
     note: 'March to July count workers active on site; September counts direct-hire tradespeople and skilled contractors. The year-end figure is a projection.',
   },
 
-  // Trades: press release. Descriptions: see tradeCopy.
+  // Trades: press release. Descriptions: see tradeCopy. Links: see tradeLinks.
   trades: [
-    { name: 'Boilermakers', icon: 'local_fire_department', description: 'Build, assemble and repair boilers, tanks and other large vessels that hold liquids and gases under pressure.' },
-    { name: 'Carpenters', icon: 'carpenter', description: 'Build the forms that concrete is poured into, along with scaffolding, framing and temporary structures.' },
-    { name: 'Electricians', icon: 'electrical_services', description: 'Install and connect the wiring, cable, lighting and electrical equipment that powers and controls the site.' },
-    { name: 'Ironworkers', icon: 'construction', description: 'Raise and connect structural steel, and place the steel reinforcing bar that goes inside concrete.' },
-    { name: 'Laborers', icon: 'engineering', description: 'Prepare and keep up the work site — excavation, concrete placement, traffic control — and support every other trade.' },
-    { name: 'Millwrights', icon: 'settings', description: 'Set, align and maintain heavy machinery to fine tolerances, so equipment that turns runs true.' },
-    { name: 'Operators', icon: 'front_loader', description: 'Run the heavy equipment — cranes, excavators, dozers and loaders — that moves earth and lifts material into place.' },
-    { name: 'Pipefitters', icon: 'plumbing', description: 'Fabricate, install and weld the piping systems that carry gas, water and steam.' },
-    { name: 'Teamsters', icon: 'local_shipping', description: 'Drive the trucks that bring materials, equipment and supplies onto the site and move them around it.' },
+    { name: 'Boilermakers', icon: 'local_fire_department', href: 'https://boilermakers.org', union: 'International Brotherhood of Boilermakers', description: 'Build, assemble and repair boilers, tanks and other large vessels that hold liquids and gases under pressure.' },
+    { name: 'Carpenters', icon: 'carpenter', href: 'https://www.carpenters.org', union: 'United Brotherhood of Carpenters', description: 'Build the forms that concrete is poured into, along with scaffolding, framing and temporary structures.' },
+    { name: 'Electricians', icon: 'electrical_services', href: 'https://www.ibew.org', union: 'International Brotherhood of Electrical Workers', description: 'Install and connect the wiring, cable, lighting and electrical equipment that powers and controls the site.' },
+    { name: 'Ironworkers', icon: 'construction', href: 'https://www.ironworkers.org', union: 'International Association of Ironworkers', description: 'Raise and connect structural steel, and place the steel reinforcing bar that goes inside concrete.' },
+    { name: 'Laborers', icon: 'engineering', href: 'https://www.liuna.org', union: 'Laborers’ International Union of North America', description: 'Prepare and keep up the work site — excavation, concrete placement, traffic control — and support every other trade.' },
+    { name: 'Millwrights', icon: 'settings', href: 'https://www.carpenters.org', union: 'United Brotherhood of Carpenters (millwrights)', description: 'Set, align and maintain heavy machinery to fine tolerances, so equipment that turns runs true.' },
+    { name: 'Operators', icon: 'front_loader', href: 'https://www.iuoe.org', union: 'International Union of Operating Engineers', description: 'Run the heavy equipment — cranes, excavators, dozers and loaders — that moves earth and lifts material into place.' },
+    { name: 'Pipefitters', icon: 'plumbing', href: 'https://ua.org', union: 'United Association (UA)', description: 'Fabricate, install and weld the piping systems that carry gas, water and steam.' },
+    { name: 'Teamsters', icon: 'local_shipping', href: 'https://teamster.org', union: 'International Brotherhood of Teamsters', description: 'Drive the trucks that bring materials, equipment and supplies onto the site and move them around it.' },
   ],
   tradeProvenance: tradeCopy,
+  tradeLinkProvenance: tradeLinks,
 
   apprentices: {
     stat: workforce.stats.find((s) => s.id === 'apprentices')!,

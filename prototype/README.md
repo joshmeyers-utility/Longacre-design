@@ -53,11 +53,13 @@ offline.
 ## Mega menu
 
 From 1200px the nav is a T1-style mega menu (`nav-menu`). The bar and the
-panel under it share one CSS grid: row 1 holds the items, row 2 each item's
-column of links, row 3 two wide pills (Contact us, Find work on the campus).
-Each column therefore sits exactly under its item. Every track is as wide as
-its item or its longest link, so links never wrap. FAQs and News & resources
-have one destination each and stay plain links with no column.
+panel under it share one CSS grid: row 1 holds the items, each hugging its
+label with an 8px gap, so the pill is only as wide as its items. Row 2 holds
+the four columns of links, each a quarter of the panel (spanning the whole
+grid, offset by a percentage margin), so a long link never widens an item.
+Row 3 holds two wide pills (Contact us, Find work on the campus). FAQs and
+News & resources have one destination each and stay plain links with no
+column.
 
 - **Mouse:** hover opens it and brightens the column under the pointer.
   Moving off it closes it after 200ms.
@@ -85,10 +87,13 @@ split, media frame and footer classes. Two new components:
   Stats collection item with its height bound from a CMS field. Direct labels
   on three columns; hover or focus any column for its source; "Show as a
   table" holds every value.
-- **Trade tiles** (`trade-grid`, `trade-tile`): nine tiles. Hover previews the
-  description on a pointer; tap, click or Enter pins it; keyboard focus shows
-  it. The tile never resizes. All nine descriptions are in the page for
-  search and screen readers.
+- **Trade tiles** (`trade-grid`, `trade-tile`): nine tiles, each a link out
+  to its trade's union in a new tab. Hover or keyboard focus turns the tile
+  ink, shows the description, and turns the + into an outward arrow. On
+  touch the description and arrow show from the start. The description
+  always holds its space, so the tile never resizes. The links go to each
+  trade's international union for now, flagged, until the nine locals are
+  named (CLAUDE.md §10 #2).
 
 Left out until the content exists: union names and local numbers (CLAUDE.md
 §10 #2), worker spotlights (§5.6: no quote without a named, photographed
@@ -175,6 +180,7 @@ changes. A bright or white-sky photo will fail.
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
   | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
   | Card lifts 2px, arrow nudges | Hover | `news-card`, `button_well` |
+  | Tile turns ink, description fades in, + hands over to an outward arrow | Hover (and focus) | `trade-tile_link`, `trade-tile_desc`, `trade-tile_more-icon` |
 
   Figures never count up — a transparency site should not display a number
   that is not true, even for half a second. Everything is off under

@@ -116,6 +116,8 @@ function MegaMenu({ current }: { current: PageId }) {
   };
 
   const panelId = `${base}-panel`;
+  // Each group's quarter of the panel, in order: 0, 1, 2, 3.
+  const columnIndex = navMenu.map((_, i) => navMenu.slice(0, i).filter((m) => m.links.length).length);
   return (
     <nav
       className={`nav-menu${open ? ' is-open' : ''}`}
@@ -169,7 +171,7 @@ function MegaMenu({ current }: { current: PageId }) {
               </button>
               <ul
                 className={`nav-menu_column${isActive ? ' is-active' : ''}`}
-                style={{ gridColumn: i + 1 } as CSSProperties}
+                style={{ marginLeft: `${columnIndex[i] * 25}%` } as CSSProperties}
                 id={`${panelId}-${i}`}
                 inert={!open}
                 onPointerEnter={() => setActive(i)}

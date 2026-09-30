@@ -206,13 +206,13 @@ function GrowthChart() {
 /* --------------------------------------------------------------- Trades */
 
 /**
- * Nine tiles. Pointer: hover previews the description. Touch and keyboard:
- * tap, click or Enter pins it open (aria-expanded). Every description is in
- * the DOM, so search engines and screen readers get all nine regardless.
- * The tile never changes size — the description rises over the tile face.
+ * Nine tiles, each a link out to its trade's union (opens in a new tab).
+ * Pointer hover or keyboard focus turns the tile ink and shows the
+ * description; the + turns into an outward arrow to say the link leaves
+ * the site. On touch there is no hover, so the description sits on the
+ * tile face instead. Every description is in the DOM either way.
  */
 function Trades() {
-  const [open, setOpen] = useState<string | null>(null);
   const base = useId();
   return (
     <section className="section is-surface" id="trades" aria-labelledby="trades-title">
@@ -220,36 +220,29 @@ function Trades() {
         <SectionHead eyebrow="Nine trades on site" title="Who does what" id="trades-title" />
         <ul className="trade-grid">
           {page.trades.map((t) => {
-            const isOpen = open === t.name;
             const descId = `${base}-${t.name}`;
             return (
-              <li className={`trade-tile${isOpen ? ' is-open' : ''}`} key={t.name}>
-                <button
-                  className="trade-tile_toggle"
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={descId}
-                  onClick={() => setOpen(isOpen ? null : t.name)}
-                >
+              <li className="trade-tile" key={t.name}>
+                <a className="trade-tile_link" href={t.href} target="_blank" rel="noopener" aria-describedby={descId}>
                   <Icon name={t.icon} size="md" className="trade-tile_icon" />
-                  <span className="heading-sm">{t.name}</span>
-                  <span className="icon-button trade-tile_more" aria-hidden="true">
-                    <Icon name="add" className="trade-tile_more-icon" />
-                  </span>
-                </button>
-                {/* The name repeats here so it stays in view over the description;
-                 * hidden from screen readers, which already have it from the button. */}
-                <div className="trade-tile_desc" id={descId}>
-                  <span className="trade-tile_desc-name label-md" aria-hidden="true">
+                  <span className="trade-tile_name heading-sm">
                     {t.name}
+                    <span className="sr-only">, {t.union} (opens in a new tab)</span>
                   </span>
-                  <p>{t.description}</p>
-                </div>
+                  <span className="icon-button trade-tile_more" aria-hidden="true">
+                    <Icon name="add" className="trade-tile_more-icon is-add" />
+                    <Icon name="arrow_outward" className="trade-tile_more-icon is-out" />
+                  </span>
+                  <span className="trade-tile_desc body-md" id={descId}>
+                    {t.description}
+                  </span>
+                </a>
               </li>
             );
           })}
         </ul>
         <Flag provenance={page.tradeProvenance} />
+        <Flag provenance={page.tradeLinkProvenance} />
       </div>
     </section>
   );

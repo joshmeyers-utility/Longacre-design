@@ -38,7 +38,7 @@ const pages = [
 // Icons in use across all pages — keep in sync when adding an <Icon name=…>.
 // Alphabetical, as the Google Fonts API requires.
 const icons = [
-  'add', 'arrow_forward', 'carpenter', 'close', 'construction', 'electrical_services',
+  'add', 'arrow_forward', 'arrow_outward', 'carpenter', 'close', 'construction', 'electrical_services',
   'engineering', 'fact_check', 'front_loader', 'local_fire_department', 'local_shipping',
   'menu', 'photo_camera', 'plumbing', 'report', 'settings', 'view_in_ar',
 ].sort();
