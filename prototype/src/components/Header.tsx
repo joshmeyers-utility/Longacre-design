@@ -58,10 +58,33 @@ export function AlertBar() {
   );
 }
 
-/** Logo, frosted nav pill, and a full-screen menu below 1024px. */
+/**
+ * Logo, frosted nav pill, and a full-screen menu below 1200px. Fixed to the
+ * viewport; after 80px of scroll the logo docks into the pill and the bar
+ * becomes one glass capsule (T1). Webflow: "while page is scrolling" on the
+ * bar, or a second, fixed header that fades in past 80px.
+ */
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [docked, setDocked] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setDocked(window.scrollY > 80);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -80,7 +103,8 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className={`site-header${open ? ' is-menu-open' : ''}`}>
+    <header className={`site-header theme-dark${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}`}>
+      <div className="site-header_bar">
       <a className="site-header_logo" href="#top" aria-label={`${site.name}, home`}>
         <span className="site-header_mark" aria-hidden="true" />
         <span className="site-header_wordmark">{site.name}</span>
@@ -114,6 +138,7 @@ export function SiteHeader() {
         <Icon name={open ? 'close' : 'menu'} size="md" />
         <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
       </button>
+      </div>
 
       <div id="mobile-menu" className={`mobile-menu theme-dark${open ? ' is-open' : ''}`} hidden={!open}>
         <ul className="mobile-menu_list">

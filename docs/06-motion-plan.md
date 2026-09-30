@@ -8,8 +8,10 @@ steer: **T1 for interactions, Joby for scroll.** Images on both sites are
 served from `cdn.sanity.io`, which the session could not reach, so the
 findings below are layout, type, timing and mechanics — not photography.
 
-This is a plan, not a build. Nothing in `prototype/` changes until the
-decisions in §6 are made.
+**Status:** decisions taken 30 Sep 2026 (1 yes, 2 dock, 3 as proposed, 4
+full-strength, 5 skip) and built in `prototype/` — see §8. Workforce is not
+pinned after all: its content (four figures, a button, nine trades) is taller
+than a 1000px stage at most widths, so it takes the rail and parallax instead.
 
 ---
 
@@ -180,3 +182,29 @@ Recommendation: 1 yes, 2 dock, 3 as proposed, 4 full-strength, 5 skip.
 
 Each phase is one commit and one artifact version, presented before the next
 starts.
+
+---
+
+## 8. What was built (30 Sep 2026)
+
+Reusable pieces, each used in at least two places:
+
+| Piece | Class | Used by |
+| --- | --- | --- |
+| Expo-out easing + press | `--motion-ease-out`, `:active { scale(.985) }` | every pill, card and toggle |
+| Chip (pill + arrow well, optional meta line) | `chip`, `chip-row` | Power Block facilities (button, `aria-pressed`), footer contact routes (link) |
+| Aside layout (sticky eyebrow with square bullet beside content) | `aside-layout`, `eyebrow.has-bullet` | Numbers, Trades |
+| Rail list (left rail fills with scroll) | `rail-list`, `--progress` | Trades, Timeline |
+| Parallax frame | `media_frame.is-parallax` | Workforce, Power Block, History |
+| Scroll progress → `--progress` | `bindScrollProgress`, `useScrollProgress` | hero peel, parallax, rails |
+| Active-while-passing | `bindActiveWhileInProgress` → `is-active` | Timeline year labels |
+| Glass panel over a photo | `facility-panel` (same recipe as `news-card`) | Power Block; ready for pillars or partners |
+| + / – toggle | `icon-button.is-toggle` | FAQ; ready for any accordion |
+| Hover zoom inside a frame | `.news-card:hover .picture` | news cards |
+
+One-offs: the hero peel (`hero_frame`) and the header dock (`site-header_bar`).
+
+Verified: 15 widths with no overflow or clipped text; hero text sampled
+against the painted pixels at 7 sizes (worst 3.61:1 on the large headline,
+4.96:1 on the intro); pillars scroll sequence at three sizes; axe clean at
+375, 1024 and 1440.

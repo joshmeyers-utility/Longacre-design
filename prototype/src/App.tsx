@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { AlertBar } from './components/Header';
+import { AlertBar, SiteHeader } from './components/Header';
 import { initReveals } from './motion';
 import { Faq, Hero, History, Numbers, Pillars, PowerBlock, SiteFooter, Timeline, Workforce } from './components/Sections';
 
@@ -16,6 +16,7 @@ export function App() {
         Skip to content
       </a>
       <AlertBar />
+      <SiteHeader />
       <div id="top">
         <Hero />
       </div>

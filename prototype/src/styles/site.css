@@ -109,6 +109,53 @@ address {
 .eyebrow { font: var(--type-eyebrow); letter-spacing: var(--type-eyebrow-tracking); color: var(--color-text-tertiary); }
 .text-secondary { color: var(--color-text-secondary); }
 
+:root {
+  /* The one curve (T1's expo-out). Add to the Figma library as motion/ease/out. */
+  --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Image zoom on hover; T1 runs it at 666ms. Library: motion/duration/slower. */
+  --motion-duration-slower: 666ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-slower: 1ms;
+  }
+}
+
+/* Press: every pill gives 1.5% under the pointer (T1). */
+.button:active,
+.icon-button:active,
+.nav-item:active,
+.chip:active,
+.news-card:active,
+.pillar_toggle:active {
+  transform: scale(0.985);
+}
+
+/* Eyebrow with a square bullet — T1's section marker. */
+.eyebrow.has-bullet {
+  display: flex;
+  align-items: center;
+  gap: var(--space-gap-sm);
+}
+.eyebrow.has-bullet::before {
+  content: '';
+  flex-shrink: 0;
+  width: 0.5em;
+  height: 0.5em;
+  background: currentColor;
+}
+
+/* Two-column band: a narrow aside (eyebrow, title) beside the content. Aside
+ * sticks while the content scrolls. Numbers, trades, and any long list. */
+.aside-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+}
+.aside-layout_aside {
+  align-self: flex-start;
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -198,7 +245,9 @@ address {
   font: var(--type-label-lg);
   letter-spacing: var(--type-label-lg-tracking);
   text-decoration: none;
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-out),
+    transform var(--motion-duration-base) var(--motion-ease-out);
 }
 /* The label wraps rather than pushing the pill off a 320px screen. */
 .button_label {
@@ -212,7 +261,7 @@ address {
   width: var(--size-control-md);
   height: var(--size-control-md);
   border-radius: var(--radius-control);
-  transition: transform var(--motion-duration-base) ease-out;
+  transition: transform var(--motion-duration-base) var(--motion-ease-out);
 }
 .button:hover .button_well {
   transform: translateX(2px);
@@ -254,11 +303,83 @@ address {
   border-radius: var(--radius-control);
   background: var(--color-action-icon-bg);
   color: var(--color-action-icon-icon);
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-out),
+    transform var(--motion-duration-base) var(--motion-ease-out);
 }
 .icon-button.is-open {
   background: var(--color-action-icon-bg-selected);
   color: var(--color-action-icon-icon-selected);
+}
+/* + turns into – with a half turn (T1's accordion toggle). */
+.icon-button.is-toggle .icon {
+  transition: transform var(--motion-duration-slow) var(--motion-ease-out);
+}
+.icon-button.is-toggle.is-open .icon {
+  transform: rotate(180deg);
+}
+
+/* ---------------------------------------------------------------- chip */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-gap-sm);
+  width: 100%;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-gap-md);
+  max-width: 100%;
+  min-height: var(--size-control-lg);
+  padding: var(--space-padding-button-end) var(--space-padding-button-end) var(--space-padding-button-end) var(--space-padding-button-start);
+  border-radius: var(--radius-control);
+  background: var(--color-action-secondary-bg);
+  color: var(--color-action-secondary-text);
+  font: var(--type-label-lg);
+  letter-spacing: var(--type-label-lg-tracking);
+  text-align: left;
+  text-decoration: none;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-out),
+    color var(--motion-duration-fast) var(--motion-ease-out),
+    transform var(--motion-duration-base) var(--motion-ease-out);
+}
+.chip:hover {
+  background: var(--color-action-secondary-bg-hover);
+}
+.chip.is-selected {
+  background: var(--color-action-icon-bg-selected);
+  color: var(--color-action-icon-icon-selected);
+}
+.chip_copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.chip_meta {
+  font: var(--type-body-sm);
+  letter-spacing: var(--type-body-sm-tracking);
+  overflow-wrap: anywhere; /* inherits the chip's text colour: AA on greige */
+}
+.chip_well {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  border-radius: var(--radius-control);
+  background: var(--color-action-secondary-icon-bg);
+  color: var(--color-action-secondary-icon);
+  transition: transform var(--motion-duration-base) var(--motion-ease-out);
+}
+.chip:hover .chip_well {
+  transform: translateX(2px);
+}
+.chip.is-selected .chip_well {
+  background: var(--color-action-primary-icon-bg);
+  color: var(--color-action-primary-icon);
 }
 
 /* ------------------------------------------------------------- flag */
@@ -316,6 +437,12 @@ address {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* Parallax inside the frame (Joby): the photo is 12% taller than its frame
+ * and travels as the frame crosses the viewport. Nothing outside the frame
+ * moves, so the layout never shifts. Desktop only — see ≥ 1024px. */
+.media_frame.is-parallax .picture {
+  will-change: transform;
 }
 /* Placeholder tag: sits inside the image, where the real photo will go. */
 .placeholder-tag {
@@ -422,29 +549,75 @@ address {
 
 /* ----------------------------------------------------------- header */
 .site-header {
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  height: 0; /* takes no room: sits below the alert bar, sticks once it scrolls by */
+  overflow: visible;
+  pointer-events: none; /* only the bar inside takes clicks */
+}
+.site-header_bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-gap-lg);
-  padding: var(--space-gap-xl) var(--space-layout-gutter) 0;
+  margin: var(--space-gap-xl) var(--space-layout-gutter) 0;
+  pointer-events: auto;
+  border-radius: var(--radius-control);
+  transition:
+    background-color var(--motion-duration-slow) var(--motion-ease-out),
+    padding var(--motion-duration-slow) var(--motion-ease-out);
 }
-/* While the mobile menu is open the bar pins to the viewport, so the menu
- * lines up under it wherever the page was scrolled. */
-.site-header.is-menu-open {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-bottom: var(--space-gap-md);
+/* At rest the logo and the nav are two glass pills over the photograph.
+ * Docked (scrolled past 80px) they merge into one capsule at the right,
+ * the wordmark goes, and the ground goes to 85% ink so white text clears
+ * AA over the light canvas. */
+.site-header_logo {
+  padding: var(--space-padding-nav);
+  padding-right: var(--space-padding-control-x);
+  border-radius: var(--radius-control);
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+  transition: background-color var(--motion-duration-slow) var(--motion-ease-out);
 }
+.site-header.is-docked .site-header_bar {
+  width: fit-content;
+  max-width: calc(100% - var(--space-layout-gutter) * 2);
+  margin-left: auto;
+  gap: var(--space-gap-xs);
+  padding: var(--space-padding-nav);
+  background: var(--color-scrim-strong);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+}
+.site-header.is-docked .nav-pill,
+.site-header.is-docked .site-header_logo {
+  padding: 0;
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.site-header.is-docked .site-header_wordmark {
+  display: none;
+}
+/* The mark alone is the docked logo; give it the nav's padding on its left. */
+.site-header.is-docked .site-header_logo {
+  padding-left: var(--space-padding-control-x);
+}
+
 .site-header_logo {
   display: inline-flex;
   align-items: center;
   gap: var(--space-gap-sm);
+  min-width: 0;
   text-decoration: none;
   font: var(--type-label-lg);
+}
+.site-header_wordmark {
+  min-width: 0;
+  white-space: nowrap;
+  font: var(--type-label-md); /* one line beside the menu button on a 320px phone */
 }
 .site-header_mark {
   width: var(--size-control-sm);
@@ -459,6 +632,9 @@ address {
   background: var(--color-bg-glass);
   -webkit-backdrop-filter: blur(200px);
   backdrop-filter: blur(200px);
+  transition:
+    background-color var(--motion-duration-slow) var(--motion-ease-out),
+    padding var(--motion-duration-slow) var(--motion-ease-out);
 }
 .nav-pill_list {
   display: flex;
@@ -474,7 +650,9 @@ address {
   font: var(--type-label-md);
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-out),
+    transform var(--motion-duration-base) var(--motion-ease-out);
 }
 .nav-item:hover {
   background: var(--color-action-nav-bg-hover);
@@ -506,10 +684,17 @@ address {
 /* ------------------------------------------------------------- hero */
 .hero {
   position: relative;
+  min-height: 100svh;
+}
+/* The frame is what peels: it scales and rounds from --progress (0 at the
+ * top of the page, 1 after 60vh of scroll). Static until 1024px. */
+.hero_frame {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100svh;
   overflow: hidden;
+  transform-origin: center bottom;
 }
 .hero_media {
   position: absolute;
@@ -546,7 +731,11 @@ address {
   flex-direction: column;
   justify-content: flex-end;
   gap: var(--space-layout-column-gap);
-  padding: var(--space-layout-section-y) var(--space-layout-gutter) var(--space-layout-gutter);
+  padding: calc(var(--space-layout-section-y) + var(--size-control-lg)) var(--space-layout-gutter) var(--space-layout-gutter);
+}
+/* Room for the fixed header above the placeholder tag. */
+.hero_tag {
+  padding-top: calc(var(--space-gap-xl) * 2 + var(--size-control-lg));
 }
 .hero_copy {
   display: flex;
@@ -576,14 +765,26 @@ address {
   -webkit-backdrop-filter: blur(200px);
   backdrop-filter: blur(200px);
   text-decoration: none;
-  transition: background-color var(--motion-duration-fast) ease-out;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-out);
 }
 .news-card {
-  transition: background-color var(--motion-duration-fast) ease-out, transform var(--motion-duration-base) ease-out;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-out),
+    transform var(--motion-duration-base) var(--motion-ease-out);
 }
-.news-card:hover {
+.news-card:hover,
+.news-card:focus-visible {
   background: var(--color-bg-glass);
   transform: translateY(-2px);
+}
+/* Photo zooms inside its frame on hover — T1's media card, 666ms. */
+.news-card_thumb .picture,
+.pillars_frame .picture {
+  transition: transform var(--motion-duration-slower) var(--motion-ease-out);
+}
+.news-card:hover .picture,
+.news-card:focus-visible .picture {
+  transform: scale(1.033);
 }
 .news-card_thumb {
   display: inline-flex;
@@ -613,13 +814,11 @@ address {
 }
 
 /* ---------------------------------------------------------- numbers */
-.numbers_title {
-  margin-bottom: var(--space-layout-column-gap);
-}
 .numbers_grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-layout-column-gap) var(--space-gap-xl);
+  width: 100%;
 }
 .stat {
   display: flex;
@@ -660,34 +859,69 @@ address {
   gap: var(--space-gap-xl) var(--space-gap-lg);
   width: 100%;
 }
-.trades_title {
-  margin: var(--space-layout-column-gap) 0 var(--space-gap-lg);
+.workforce .aside-layout {
+  margin-top: var(--space-layout-column-gap);
 }
 .trades {
   display: grid;
   grid-template-columns: 1fr;
+  width: 100%;
 }
 .trades_item {
   display: flex;
   align-items: center;
   gap: var(--space-gap-md);
-  padding: var(--space-gap-lg) 0;
-  border-top: var(--border-width-divider) solid var(--color-border-subtle);
+  padding: var(--space-gap-md) 0 var(--space-gap-md) var(--space-gap-lg);
+}
+/* A list with a rail down its left that fills as it scrolls past (Joby's
+ * progress rail; the timeline uses the same two pseudo-elements). */
+.rail-list {
+  position: relative;
+}
+.rail-list::before,
+.rail-list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--size-rail);
+  background: var(--color-border-subtle);
+}
+.rail-list::after {
+  background: var(--color-border-strong);
+  transform-origin: top;
+  transform: scaleY(var(--progress, 1));
 }
 .trades_icon {
   color: var(--color-text-primary);
 }
 
 /* ------------------------------------------------------ power block */
-.facility-list {
-  width: 100%;
+.facility-stage {
+  position: relative;
 }
-.facility {
-  display: grid;
-  grid-template-columns: 1fr;
+/* Selected facility's detail, in a glass card over the photo's lower edge. */
+.facility-panel {
+  position: absolute;
+  left: var(--space-padding-card);
+  right: var(--space-padding-card);
+  bottom: var(--space-padding-card);
+  display: flex;
+  flex-direction: column;
   gap: var(--space-gap-xs);
-  padding: var(--space-gap-md) 0;
-  border-top: var(--border-width-divider) solid var(--color-border-subtle);
+  max-width: 28rem;
+  padding: var(--space-padding-card-inset);
+  border-radius: var(--radius-card);
+  background: var(--color-scrim-strong);
+  color: var(--color-text-primary);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+  animation: rise var(--motion-duration-slow) var(--motion-ease-out) backwards;
+}
+.facility-stage .placeholder-tag {
+  bottom: auto;
+  top: var(--space-padding-card);
 }
 
 /* --------------------------------------------------------- timeline */
@@ -793,7 +1027,7 @@ address {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity var(--motion-duration-slow) ease-out;
+  transition: opacity var(--motion-duration-slow) var(--motion-ease-out);
 }
 .pillars_frame.is-active {
   opacity: 1;
@@ -810,7 +1044,7 @@ address {
   padding-left: var(--space-gap-lg);
   margin-left: calc(var(--size-rail) * -1);
   border-left: var(--size-rail) solid transparent;
-  transition: border-color var(--motion-duration-base) ease-out;
+  transition: border-color var(--motion-duration-base) var(--motion-ease-out);
 }
 .pillar.is-open {
   border-left-color: var(--color-border-strong);
@@ -820,8 +1054,10 @@ address {
   width: 100%;
   padding: var(--space-gap-xs) 0;
   text-align: left;
-  color: var(--color-text-secondary);
-  transition: color var(--motion-duration-fast) ease-out;
+  color: var(--color-text-tertiary);
+  transition:
+    color var(--motion-duration-base) var(--motion-ease-out),
+    transform var(--motion-duration-base) var(--motion-ease-out);
 }
 .pillar_toggle:hover,
 .pillar.is-open .pillar_toggle {
@@ -886,17 +1122,14 @@ address {
 .site-footer_grid .eyebrow {
   margin-bottom: var(--space-gap-md);
 }
-.contact-list {
-  display: grid;
-  gap: var(--space-gap-md);
-}
-.contact-list li {
+.site-footer_contact {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-gap-md);
 }
-.contact-list .text-link {
-  font: var(--type-body-lg);
-  overflow-wrap: anywhere;
+.site-footer_contact .chip-row {
+  margin-top: var(--space-gap-sm);
 }
 .footer-nav {
   display: grid;
@@ -956,6 +1189,58 @@ address {
 
 /* ===================================================== ≥ 1024px */
 @media (min-width: 1024px) {
+  /* The hero pins under the page; the page slides over it. */
+  .hero {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+  }
+  .hero_frame {
+    transform: scale(calc(1 - 0.04 * var(--progress, 0)));
+    border-radius: calc(var(--radius-media-lg) * var(--progress, 0));
+  }
+  main,
+  .site-footer {
+    position: relative;
+    z-index: 1;
+  }
+  main {
+    background: var(--color-bg-canvas);
+  }
+  .media_frame.is-parallax .picture {
+    height: 112%;
+    transform: translateY(calc(var(--progress, 0.5) * -12%));
+  }
+  .aside-layout {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr);
+    column-gap: var(--space-layout-column-gap);
+    align-items: start;
+  }
+  .aside-layout_aside {
+    position: sticky;
+    top: calc(var(--space-gap-xl) * 2 + var(--size-control-lg));
+  }
+  .numbers_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* Figures share three quarters of the width now; scale until "10,000+"
+   * fits half of that at full size (≈ 1920px). One clamp(), as before. */
+  .aside-layout .stat_figure:not(.is-large) {
+    font-size: clamp(var(--type-heading-xl-size), 6vw, var(--type-display-size));
+  }
+  .trades {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--space-gap-xl);
+  }
+  /* Year labels: the group passing the middle of the screen is primary. */
+  .timeline_label h3 {
+    color: var(--color-text-tertiary);
+    transition: color var(--motion-duration-slow) var(--motion-ease-out);
+  }
+  .timeline_group.is-active .timeline_label h3 {
+    color: var(--color-text-primary);
+  }
   .split {
     flex-direction: row;
     align-items: center;
@@ -1058,6 +1343,9 @@ address {
   .nav-pill {
     display: block;
   }
+  .site-header_wordmark {
+    font: var(--type-label-lg);
+  }
   .icon-button.is-menu,
   .mobile-menu {
     display: none;
@@ -1118,7 +1406,7 @@ address {
 
 /* Page load: hero copy rises in order, then the news cards slide in. */
 .hero_copy > * {
-  animation: rise var(--motion-duration-slow) ease-out backwards;
+  animation: rise var(--motion-duration-slow) var(--motion-ease-out) backwards;
 }
 .hero_copy > :nth-child(2) {
   animation-delay: 120ms;
@@ -1127,7 +1415,7 @@ address {
   animation-delay: 240ms;
 }
 .news-card {
-  animation: enter-side var(--motion-duration-slow) ease-out backwards;
+  animation: enter-side var(--motion-duration-slow) var(--motion-ease-out) backwards;
   animation-delay: 360ms;
 }
 .news-card + .news-card {
@@ -1145,21 +1433,22 @@ address {
 .timeline_head,
 .stat,
 .trades_item,
-.facility,
+.chip-row > *,
+.facility-stage,
 .milestone,
 .faq-row,
 .split_media,
 .site-footer_grid > * {
   transition:
-    opacity var(--motion-duration-slow) ease-out,
-    transform var(--motion-duration-slow) ease-out;
+    opacity var(--motion-duration-slow) var(--motion-ease-out),
+    transform var(--motion-duration-slow) var(--motion-ease-out);
   transition-delay: calc(var(--reveal-order, 0) * 80ms);
 }
 
 /* Click: content that a control just revealed fades or rises in. */
 .pillar_panel:not([hidden]),
 .faq-row_answer:not([hidden]) {
-  animation: fade var(--motion-duration-base) ease-out backwards;
+  animation: fade var(--motion-duration-base) var(--motion-ease-out) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1169,7 +1458,8 @@ address {
     animation: none !important;
     transition: none !important;
   }
-  .timeline_list::after {
+  .timeline_list::after,
+  .rail-list::after {
     transform: none;
   }
 }
