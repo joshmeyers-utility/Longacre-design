@@ -13,6 +13,7 @@ import type {
   Pillar,
   Stat,
 } from './types';
+import { allFaqs, homeFaqIds } from './faq';
 
 const factSheet = { tier: 'canonical', source: 'fact-sheet' } as const;
 const deck = { tier: 'canonical', source: 'iup-deck' } as const;
@@ -27,11 +28,23 @@ export const site = {
   address: ['1750 Power Plant Rd', 'Homer City, PA 15748'], // iup-deck slide 6
 };
 
-// Nav: the sitemap in docs/02-plan.md §2, grouped under four headings
+// Nav: the sitemap in docs/02-plan.md §2, grouped under five headings
 // (T1). Every entry is a page, never a jump to a section. Pages not built
 // yet have no `href` and show as "Soon" — the menu shows the real structure
-// without dead links.
-export type PageId = 'home' | 'workforce' | 'campus';
+// without dead links. A heading with an `href` and no links is a page of its
+// own; its column stays empty.
+export type PageId =
+  | 'home'
+  | 'campus'
+  | 'history'
+  | 'workforce'
+  | 'community'
+  | 'partners'
+  | 'commitments'
+  | 'voices'
+  | 'faq'
+  | 'news'
+  | 'contact';
 
 export interface NavLink {
   label: string;
@@ -41,55 +54,65 @@ export interface NavLink {
 }
 export interface NavGroup {
   label: string;
+  /** A heading that is itself a page (Contact). */
+  href?: string;
   page?: PageId;
   links: NavLink[];
 }
 
 export const navMenu: NavGroup[] = [
   {
-    label: 'What we’re building',
-    page: 'campus',
-    links: [
-      { label: 'The Campus', href: 'campus.html', page: 'campus' },
-    ],
+    label: 'The campus',
+    links: [{ label: 'Overview', href: 'campus.html', page: 'campus' }],
   },
   {
     label: 'Who we are',
-    page: 'workforce',
     links: [
       // Phase 2 "Site History" (§2): the 1969–2023 → 2026 photo essay.
-      { label: 'Our history' },
+      { label: 'Our history', page: 'history' },
       { label: 'Careers', href: 'workforce.html', page: 'workforce' },
     ],
   },
   {
-    label: 'Community stewardship',
+    label: 'Community',
     links: [
-      { label: 'Community' },
-      { label: 'Campus partners' },
-      { label: 'Our commitments' },
-      { label: 'Voices' },
+      { label: 'Overview', page: 'community' },
+      { label: 'Campus partners', page: 'partners' },
+      { label: 'Our commitments', page: 'commitments' },
+      { label: 'Voices', page: 'voices' },
     ],
   },
   {
     label: 'Resources',
-    links: [{ label: 'FAQs' }, { label: 'News' }],
+    links: [
+      { label: 'FAQs', href: 'faq.html', page: 'faq' },
+      { label: 'News', page: 'news' },
+    ],
   },
+  { label: 'Contact', href: 'contact.html', page: 'contact', links: [] },
 ];
 
-/** The one standing call to action in the bar. The footer holds the four inboxes. */
-export const navCta = { label: 'Contact us', href: '#contact' };
+/** The heading a page sits under, for its "you are here" state. */
+export const groupHas = (g: NavGroup, page: PageId) => g.page === page || g.links.some((l) => l.page === page);
+
+/** The Contact page, where the four inboxes live. */
+export const navCta = { label: 'Contact us', href: 'contact.html' };
 
 /** Flat list of the pages that exist, for the footer. */
 export const nav = [
   { label: 'Home', href: 'index.html' },
-  ...navMenu.flatMap((g) => g.links.filter((l): l is NavLink & { href: string } => !!l.href).map((l) => ({ label: l.label, href: l.href }))),
+  ...navMenu.flatMap((g) => [
+    ...(g.href ? [{ label: g.label, href: g.href }] : []),
+    ...g.links
+      .filter((l): l is NavLink & { href: string } => !!l.href)
+      .map((l) => ({ label: l.label === 'Overview' ? g.label : l.label, href: l.href })),
+  ]),
 ];
 
-/** The two wide pills along the bottom of the open menu. */
+/** The two wide pills along the bottom of the open menu (T1). */
 export const navMenuCtas = [
-  { label: 'Contact us', href: '#contact', tone: 'light' as const },
-  { label: 'Find work on the campus', href: 'mailto:HomerCity.Info@Kiewit.com', tone: 'dark' as const },
+  { label: 'Get in touch', href: 'contact.html', tone: 'light' as const },
+  { label: 'Careers', href: 'workforce.html', tone: 'dark' as const },
 ];
 
 /**
@@ -204,7 +227,7 @@ export const pillars: Pillar[] = [
     id: 'safety',
     name: 'Safety',
     copy: 'Safety is every Homer City Generation employee’s #1 priority; we are accountable for our actions and responsive to concerns.',
-    href: '#faq',
+    href: 'faq.html#category-safety',
     linkLabel: 'Read the safety questions',
     media: { kind: 'Photograph', brief: 'Flagger or safety briefing on site', alt: 'A safety briefing on the campus' },
   },
@@ -297,45 +320,9 @@ export const milestonePhases: Record<string, string> = {
   Upcoming: 'What comes next',
 };
 
-export const faqs: FaqItem[] = [
-  {
-    id: 'what',
-    question: 'What is being built?',
-    answer:
-      'A 3,200+ acre natural gas-powered campus on the site of the former Homer City Generating Station, designed to meet the needs of America’s digital future. It is expected to produce up to 4.4 GW.',
-    provenance: factSheet,
-  },
-  {
-    id: 'who',
-    question: 'Who is building it?',
-    answer:
-      'Homer City Generation, in partnership with Kiewit Power Constructors Co. GE Vernova is providing seven high-efficiency 7HA.02 natural gas turbines.',
-    provenance: factSheet,
-  },
-  {
-    id: 'workers',
-    question: 'How many people are working on site?',
-    answer:
-      '1,800+ direct-hire tradespeople and skilled contractors as of September 2026, including members of 9 local union organizations. About 95% of the skilled direct-hire craft workforce is from the local area.',
-    provenance: release,
-  },
-  {
-    id: 'permit',
-    question: 'Has the project been approved?',
-    answer:
-      'In November 2025, PA DEP approved Homer City Generation’s air quality plan, authorizing construction and initial operations.',
-    provenance: factSheet,
-  },
-  {
-    id: 'water',
-    question: 'How much water will the campus use?',
-    provenance: {
-      tier: 'unsourced',
-      source: 'direction-board',
-      note: 'No supplied document names a water source or usage figure (CLAUDE.md §10 #14). Needs the client’s own words before this answer can be written.',
-    },
-  },
-];
+// The homepage's five, from the FAQ page's full list, so an answer is only
+// ever written once.
+export const faqs: FaqItem[] = homeFaqIds.map((id) => allFaqs.find((f) => f.id === id)!);
 
 export const contacts: ContactRoute[] = [
   { audience: 'Job seekers', email: 'HomerCity.Info@Kiewit.com' },

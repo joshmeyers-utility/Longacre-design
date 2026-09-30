@@ -392,7 +392,12 @@ export function Faq() {
           <h2 className="heading-lg" id="faq-title">
             Common questions
           </h2>
-          <Button href={navCta.href}>Ask us a question</Button>
+          <div className="button-row">
+            <Button href="faq.html">See all the questions</Button>
+            <Button href={navCta.href} tier="secondary">
+              Ask us a question
+            </Button>
+          </div>
         </div>
         <ul className="faq_list">
           {shownFaqs.map((f) => {
@@ -462,7 +467,7 @@ export function SiteFooter({ current = 'home' }: { current?: PageId }) {
         <div>
           <p className="eyebrow">Pages</p>
           <ul className="footer-nav">
-            {[...nav, navCta].map((n) => (
+            {nav.map((n) => (
               <li key={n.href}>
                 <a className="footer-nav_link body-sm" href={pageHref(n.href, current)}>
                   {n.label}

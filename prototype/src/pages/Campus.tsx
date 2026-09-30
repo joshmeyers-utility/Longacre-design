@@ -203,7 +203,7 @@ function Next() {
         </h2>
         <div className="apply_body">
           <p className="body-lg text-secondary">{n.body}</p>
-          <Button href="index.html#faq">Read the common questions</Button>
+          <Button href="faq.html">Read the common questions</Button>
           <p className="body-sm text-secondary">
             Community members: <a className="text-link" href={`mailto:${n.email}`}>{n.email}</a>
           </p>

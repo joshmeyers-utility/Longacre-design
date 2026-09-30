@@ -8,9 +8,10 @@ import { MediaFrame, notesOn, Picture, PlaceholderTag } from './primitives';
 /**
  * The homepage hero, shorter and without the news cards. Shared by every
  * inner page. `tone="light"`: white ground, smaller headline, and the photo
- * in a rounded frame under the copy instead of behind it.
+ * in a rounded frame under the copy instead of behind it — or no photo
+ * at all, for pages that are mostly text (Contact, FAQs, News).
  */
-export function PageHero({ current, eyebrow, headline, intro, media, tone = 'dark', children }: { current: PageId; eyebrow: string; headline: string; intro: string; media: Media; tone?: 'dark' | 'light'; children?: ReactNode }) {
+export function PageHero({ current, eyebrow, headline, intro, media, tone = 'dark', children }: { current: PageId; eyebrow: string; headline: string; intro: string; media?: Media; tone?: 'dark' | 'light'; children?: ReactNode }) {
   if (tone === 'light') {
     return (
       <section className="hero is-page is-light" aria-labelledby="hero-title">
@@ -25,12 +26,15 @@ export function PageHero({ current, eyebrow, headline, intro, media, tone = 'dar
             {children && <div className="button-row">{children}</div>}
           </div>
         </div>
-        <div className="container hero_frame">
-          <MediaFrame media={media} shape="feature" sizes="100vw" />
-        </div>
+        {media && (
+          <div className="container hero_frame">
+            <MediaFrame media={media} shape="feature" sizes="100vw" />
+          </div>
+        )}
       </section>
     );
   }
+  if (!media) throw new Error('A dark page hero needs its photograph.');
   return (
     <section className="hero is-page theme-dark" aria-labelledby="hero-title">
       <div className="hero_media">

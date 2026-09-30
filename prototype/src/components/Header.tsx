@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react';
-import { alert, navCta, navMenu, navMenuCtas, pageHref, type NavLink, type PageId } from '../content/home';
+import { alert, groupHas, navMenu, navMenuCtas, pageHref, type NavLink, type PageId } from '../content/home';
 import { Flag, Icon } from './primitives';
 import logo from '../assets/logo-homer-city.webp';
 
@@ -60,11 +60,14 @@ export function AlertBar() {
 }
 
 /**
- * Mega menu, from 1200px (T1). The bar and the panel below it share one CSS
- * grid, so each column of links sits exactly under its item. Hover opens it
- * on a mouse; click, tap or Enter opens it anywhere; the item under the
- * pointer (or focus) brightens its column. Escape, clicking outside, moving
- * away or tabbing out closes it. Closed, the panel is inert.
+ * Mega menu, from 1024px (T1). One dark shape: the bar across the top and,
+ * open, the panel hanging from it, the bar sitting on the panel. Bar and
+ * panel share one CSS grid, so each column of pages sits exactly under its
+ * heading. Hover opens it on a mouse; click, tap or Enter opens it
+ * anywhere; the heading under the pointer (or focus) brightens its column.
+ * Escape, clicking outside, moving away or tabbing out closes it. Closed,
+ * the panel is inert. Contact is a page, not a heading: a link, with an
+ * empty column.
  *
  * Webflow: a grid div with the same placement, a hover/click interaction
  * that adds "is-open", and one that sets "is-active" on the hovered item.
@@ -73,7 +76,7 @@ function MegaMenu({ current }: { current: PageId }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const root = useRef<HTMLElement>(null);
-  const triggers = useRef<(HTMLButtonElement | null)[]>([]);
+  const triggers = useRef<(HTMLElement | null)[]>([]);
   const closeTimer = useRef(0);
   const base = useId();
 
@@ -128,13 +131,32 @@ function MegaMenu({ current }: { current: PageId }) {
       }}
     >
       <div className="nav-menu_grid">
-        <div className="nav-menu_bar" aria-hidden="true" />
+        {/* Panel first, so the bar paints over its top edge. */}
         <div className="nav-menu_panel" aria-hidden="true" />
+        <div className="nav-menu_bar" aria-hidden="true" />
         {/* The logo lives in the bar (T1). Its column stays empty below. */}
         <Logo current={current} className="nav-menu_logo" />
         {navMenu.map((item, i) => {
           const isActive = open && active === i;
           const col = { gridColumn: i + 2 } as CSSProperties;
+          const state = `${isActive ? ' is-active' : ''}${groupHas(item, current) ? ' is-current' : ''}`;
+          if (item.href) {
+            return (
+              <a
+                key={item.label}
+                ref={(el) => {
+                  triggers.current[i] = el;
+                }}
+                className={`nav-menu_trigger${state}`}
+                style={col}
+                href={pageHref(item.href, current)}
+                aria-current={item.page === current ? 'page' : undefined}
+                onPointerEnter={(e) => e.pointerType === 'mouse' && open && setActive(i)}
+              >
+                {item.label}
+              </a>
+            );
+          }
           return (
             // display: contents — the button and its column are placed on the
             // grid directly; the wrapper only keeps them together in the DOM,
@@ -144,7 +166,7 @@ function MegaMenu({ current }: { current: PageId }) {
                 ref={(el) => {
                   triggers.current[i] = el;
                 }}
-                className={`nav-menu_trigger${isActive ? ' is-active' : ''}${item.page === current ? ' is-current' : ''}`}
+                className={`nav-menu_trigger${state}`}
                 style={col}
                 type="button"
                 aria-expanded={isActive}
@@ -165,9 +187,6 @@ function MegaMenu({ current }: { current: PageId }) {
             </div>
           );
         })}
-        <a className="nav-item is-primary nav-menu_contact" href={pageHref(navCta.href, current)}>
-          {navCta.label}
-        </a>
         <div className="nav-menu_ctas" inert={!open}>
           {navMenuCtas.map((c) => (
             <a className={`nav-menu_cta is-${c.tone}`} href={pageHref(c.href, current)} key={c.label} onClick={() => setOpen(false)}>
@@ -297,18 +316,30 @@ export function SiteHeader({ current = 'home' }: { current?: PageId }) {
           <ul className="mobile-menu_list">
             {navMenu.map((group) => (
               <li className="mobile-menu_group" key={group.label}>
-                <p className="eyebrow mobile-menu_label mobile-menu_item" style={stagger()}>
-                  {group.label}
-                </p>
-                <ul>
-                  {group.links.map((l) => (
-                    <li className="mobile-menu_item" key={l.label} style={stagger()}>
-                      <NavEntry link={l} current={current} className="mobile-menu_link" onPick={() => setOpen(false)}>
-                        {l.href && <Icon name="arrow_forward" />}
+                {group.href ? (
+                  <ul>
+                    <li className="mobile-menu_item" style={stagger()}>
+                      <NavEntry link={group} current={current} className="mobile-menu_link" onPick={() => setOpen(false)}>
+                        <Icon name="arrow_forward" />
                       </NavEntry>
                     </li>
-                  ))}
-                </ul>
+                  </ul>
+                ) : (
+                  <>
+                    <p className="eyebrow mobile-menu_label mobile-menu_item" style={stagger()}>
+                      {group.label}
+                    </p>
+                    <ul>
+                      {group.links.map((l) => (
+                        <li className="mobile-menu_item" key={l.label} style={stagger()}>
+                          <NavEntry link={l} current={current} className="mobile-menu_link" onPick={() => setOpen(false)}>
+                            {l.href && <Icon name="arrow_forward" />}
+                          </NavEntry>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </li>
             ))}
           </ul>

@@ -502,28 +502,31 @@ html {
 }
 
 /* ------------------------------------------------------ mega menu
- * One grid (T1). Row 1 is the bar: the logo, the four items, Contact us,
- * spread with equal space between them (space-between), each track as wide
- * as its item. Row 2 holds each item's pages in that item's own column, the
- * first letter of every page under the first letter of its heading
- * (column padding = item padding). The logo's column stays empty below.
- * Row 3 is the two wide pills. The nav is only as tall as the bar, so the
- * open panel hangs over the page instead of pushing it down.
+ * T1, copied: one dark shape. Row 1 is the bar — the logo, then five
+ * headings spread with equal space between them (space-between), each
+ * track as wide as its heading. Open, the panel drops behind the bar and
+ * runs down from its top edge, so bar and panel read as one surface with
+ * the bar sitting on it. Row 2 holds each heading's pages in its own
+ * column, the first letter of every page under the first letter of its
+ * heading (column padding = heading padding). The logo's column and
+ * Contact's stay empty below. Row 3 is the two wide pills. The nav is
+ * only as tall as the bar, so the open panel hangs over the page instead
+ * of pushing it down.
  *
- * Text is grey at rest and turns full white on hover, on the open item and
- * its column, and for the page you are on. Pages not built yet stay grey
- * with a "Soon" note and are not links. */
+ * Text is grey at rest and turns full white on hover, on the open heading
+ * and its column, and for the page you are on. Pages not built yet stay
+ * grey with a "Soon" note and are not links. */
 .nav-menu {
   display: none;
   position: relative;
   z-index: 3;
-  height: calc(var(--size-control-sm) + var(--space-padding-nav) * 2);
+  height: calc(var(--size-control-lg) + var(--space-padding-nav) * 2);
 }
 .nav-menu_grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(6, max-content);
-  grid-template-rows: auto auto auto;
+  grid-template-rows: var(--size-control-lg) auto auto;
   justify-content: space-between;
   column-gap: var(--space-gap-xs);
   align-items: center;
@@ -537,38 +540,41 @@ html {
 .nav-menu.theme-dark {
   background: none;
 }
-/* Docked, the bar may sit over an ink section: raised grey stands off
- * ink and white alike. The open panel keeps its ink. */
-.site-header.is-docked .nav-menu_bar,
-.site-header.is-docked .site-header_bar {
-  background: var(--color-bg-raised);
-}
 .nav-menu_bar,
 .nav-menu_panel {
   grid-column: 1 / -1;
   align-self: stretch;
-  background: var(--color-scrim-strong);
-  -webkit-backdrop-filter: blur(200px);
-  backdrop-filter: blur(200px);
+  margin: calc(var(--space-padding-nav) * -1);
+  /* T1's corner: rounder than a card at this height, not a full pill. */
+  border-radius: var(--radius-media-sm);
 }
 .nav-menu_bar {
   grid-row: 1;
-  margin: calc(var(--space-padding-nav) * -1);
-  border-radius: var(--radius-control);
+  margin-bottom: 0;
+  background: var(--color-scrim-strong);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+  transition: background-color var(--motion-duration-base) var(--ease-out);
 }
-/* Solid, as T1's: 85% ink lets a white page's text show through. */
+/* Docked, the bar may sit over an ink section; open, it sits on the
+ * panel's ink. Raised grey stands off ink and white alike. */
+.site-header.is-docked .nav-menu_bar,
+.site-header.is-docked .site-header_bar,
+.nav-menu.is-open .nav-menu_bar {
+  background: var(--color-bg-raised);
+}
+/* Solid, as T1's: see-through ink lets a white page's text show through.
+ * It starts at the bar's top edge, under the bar. */
 .nav-menu_panel {
-  grid-row: 2 / 4;
+  grid-row: 1 / 4;
   background: var(--color-bg-canvas);
-  margin: var(--space-gap-xs) calc(var(--space-padding-nav) * -1) calc(var(--space-padding-nav) * -1);
-  border-radius: var(--radius-card);
 }
 .nav-menu_logo {
   position: relative;
   grid-row: 1;
   grid-column: 1;
-  /* Right margin = an item's side padding, so logo → first item matches
-   * the gap between items. */
+  /* Right margin = a heading's side padding, so logo → first heading
+   * matches the gap between headings. */
   margin: 0 var(--space-padding-control-x) 0 var(--space-gap-sm);
 }
 /* The round mark only until 1440, where the bar has room for the lockup. */
@@ -583,13 +589,14 @@ html {
   justify-self: start;
   display: inline-flex;
   align-items: center;
-  height: var(--size-control-sm);
+  height: var(--size-control-md);
   padding: 0 var(--space-padding-control-x);
   border-radius: var(--radius-control);
   color: var(--color-text-secondary);
-  font: var(--type-label-md);
-  letter-spacing: var(--type-label-md-tracking);
+  font: var(--type-label-lg);
+  letter-spacing: var(--type-label-lg-tracking);
   white-space: nowrap;
+  text-decoration: none;
   transition: color var(--motion-duration-base) var(--ease-out);
 }
 .nav-menu_trigger:hover,
@@ -597,15 +604,8 @@ html {
 .nav-menu_trigger.is-current {
   color: var(--color-text-primary);
 }
-.nav-menu_contact {
-  position: relative;
-  grid-row: 1;
-  grid-column: 6;
-  justify-self: end;
-  margin-left: var(--space-padding-control-x);
-}
 /* No width of its own (its pages overflow it), so a page wider than its
- * heading never widens that heading's track or uneven the bar's spacing. */
+ * heading never widens that heading's track or unevens the bar's spacing. */
 .nav-menu_column {
   position: relative;
   grid-row: 2;
@@ -614,8 +614,8 @@ html {
   align-self: start;
   display: flex;
   flex-direction: column;
-  gap: var(--space-gap-xs);
-  padding: calc(var(--space-gap-xs) + var(--space-gap-lg)) var(--space-padding-control-x) var(--space-gap-lg);
+  gap: var(--space-gap-sm);
+  padding: var(--space-gap-xl) var(--space-padding-control-x) calc(var(--space-gap-xl) * 2);
 }
 .nav-menu_link {
   display: flex;
@@ -626,8 +626,8 @@ html {
   gap: var(--space-gap-xs);
   padding: var(--space-gap-xs) 0;
   color: var(--color-text-secondary);
-  font: var(--type-label-md);
-  letter-spacing: var(--type-label-md-tracking);
+  font: var(--type-label-lg);
+  letter-spacing: var(--type-label-lg-tracking);
   white-space: nowrap;
   text-decoration: none;
   transition: color var(--motion-duration-base) var(--ease-out);
@@ -655,21 +655,25 @@ a.nav-menu_link:focus-visible,
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-gap-sm);
-  padding: var(--space-gap-sm) var(--space-gap-xs) var(--space-gap-xs);
+  gap: var(--space-gap-xs);
+  padding: 0 var(--space-gap-md) var(--space-gap-md);
 }
-/* Panel, columns and pills: hidden until open, then fade down into place. */
+/* Panel, columns and pills: hidden until open. The panel fades; columns
+ * and pills fade down into place a beat after it. */
 .nav-menu_panel,
 .nav-menu_column,
 .nav-menu_ctas {
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-8px);
   pointer-events: none;
   transition:
     opacity var(--motion-duration-base) var(--ease-out),
     transform var(--motion-duration-slow) var(--ease-out),
     visibility 0s linear var(--motion-duration-slow);
+}
+.nav-menu_column,
+.nav-menu_ctas {
+  transform: translateY(-8px);
 }
 .nav-menu.is-open .nav-menu_panel,
 .nav-menu.is-open .nav-menu_column,
@@ -680,7 +684,6 @@ a.nav-menu_link:focus-visible,
   pointer-events: auto;
   transition-delay: 0s;
 }
-/* Columns and pills follow the panel in by a beat. */
 .nav-menu.is-open .nav-menu_column,
 .nav-menu.is-open .nav-menu_ctas {
   transition-delay: 60ms;
@@ -721,28 +724,6 @@ a.nav-menu_link:focus-visible,
 }
 .nav-menu_cta.is-dark:hover {
   box-shadow: inset 0 0 0 100rem var(--color-action-nav-bg-hover);
-}
-.nav-item {
-  display: inline-flex;
-  align-items: center;
-  height: var(--size-control-sm);
-  padding: var(--space-padding-control-y) var(--space-padding-control-x);
-  border-radius: var(--radius-control);
-  color: var(--color-action-nav-text);
-  font: var(--type-label-md);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color var(--motion-duration-fast) var(--ease-out);
-}
-.nav-item:hover {
-  background: var(--color-action-nav-bg-hover);
-}
-.nav-item.is-primary {
-  background: var(--color-action-primary-bg);
-  color: var(--color-action-primary-text);
-}
-.nav-item.is-primary:hover {
-  background: var(--color-action-primary-bg-hover);
 }
 .mobile-menu {
   position: fixed;
@@ -1306,9 +1287,6 @@ a.nav-menu_link:focus-visible,
   gap: var(--space-gap-sm);
 }
 /* The page you are on. Webflow gives this state as w--current. */
-.nav-item[aria-current='page'] {
-  background: var(--color-action-nav-bg-hover);
-}
 .mobile-menu_link[aria-current='page'] {
   color: var(--color-text-secondary);
 }
@@ -1885,22 +1863,21 @@ a.nav-menu_link:focus-visible,
     display: none;
   }
 }
-/* 1024–1199: "Soon" drops under its page name so a column's widest entry
- * stays clear of the next heading. */
-@media (min-width: 1024px) and (max-width: 1199px) {
+/* "Soon" drops under its page name so a column's widest entry stays
+ * clear of the next heading. */
+@media (min-width: 1024px) {
   .nav-menu_link.is-soon {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
   }
 }
-/* 1200: the bar's items and pages step up to the larger label size. */
+/* 1200: headings and pages step up to T1's size. */
 @media (min-width: 1200px) {
   .nav-menu_trigger,
-  .nav-menu_link,
-  .nav-menu_contact {
-    font: var(--type-label-lg);
-    letter-spacing: var(--type-label-lg-tracking);
+  .nav-menu_link {
+    font: var(--type-heading-xs);
+    letter-spacing: var(--type-heading-xs-tracking);
   }
 }
 
@@ -2257,5 +2234,203 @@ a.nav-menu_link:focus-visible,
   }
   .essay_track {
     scroll-behavior: auto;
+  }
+}
+
+/* ===================================================== inner pages
+ * Parts added with Contact, FAQs, News, Community and Our history. Same
+ * tokens, same flat classes; breakpoints at the end of the block. */
+
+/* A section straight after a light hero with no photo: the hero's own
+ * bottom padding is the space above it. */
+.section.is-tight {
+  padding-top: var(--space-gap-xl);
+}
+
+/* ------------------------------------------------------------ contact */
+.route-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--space-layout-column-gap);
+}
+.route {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-sm);
+  min-width: 0;
+  padding: var(--space-gap-xl) 0;
+  border-top: var(--border-width-divider) solid var(--color-border-subtle);
+}
+.route_for {
+  max-width: 32rem;
+}
+.route_actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-gap-sm) var(--space-gap-md);
+  margin-top: var(--space-gap-xs);
+}
+.route_email {
+  min-width: 0;
+  color: var(--color-text-link);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.route_email:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-gap-xs);
+  height: var(--size-control-sm);
+  padding: 0 var(--space-padding-control-x);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--color-action-secondary-bg);
+  color: var(--color-action-secondary-text);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-base) var(--ease-out);
+}
+.copy-button:hover {
+  background: var(--color-action-secondary-bg-hover);
+}
+.visit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+}
+.visit_body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-gap-md);
+  max-width: 40rem;
+}
+.visit_address {
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+}
+
+@media (min-width: 768px) {
+  .route-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .visit {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .visit > * {
+    flex: 1 1 0;
+  }
+}
+
+/* --------------------------------------------------------------- FAQs
+ * Search and category chips, then each category's questions. From 1024
+ * the filter sticks in a left column while the questions scroll. */
+.faq-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+}
+.faq-filter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-md);
+}
+.faq-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-gap-sm);
+  height: var(--size-control-md);
+  padding: 0 var(--space-padding-control-x);
+  border-radius: var(--radius-control);
+  background: var(--color-bg-surface);
+  color: var(--color-text-secondary);
+}
+.faq-search:focus-within {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+.faq-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--color-text-primary);
+  font: var(--type-body-md);
+  outline: none;
+}
+.faq-search input::placeholder {
+  color: var(--color-text-tertiary);
+}
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-gap-xs);
+}
+.chip {
+  height: var(--size-control-sm);
+  padding: 0 var(--space-padding-control-x);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--color-action-secondary-bg);
+  color: var(--color-action-secondary-text);
+  font: var(--type-label-md);
+  letter-spacing: var(--type-label-md-tracking);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-duration-base) var(--ease-out),
+    color var(--motion-duration-base) var(--ease-out);
+}
+.chip:hover {
+  background: var(--color-action-secondary-bg-hover);
+}
+.chip.is-selected {
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+}
+.faq-page_groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+  min-width: 0;
+}
+.faq-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xs);
+}
+.faq-group_title {
+  padding-bottom: var(--space-gap-sm);
+  border-bottom: var(--border-width-divider) solid var(--color-border-strong);
+}
+.faq-row_answer .eyebrow {
+  margin-top: var(--space-gap-sm);
+}
+.faq-row_answer .footnote {
+  margin-top: var(--space-gap-sm);
+}
+
+@media (min-width: 1024px) {
+  .faq-page {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-layout-column-gap);
+  }
+  .faq-filter {
+    position: sticky;
+    top: calc(var(--size-control-lg) + var(--space-gap-xl) * 2);
+    flex: 0 0 22rem;
+  }
+  .faq-page_groups {
+    flex: 1;
+    gap: calc(var(--space-gap-xl) * 2);
   }
 }

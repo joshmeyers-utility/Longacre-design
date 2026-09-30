@@ -92,6 +92,8 @@ export interface FaqItem {
   question: string;
   /** Omitted when no source answers it — the flag stands in its place. */
   answer?: string;
+  /** Required when the answer quotes 10,000+ or ~1,000 (CLAUDE.md §5.2). */
+  footnote?: FootnoteId;
   provenance: Provenance;
 }
 

@@ -34,14 +34,16 @@ const pages = [
   { id: 'index', title: 'Homer City Energy Campus', description: 'Facts, figures and construction updates from the Homer City Energy Campus in Indiana County, Pennsylvania.' },
   { id: 'campus', title: 'The Campus — Homer City Energy Campus', description: 'What is being built at the Homer City Energy Campus: the site tour, build photographs, figures and timeline, with sources.' },
   { id: 'workforce', title: 'Careers — Homer City Energy Campus', description: 'The trades, figures and hiring contact for the Homer City Energy Campus workforce.' },
+  { id: 'contact', title: 'Contact — Homer City Energy Campus', description: 'The four inboxes for the Homer City Energy Campus — job seekers, neighbours, vendors and the media — and where the campus is.' },
+  { id: 'faq', title: 'FAQs — Homer City Energy Campus', description: 'Questions neighbours ask about the Homer City Energy Campus — the project, water, living nearby, jobs, safety and permits — answered with sources.' },
 ];
 
 // Icons in use across all pages — keep in sync when adding an <Icon name=…>.
 // Alphabetical, as the Google Fonts API requires.
 const icons = [
-  'add', 'arrow_back', 'arrow_forward', 'arrow_outward', 'carpenter', 'close', 'construction', 'electrical_services',
+  'add', 'arrow_back', 'arrow_forward', 'arrow_outward', 'carpenter', 'check', 'close', 'content_copy', 'construction', 'electrical_services',
   'engineering', 'fact_check', 'front_loader', 'local_fire_department', 'local_shipping',
-  'menu', 'photo_camera', 'plumbing', 'report', 'settings', 'view_in_ar',
+  'menu', 'photo_camera', 'plumbing', 'report', 'search', 'settings', 'view_in_ar',
 ].sort();
 const fonts =
   'https://fonts.googleapis.com/css2?family=Geist:wght@300..700' +
