@@ -429,7 +429,12 @@ address {
   }
 }
 
-/* ----------------------------------------------------------- header */
+/* ----------------------------------------------------------- header
+ * One ink bar with the logo inside it (T1), on every ground — photo, white
+ * or ink. From 1024px the bar is the mega menu (nav-menu); below that it is
+ * a compact bar with the logo and the menu button (site-header_bar). At
+ * rest the header sits at the top of the hero; scrolled past, it docks to
+ * the top of the window. The slot holds its resting height meanwhile. */
 .site-header_slot {
   position: relative;
   z-index: 2;
@@ -439,22 +444,6 @@ address {
   z-index: 2;
   padding: var(--space-gap-xl) var(--space-layout-gutter) 0;
 }
-/* Holds the logo, nav and menu button. At rest it spans the header; docked,
- * it is the pill. It carries theme-dark except on a light hero at rest,
- * which only switches tokens here — the pill paints its own ground. */
-.site-header_bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-gap-lg);
-  background: none;
-  transition:
-    background-color var(--motion-duration-base) var(--ease-out),
-    padding var(--motion-duration-base) var(--ease-out);
-}
-/* Docked: fixed to the top of the window, one ink pill at the right edge
- * holding the logo mark and the nav (T1). Solid, not frosted: a
- * backdrop-filter here would trap the fixed mobile menu inside the pill. */
 .site-header.is-docked {
   position: fixed;
   top: 0;
@@ -462,48 +451,13 @@ address {
   right: 0;
   z-index: 40;
   padding-top: calc(var(--space-gap-sm) + env(safe-area-inset-top, 0px));
-  pointer-events: none;
   animation: dock-in var(--motion-duration-slow) var(--ease-out);
-}
-.site-header.is-docked .site-header_bar {
-  width: max-content;
-  max-width: 100%;
-  margin-left: auto;
-  gap: var(--space-gap-xs);
-  padding: var(--space-padding-nav);
-  padding-left: var(--space-gap-sm);
-  border-radius: var(--radius-control);
-  /* Raised grey, not ink: it has to stand off dark sections as well as white. */
-  background: var(--color-bg-raised);
-  pointer-events: auto;
-}
-.site-header.is-docked .site-header_logo-image {
-  width: var(--size-control-sm);
-  height: var(--size-control-sm);
-  object-fit: cover;
-  object-position: left center;
-}
-.site-header.is-docked .nav-menu {
-  margin-left: var(--space-gap-sm);
-}
-/* The pill is the ground; the bar inside it only darkens once open. */
-.site-header.is-docked .nav-menu:not(.is-open) .nav-menu_bar {
-  background: none;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
 }
 @keyframes dock-in {
   from {
     opacity: 0;
     top: -12px;
   }
-}
-/* Light hero at rest: the nav keeps its ink pill so it reads on white. */
-.nav-menu.theme-dark {
-  background: none;
-}
-.site-header.is-light .nav-menu_bar {
-  background: var(--color-scrim-strong);
 }
 /* While the mobile menu is open the bar pins to the viewport, so the menu
  * lines up under it wherever the page was scrolled. */
@@ -514,48 +468,63 @@ address {
   right: 0;
   padding-bottom: var(--space-gap-md);
 }
+/* Anchor jumps land below the docked bar, not under it. */
+html {
+  scroll-padding-top: calc(var(--size-control-lg) + var(--space-gap-sm) * 2);
+}
+/* Compact bar, below 1024px. Frosted is safe here: the fixed mobile menu is
+ * this bar's sibling, not its child. */
+.site-header_bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-padding-nav);
+  padding-left: var(--space-gap-md);
+  border-radius: var(--radius-control);
+  background: var(--color-scrim-strong);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+}
+.site-header_bar .icon-button.is-menu {
+  width: var(--size-control-md);
+  height: var(--size-control-md);
+}
 .site-header_logo {
   display: inline-flex;
   flex-shrink: 0;
   border-radius: var(--radius-control);
 }
-/* Height sets the size; width follows the artwork's 540:112 ratio, so the
- * logo never distorts — it only steps down in height where space is tight. */
+/* Height sets the size; width follows the artwork's 540:112 ratio. */
 .site-header_logo-image {
   display: block;
   width: auto;
   height: var(--size-control-sm);
 }
-/* Anchor jumps land below the docked pill, not under it. */
-html {
-  scroll-padding-top: calc(var(--size-control-lg) + var(--space-gap-sm) * 2);
-}
+
 /* ------------------------------------------------------ mega menu
- * Bar and panel share one grid (T1). Row 1 is the bar: every item hugs its
- * label, 8px apart, so the pill is only as wide as its items. Row 2 holds
- * each item's column of links, in that item's own track, so the links sit
- * straight under their heading. A column has no width of its own (its
- * links overflow it), so a long link never widens its item; items with no
- * sub-pages (FAQs, News, Contact) leave their column empty. Row 3 is the
- * two wide pills. The nav's own height is the bar's, so the open panel
- * hangs over the hero instead of pushing it down.
+ * One grid (T1). Row 1 is the bar: the logo, the four items, Contact us,
+ * spread with equal space between them (space-between), each track as wide
+ * as its item. Row 2 holds each item's pages in that item's own column, the
+ * first letter of every page under the first letter of its heading
+ * (column padding = item padding). The logo's column stays empty below.
+ * Row 3 is the two wide pills. The nav is only as tall as the bar, so the
+ * open panel hangs over the page instead of pushing it down.
  *
- * Content rule: a link may be wider than its item, but not so wide that it
- * reaches the next item's link on the same row (prototype/README.md
- * § Mega menu).
- */
+ * Text is grey at rest and turns full white on hover, on the open item and
+ * its column, and for the page you are on. Pages not built yet stay grey
+ * with a "Soon" note and are not links. */
 .nav-menu {
   display: none;
   position: relative;
   z-index: 3;
-  margin-left: auto;
   height: calc(var(--size-control-sm) + var(--space-padding-nav) * 2);
 }
 .nav-menu_grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(7, max-content);
+  grid-template-columns: repeat(6, max-content);
   grid-template-rows: auto auto auto;
+  justify-content: space-between;
   column-gap: var(--space-gap-xs);
   align-items: center;
   padding: var(--space-padding-nav);
@@ -563,10 +532,22 @@ html {
 .nav-menu_group {
   display: contents;
 }
+/* The bar is always dark, whatever ground it sits on; theme-dark switches
+ * its tokens only — the bar and panel paint their own grounds. */
+.nav-menu.theme-dark {
+  background: none;
+}
+/* Docked, the bar may sit over an ink section: raised grey stands off
+ * ink and white alike. The open panel keeps its ink. */
+.site-header.is-docked .nav-menu_bar,
+.site-header.is-docked .site-header_bar {
+  background: var(--color-bg-raised);
+}
 .nav-menu_bar,
 .nav-menu_panel {
   grid-column: 1 / -1;
   align-self: stretch;
+  background: var(--color-scrim-strong);
   -webkit-backdrop-filter: blur(200px);
   backdrop-filter: blur(200px);
 }
@@ -574,39 +555,57 @@ html {
   grid-row: 1;
   margin: calc(var(--space-padding-nav) * -1);
   border-radius: var(--radius-control);
-  background: var(--color-bg-glass);
-  transition: background-color var(--motion-duration-base) var(--ease-out);
 }
-/* 85% ink: the panel carries a lot of small text over the photograph. */
+/* Solid, as T1's: 85% ink lets a white page's text show through. */
 .nav-menu_panel {
   grid-row: 2 / 4;
+  background: var(--color-bg-canvas);
   margin: var(--space-gap-xs) calc(var(--space-padding-nav) * -1) calc(var(--space-padding-nav) * -1);
   border-radius: var(--radius-card);
-  background: var(--color-scrim-strong);
 }
-.nav-menu.is-open .nav-menu_bar {
-  background: var(--color-scrim-strong);
+.nav-menu_logo {
+  position: relative;
+  grid-row: 1;
+  grid-column: 1;
+  /* Right margin = an item's side padding, so logo → first item matches
+   * the gap between items. */
+  margin: 0 var(--space-padding-control-x) 0 var(--space-gap-sm);
 }
-.nav-menu_trigger,
-.nav-menu_contact {
+/* The round mark only until 1440, where the bar has room for the lockup. */
+.nav-menu_logo .site-header_logo-image {
+  width: var(--size-control-sm);
+  object-fit: cover;
+  object-position: left center;
+}
+.nav-menu_trigger {
   position: relative;
   grid-row: 1;
   justify-self: start;
-}
-.nav-menu_contact {
-  grid-column: 7;
-}
-/* Open: the items dim except the one in use, as T1's do. */
-.nav-menu.is-open .nav-menu_trigger {
+  display: inline-flex;
+  align-items: center;
+  height: var(--size-control-sm);
+  padding: 0 var(--space-padding-control-x);
+  border-radius: var(--radius-control);
   color: var(--color-text-secondary);
+  font: var(--type-label-md);
+  letter-spacing: var(--type-label-md-tracking);
+  white-space: nowrap;
+  transition: color var(--motion-duration-base) var(--ease-out);
 }
-.nav-menu.is-open .nav-menu_trigger.is-active,
+.nav-menu_trigger:hover,
+.nav-menu_trigger.is-active,
 .nav-menu_trigger.is-current {
   color: var(--color-text-primary);
 }
-.nav-menu_trigger.is-current {
-  background: var(--color-action-nav-bg-hover);
+.nav-menu_contact {
+  position: relative;
+  grid-row: 1;
+  grid-column: 6;
+  justify-self: end;
+  margin-left: var(--space-padding-control-x);
 }
+/* No width of its own (its pages overflow it), so a page wider than its
+ * heading never widens that heading's track or uneven the bar's spacing. */
 .nav-menu_column {
   position: relative;
   grid-row: 2;
@@ -619,22 +618,36 @@ html {
   padding: calc(var(--space-gap-xs) + var(--space-gap-lg)) var(--space-padding-control-x) var(--space-gap-lg);
 }
 .nav-menu_link {
-  display: block;
+  display: flex;
+  /* Its own width, not the zero-width column's: a real hit box and a real
+   * focus ring. */
+  width: max-content;
+  align-items: baseline;
+  gap: var(--space-gap-xs);
   padding: var(--space-gap-xs) 0;
   color: var(--color-text-secondary);
-  /* The bar's own size, so a column's longest link stays clear of the
-   * next heading's links. */
   font: var(--type-label-md);
   letter-spacing: var(--type-label-md-tracking);
-  white-space: nowrap; /* links overflow their zero-width column */
+  white-space: nowrap;
   text-decoration: none;
   transition: color var(--motion-duration-base) var(--ease-out);
 }
 .nav-menu_column.is-active .nav-menu_link,
-.nav-menu_link:hover,
-.nav-menu_link:focus-visible,
+a.nav-menu_link:hover,
+a.nav-menu_link:focus-visible,
 .nav-menu_link[aria-current='page'] {
   color: var(--color-text-primary);
+}
+/* Not built yet: stays grey whatever the state around it. */
+.nav-menu_column .nav-menu_link.is-soon,
+.mobile-menu_link.is-soon {
+  color: var(--color-text-tertiary);
+  cursor: default;
+}
+.nav-menu_soon {
+  font: var(--type-label-sm);
+  letter-spacing: var(--type-label-sm-tracking);
+  color: var(--color-text-tertiary);
 }
 .nav-menu_ctas {
   position: relative;
@@ -1514,7 +1527,7 @@ html {
   color: var(--color-text-primary);
   text-decoration: none;
   /* Leaving: text turns back at once, before the wash uncovers it. */
-  transition: color var(--motion-duration-fast) var(--ease-out);
+  transition: color var(--motion-duration-base) var(--ease-out);
 }
 .trade-tile_icon {
   grid-row: 1;
@@ -1529,8 +1542,8 @@ html {
   width: var(--size-control-sm);
   height: var(--size-control-sm);
   transition:
-    background-color var(--motion-duration-fast) var(--ease-out),
-    color var(--motion-duration-fast) var(--ease-out);
+    background-color var(--motion-duration-base) var(--ease-out),
+    color var(--motion-duration-base) var(--ease-out);
 }
 /* The colour change: an ink circle centred on the arrow well grows until it
  * fills the tile, so the tile never passes through grey and the well is
@@ -1546,15 +1559,15 @@ html {
   border-radius: 50%;
   background: var(--color-bg-inverse);
   transform: translate(-50%, -50%) scale(0);
-  transition: transform var(--motion-duration-base) var(--ease-out);
+  transition: transform var(--motion-duration-slow) var(--ease-out);
   pointer-events: none;
 }
 /* The + and the outward arrow share the well; one hands over to the other. */
 .trade-tile_more-icon {
   grid-area: 1 / 1;
   transition:
-    transform var(--motion-duration-slow) var(--ease-out),
-    opacity var(--motion-duration-base) var(--ease-out);
+    transform var(--motion-duration-slower) var(--ease-out),
+    opacity var(--motion-duration-slow) var(--ease-out);
 }
 .trade-tile_more-icon.is-out {
   opacity: 0;
@@ -1570,8 +1583,8 @@ html {
   opacity: 0;
   transform: translateY(8px);
   transition:
-    opacity var(--motion-duration-fast) var(--ease-out),
-    transform var(--motion-duration-fast) var(--ease-out);
+    opacity var(--motion-duration-base) var(--ease-out),
+    transform var(--motion-duration-base) var(--ease-out);
 }
 .trade-tile_name {
   grid-row: 3;
@@ -1601,11 +1614,11 @@ html {
  * arrow, then the description rises in. */
 .trade-tile_link:focus-visible {
   color: var(--color-text-inverse);
-  transition: color var(--motion-duration-fast) var(--ease-out) 60ms;
+  transition: color var(--motion-duration-slow) var(--ease-out) 120ms;
 }
 .trade-tile_link:focus-visible .trade-tile_wash {
   transform: translate(-50%, -50%) scale(1);
-  transition: transform var(--motion-duration-slow) var(--ease-out);
+  transition: transform var(--motion-duration-slower) var(--ease-out);
 }
 .trade-tile_link:focus-visible .trade-tile_more {
   background: var(--color-text-inverse);
@@ -1623,8 +1636,8 @@ html {
   opacity: 1;
   transform: none;
   transition:
-    opacity var(--motion-duration-slow) var(--ease-out) 120ms,
-    transform var(--motion-duration-slow) var(--ease-out) 120ms;
+    opacity var(--motion-duration-slower) var(--ease-out) 200ms,
+    transform var(--motion-duration-slower) var(--ease-out) 200ms;
 }
 .trade-tile_link:focus-visible .trade-tile_desc {
   color: var(--color-text-inverse);
@@ -1632,11 +1645,11 @@ html {
 @media (hover: hover) and (pointer: fine) {
   .trade-tile_link:hover {
     color: var(--color-text-inverse);
-    transition: color var(--motion-duration-fast) var(--ease-out) 60ms;
+    transition: color var(--motion-duration-slow) var(--ease-out) 120ms;
   }
   .trade-tile_link:hover .trade-tile_wash {
     transform: translate(-50%, -50%) scale(1);
-    transition: transform var(--motion-duration-slow) var(--ease-out);
+    transition: transform var(--motion-duration-slower) var(--ease-out);
   }
   .trade-tile_link:hover .trade-tile_more {
     background: var(--color-text-inverse);
@@ -1654,8 +1667,8 @@ html {
     opacity: 1;
     transform: none;
     transition:
-      opacity var(--motion-duration-slow) var(--ease-out) 120ms,
-      transform var(--motion-duration-slow) var(--ease-out) 120ms;
+      opacity var(--motion-duration-slower) var(--ease-out) 200ms,
+      transform var(--motion-duration-slower) var(--ease-out) 200ms;
   }
 }
 
@@ -1861,33 +1874,42 @@ html {
   color: var(--color-action-primary-text);
 }
 
-/* ===================================================== ≥ 1200px */
-/* The full nav needs about 1150px beside the logo; below that, the menu. */
-@media (min-width: 1200px) {
+/* ===================================================== ≥ 1024px */
+/* The bar becomes the mega menu; the compact bar and the menu go. */
+@media (min-width: 1024px) {
   .nav-menu {
     display: block;
   }
-  .site-header_logo-image {
-    height: var(--size-control-md);
-  }
-  .icon-button.is-menu,
+  .site-header_bar,
   .mobile-menu {
     display: none;
   }
 }
-
-/* 1200–1439: the full nav needs the room, so the logo shows its round mark
- * only (the left 415 of 2000px). object-fit/position crop, no second file. */
-@media (min-width: 1200px) and (max-width: 1439px) {
-  .site-header_logo-image {
-    width: var(--size-control-md);
-    object-fit: cover;
-    object-position: left center;
+/* 1024–1199: "Soon" drops under its page name so a column's widest entry
+ * stays clear of the next heading. */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .nav-menu_link.is-soon {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+}
+/* 1200: the bar's items and pages step up to the larger label size. */
+@media (min-width: 1200px) {
+  .nav-menu_trigger,
+  .nav-menu_link,
+  .nav-menu_contact {
+    font: var(--type-label-lg);
+    letter-spacing: var(--type-label-lg-tracking);
   }
 }
 
 /* ===================================================== ≥ 1440px */
 @media (min-width: 1440px) {
+  /* Room for the full lockup in the bar. */
+  .nav-menu_logo .site-header_logo-image {
+    width: auto;
+  }
   .hero_body {
     flex-direction: row;
     align-items: flex-end;

@@ -1,8 +1,7 @@
-import { useEffect, useId, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
-import { alert, navCta, navMenu, navMenuCtas, pageHref, type PageId } from '../content/home';
+import { useEffect, useId, useRef, useState, type CSSProperties, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react';
+import { alert, navCta, navMenu, navMenuCtas, pageHref, type NavLink, type PageId } from '../content/home';
 import { Flag, Icon } from './primitives';
 import logo from '../assets/logo-homer-city.webp';
-import logoDark from '../assets/logo-homer-city-dark.webp';
 
 const DISMISS_KEY = 'hcec-alert-dismissed';
 
@@ -70,7 +69,7 @@ export function AlertBar() {
  * Webflow: a grid div with the same placement, a hover/click interaction
  * that adds "is-open", and one that sets "is-active" on the hovered item.
  */
-function MegaMenu({ current, className = '' }: { current: PageId; className?: string }) {
+function MegaMenu({ current }: { current: PageId }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const root = useRef<HTMLElement>(null);
@@ -119,7 +118,7 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
   const panelId = `${base}-panel`;
   return (
     <nav
-      className={`nav-menu${open ? ' is-open' : ''}${className ? ` ${className}` : ''}`}
+      className={`nav-menu theme-dark${open ? ' is-open' : ''}`}
       aria-label="Main"
       ref={root}
       onPointerLeave={(e) => e.pointerType === 'mouse' && hideSoon()}
@@ -131,23 +130,11 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
       <div className="nav-menu_grid">
         <div className="nav-menu_bar" aria-hidden="true" />
         <div className="nav-menu_panel" aria-hidden="true" />
+        {/* The logo lives in the bar (T1). Its column stays empty below. */}
+        <Logo current={current} className="nav-menu_logo" />
         {navMenu.map((item, i) => {
-          if (!item.links.length) {
-            // A plain link: hovering it while the menu is open dims every column.
-            return (
-              <a
-                className="nav-item nav-menu_trigger"
-                style={{ gridColumn: i + 1 } as CSSProperties}
-                href={pageHref(item.href!, current)}
-                key={item.label}
-                onPointerEnter={() => open && setActive(-1)}
-                onFocus={() => open && setActive(-1)}
-              >
-                {item.label}
-              </a>
-            );
-          }
           const isActive = open && active === i;
+          const col = { gridColumn: i + 2 } as CSSProperties;
           return (
             // display: contents — the button and its column are placed on the
             // grid directly; the wrapper only keeps them together in the DOM,
@@ -157,8 +144,8 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
                 ref={(el) => {
                   triggers.current[i] = el;
                 }}
-                className={`nav-item nav-menu_trigger${isActive ? ' is-active' : ''}${item.page === current ? ' is-current' : ''}`}
-                style={{ gridColumn: i + 1 } as CSSProperties}
+                className={`nav-menu_trigger${isActive ? ' is-active' : ''}${item.page === current ? ' is-current' : ''}`}
+                style={col}
                 type="button"
                 aria-expanded={isActive}
                 aria-controls={`${panelId}-${i}`}
@@ -168,18 +155,10 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
               >
                 {item.label}
               </button>
-              <ul
-                className={`nav-menu_column${isActive ? ' is-active' : ''}`}
-                style={{ gridColumn: i + 1 } as CSSProperties}
-                id={`${panelId}-${i}`}
-                inert={!open}
-                onPointerEnter={() => setActive(i)}
-              >
+              <ul className={`nav-menu_column${isActive ? ' is-active' : ''}`} style={col} id={`${panelId}-${i}`} inert={!open} onPointerEnter={() => setActive(i)}>
                 {item.links.map((l) => (
-                  <li key={l.href}>
-                    <a className="nav-menu_link" href={pageHref(l.href, current)} aria-current={l.page === current ? 'page' : undefined} onClick={() => setOpen(false)}>
-                      {l.label}
-                    </a>
+                  <li key={l.label}>
+                    <NavEntry link={l} current={current} className="nav-menu_link" onPick={() => setOpen(false)} />
                   </li>
                 ))}
               </ul>
@@ -202,16 +181,44 @@ function MegaMenu({ current, className = '' }: { current: PageId; className?: st
   );
 }
 
-/** Logo, mega menu from 1200px, and a full-screen menu below it. */
+/** Raster stand-in until the vector logo arrives (CLAUDE.md §10 #1). White wordmark, on the ink bar. */
+function Logo({ current, className }: { current: PageId; className: string }) {
+  return (
+    <a className={`site-header_logo ${className}`} href={current === 'home' ? '#top' : 'index.html'}>
+      <img className="site-header_logo-image" src={logo} width={540} height={112} alt="Homer City Generation, home" />
+    </a>
+  );
+}
+
+/** A menu entry: a link to a page that exists, or a quiet "Soon" for one that doesn't yet. */
+function NavEntry({ link, current, className, onPick, children }: { link: NavLink; current: PageId; className: string; onPick: () => void; children?: ReactNode }) {
+  if (!link.href) {
+    return (
+      <span className={`${className} is-soon`}>
+        {link.label}
+        <span className="nav-menu_soon">
+          <span className="sr-only">, </span>Soon
+        </span>
+        {children}
+      </span>
+    );
+  }
+  return (
+    <a className={className} href={pageHref(link.href, current)} aria-current={link.page === current ? 'page' : undefined} onClick={onPick}>
+      {link.label}
+      {children}
+    </a>
+  );
+}
+
 /**
- * Header. At rest it sits at the top of the hero. As soon as the page scrolls
- * past it, it docks: fixed to the top of the window as one ink pill holding
- * the logo mark and the nav (T1), and it stays there while you scroll. The
- * slot keeps the header's resting height, so docking never shifts the page.
- * `tone="light"` is for a hero on a white ground: dark wordmark at rest,
- * ink nav pill.
+ * Header: one ink bar with the logo inside it (T1), on every ground. At rest
+ * it sits at the top of the hero; once the page scrolls past it, it docks
+ * to the top of the window and stays there. The slot keeps the header's
+ * resting height, so docking never shifts the page. From 1024px the bar is
+ * the mega menu; below that it holds the logo and the menu button.
  */
-export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: PageId; tone?: 'dark' | 'light' }) {
+export function SiteHeader({ current = 'home' }: { current?: PageId }) {
   const [open, setOpen] = useState(false);
   const [docked, setDocked] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -242,7 +249,6 @@ export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: Page
       window.removeEventListener('resize', onScroll);
     };
   }, []);
-  const light = tone === 'light' && !docked;
   // Menu items enter 35ms apart, capped so the last is never left waiting.
   let order = 0;
   const still = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -266,17 +272,10 @@ export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: Page
 
   return (
     <div className="site-header_slot" ref={slot}>
-      <header ref={header} className={`site-header${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}${light ? ' is-light' : ''}`}>
-        <div className={`site-header_bar${light ? '' : ' theme-dark'}`}>
-          {/* Raster stand-in until the vector logo arrives (CLAUDE.md §10 #1).
-           * The white wordmark goes on dark grounds; the dark copy (derived from
-           * it — the client's own dark version is still needed) on white. */}
-          <a className="site-header_logo" href={current === 'home' ? '#top' : 'index.html'}>
-            <img className="site-header_logo-image" src={light ? logoDark : logo} width={540} height={112} alt="Homer City Generation, home" />
-          </a>
-
-          <MegaMenu current={current} className={light ? 'theme-dark' : ''} />
-
+      <header ref={header} className={`site-header${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}`}>
+        <MegaMenu current={current} />
+        <div className="site-header_bar theme-dark">
+          <Logo current={current} className="site-header_bar-logo" />
           <button
             ref={toggleRef}
             className="icon-button is-menu"
@@ -298,18 +297,15 @@ export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: Page
           <ul className="mobile-menu_list">
             {navMenu.map((group) => (
               <li className="mobile-menu_group" key={group.label}>
-                {group.links.length > 0 && (
-                  <p className="eyebrow mobile-menu_label mobile-menu_item" style={stagger()}>
-                    {group.label}
-                  </p>
-                )}
+                <p className="eyebrow mobile-menu_label mobile-menu_item" style={stagger()}>
+                  {group.label}
+                </p>
                 <ul>
-                  {(group.links.length ? group.links : [{ label: group.label, href: group.href!, page: undefined }]).map((l) => (
-                    <li className="mobile-menu_item" key={l.href} style={stagger()}>
-                      <a className="mobile-menu_link" href={pageHref(l.href, current)} aria-current={l.page === current ? 'page' : undefined} onClick={() => setOpen(false)}>
-                        {l.label}
-                        <Icon name="arrow_forward" />
-                      </a>
+                  {group.links.map((l) => (
+                    <li className="mobile-menu_item" key={l.label} style={stagger()}>
+                      <NavEntry link={l} current={current} className="mobile-menu_link" onPick={() => setOpen(false)}>
+                        {l.href && <Icon name="arrow_forward" />}
+                      </NavEntry>
                     </li>
                   ))}
                 </ul>

@@ -218,6 +218,7 @@
   --motion-duration-200: 200ms;
   --motion-duration-300: 300ms;
   --motion-duration-500: 500ms;
+  --motion-duration-800: 800ms;
   /* size/1 */
   --size-1: 1px;
 
@@ -308,6 +309,7 @@
   --motion-duration-fast: var(--motion-duration-100);
   --motion-duration-base: var(--motion-duration-200);
   --motion-duration-slow: var(--motion-duration-500);
+  --motion-duration-slower: var(--motion-duration-800);
   --type-display-size: var(--font-size-128);
   --type-display-weight: var(--font-weight-light);
   --type-heading-xl-size: var(--font-size-64);
@@ -437,6 +439,7 @@
     --radius-media-lg: var(--radius-32);
     --radius-section: var(--radius-0);
     --motion-duration-slow: var(--motion-duration-300);
+    --motion-duration-slower: var(--motion-duration-500);
     --type-display-size: var(--font-size-64);
     --type-heading-xl-size: var(--font-size-40);
     --type-heading-lg-size: var(--font-size-32);
@@ -455,5 +458,6 @@
     --motion-duration-fast: 1ms;
     --motion-duration-base: 1ms;
     --motion-duration-slow: 1ms;
+    --motion-duration-slower: 1ms;
   }
 }

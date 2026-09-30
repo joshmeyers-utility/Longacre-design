@@ -27,61 +27,63 @@ export const site = {
   address: ['1750 Power Plant Rd', 'Homer City, PA 15748'], // iup-deck slide 6
 };
 
-// Nav labels follow the Figma direction board. Items with a page of their own
-// link to it; the rest point at the homepage section that covers them.
+// Nav: the sitemap in docs/02-plan.md §2, grouped under four headings
+// (T1). Every entry is a page, never a jump to a section. Pages not built
+// yet have no `href` and show as "Soon" — the menu shows the real structure
+// without dead links.
 export type PageId = 'home' | 'workforce' | 'campus';
 
-/** Which page each nav item lives on. `hash` items are homepage sections. */
-export const nav = [
-  { label: 'What we’re building', href: 'campus.html', page: 'campus' as PageId },
-  { label: 'Who we are', href: '#history' },
-  { label: 'Careers', href: 'workforce.html', page: 'workforce' as PageId },
-  { label: 'Community stewardship', href: '#pillars' },
-  { label: 'FAQs', href: '#faq' },
-  { label: 'News & resources', href: '#news' },
-];
-export const navCta = { label: 'Contact us', href: '#contact' };
+export interface NavLink {
+  label: string;
+  /** Absent until the page exists. */
+  href?: string;
+  page?: PageId;
+}
+export interface NavGroup {
+  label: string;
+  page?: PageId;
+  links: NavLink[];
+}
 
-/**
- * Mega menu (T1): one column under each top-level item, every link pointing
- * at a page or section that exists today. Community's child pages
- * (docs/02-plan.md §2) join the Community column when they are built.
- */
-/** An item with `href` and no links is a plain link in the bar, with no column. */
-export const navMenu: { label: string; page?: PageId; href?: string; links: { label: string; href: string; page?: PageId }[] }[] = [
+export const navMenu: NavGroup[] = [
   {
     label: 'What we’re building',
     page: 'campus',
     links: [
-      { label: 'Overview', href: 'campus.html', page: 'campus' },
-      { label: 'The site tour', href: 'campus.html#tour' },
-      { label: 'Build progress', href: 'campus.html#progress' },
-      { label: 'By the numbers', href: 'campus.html#numbers' },
+      { label: 'The Campus', href: 'campus.html', page: 'campus' },
     ],
   },
   {
     label: 'Who we are',
-    links: [
-      { label: 'Our history', href: '#history' },
-      { label: 'Key milestones', href: '#timeline' },
-    ],
-  },
-  {
-    label: 'Careers',
     page: 'workforce',
     links: [
-      { label: 'Overview', href: 'workforce.html', page: 'workforce' },
-      { label: 'Trades on site', href: 'workforce.html#trades' },
-      { label: 'Apprenticeships', href: 'workforce.html#apprentices' },
-      { label: 'How to apply', href: 'workforce.html#apply' },
+      // Phase 2 "Site History" (§2): the 1969–2023 → 2026 photo essay.
+      { label: 'Our history' },
+      { label: 'Careers', href: 'workforce.html', page: 'workforce' },
     ],
   },
   {
     label: 'Community stewardship',
-    links: [{ label: 'Project pillars', href: '#pillars' }],
+    links: [
+      { label: 'Community' },
+      { label: 'Campus partners' },
+      { label: 'Our commitments' },
+      { label: 'Voices' },
+    ],
   },
-  { label: 'FAQs', href: '#faq', links: [] },
-  { label: 'News & resources', href: '#news', links: [] },
+  {
+    label: 'Resources',
+    links: [{ label: 'FAQs' }, { label: 'News' }],
+  },
+];
+
+/** The one standing call to action in the bar. The footer holds the four inboxes. */
+export const navCta = { label: 'Contact us', href: '#contact' };
+
+/** Flat list of the pages that exist, for the footer. */
+export const nav = [
+  { label: 'Home', href: 'index.html' },
+  ...navMenu.flatMap((g) => g.links.filter((l): l is NavLink & { href: string } => !!l.href).map((l) => ({ label: l.label, href: l.href }))),
 ];
 
 /** The two wide pills along the bottom of the open menu. */

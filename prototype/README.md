@@ -53,56 +53,56 @@ them is a real page load and the cross-page fade runs.
 Fonts are self-hosted from npm (Geist, Material Symbols Rounded), so it runs
 offline.
 
-## Header
+## Header and menu
 
-At rest the header sits at the top of the hero. Once the page scrolls past
-it, it docks: fixed to the top of the window as one raised-grey pill that
-holds the logo mark and the nav, and it stays with you (T1). It fades in
-from 12px above. An empty slot keeps the header's resting height, so
-docking never moves the page. Anchor jumps stop below the pill
-(`scroll-padding-top`). The pill is solid, not frosted: a `backdrop-filter`
-would trap the fixed phone menu inside it. Webflow: Interactions 2.0
-"page scrolled" adds `is-docked` to `site-header`.
+One ink bar with the logo inside it (T1), on every ground: photo, white or
+ink. At rest it sits at the top of the hero; scrolled past, it docks to the
+top of the window and stays there, switching to raised grey so it stands off
+ink sections too. A slot keeps its resting height, so docking never moves
+the page, and anchor jumps stop below it (`scroll-padding-top`). Webflow:
+Interactions 2.0 "page scrolled" adds `is-docked` to `site-header`.
 
-On a light hero (`tone="light"`, The Campus) the resting header uses a
-dark-wordmark logo and the nav keeps its ink pill. The dark logo
-(`logo-homer-city-dark.webp`) is derived from the supplied white one, with
-the wordmark recoloured to ink and the mark untouched. Swap in the client's
-own dark version when the brand files arrive (CLAUDE.md §10 #1).
+**What is in it.** Four headings and Contact us, from the sitemap in
+`docs/02-plan.md` §2. Every entry is a page, never a jump to a section:
 
-## Mega menu
+| Heading | Pages |
+| --- | --- |
+| What we're building | The Campus |
+| Who we are | Our history *(soon)*, Careers |
+| Community stewardship | Community, Campus partners, Our commitments, Voices *(all soon)* |
+| Resources | FAQs, News *(soon)* |
 
-From 1200px the nav is a T1-style mega menu (`nav-menu`). The bar and the
-panel under it share one CSS grid: row 1 holds the items, each hugging its
-label with an 8px gap, so the pill is only as wide as its items. Row 2 holds
-each item's column of links in that item's own track, so every link sits
-straight under its heading. Columns have zero width and their links overflow
-them, so a long link never widens its heading. FAQs, News & resources and
-Contact us have no sub-pages and leave their column blank. Row 3 holds two
-wide pills (Contact us, Find work on the campus). Links are set at the bar's
-own size (`label-md`).
+A page not built yet has no `href` in `content/home.ts`: it shows grey with
+a small "Soon", is not a link and is skipped by Tab (screen readers hear
+"coming soon"). Give it an `href` when the page exists and it becomes a
+link everywhere — menu, phone menu and footer.
 
-Content rule for editors: a link may run wider than its heading, but must
-not reach the next heading's link on the same row. Re-check after adding a
-link; today the tightest pair is Careers "Overview" and "Project pillars",
-27px apart at 1440.
+**Layout (from 1024px).** The bar and panel share one grid: row 1 is the
+logo, the four headings and Contact us, spread with the same gap between
+every pair (`justify-content: space-between`, and the logo and Contact us
+offset by an item's side padding so the ends match). Row 2 holds each
+heading's pages in its own column, the first letter of each page under the
+first letter of its heading. Columns have no width of their own, so a long
+page name never pushes the headings apart; between 1024 and 1199 "Soon"
+drops under its name to stay clear of the next column. Row 3 is two wide
+pills. The panel is solid ink, so a white page never shows through.
 
-- **Mouse:** hover opens it and brightens the column under the pointer.
-  Moving off it closes it after 200ms.
-- **Phone menu:** fades in over 300ms while its labels, links and pills
-  rise 12px into place 35ms apart (capped at the eleventh); closing fades
-  it all out together. Closed, it is `inert`. Webflow: Interactions 2.0
-  click trigger with a staggered move-and-fade on the items.
+**Type and state.** Headings and pages share one size (`label-md`, `label-lg`
+from 1200). Everything is grey at rest and turns full white on hover, for
+the open heading and its column, and for the page you are on.
+
+- **Mouse:** hover opens it; moving off closes it after 200ms.
 - **Keyboard and touch:** click, tap or Enter opens and closes it. Tab moves
-  from an item into its links and on to the next item. Escape closes it and
-  returns focus.
-- **Closed,** the panel is `inert`, so its links are out of the tab order.
-- **Below 1200px,** the full-screen menu shows the same groups, stacked.
+  from a heading into its pages and on to the next heading. Escape closes
+  it and returns focus. Closed, the panel is `inert`.
+- **Below 1024px:** a compact bar with the logo and the menu button. The
+  full-screen menu fades in while its headings, pages and pills rise 12px
+  into place 35ms apart; closing fades it all out together.
 
-Webflow: a grid div with the same placement (each trigger and column given
+Webflow: a grid div with the same placement (each heading and column given
 its column number), a hover/click interaction that adds `is-open` to
-`nav-menu`, and one that sets `is-active` on the hovered item's column. The
-Designer's own Dropdown component is per-item and cannot share a panel.
+`nav-menu`, and one that sets `is-active` on the hovered heading's column.
+The Designer's own Dropdown component is per-item and cannot share a panel.
 
 ## The Campus page
 
@@ -151,8 +151,9 @@ split, media frame and footer classes. Two new components:
   with ink from the arrow well outward (one scaled circle, `trade-tile_wash`,
   so it never fades through grey), turns the text as the ink reaches it,
   inverts the well, turns the + into an outward arrow, then raises the
-  description. Leaving, the text turns back first and the ink pulls back
-  in about 120ms, so nothing lingers on the white tile. On
+  description — 800ms, on the new `motion/duration/slower` token. Leaving,
+  the text turns back first and the ink pulls back over 500ms, so nothing
+  lingers on the white tile. On
   touch the description and arrow show from the start. The description
   always holds its space, so the tile never resizes. The links go to each
   trade's international union for now, flagged, until the nine locals are
@@ -218,10 +219,12 @@ changes. A bright or white-sky photo will fail.
 
 ## Before this goes to Webflow
 
-- **New token, not yet in Figma:** `size/80` (primitive), now aliased by
-  `size/media/thumb` in both modes (the news-card image, 100 → 80px). It is
-  in `design-system/tokens.*`; add the variable to Figma file `K7Mb6…` and
-  re-point `size/media/thumb` there so the export matches.
+- **New tokens, not yet in Figma:** `size/80` (primitive), now aliased by
+  `size/media/thumb` in both modes (the news-card image, 100 → 80px); and
+  `motion/duration/800` (primitive) with `motion/duration/slower` aliasing
+  it (500 on Mobile, 1ms under reduced motion), for the trade tiles. Both
+  are in `design-system/tokens.*`; add them to Figma file `K7Mb6…` so the
+  export matches.
 
 - **The icon font is 5.4 MB.** Fine locally; unacceptable for a rural,
   mobile-first audience. In Webflow, load Material Symbols Rounded from Google
