@@ -69,6 +69,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
 | 4b. Variable library v2 | `docs/05-variable-library.md`, `design-system/tokens.*`, Figma file `K7Mb6…` | ✅ Complete — rebuilt from scratch against the new comps |
+| 4c. React prototype | `prototype/` — homepage, from the new comps + tokens | ✅ Homepage built — other pages not started |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -94,7 +95,7 @@ docs/
 design-system/
   tokens.json              Design tokens, W3C format. Exported from Figma — don't hand-edit.
   tokens.css               Same tokens as CSS custom properties. Powers prototype/.
-(The draft lives in Figma, not in this repo — client decision at Stage 4.)
+prototype/                 React + TS reference build of the homepage. `npm run dev`. See its README.
 ```
 
 Original client PDFs and the .docx are **not** committed — they live in the
