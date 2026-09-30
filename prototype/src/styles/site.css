@@ -430,14 +430,80 @@ address {
 }
 
 /* ----------------------------------------------------------- header */
+.site-header_slot {
+  position: relative;
+  z-index: 2;
+}
 .site-header {
   position: relative;
   z-index: 2;
+  padding: var(--space-gap-xl) var(--space-layout-gutter) 0;
+}
+/* Holds the logo, nav and menu button. At rest it spans the header; docked,
+ * it is the pill. It carries theme-dark except on a light hero at rest,
+ * which only switches tokens here — the pill paints its own ground. */
+.site-header_bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-gap-lg);
-  padding: var(--space-gap-xl) var(--space-layout-gutter) 0;
+  background: none;
+  transition:
+    background-color var(--motion-duration-base) var(--ease-out),
+    padding var(--motion-duration-base) var(--ease-out);
+}
+/* Docked: fixed to the top of the window, one ink pill at the right edge
+ * holding the logo mark and the nav (T1). Solid, not frosted: a
+ * backdrop-filter here would trap the fixed mobile menu inside the pill. */
+.site-header.is-docked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  padding-top: calc(var(--space-gap-sm) + env(safe-area-inset-top, 0px));
+  pointer-events: none;
+  animation: dock-in var(--motion-duration-slow) var(--ease-out);
+}
+.site-header.is-docked .site-header_bar {
+  width: max-content;
+  max-width: 100%;
+  margin-left: auto;
+  gap: var(--space-gap-xs);
+  padding: var(--space-padding-nav);
+  padding-left: var(--space-gap-sm);
+  border-radius: var(--radius-control);
+  /* Raised grey, not ink: it has to stand off dark sections as well as white. */
+  background: var(--color-bg-raised);
+  pointer-events: auto;
+}
+.site-header.is-docked .site-header_logo-image {
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+  object-fit: cover;
+  object-position: left center;
+}
+.site-header.is-docked .nav-menu {
+  margin-left: var(--space-gap-sm);
+}
+/* The pill is the ground; the bar inside it only darkens once open. */
+.site-header.is-docked .nav-menu:not(.is-open) .nav-menu_bar {
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+@keyframes dock-in {
+  from {
+    opacity: 0;
+    top: -12px;
+  }
+}
+/* Light hero at rest: the nav keeps its ink pill so it reads on white. */
+.nav-menu.theme-dark {
+  background: none;
+}
+.site-header.is-light .nav-menu_bar {
+  background: var(--color-scrim-strong);
 }
 /* While the mobile menu is open the bar pins to the viewport, so the menu
  * lines up under it wherever the page was scrolled. */
@@ -459,6 +525,10 @@ address {
   display: block;
   width: auto;
   height: var(--size-control-sm);
+}
+/* Anchor jumps land below the docked pill, not under it. */
+html {
+  scroll-padding-top: calc(var(--size-control-lg) + var(--space-gap-sm) * 2);
 }
 /* ------------------------------------------------------ mega menu
  * Bar and panel share one grid (T1). Row 1 is the bar: every item hugs its
@@ -1208,6 +1278,32 @@ address {
 }
 .hero.is-page .hero_copy {
   gap: var(--space-gap-lg);
+}
+/* Light page hero: white ground, smaller headline, the photograph in a
+ * rounded frame under the copy — short enough that the next section shows
+ * above the fold. */
+.hero.is-light {
+  min-height: 0;
+  overflow: visible;
+  background: var(--color-bg-canvas);
+}
+.hero.is-light .hero_body {
+  justify-content: flex-start;
+  padding-top: calc(var(--space-gap-xl) * 2);
+  padding-bottom: var(--space-gap-xl);
+}
+.hero.is-light .hero_copy {
+  flex: 1 1 auto;
+}
+.hero.is-light .hero_intro {
+  color: var(--color-text-secondary);
+}
+.hero_frame {
+  padding-bottom: var(--space-layout-gutter);
+}
+.hero_frame .media_frame {
+  aspect-ratio: auto;
+  height: clamp(14rem, 32svh, 28rem);
 }
 
 /* ---------------------------------------------------- growth chart */
@@ -2018,6 +2114,32 @@ address {
 }
 
 @media (min-width: 1024px) {
+  /* Light hero: headline left, intro and buttons right, bottoms aligned. */
+  .hero.is-light .hero_copy {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas:
+      'eyebrow .'
+      'title intro'
+      'title actions';
+    column-gap: var(--space-layout-column-gap);
+    align-items: end;
+    max-width: none;
+    width: 100%;
+  }
+  .hero.is-light .hero_copy > .eyebrow {
+    grid-area: eyebrow;
+  }
+  .hero.is-light .hero_copy > h1 {
+    grid-area: title;
+    align-self: end;
+  }
+  .hero.is-light .hero_copy > .hero_intro {
+    grid-area: intro;
+  }
+  .hero.is-light .hero_copy > .button-row {
+    grid-area: actions;
+  }
   /* Heading sticks on the left; stops scroll on the right. */
   .tour {
     display: grid;

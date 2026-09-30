@@ -53,6 +53,23 @@ them is a real page load and the cross-page fade runs.
 Fonts are self-hosted from npm (Geist, Material Symbols Rounded), so it runs
 offline.
 
+## Header
+
+At rest the header sits at the top of the hero. Once the page scrolls past
+it, it docks: fixed to the top of the window as one raised-grey pill that
+holds the logo mark and the nav, and it stays with you (T1). It fades in
+from 12px above. An empty slot keeps the header's resting height, so
+docking never moves the page. Anchor jumps stop below the pill
+(`scroll-padding-top`). The pill is solid, not frosted: a `backdrop-filter`
+would trap the fixed phone menu inside it. Webflow: Interactions 2.0
+"page scrolled" adds `is-docked` to `site-header`.
+
+On a light hero (`tone="light"`, The Campus) the resting header uses a
+dark-wordmark logo and the nav keeps its ink pill. The dark logo
+(`logo-homer-city-dark.webp`) is derived from the supplied white one, with
+the wordmark recoloured to ink and the mark untouched. Swap in the client's
+own dark version when the brand files arrive (CLAUDE.md §10 #1).
+
 ## Mega menu
 
 From 1200px the nav is a T1-style mega menu (`nav-menu`). The bar and the
@@ -79,7 +96,10 @@ Designer's own Dropdown component is per-item and cannot share a panel.
 
 ## The Campus page
 
-Built from `docs/02-plan.md` §5.2 ("What we're building" in the nav). Hero,
+Built from `docs/02-plan.md` §5.2 ("What we're building" in the nav). Its
+hero is the light variant: white ground, the headline a size down
+(`heading-lg`) beside the intro, and the photograph in a rounded frame
+under the copy, short enough (32svh) that the next section shows. Hero,
 four site figures, the timeline and the footer are shared parts. Two new
 components:
 

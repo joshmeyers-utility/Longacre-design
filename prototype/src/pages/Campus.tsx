@@ -40,7 +40,7 @@ export function CampusPage() {
 function Hero() {
   const { hero } = page;
   return (
-    <PageHero current="campus" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} media={hero.media}>
+    <PageHero current="campus" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} media={hero.media}>
       <Button href="#tour">Take the tour</Button>
       <Button href="#progress" tier="secondary">
         See it being built

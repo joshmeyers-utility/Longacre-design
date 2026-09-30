@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState, type CSSProperties, type MouseEvent
 import { alert, navCta, navMenu, navMenuCtas, pageHref, type PageId } from '../content/home';
 import { Flag, Icon } from './primitives';
 import logo from '../assets/logo-homer-city.webp';
+import logoDark from '../assets/logo-homer-city-dark.webp';
 
 const DISMISS_KEY = 'hcec-alert-dismissed';
 
@@ -69,7 +70,7 @@ export function AlertBar() {
  * Webflow: a grid div with the same placement, a hover/click interaction
  * that adds "is-open", and one that sets "is-active" on the hovered item.
  */
-function MegaMenu({ current }: { current: PageId }) {
+function MegaMenu({ current, className = '' }: { current: PageId; className?: string }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const root = useRef<HTMLElement>(null);
@@ -120,7 +121,7 @@ function MegaMenu({ current }: { current: PageId }) {
   const columnIndex = navMenu.map((_, i) => navMenu.slice(0, i).filter((m) => m.links.length).length);
   return (
     <nav
-      className={`nav-menu${open ? ' is-open' : ''}`}
+      className={`nav-menu${open ? ' is-open' : ''}${className ? ` ${className}` : ''}`}
       aria-label="Main"
       ref={root}
       onPointerLeave={(e) => e.pointerType === 'mouse' && hideSoon()}
@@ -204,9 +205,46 @@ function MegaMenu({ current }: { current: PageId }) {
 }
 
 /** Logo, mega menu from 1200px, and a full-screen menu below it. */
-export function SiteHeader({ current = 'home' }: { current?: PageId }) {
+/**
+ * Header. At rest it sits at the top of the hero. As soon as the page scrolls
+ * past it, it docks: fixed to the top of the window as one ink pill holding
+ * the logo mark and the nav (T1), and it stays there while you scroll. The
+ * slot keeps the header's resting height, so docking never shifts the page.
+ * `tone="light"` is for a hero on a white ground: dark wordmark at rest,
+ * ink nav pill.
+ */
+export function SiteHeader({ current = 'home', tone = 'dark' }: { current?: PageId; tone?: 'dark' | 'light' }) {
   const [open, setOpen] = useState(false);
+  const [docked, setDocked] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const slot = useRef<HTMLDivElement>(null);
+  const header = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = slot.current;
+    if (!el) return;
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const next = el.getBoundingClientRect().top < 0;
+      // Hold the resting height before the header leaves the flow.
+      if (next && header.current && !el.style.height) el.style.height = `${header.current.offsetHeight}px`;
+      if (!next) el.style.height = '';
+      setDocked(next);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+  const light = tone === 'light' && !docked;
 
   useEffect(() => {
     if (!open) return;
@@ -225,55 +263,60 @@ export function SiteHeader({ current = 'home' }: { current?: PageId }) {
   }, [open]);
 
   return (
-    <header className={`site-header${open ? ' is-menu-open' : ''}`}>
-      {/* Raster stand-in until the vector logo arrives (CLAUDE.md §10 #1).
-       * White wordmark: only ever placed on a dark ground. */}
-      <a className="site-header_logo" href={current === 'home' ? '#top' : 'index.html'}>
-        <img className="site-header_logo-image" src={logo} width={540} height={112} alt="Homer City Generation, home" />
-      </a>
+    <div className="site-header_slot" ref={slot}>
+      <header ref={header} className={`site-header${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}${light ? ' is-light' : ''}`}>
+        <div className={`site-header_bar${light ? '' : ' theme-dark'}`}>
+          {/* Raster stand-in until the vector logo arrives (CLAUDE.md §10 #1).
+           * The white wordmark goes on dark grounds; the dark copy (derived from
+           * it — the client's own dark version is still needed) on white. */}
+          <a className="site-header_logo" href={current === 'home' ? '#top' : 'index.html'}>
+            <img className="site-header_logo-image" src={light ? logoDark : logo} width={540} height={112} alt="Homer City Generation, home" />
+          </a>
 
-      <MegaMenu current={current} />
+          <MegaMenu current={current} className={light ? 'theme-dark' : ''} />
 
-      <button
-        ref={toggleRef}
-        className="icon-button is-menu"
-        type="button"
-        aria-expanded={open}
-        aria-controls="mobile-menu"
-        onClick={() => setOpen((v) => !v)}
-      >
-        <Icon name={open ? 'close' : 'menu'} size="md" />
-        <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-      </button>
-
-      {/* Same groups as the mega menu, stacked: a label, then its links. */}
-      <div id="mobile-menu" className={`mobile-menu theme-dark${open ? ' is-open' : ''}`} hidden={!open}>
-        <ul className="mobile-menu_list">
-          {navMenu.map((group) => (
-            <li className="mobile-menu_group" key={group.label}>
-              {group.links.length > 0 && <p className="eyebrow mobile-menu_label">{group.label}</p>}
-              <ul>
-                {(group.links.length ? group.links : [{ label: group.label, href: group.href!, page: undefined }]).map((l) => (
-                  <li key={l.href}>
-                    <a className="mobile-menu_link" href={pageHref(l.href, current)} aria-current={l.page === current ? 'page' : undefined} onClick={() => setOpen(false)}>
-                      {l.label}
-                      <Icon name="arrow_forward" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-        <div className="mobile-menu_ctas">
-          {navMenuCtas.map((c) => (
-            <a className={`nav-menu_cta is-${c.tone}`} href={pageHref(c.href, current)} key={c.label} onClick={() => setOpen(false)}>
-              {c.label}
-              <Icon name="arrow_forward" />
-            </a>
-          ))}
+          <button
+            ref={toggleRef}
+            className="icon-button is-menu"
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <Icon name={open ? 'close' : 'menu'} size="md" />
+            <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
+          </button>
         </div>
-      </div>
-    </header>
+
+        {/* Same groups as the mega menu, stacked: a label, then its links. */}
+        <div id="mobile-menu" className={`mobile-menu theme-dark${open ? ' is-open' : ''}`} hidden={!open}>
+          <ul className="mobile-menu_list">
+            {navMenu.map((group) => (
+              <li className="mobile-menu_group" key={group.label}>
+                {group.links.length > 0 && <p className="eyebrow mobile-menu_label">{group.label}</p>}
+                <ul>
+                  {(group.links.length ? group.links : [{ label: group.label, href: group.href!, page: undefined }]).map((l) => (
+                    <li key={l.href}>
+                      <a className="mobile-menu_link" href={pageHref(l.href, current)} aria-current={l.page === current ? 'page' : undefined} onClick={() => setOpen(false)}>
+                        {l.label}
+                        <Icon name="arrow_forward" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <div className="mobile-menu_ctas">
+            {navMenuCtas.map((c) => (
+              <a className={`nav-menu_cta is-${c.tone}`} href={pageHref(c.href, current)} key={c.label} onClick={() => setOpen(false)}>
+                {c.label}
+                <Icon name="arrow_forward" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </header>
+    </div>
   );
 }
