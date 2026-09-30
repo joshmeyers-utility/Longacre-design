@@ -11,6 +11,7 @@ import {
   milestones,
   nav,
   navCta,
+  pageHref,
   pillars,
   powerBlock,
   site,
@@ -19,6 +20,7 @@ import {
 } from '../content/home';
 import { placeholderAlt, placeholderPhoto } from '../content/placeholder';
 import type { Milestone, Stat } from '../content/types';
+import type { PageId } from '../content/home';
 import { Button, Flag, Icon, MediaFrame, notesOn, Picture, PlaceholderTag, SectionHead } from './primitives';
 import { SiteHeader } from './Header';
 
@@ -73,7 +75,7 @@ export function Hero() {
 
 /* ------------------------------------------------------ By the numbers */
 
-function StatBlock({ stat, size = 'display', flag = true }: { stat: Stat; size?: 'display' | 'large'; flag?: boolean }) {
+export function StatBlock({ stat, size = 'display', flag = true }: { stat: Stat; size?: 'display' | 'large'; flag?: boolean }) {
   return (
     <div className="stat">
       <p className="eyebrow stat_qualifier">{stat.qualifier ?? ' '}</p>
@@ -125,7 +127,12 @@ export function Workforce() {
           </div>
           {/* All four share one source, so they share one flag. */}
           <Flag provenance={workforce.stats[0].provenance} />
-          <Button href={workforce.cta.href}>{workforce.cta.label}</Button>
+          <div className="button-row">
+            <Button href={workforce.cta.href}>{workforce.cta.label}</Button>
+            <Button href="workforce.html" tier="secondary">
+              Meet the trades
+            </Button>
+          </div>
         </div>
         <MediaFrame media={workforce.media} shape="feature-cut" className="split_media" />
       </div>
@@ -426,7 +433,7 @@ export function Faq() {
 
 /* -------------------------------------------------------------- Footer */
 
-export function SiteFooter() {
+export function SiteFooter({ current = 'home' }: { current?: PageId }) {
   return (
     <footer className="site-footer theme-dark" id="contact">
       <div className="container site-footer_grid">
@@ -458,7 +465,7 @@ export function SiteFooter() {
           <ul className="footer-nav">
             {[...nav, navCta].map((n) => (
               <li key={n.href}>
-                <a className="footer-nav_link body-sm" href={n.href}>
+                <a className="footer-nav_link body-sm" href={pageHref(n.href, current)}>
                   {n.label}
                 </a>
               </li>

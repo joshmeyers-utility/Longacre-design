@@ -15,12 +15,27 @@ const TARGETS = [
   '.facility',
   '.milestone',
   '.faq-row',
+  '.trade-tile',
+  '.growth-chart',
+  '.apply',
   '.split_media',
   '.site-footer_grid > *',
 ].join(',');
 
 /** Siblings stagger, capped so a long list never waits on its tail. */
 const MAX_STAGGER = 5;
+
+/**
+ * Arriving from another page with a #section in the URL: the browser looks
+ * for the section before React has drawn it, so jump once it exists. Runs
+ * before initReveals so the reveal fold is measured from where you land.
+ * Webflow renders its markup up front and needs none of this.
+ */
+export function scrollToHash() {
+  const id = decodeURIComponent(window.location.hash.slice(1));
+  if (!id) return;
+  document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+}
 
 export function initReveals(): () => void {
   if (typeof IntersectionObserver === 'undefined') return () => {};

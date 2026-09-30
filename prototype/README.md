@@ -1,6 +1,7 @@
-# Prototype — homepage
+# Prototype — homepage and Careers
 
-A React + TypeScript reference implementation of the homepage, laid out after
+A React + TypeScript reference implementation of the homepage and the Careers
+(Workforce) page, laid out after
 the Figma direction board (file `K7Mb6ksBE9it30ff9gb9CA`, Page 1) and styled
 entirely from `../design-system/tokens.css`. It ports to Webflow; it does not
 deploy.
@@ -10,15 +11,21 @@ deploy.
 ```sh
 cd prototype
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # http://localhost:5173 and /workforce.html
 ```
+
+Each page is its own HTML file, as it will be in Webflow, so moving between
+them is a real page load and the cross-page fade runs.
 
 - Review notes (provenance flags, placeholder-image tags, and FAQ questions
   with no sourced answer) are hidden by default. `?notes=on` shows them.
-- `npm run build:preview` writes `dist/preview.html`: the whole page as one
-  self-contained file (JS and CSS inline, fonts from Google Fonts with the icon
-  font subset to the glyphs in use) that opens straight from disk. Add any new
-  icon name to the list in `scripts/build-preview.mjs`.
+- `npm run build:preview` writes `dist/preview/index.html` and
+  `dist/preview/workforce.html`: each page as one self-contained file (JS and
+  CSS inline, fonts from Google Fonts with the icon font subset to the glyphs
+  in use) that opens straight from disk. They link to each other by filename,
+  so keep them in one folder. Add any new icon name to the list in
+  `scripts/build-preview.mjs`, and any new page to both that list and
+  `vite.config.ts`.
 - `npm run build` typechecks and builds to `dist/`.
 - To bring the alert back after dismissing it, clear site data for
   `localhost:5173` (it is stored under `hcec-alert-dismissed`).
@@ -28,14 +35,41 @@ npm run dev        # http://localhost:5173
 | Path | What |
 | --- | --- |
 | `src/content/types.ts` | Content model. Mirrors the Webflow CMS collections (`docs/02-plan.md` §6). A `Stat` cannot exist without its provenance; footnotes and "as of" dates are fields, not strings. |
-| `src/content/home.ts` | Every string on the page, each block commented with its source in `docs/source/`. |
+| `src/content/home.ts` | Every homepage string, each block commented with its source in `docs/source/`. Also the nav, and `pageHref`, which makes homepage-section links work from other pages. |
+| `src/content/workforce.ts` | Every Careers-page string and figure, sourced the same way. Says what the page leaves out and why. |
 | `src/components/primitives.tsx` | Icon, Button, Flag, MediaFrame, SectionHead. |
 | `src/components/Header.tsx` | Alert banner, header, nav pill, mobile menu. |
-| `src/components/Sections.tsx` | The homepage sections. |
+| `src/components/Sections.tsx` | The homepage sections, plus `StatBlock` and `SiteFooter`, shared with other pages. |
+| `src/pages/Workforce.tsx` | The Careers page: hero, figures, growth chart, trade tiles, apprentices, long view, how to apply. |
+| `index.html`, `workforce.html`, `src/main.tsx`, `src/workforce.tsx` | One HTML file and entry per page. |
 | `src/styles/site.css` | All styling. Flat Client-First class names, role tokens only. |
 
 Fonts are self-hosted from npm (Geist, Material Symbols Rounded), so it runs
 offline.
+
+## Careers page
+
+Built from `docs/02-plan.md` §5.3, reusing the homepage's hero, stat block,
+split, media frame and footer classes. Two new components:
+
+- **Growth chart** (`growth-chart`): the 2026 headcount by the date each figure
+  was published — 1,000+ (Mar, IUP deck), ~1,300 (May, fact sheet), ~1,500
+  (Jul, IUP deck), 1,800+ (Sep, press release), ~2,000 projected by year-end.
+  The note under it says the September figure counts a slightly different
+  group. Plain elements, not a charting library: in Webflow each column is a
+  Stats collection item with its height bound from a CMS field. Direct labels
+  on three columns; hover or focus any column for its source; "Show as a
+  table" holds every value.
+- **Trade tiles** (`trade-grid`, `trade-tile`): nine tiles. Hover previews the
+  description on a pointer; tap, click or Enter pins it; keyboard focus shows
+  it. The tile never resizes. All nine descriptions are in the page for
+  search and screen readers.
+
+Left out until the content exists: union names and local numbers (CLAUDE.md
+§10 #2), worker spotlights (§5.6: no quote without a named, photographed
+person), and apprenticeship programme detail. The trade descriptions are
+general, plain-language descriptions of each trade, not client copy, and
+carry a "confirm" flag (`?notes=on`).
 
 ## Content rules it enforces
 

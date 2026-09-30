@@ -29,15 +29,28 @@ export const site = {
 
 // Nav labels follow the Figma direction board. Only the homepage exists, so
 // each item points at the section on this page that covers it.
+export type PageId = 'home' | 'workforce';
+
+/** Which page each nav item lives on. `hash` items are homepage sections. */
 export const nav = [
   { label: 'What we’re building', href: '#power-block' },
   { label: 'Who we are', href: '#history' },
-  { label: 'Careers', href: '#workforce' },
+  { label: 'Careers', href: 'workforce.html', page: 'workforce' as PageId },
   { label: 'Community stewardship', href: '#pillars' },
   { label: 'FAQs', href: '#faq' },
   { label: 'News & resources', href: '#news' },
 ];
 export const navCta = { label: 'Contact us', href: '#contact' };
+
+/**
+ * A homepage section link (`#…`) works as-is on the homepage and needs the
+ * page in front of it anywhere else. `#contact` is the footer, on every page.
+ * Webflow: `/#power-block` and `/workforce`.
+ */
+export function pageHref(href: string, current: PageId) {
+  if (!href.startsWith('#') || current === 'home' || href === '#contact') return href;
+  return `index.html${href}`;
+}
 
 export const alert: Alert = {
   id: 'heavy-equipment-2026-09',

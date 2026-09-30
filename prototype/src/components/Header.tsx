@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { alert, nav, navCta } from '../content/home';
+import { alert, nav, navCta, pageHref, type PageId } from '../content/home';
 import { Flag, Icon } from './primitives';
 import logo from '../assets/logo-homer-city.webp';
 
@@ -60,7 +60,7 @@ export function AlertBar() {
 }
 
 /** Logo, frosted nav pill, and a full-screen menu below 1024px. */
-export function SiteHeader() {
+export function SiteHeader({ current = 'home' }: { current?: PageId }) {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
@@ -84,7 +84,7 @@ export function SiteHeader() {
     <header className={`site-header${open ? ' is-menu-open' : ''}`}>
       {/* Raster stand-in until the vector logo arrives (CLAUDE.md §10 #1).
        * White wordmark: only ever placed on a dark ground. */}
-      <a className="site-header_logo" href="#top">
+      <a className="site-header_logo" href={current === 'home' ? '#top' : 'index.html'}>
         <img className="site-header_logo-image" src={logo} width={540} height={112} alt="Homer City Generation, home" />
       </a>
 
@@ -92,7 +92,7 @@ export function SiteHeader() {
         <ul className="nav-pill_list">
           {nav.map((item) => (
             <li key={item.href}>
-              <a className="nav-item" href={item.href}>
+              <a className="nav-item" href={pageHref(item.href, current)} aria-current={'page' in item && item.page === current ? 'page' : undefined}>
                 {item.label}
               </a>
             </li>
@@ -121,7 +121,7 @@ export function SiteHeader() {
         <ul className="mobile-menu_list">
           {[...nav, navCta].map((item) => (
             <li key={item.href}>
-              <a className="mobile-menu_link" href={item.href} onClick={() => setOpen(false)}>
+              <a className="mobile-menu_link" href={pageHref(item.href, current)} aria-current={'page' in item && item.page === current ? 'page' : undefined} onClick={() => setOpen(false)}>
                 {item.label}
                 <Icon name="arrow_forward" />
               </a>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { AlertBar } from './components/Header';
-import { initReveals } from './motion';
+import { initReveals, scrollToHash } from './motion';
 import { Faq, Hero, History, Numbers, Pillars, PowerBlock, SiteFooter, Timeline, Workforce } from './components/Sections';
 
 /**
@@ -9,7 +9,10 @@ import { Faq, Hero, History, Numbers, Pillars, PowerBlock, SiteFooter, Timeline,
  * alternate dark / white / greige; no two photographic bands touch.
  */
 export function App() {
-  useEffect(() => initReveals(), []);
+  useEffect(() => {
+    scrollToHash();
+    return initReveals();
+  }, []);
   return (
     <>
       <a className="sr-only" href="#main">

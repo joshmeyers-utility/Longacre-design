@@ -997,8 +997,318 @@ address {
   border-top: var(--border-width-divider) solid var(--color-border-subtle);
 }
 
+
+/* ------------------------------------------------------ shared bits */
+.label-md { font: var(--type-label-md); letter-spacing: var(--type-label-md-tracking); }
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-gap-sm);
+}
+/* The page you are on. Webflow gives this state as w--current. */
+.nav-item[aria-current='page'] {
+  background: var(--color-action-nav-bg-hover);
+}
+.mobile-menu_link[aria-current='page'] {
+  color: var(--color-text-secondary);
+}
+
+/* ------------------------------------------------------- page hero */
+/* Inner pages: the homepage hero, shorter, headline lower on the photo. */
+.hero.is-page {
+  min-height: min(88svh, 60rem);
+}
+.hero.is-page .hero_copy {
+  gap: var(--space-gap-lg);
+}
+
+/* ---------------------------------------------------- growth chart */
+.growth {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-layout-column-gap);
+}
+.growth_head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-sm);
+  max-width: 44rem;
+}
+.growth-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-lg);
+  width: 100%;
+  max-width: 48rem;
+  margin: 0;
+}
+/* Plot height includes the x-axis band; bars grow from one baseline. */
+.growth-chart_plot {
+  position: relative;
+  height: 20rem;
+  padding: 0 0 var(--space-gap-xl) var(--space-gap-xl);
+}
+.growth-chart_grid {
+  position: absolute;
+  inset: 0 0 var(--space-gap-xl) 0;
+}
+/* Recessive, solid hairlines; the scale label sits on the left, above its line. */
+.growth-chart_tick {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: var(--border-width-divider) solid var(--color-border-subtle);
+}
+.growth-chart_tick .footnote {
+  position: absolute;
+  left: 0;
+  bottom: var(--space-gap-xs);
+}
+.growth-chart_tick:first-child {
+  border-top-color: var(--color-border-strong); /* the baseline */
+}
+.growth-chart_columns {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  height: 100%;
+  padding-left: var(--space-gap-xl);
+}
+.growth-chart_slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+/* The hit target is the whole slot, full height — bigger than the mark. */
+.growth-chart_hit {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.growth-chart_bar {
+  position: relative;
+  width: 24px; /* thin marks: capped, never filling the slot */
+  border-radius: 4px 4px 0 0; /* rounded data end, square at the baseline */
+  background: var(--color-border-strong);
+  transition: background-color var(--motion-duration-base) var(--ease-out);
+}
+.growth-chart_bar.is-projected {
+  background: var(--color-text-tertiary);
+}
+/* Value on the cap, in text ink — never the mark's colour. */
+.growth-chart_value {
+  position: absolute;
+  bottom: calc(100% + var(--space-gap-xs));
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--color-text-primary);
+}
+.growth-chart_tip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: max-content;
+  max-width: 11rem;
+  padding: var(--space-gap-xs) var(--space-gap-sm);
+  border-radius: var(--radius-media-sm);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  text-align: center;
+  transform: translateX(-50%);
+  animation: fade var(--motion-duration-base) var(--ease-out) backwards;
+}
+.growth-chart_label {
+  position: absolute;
+  top: calc(100% + var(--space-gap-xs));
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+.growth-chart_note {
+  max-width: 44rem;
+}
+.growth-table summary {
+  cursor: pointer;
+  list-style: none;
+}
+.growth-table summary::-webkit-details-marker {
+  display: none;
+}
+.growth-table_icon {
+  transition: transform var(--motion-duration-slow) var(--ease-out);
+}
+.growth-table[open] .growth-table_icon {
+  transform: rotate(45deg);
+}
+.growth-table table {
+  width: 100%;
+  max-width: 48rem;
+  margin-top: var(--space-gap-md);
+  border-collapse: collapse;
+  font: var(--type-body-sm);
+  animation: fade var(--motion-duration-base) var(--ease-out) backwards;
+}
+.growth-table th,
+.growth-table td {
+  padding: var(--space-gap-sm) var(--space-gap-md) var(--space-gap-sm) 0;
+  border-bottom: var(--border-width-divider) solid var(--color-border-subtle);
+  text-align: left;
+  vertical-align: top;
+}
+.growth-table thead th {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ----------------------------------------------------- trade tiles */
+.trade-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-gap-sm);
+  margin-top: var(--space-layout-column-gap);
+}
+.trade-tile {
+  position: relative;
+  min-height: 13rem;
+  border-radius: var(--radius-card);
+  background: var(--color-bg-canvas);
+  transition: transform var(--motion-duration-base) var(--ease-out);
+}
+/* The whole tile is the button: icon top-left, name bottom-left. */
+.trade-tile_toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  padding: var(--space-padding-card);
+  border-radius: inherit;
+  text-align: left;
+}
+.trade-tile_icon {
+  color: var(--color-text-primary);
+}
+/* + in the corner stays above the description and turns into ×. */
+.trade-tile_more {
+  position: absolute;
+  top: var(--space-padding-card);
+  right: var(--space-padding-card);
+  z-index: 2;
+  width: var(--size-control-sm);
+  height: var(--size-control-sm);
+}
+.trade-tile_more-icon {
+  transition: transform var(--motion-duration-slow) var(--ease-out);
+}
+/* The description rises over the tile face on an ink ground. The tile
+ * never changes size, so the grid never shifts. Clicks pass through to
+ * the button underneath. */
+.trade-tile_desc {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-gap-sm);
+  padding: var(--space-padding-card);
+  padding-right: calc(var(--space-padding-card) + var(--size-control-sm));
+  border-radius: inherit;
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--motion-duration-base) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out);
+}
+.trade-tile.is-open .trade-tile_desc,
+.trade-tile_toggle:focus-visible + .trade-tile_desc {
+  opacity: 1;
+  transform: none;
+}
+.trade-tile.is-open .trade-tile_more-icon {
+  transform: rotate(135deg);
+}
+/* On the ink ground the corner button inverts, so the × keeps its circle. */
+.trade-tile.is-open .trade-tile_more {
+  background: var(--color-text-inverse);
+  color: var(--color-bg-inverse);
+}
+/* Hover previews on a real pointer only; touch goes straight to tap. */
+@media (hover: hover) and (pointer: fine) {
+  .trade-tile:hover {
+    transform: translateY(-2px);
+  }
+  .trade-tile_toggle:hover + .trade-tile_desc {
+    opacity: 1;
+    transform: none;
+  }
+}
+.trade-tile_toggle:focus-visible {
+  outline-offset: 4px;
+}
+.trade-tile_desc-name {
+  color: var(--color-text-inverse);
+}
+.trade-tile_desc p {
+  font: var(--type-body-md);
+  letter-spacing: var(--type-body-md-tracking);
+}
+
+/* ------------------------------------------------------------ apply */
+.apply {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+}
+.apply_body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-gap-md);
+  max-width: 40rem;
+}
+.apply_email {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-gap-sm);
+  color: var(--color-text-link);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.apply_email .icon {
+  transition: transform var(--motion-duration-base) var(--ease-out);
+}
+.apply_email:hover .icon {
+  transform: translateX(4px);
+}
+.apply_email:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* ====================================================== ≥ 768px */
 @media (min-width: 768px) {
+  .trade-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .trade-tile {
+    min-height: 16rem;
+  }
   .numbers_grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1032,6 +1342,39 @@ address {
 
 /* ===================================================== ≥ 1024px */
 @media (min-width: 1024px) {
+  .trade-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .apply {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .apply .heading-lg {
+    flex: 0 1 40%;
+  }
+  /* Heading, note and table on the left; the chart takes the right. */
+  .growth {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas: 'head chart' 'table chart';
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-layout-column-gap);
+    row-gap: var(--space-gap-xl);
+    align-items: start;
+  }
+  .growth_head {
+    grid-area: head;
+  }
+  .growth-chart {
+    grid-area: chart;
+    max-width: none;
+  }
+  .growth-table {
+    grid-area: table;
+  }
+  .growth-chart_plot {
+    height: 24rem;
+  }
   .split {
     flex-direction: row;
     align-items: center;
@@ -1266,6 +1609,9 @@ address {
 .milestone,
 .faq-row,
 .split_media,
+.trade-tile,
+.growth-chart,
+.apply,
 .site-footer_grid > * {
   transition:
     opacity 600ms var(--ease-out),
