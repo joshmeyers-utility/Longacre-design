@@ -86,7 +86,7 @@ changes. A bright or white-sky photo will fail.
 | height < 640 | Pillars stop pinning and become a plain click accordion — a landscape or 320px phone cannot hold copy and photo on one screen. |
 | 768 | Desktop type sizes. Stats and workforce figures two across, trades three across, news cards in a row. Stat figures scale with the width until 1440. |
 | 1024 | Text and image sit side by side; the pinned pillar photo fills the stage height. Timeline year labels move into their own column. FAQ splits into intro and list. |
-| 1200 | Full nav pill replaces the menu button. |
+| 1200 | Full nav pill replaces the menu button. The logo shows its round mark only until 1440, where the nav has room for the full lockup. |
 | 1440 | Hero copy and news cards side by side; the scrim rises from the bottom with a light wash behind the headline column. |
 
 ## Before this goes to Webflow

@@ -45,23 +45,11 @@ const fonts =
   '&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..24,300,0,0' +
   `&icon_names=${icons.join(',')}&display=block`;
 
-// Hosted previews must never read as the client's live site, so the page
-// is named and labelled as a prototype before anything else renders.
-const banner = `<style>
-.preview-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--space-gap-xs) var(--space-gap-md);
-padding:var(--space-padding-control-y) var(--space-layout-gutter);background:var(--color-status-warning-subtle);
-color:var(--color-status-warning-text);font:var(--type-body-sm);text-align:center}
-.preview-banner strong{font-weight:var(--font-weight-medium)}
-</style>
-<div class="preview-banner" role="note"><strong>Design prototype for review.</strong>
-<span>Not the Homer City Energy Campus website. Photos are placeholders; flagged copy is unconfirmed.</span></div>`;
-
-const html = `<title>Homer City Homepage Prototype</title>
-<meta name="description" content="Design prototype of the Homer City Energy Campus homepage, for review.">
+const html = `<title>Homer City Energy Campus</title>
+<meta name="description" content="Homer City Energy Campus homepage.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${fonts}">
 <style>${css}</style>
-${banner}
 <div id="root"></div>
 <script type="module">${js}</script>
 `;

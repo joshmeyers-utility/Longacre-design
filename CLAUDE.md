@@ -338,7 +338,7 @@ the first line rather than refactoring later.
 
 | # | Question | Blocks |
 | --- | --- | --- |
-| 1 | Brand guide: real typefaces, exact colour values, logo vector, clear-space rules. | Stage 3 |
+| 1 | Brand guide: real typefaces, exact colour values, logo vector, clear-space rules. A raster logo (white wordmark, 2000×415 PNG-in-WebP) arrived 30 Sep 2026 and is in the prototype header; the vector and clear-space rules are still needed. | Stage 3 |
 | 2 | **Names of the nine unions** + per-union copy for the rollover module. Counts are public; the roster is not. | Stage 4 Workforce page |
 | 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Partners page |
 | 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |

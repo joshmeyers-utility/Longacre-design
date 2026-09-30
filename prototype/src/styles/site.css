@@ -447,16 +447,15 @@ address {
 }
 .site-header_logo {
   display: inline-flex;
-  align-items: center;
-  gap: var(--space-gap-sm);
-  text-decoration: none;
-  font: var(--type-label-lg);
-}
-.site-header_mark {
-  width: var(--size-control-sm);
-  height: var(--size-control-sm);
+  flex-shrink: 0;
   border-radius: var(--radius-control);
-  background: var(--color-text-primary);
+}
+/* Height sets the size; width follows the artwork's 540:112 ratio, so the
+ * logo never distorts — it only steps down in height where space is tight. */
+.site-header_logo-image {
+  display: block;
+  width: auto;
+  height: var(--size-control-sm);
 }
 .nav-pill {
   display: none;
@@ -1132,9 +1131,22 @@ address {
   .nav-pill {
     display: block;
   }
+  .site-header_logo-image {
+    height: var(--size-control-md);
+  }
   .icon-button.is-menu,
   .mobile-menu {
     display: none;
+  }
+}
+
+/* 1200–1439: the full nav needs the room, so the logo shows its round mark
+ * only (the left 415 of 2000px). object-fit/position crop, no second file. */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .site-header_logo-image {
+    width: var(--size-control-md);
+    object-fit: cover;
+    object-position: left center;
   }
 }
 

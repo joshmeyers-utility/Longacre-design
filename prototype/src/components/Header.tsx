@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { alert, nav, navCta, site } from '../content/home';
+import { alert, nav, navCta } from '../content/home';
 import { Flag, Icon } from './primitives';
+import logo from '../assets/logo-homer-city.webp';
 
 const DISMISS_KEY = 'hcec-alert-dismissed';
 
@@ -81,9 +82,10 @@ export function SiteHeader() {
 
   return (
     <header className={`site-header${open ? ' is-menu-open' : ''}`}>
-      <a className="site-header_logo" href="#top" aria-label={`${site.name}, home`}>
-        <span className="site-header_mark" aria-hidden="true" />
-        <span className="site-header_wordmark">{site.name}</span>
+      {/* Raster stand-in until the vector logo arrives (CLAUDE.md §10 #1).
+       * White wordmark: only ever placed on a dark ground. */}
+      <a className="site-header_logo" href="#top">
+        <img className="site-header_logo-image" src={logo} width={540} height={112} alt="Homer City Generation, home" />
       </a>
 
       <nav className="nav-pill" aria-label="Main">
