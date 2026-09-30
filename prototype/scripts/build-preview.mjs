@@ -5,6 +5,12 @@
 //
 //   npm run build:preview            → dist/preview/{index,workforce}.html
 //   node scripts/build-preview.mjs <dir>
+//   node scripts/build-preview.mjs <dir> --hosted
+//
+// --hosted is for a shareable preview link. It adds a small corner tag
+// naming the page a design prototype (a hosted page must never pass for
+// the client's live site), and also writes page.html: the homepage
+// without its document wrapper, for hosts that add their own.
 //
 // Each page is built on its own (PAGE=<name>, see vite.config.ts) so its
 // bundle is a single file with nothing shared to stitch back together.
@@ -13,7 +19,16 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
-const outDir = process.argv[2] ?? join(root, 'dist', 'preview');
+const args = process.argv.slice(2);
+const hosted = args.includes('--hosted');
+const outDir = args.find((a) => !a.startsWith('--')) ?? join(root, 'dist', 'preview');
+
+const tag = `<style>
+.prototype-tag{position:fixed;left:var(--space-gap-sm);bottom:calc(var(--space-gap-sm) + env(safe-area-inset-bottom,0px));z-index:50;
+padding:var(--space-gap-xs) var(--space-gap-sm);border-radius:var(--radius-control);background:var(--color-status-warning-subtle);
+color:var(--color-status-warning-text);font:var(--type-label-sm);letter-spacing:var(--type-label-sm-tracking);pointer-events:none}
+</style>
+<p class="prototype-tag" role="note">Design prototype · not the live site</p>`;
 
 const pages = [
   { id: 'index', title: 'Homer City Energy Campus', description: 'Facts, figures and construction updates from the Homer City Energy Campus in Indiana County, Pennsylvania.' },
@@ -61,24 +76,32 @@ for (const page of pages) {
     css = css.replaceAll(`/assets/${f}`, uri);
   }
 
+  const title = hosted && page.id === 'index' ? 'Homer City Homepage Prototype' : page.title;
+  const headBits = `<title>${title}</title>
+<meta name="description" content="${page.description}">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="${fonts}">
+<style>${css}</style>`;
+  const bodyBits = `${hosted ? tag + '\n' : ''}<div id="root"></div>
+<script type="module">${js}</script>`;
   const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${page.title}</title>
-<meta name="description" content="${page.description}">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="${fonts}">
-<style>${css}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+${headBits}
 </head>
 <body>
-<div id="root"></div>
-<script type="module">${js}</script>
+${bodyBits}
 </body>
 </html>
 `;
   const out = join(outDir, `${page.id}.html`);
   writeFileSync(out, html);
   console.log(`wrote ${out} (${(html.length / 1024).toFixed(0)} KB)`);
+  if (hosted && page.id === 'index') {
+    const fragment = `${headBits}\n${bodyBits}\n`;
+    writeFileSync(join(outDir, 'page.html'), fragment);
+    console.log(`wrote ${join(outDir, 'page.html')} (wrapper-free homepage)`);
+  }
 }

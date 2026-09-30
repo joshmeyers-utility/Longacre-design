@@ -260,7 +260,7 @@ function Trades() {
 function Apprentices() {
   const a = page.apprentices;
   return (
-    <section className="section" aria-labelledby="apprentices-title">
+    <section className="section" id="apprentices" aria-labelledby="apprentices-title">
       <div className="container split">
         <div className="split_copy">
           <SectionHead eyebrow="Apprenticeships" title={a.heading} id="apprentices-title" />

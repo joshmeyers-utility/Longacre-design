@@ -23,7 +23,10 @@ them is a real page load and the cross-page fade runs.
   `dist/preview/workforce.html`: each page as one self-contained file (JS and
   CSS inline, fonts from Google Fonts with the icon font subset to the glyphs
   in use) that opens straight from disk. They link to each other by filename,
-  so keep them in one folder. Add any new icon name to the list in
+  so keep them in one folder. `node scripts/build-preview.mjs <dir> --hosted`
+  is the version for a shareable link: it adds a small "Design prototype · not
+  the live site" corner tag, since a hosted page must never pass for the
+  client's live site. Add any new icon name to the list in
   `scripts/build-preview.mjs`, and any new page to both that list and
   `vite.config.ts`.
 - `npm run build` typechecks and builds to `dist/`.
@@ -46,6 +49,28 @@ them is a real page load and the cross-page fade runs.
 
 Fonts are self-hosted from npm (Geist, Material Symbols Rounded), so it runs
 offline.
+
+## Mega menu
+
+From 1200px the nav is a T1-style mega menu (`nav-menu`). The bar and the
+panel under it share one CSS grid: row 1 holds the items, row 2 each item's
+column of links, row 3 two wide pills (Contact us, Find work on the campus).
+Each column therefore sits exactly under its item. Every track is as wide as
+its item or its longest link, so links never wrap. FAQs and News & resources
+have one destination each and stay plain links with no column.
+
+- **Mouse:** hover opens it and brightens the column under the pointer.
+  Moving off it closes it after 200ms.
+- **Keyboard and touch:** click, tap or Enter opens and closes it. Tab moves
+  from an item into its links and on to the next item. Escape closes it and
+  returns focus.
+- **Closed,** the panel is `inert`, so its links are out of the tab order.
+- **Below 1200px,** the full-screen menu shows the same groups, stacked.
+
+Webflow: a grid div with the same placement (each trigger and column given
+its column number), a hover/click interaction that adds `is-open` to
+`nav-menu`, and one that sets `is-active` on the hovered item's column. The
+Designer's own Dropdown component is per-item and cannot share a panel.
 
 ## Careers page
 

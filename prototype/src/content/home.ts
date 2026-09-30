@@ -43,6 +43,51 @@ export const nav = [
 export const navCta = { label: 'Contact us', href: '#contact' };
 
 /**
+ * Mega menu (T1): one column under each top-level item, every link pointing
+ * at a page or section that exists today. Community's child pages
+ * (docs/02-plan.md §2) join the Community column when they are built.
+ */
+/** An item with `href` and no links is a plain link in the bar, with no column. */
+export const navMenu: { label: string; page?: PageId; href?: string; links: { label: string; href: string; page?: PageId }[] }[] = [
+  {
+    label: 'What we’re building',
+    links: [
+      { label: 'The Power Block', href: '#power-block' },
+      { label: 'By the numbers', href: '#numbers' },
+    ],
+  },
+  {
+    label: 'Who we are',
+    links: [
+      { label: 'Our history', href: '#history' },
+      { label: 'Key milestones', href: '#timeline' },
+    ],
+  },
+  {
+    label: 'Careers',
+    page: 'workforce',
+    links: [
+      { label: 'Overview', href: 'workforce.html', page: 'workforce' },
+      { label: 'Trades on site', href: 'workforce.html#trades' },
+      { label: 'Apprenticeships', href: 'workforce.html#apprentices' },
+      { label: 'How to apply', href: 'workforce.html#apply' },
+    ],
+  },
+  {
+    label: 'Community stewardship',
+    links: [{ label: 'Project pillars', href: '#pillars' }],
+  },
+  { label: 'FAQs', href: '#faq', links: [] },
+  { label: 'News & resources', href: '#news', links: [] },
+];
+
+/** The two wide pills along the bottom of the open menu. */
+export const navMenuCtas = [
+  { label: 'Contact us', href: '#contact', tone: 'light' as const },
+  { label: 'Find work on the campus', href: 'mailto:HomerCity.Info@Kiewit.com', tone: 'dark' as const },
+];
+
+/**
  * A homepage section link (`#…`) works as-is on the homepage and needs the
  * page in front of it anywhere else. `#contact` is the footer, on every page.
  * Webflow: `/#power-block` and `/workforce`.

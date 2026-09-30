@@ -460,17 +460,176 @@ address {
   width: auto;
   height: var(--size-control-sm);
 }
-.nav-pill {
+/* ------------------------------------------------------ mega menu
+ * Bar and panel share one grid (T1): row 1 is the bar's items, row 2 each
+ * item's column of links, row 3 the two wide pills. Every track is as wide
+ * as its item or its longest link, so links never wrap; the nav stretches
+ * to 66rem and any spare width spreads the items out. Items with a single
+ * destination (FAQs, News) are plain links with no column. The nav's own height is the bar's, so the
+ * open panel hangs over the hero instead of pushing it down.
+ */
+.nav-menu {
   display: none;
+  position: relative;
+  z-index: 3;
+  flex: 1 1 auto;
+  max-width: 66rem;
+  margin-left: auto;
+  height: calc(var(--size-control-sm) + var(--space-padding-nav) * 2);
+}
+.nav-menu_grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(max-content, 1fr)) max-content;
+  grid-template-rows: auto auto auto;
+  align-items: center;
   padding: var(--space-padding-nav);
-  border-radius: var(--radius-control);
-  background: var(--color-bg-glass);
+}
+.nav-menu_group {
+  display: contents;
+}
+.nav-menu_bar,
+.nav-menu_panel {
+  grid-column: 1 / -1;
+  align-self: stretch;
   -webkit-backdrop-filter: blur(200px);
   backdrop-filter: blur(200px);
 }
-.nav-pill_list {
+.nav-menu_bar {
+  grid-row: 1;
+  margin: calc(var(--space-padding-nav) * -1);
+  border-radius: var(--radius-control);
+  background: var(--color-bg-glass);
+  transition: background-color var(--motion-duration-base) var(--ease-out);
+}
+/* 85% ink: the panel carries a lot of small text over the photograph. */
+.nav-menu_panel {
+  grid-row: 2 / 4;
+  margin: var(--space-gap-xs) calc(var(--space-padding-nav) * -1) calc(var(--space-padding-nav) * -1);
+  border-radius: var(--radius-card);
+  background: var(--color-scrim-strong);
+}
+.nav-menu.is-open .nav-menu_bar {
+  background: var(--color-scrim-strong);
+}
+.nav-menu_trigger,
+.nav-menu_contact {
+  position: relative;
+  grid-row: 1;
+  justify-self: start;
+}
+.nav-menu_contact {
+  grid-column: -2;
+  justify-self: end;
+}
+/* Open: the items dim except the one in use, as T1's do. */
+.nav-menu.is-open .nav-menu_trigger {
+  color: var(--color-text-secondary);
+}
+.nav-menu.is-open .nav-menu_trigger.is-active,
+.nav-menu_trigger.is-current {
+  color: var(--color-text-primary);
+}
+.nav-menu_trigger.is-current {
+  background: var(--color-action-nav-bg-hover);
+}
+.nav-menu_column {
+  position: relative;
+  grid-row: 2;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xs);
+  padding: calc(var(--space-gap-xs) + var(--space-gap-lg)) var(--space-padding-control-x) var(--space-gap-lg);
+}
+.nav-menu_link {
+  display: block;
+  padding: var(--space-gap-xs) 0;
+  color: var(--color-text-secondary);
+  font: var(--type-label-lg);
+  letter-spacing: var(--type-label-lg-tracking);
+  white-space: nowrap; /* a track is as wide as its item or its longest link */
+  text-decoration: none;
+  transition: color var(--motion-duration-base) var(--ease-out);
+}
+.nav-menu_column.is-active .nav-menu_link,
+.nav-menu_link:hover,
+.nav-menu_link:focus-visible,
+.nav-menu_link[aria-current='page'] {
+  color: var(--color-text-primary);
+}
+.nav-menu_ctas {
+  position: relative;
+  grid-row: 3;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-gap-sm);
+  padding: var(--space-gap-sm) var(--space-gap-xs) var(--space-gap-xs);
+}
+/* Panel, columns and pills: hidden until open, then fade down into place. */
+.nav-menu_panel,
+.nav-menu_column,
+.nav-menu_ctas {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity var(--motion-duration-base) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out),
+    visibility 0s linear var(--motion-duration-slow);
+}
+.nav-menu.is-open .nav-menu_panel,
+.nav-menu.is-open .nav-menu_column,
+.nav-menu.is-open .nav-menu_ctas {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+/* Columns and pills follow the panel in by a beat. */
+.nav-menu.is-open .nav-menu_column,
+.nav-menu.is-open .nav-menu_ctas {
+  transition-delay: 60ms;
+}
+
+/* Wide pill with the label left and an arrow right — menu and mobile menu. */
+.nav-menu_cta {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--space-gap-md);
+  min-height: var(--size-control-lg);
+  padding: 0 var(--space-padding-button-start);
+  border-radius: var(--radius-control);
+  font: var(--type-label-lg);
+  letter-spacing: var(--type-label-lg-tracking);
+  text-decoration: none;
+  transition:
+    background-color var(--motion-duration-base) var(--ease-out),
+    box-shadow var(--motion-duration-base) var(--ease-out);
+}
+.nav-menu_cta .icon {
+  transition: transform var(--motion-duration-base) var(--ease-out);
+}
+.nav-menu_cta:hover .icon {
+  transform: translateX(4px);
+}
+.nav-menu_cta.is-light {
+  background: var(--color-action-secondary-bg);
+  color: var(--color-action-secondary-text);
+}
+.nav-menu_cta.is-light:hover {
+  background: var(--color-action-secondary-bg-hover);
+}
+.nav-menu_cta.is-dark {
+  background: var(--color-bg-raised);
+  color: var(--color-text-primary);
+}
+.nav-menu_cta.is-dark:hover {
+  box-shadow: inset 0 0 0 100rem var(--color-action-nav-bg-hover);
 }
 .nav-item {
   display: inline-flex;
@@ -501,14 +660,28 @@ address {
   padding: calc(var(--size-control-lg) + var(--space-gap-xl) * 2) var(--space-layout-gutter) var(--space-gap-xl);
   overflow-y: auto;
 }
+.mobile-menu_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-xl);
+}
+.mobile-menu_label {
+  margin-bottom: var(--space-gap-xs);
+}
 .mobile-menu_link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-gap-lg) 0;
+  padding: var(--space-gap-md) 0;
   border-bottom: var(--border-width-divider) solid var(--color-border-subtle);
-  font: var(--type-heading-md);
+  font: var(--type-heading-sm);
   text-decoration: none;
+}
+.mobile-menu_ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-gap-sm);
+  margin-top: var(--space-layout-column-gap);
 }
 
 /* ------------------------------------------------------------- hero */
@@ -1474,7 +1647,7 @@ address {
 /* ===================================================== ≥ 1200px */
 /* The full nav needs about 1150px beside the logo; below that, the menu. */
 @media (min-width: 1200px) {
-  .nav-pill {
+  .nav-menu {
     display: block;
   }
   .site-header_logo-image {
@@ -1493,6 +1666,12 @@ address {
     width: var(--size-control-md);
     object-fit: cover;
     object-position: left center;
+  }
+  /* Menu links at the bar's own size until 1440, so the widest columns
+   * (Careers, Who we are) still fit beside the mark. */
+  .nav-menu_link {
+    font: var(--type-label-md);
+    letter-spacing: var(--type-label-md-tracking);
   }
 }
 

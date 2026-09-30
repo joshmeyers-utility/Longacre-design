@@ -97,7 +97,7 @@ export function StatBlock({ stat, size = 'display', flag = true }: { stat: Stat;
 
 export function Numbers() {
   return (
-    <section className="section theme-dark" aria-labelledby="numbers-title">
+    <section className="section theme-dark" id="numbers" aria-labelledby="numbers-title">
       <div className="container">
         <h2 className="heading-sm numbers_title" id="numbers-title">
           Campus by the numbers
