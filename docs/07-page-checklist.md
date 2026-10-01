@@ -49,8 +49,9 @@ because each still waits on something only the client can supply.
 - [ ] Photo library at full resolution, with usage rights (§10 #4)
 - [ ] Photo or rendering flag for every supplied image (§10 #10)
 - [ ] Domain decision: does the site stay on homercityredevelopment.com (§10 #9)
-- [ ] New tokens added to Figma: `radius/nav`, `size/80`,
-      `motion/duration/slower`
+- [x] New tokens added to Figma: `radius/nav`, `size/80`, `font/size/72`,
+      the motion steps and `motion/duration/slower` (1 Oct 2026)
+- [x] Figma Website page: every page at 1440, built from the site components
 - [ ] Hero contrast re-measured once the real hero photos are in
 
 ## Home

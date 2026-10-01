@@ -198,7 +198,7 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 
 **Rebuilt from scratch against the comps in Figma file `K7Mb6ksBE9it30ff9gb9CA`.**
 Full record in `docs/05-variable-library.md`; values in `design-system/tokens.*`
-(exported from the live file); in Figma as **266 variables across three
+(exported from the live file); in Figma as **275 variables across three
 collections** — Primitives (Value), Color (Light / Dark), Semantic (Desktop /
 Mobile) — plus 17 text styles and one `Glass` effect style. The Stage 3
 navy/stone/sand system (`docs/03`) is retired.
@@ -220,7 +220,7 @@ aliases exactly one primitive, in one hop, in every mode.
 collection (in CSS, add `theme-dark`). Every component works in both.
 **A breakpoint is a mode too.** Set `Mobile` on the artboard, never per node.
 
-Verified state: 238/238 aliases one hop, 68 contrast pairs across both modes
+Verified state: 248/248 aliases one hop, 68 contrast pairs across both modes
 with zero failures, and on the Components page 326/326 numeric properties,
 61/61 fills and 20/20 text layers bound. If you add anything, bind it.
 

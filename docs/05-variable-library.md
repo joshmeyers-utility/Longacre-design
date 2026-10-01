@@ -7,9 +7,10 @@ It replaces the navy/stone/sand system described in
 
 | Where | What |
 | --- | --- |
-| Figma — local variables | 266 variables in 3 collections, 17 text styles, 1 effect style |
-| Figma — `Tokens` page | Ramps, Light/Dark role panels, spacing, radius, type specimen |
-| Figma — `Components` page | 12 demo components + `Collage / Light` and `Collage / Dark` |
+| Figma — local variables | 275 variables in 3 collections, 17 text styles, 1 effect style (9 added 1 Oct 2026 from the prototype: `size/80`, `font/size/72`, motion `250/400/600/800/1000`, `motion/duration/slower`, `radius/nav`) |
+| Figma — `Tokens` page | Ramps, Light/Dark role panels, spacing, radius, size roles, type specimen, motion (durations by mode, the ease-out curve) |
+| Figma — `Components` page | 12 demo components + `Collage / Light` and `Collage / Dark`; below them, 12 site components built from the prototype (Site header, Mega menu, Site footer, Alert bar, Link tile, Stat block, News card, FAQ row, Milestone entry, Chip, Route card, Contact route) |
+| Figma — `Website` page | Every prototype page at 1440, assembled from those components and bound to the variables |
 | `design-system/tokens.json` | W3C Design Tokens export of the live file. Generated. |
 | `design-system/tokens.css` | Same tokens as CSS custom properties. Generated. |
 

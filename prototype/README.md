@@ -254,8 +254,9 @@ changes. A bright or white-sky photo will fail.
 
 ## Before this goes to Webflow
 
-- **Token changes, not yet in Figma** (all in `design-system/tokens.*`; mirror
-  them in file `K7Mb6…` so the export matches):
+- **Token changes, mirrored in Figma on 1 October 2026** (all in
+  `design-system/tokens.*`, and now in file `K7Mb6…` too, so the export
+  matches). Kept here as the record of what changed:
 
   | Token | Change |
   | --- | --- |
