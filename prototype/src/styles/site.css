@@ -504,15 +504,15 @@ html {
 /* ------------------------------------------------------ mega menu
  * T1's bar at T1's size: a 44px pill-ish bar (radius/nav), centred, only
  * as wide as what it holds — the round mark and five headings, 24px apart.
- * Open, the solid ink panel drops behind the bar from its top edge at
- * exactly the bar's width, so bar and panel read as one shape. Row 2 holds
+ * Open, the solid ink panel hangs 4px under the bar at exactly its width. Row 2 holds
  * each heading's pages in its own column (each track as wide as the wider
  * of its heading and its pages, so nothing overlaps); row 3 is the two
  * pills. The nav is only as tall as the bar, so the open panel hangs over
  * the page instead of pushing it down.
  *
- * Frosted over a photograph (glass, as T1); solid ink over a plain ground,
- * where glass would read as grey; raised grey once docked or open.
+ * Frosted over a photograph, in the announcement cards' glass; solid ink
+ * over a plain ground, where glass would read as grey; raised grey once
+ * docked.
  * Text is grey at rest and turns full white on hover, on the open heading
  * and its column, and for the page you are on. */
 .nav-menu {
@@ -551,25 +551,43 @@ html {
 }
 .nav-menu_bar {
   grid-row: 1;
-  background: var(--color-bg-glass);
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  /* The announcement cards' glass, exactly. */
+  background: var(--color-bg-glass-card);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
   transition: background-color var(--motion-duration-base) var(--ease-out);
 }
 /* No photograph behind it: glass would read as grey, so solid ink. */
 .site-header.is-on-plain .nav-menu_bar {
   background: var(--color-scrim-strong);
 }
-/* Docked, the bar may sit over an ink section; open, it sits on the
- * panel's ink. Raised grey stands off ink and white alike. */
+/* Frosted over a photograph, grey text cannot clear AA on the glass
+ * (3.4:1 measured), so headings are full white, as on the announcement
+ * cards; the open, hovered or current heading is underlined instead.
+ * Webflow: "page scrolled" removes is-frosted as it adds is-docked. */
+.site-header.is-frosted .nav-menu_trigger {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: var(--size-divider);
+  text-underline-offset: 0.45em;
+  transition: text-decoration-color var(--motion-duration-base) var(--ease-out);
+}
+.site-header.is-frosted .nav-menu_trigger:hover,
+.site-header.is-frosted .nav-menu_trigger.is-active,
+.site-header.is-frosted .nav-menu_trigger.is-current {
+  text-decoration-color: currentColor;
+}
+/* Docked, the bar may sit over white or ink: raised grey stands off both. */
 .site-header.is-docked .nav-menu_bar,
-.site-header.is-docked .site-header_bar,
-.nav-menu.is-open .nav-menu_bar {
+.site-header.is-docked .site-header_bar {
   background: var(--color-bg-raised);
 }
-/* Solid, as T1's. It starts at the bar's top edge, under the bar. */
+/* Its own shape, 4px under the bar (T1). Solid, as T1's: see-through ink
+ * lets a white page's text show through. */
 .nav-menu_panel {
-  grid-row: 1 / 4;
+  grid-row: 2 / 4;
+  margin-top: var(--space-gap-xs);
   background: var(--color-bg-canvas);
 }
 .nav-menu_logo {

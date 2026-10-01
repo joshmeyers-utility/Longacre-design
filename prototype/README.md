@@ -62,11 +62,13 @@ offline.
 T1's bar at T1's size: 44px tall, 16px corners (`radius/nav`), centred and
 only as wide as what it holds — the round logo mark and five headings, 24px
 apart, with 16px at each end (568px at every desktop width). Text is
-`label-md`, 15px regular. Frosted (`bg/glass`, blur) over a photograph;
-solid ink over a plain ground (`SiteHeader ground="plain"`, set by the light
-page hero), where glass would read as grey; raised grey once docked or open.
-Grey text on the frosted bar is checked against the pixels painted behind it
-(at least 5.09:1 at 1024–2560 on the homepage and Careers): re-run that
+`label-md`, 15px regular. Over a photograph it wears the announcement
+cards' glass (`bg/glass-card`, 200px blur); over a plain ground
+(`SiteHeader ground="plain"`, set by the light page hero) it is solid ink,
+since glass would read as grey; docked, raised grey. On the glass, grey text
+measured 3.4:1 against the pixels behind it, so there the headings are full
+white (5.22:1 or better, 1024 to 2560px, homepage and Careers) and the open,
+hovered or current heading is underlined instead of brightened. Re-run that
 sample whenever a hero photo changes.
 
 At rest the bar sits at the top of the hero; scrolled past, it docks to the
@@ -91,8 +93,8 @@ no `href` in `content/home.ts` shows grey with a small "Soon", is not a link
 and is skipped by Tab; none is left, but the state stays for the next page
 the sitemap adds.
 
-**Layout (from 1024px).** One dark shape: open, the solid ink panel drops
-behind the bar from its top edge at exactly the bar's width. Bar and panel
+**Layout (from 1024px).** Open, the solid ink panel hangs 4px under the
+bar, at exactly the bar's width. Bar and panel
 share one grid. Row 1 is the mark and the headings, 24px apart; row 2 holds
 each heading's pages in its own column, the first letter of each page under
 the first letter of its heading. Each track is as wide as the wider of its

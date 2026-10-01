@@ -131,7 +131,6 @@ function MegaMenu({ current }: { current: PageId }) {
       }}
     >
       <div className="nav-menu_grid">
-        {/* Panel first, so the bar paints over its top edge. */}
         <div className="nav-menu_panel" aria-hidden="true" />
         <div className="nav-menu_bar" aria-hidden="true" />
         {/* The logo lives in the bar (T1). Its column stays empty below. */}
@@ -292,7 +291,7 @@ export function SiteHeader({ current = 'home', ground = 'photo' }: { current?: P
 
   return (
     <div className="site-header_slot" ref={slot}>
-      <header ref={header} className={`site-header${ground === 'plain' ? ' is-on-plain' : ''}${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}`}>
+      <header ref={header} className={`site-header${ground === 'plain' ? ' is-on-plain' : ''}${ground === 'photo' && !docked ? ' is-frosted' : ''}${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}`}>
         <MegaMenu current={current} />
         <div className="site-header_bar theme-dark">
           <Logo current={current} className="site-header_bar-logo" />
