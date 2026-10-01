@@ -264,7 +264,7 @@ changes. A bright or white-sky photo will fail.
   | --- | --- |
   | `radius/nav` | New, 16 in both modes: the desktop menu bar and panel |
   | `size/80` | New primitive; `size/media/thumb` now aliases it (100 → 80) |
-  | `font/size/88` | New primitive; `type/display/size` desktop 128 → 88 (mobile stays 64) |
+  | `font/size/72` | New primitive; `type/display/size` desktop 128 → 72, mobile 64 → 56 |
   | `motion/duration/250`, `400`, `600`, `1000` | New primitives |
   | `motion/duration/*` | Desktop: fast 100 → 150, base 200 → 250, slow 500 → 600, slower 1000 (new). Mobile: fast 150, base 250, slow 300 → 400, slower 600. 1ms under reduced motion, as before |
 
@@ -279,8 +279,9 @@ changes. A bright or white-sky photo will fail.
   pillar from scroll position needs a small embed script (Interactions 2.0
   can animate across scroll progress but cannot set `aria-expanded`); the
   click accordion works without it.
-- **One `clamp()`** scales the stat figures between 768 and 1439px. Webflow
-  accepts it as a custom value.
+- **One `clamp()`** scales the Careers workforce figures (beside the photo)
+  between 768 and 1439px. Webflow accepts it as a custom value. The main
+  stat figures no longer need one: at 72px they fit every column as is.
 - **Motion** maps one-to-one onto Interactions 2.0 — no GSAP:
 
   | Effect | Trigger | Targets |

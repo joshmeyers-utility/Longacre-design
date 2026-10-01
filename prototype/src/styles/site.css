@@ -1849,12 +1849,6 @@ a.nav-menu_link:focus-visible,
 
 /* ===================================================== ≥ 1280px */
 @media (min-width: 768px) and (max-width: 1439px) {
-  /* Display is 96px from 768 up; scale it down until a column (three
-   * across from 1024) can hold "10,000+" at full size. One clamp(),
-   * expressible in Webflow. */
-  .stat_figure:not(.is-large) {
-    font-size: clamp(var(--type-heading-xl-size), 6.5vw, var(--type-display-size));
-  }
   /* Workforce figures share a narrower column beside the photo. */
   .stat_figure.is-large {
     font-size: clamp(var(--type-heading-lg-size), 5vw, var(--type-heading-xl-size));

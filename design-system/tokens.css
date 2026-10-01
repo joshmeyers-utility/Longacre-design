@@ -210,7 +210,7 @@
   --font-size-44: 44px;
   --font-size-56: 56px;
   --font-size-64: 64px;
-  --font-size-88: 88px;
+  --font-size-72: 72px;
   --font-size-96: 96px;
   --font-size-128: 128px;
   /* motion/duration */
@@ -316,7 +316,7 @@
   --motion-duration-base: var(--motion-duration-250);
   --motion-duration-slow: var(--motion-duration-600);
   --motion-duration-slower: var(--motion-duration-1000);
-  --type-display-size: var(--font-size-88);
+  --type-display-size: var(--font-size-72);
   --type-display-weight: var(--font-weight-light);
   --type-heading-xl-size: var(--font-size-64);
   --type-heading-xl-weight: var(--font-weight-regular);
@@ -446,7 +446,7 @@
     --radius-section: var(--radius-0);
     --motion-duration-slow: var(--motion-duration-400);
     --motion-duration-slower: var(--motion-duration-600);
-    --type-display-size: var(--font-size-64);
+    --type-display-size: var(--font-size-56);
     --type-heading-xl-size: var(--font-size-40);
     --type-heading-lg-size: var(--font-size-32);
     --type-heading-md-size: var(--font-size-22);
