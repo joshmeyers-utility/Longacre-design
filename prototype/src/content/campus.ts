@@ -21,7 +21,7 @@ const deck = { tier: 'canonical', source: 'iup-deck' } as const;
 const explainer: Provenance = {
   tier: 'confirm',
   source: 'direction-board',
-  note: 'General, plain-language description of what this equipment does — not client copy. Confirm with Homer City Generation or Kiewit before launch.',
+  note: 'General, plain-language description of what this equipment does, not client copy. Confirm with Homer City Generation or Kiewit before launch.',
 };
 const water: Provenance = {
   tier: 'unsourced',
@@ -57,7 +57,7 @@ export const campusPage = {
     // Fact sheet: 3,200+ acres, natural gas-powered, up to 4.4 GW, Kiewit.
     headline: 'A natural gas power plant and data center campus, on the site of the former generating station.',
     intro:
-      'The Homer City Energy Campus covers more than 3,200 acres in Indiana County. At its center, seven GE Vernova natural gas turbines are expected to produce up to 4.4 GW. It is being built in partnership with Kiewit Power Constructors Co.',
+      'The Homer City Energy Campus covers more than 3,200 acres in Indiana County. At its center are seven GE Vernova 7HA.02 natural gas turbines, and the campus is expected to produce up to 4.4 GW of energy on site. It is being built in partnership with Kiewit Power Constructors Co.',
   },
 
   /** Fact-sheet figures that describe the site itself. The job figures live on Careers. */
@@ -87,7 +87,7 @@ export const campusPage = {
         detail: 'Building and foundations',
         body: 'Switchgear connects the plant to the power grid and protects it, switching and isolating high-voltage circuits. Gas insulated switchgear is sealed in an insulating gas, so it needs far less room than open-air equipment.',
         stages: [
-          { caption: 'Concrete base of the GIS slab', date: 'February–March 2026' },
+          { caption: 'Concrete base of the GIS slab', date: 'February to March 2026' },
           { caption: 'GIS building and foundations', date: 'April 2026' },
           { caption: 'GIS working at height', date: 'July 2026' },
         ],
@@ -101,7 +101,7 @@ export const campusPage = {
         body: 'Natural gas arrives by pipeline. The compressor station raises its pressure to the level the turbines need.',
         stages: [],
         provenance: explainer,
-        media: photo('Gas compressor station — no frame in the deck yet', 'The gas compressor station'),
+        media: photo('Gas compressor station: no frame in the deck yet', 'The gas compressor station'),
       },
       {
         id: 'water',
@@ -121,11 +121,11 @@ export const campusPage = {
     heading: 'From the generating station to the campus',
     intro: 'The site at each stage, from the deck’s dated photo essay.',
     stages: [
-      { id: 'station', caption: 'Homer City Generating Station', date: '1969–2023' },
+      { id: 'station', caption: 'Homer City Generating Station', date: '1969 to 2023' },
       { id: 'inflection', caption: 'Inflection point', date: 'March 2025' },
       { id: 'towers-down', caption: 'After the stacks and towers came down', date: 'November 2025' },
       { id: 'north', caption: 'View from the north', date: 'February 2026' },
-      { id: 'gis-slab', caption: 'Concrete base of the GIS slab', date: 'February–March 2026' },
+      { id: 'gis-slab', caption: 'Concrete base of the GIS slab', date: 'February to March 2026' },
       // Dated March in the essay; the timeline dates the milestone April (§10 #12).
       { id: 'first-steel', caption: 'First steel, going vertical', date: 'March 2026' },
       { id: 'aerial', caption: 'Power Block aerial, looking north', date: 'April 2026' },

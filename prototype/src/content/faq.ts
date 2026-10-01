@@ -25,7 +25,7 @@ const release: Provenance = {
 const missing = (topic: string): Provenance => ({
   tier: 'unsourced',
   source: 'direction-board',
-  note: `No supplied document answers this (${topic}). Needs the client’s own answer before it can be written — do not fill it from press coverage.`,
+  note: `No supplied document answers this (${topic}). Needs the client’s own answer before it can be written. Do not fill it from press coverage.`,
 });
 
 /** Where an answer came from, in words a reader recognises. */
@@ -210,7 +210,7 @@ export const faqCategories: FaqCategory[] = [
           note: 'DRAFT (CLAUDE.md §10 #5). The client decided to address the appeal; this answer is drafted from public filings and needs client and legal sign-off before it ships. Add the current status of the appeal once confirmed.',
         },
       },
-      { id: 'other-permits', question: 'What other permits does the campus need?', provenance: missing('the fact sheet’s “key permits and agreements for gas, EPC, and offtake”, which the July deck drops — confirm status first') },
+      { id: 'other-permits', question: 'What other permits does the campus need?', provenance: missing('the fact sheet’s “key permits and agreements for gas, EPC, and offtake”, which the July deck drops; confirm status first') },
     ],
   },
 ];

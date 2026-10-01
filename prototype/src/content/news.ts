@@ -52,7 +52,7 @@ export const newsItems: NewsItem[] = [
     provenance: {
       tier: 'unsourced',
       source: 'direction-board',
-      note: 'A March 2026 release announced 1,000+ workers on site (external-context.md). Its headline and text were not supplied — migrate it from the current site.',
+      note: 'A March 2026 release announced 1,000+ workers on site (external-context.md). Its headline and text were not supplied. Migrate it from the current site.',
     },
   },
   {
@@ -60,7 +60,7 @@ export const newsItems: NewsItem[] = [
     type: 'Coverage',
     date: 'September 2026',
     outlet: 'WCCS / WDAD radio',
-    media: { kind: 'Photograph', brief: 'None — coverage links out', alt: '' },
+    media: { kind: 'Photograph', brief: 'None: coverage links out', alt: '' },
     provenance: {
       tier: 'unsourced',
       source: 'direction-board',

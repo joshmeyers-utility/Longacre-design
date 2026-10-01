@@ -19,7 +19,7 @@ const release = {
 const tradeCopy: Provenance = {
   tier: 'confirm',
   source: 'direction-board',
-  note: 'General description of the trade, written for plain language — not client copy. Confirm with Kiewit or the unions, and add each union’s name and local number (CLAUDE.md §10 #2).',
+  note: 'General description of the trade, written for plain language, not client copy. Confirm with Kiewit or the unions, and add each union’s name and local number (CLAUDE.md §10 #2).',
 };
 
 /** Each tile links out to its trade's international union — a stand-in. */
@@ -34,7 +34,7 @@ export const workforcePage = {
     eyebrow: 'Careers',
     headline: 'The campus is being built by local trades.',
     // ~95% and 9 unions: press release. 1,800+ as of Sep 2026: press release.
-    intro: 'About 95% of the skilled direct-hire craft workforce on site is from the local area. More than 1,800 tradespeople and skilled contractors were working here as of September 2026, from 9 local union organizations.',
+    intro: 'About 95% of the skilled direct-hire craft workforce on site is from the local area. More than 1,800 tradespeople and skilled contractors were working here as of September 2026, including members of 9 local union organizations.',
     media: {
       kind: 'Photograph',
       brief: 'Crew at shift change on site, faces visible, hard hats and union stickers in frame. Wide enough to read as a crowd, not a posed group.',
@@ -70,9 +70,9 @@ export const workforcePage = {
     { name: 'Carpenters', icon: 'carpenter', href: 'https://www.carpenters.org', union: 'United Brotherhood of Carpenters', description: 'Build the forms that concrete is poured into, along with scaffolding, framing and temporary structures.' },
     { name: 'Electricians', icon: 'electrical_services', href: 'https://www.ibew.org', union: 'International Brotherhood of Electrical Workers', description: 'Install and connect the wiring, cable, lighting and electrical equipment that powers and controls the site.' },
     { name: 'Ironworkers', icon: 'construction', href: 'https://www.ironworkers.org', union: 'International Association of Ironworkers', description: 'Raise and connect structural steel, and place the steel reinforcing bar that goes inside concrete.' },
-    { name: 'Laborers', icon: 'engineering', href: 'https://www.liuna.org', union: 'Laborers’ International Union of North America', description: 'Prepare and keep up the work site — excavation, concrete placement, traffic control — and support every other trade.' },
+    { name: 'Laborers', icon: 'engineering', href: 'https://www.liuna.org', union: 'Laborers’ International Union of North America', description: 'Prepare and keep up the work site, from excavation and concrete placement to traffic control, and support every other trade.' },
     { name: 'Millwrights', icon: 'settings', href: 'https://www.carpenters.org', union: 'United Brotherhood of Carpenters (millwrights)', description: 'Set, align and maintain heavy machinery to fine tolerances, so equipment that turns runs true.' },
-    { name: 'Operators', icon: 'front_loader', href: 'https://www.iuoe.org', union: 'International Union of Operating Engineers', description: 'Run the heavy equipment — cranes, excavators, dozers and loaders — that moves earth and lifts material into place.' },
+    { name: 'Operators', icon: 'front_loader', href: 'https://www.iuoe.org', union: 'International Union of Operating Engineers', description: 'Run the heavy equipment that moves earth and lifts material into place: cranes, excavators, dozers and loaders.' },
     { name: 'Pipefitters', icon: 'plumbing', href: 'https://ua.org', union: 'United Association (UA)', description: 'Fabricate, install and weld the piping systems that carry gas, water and steam.' },
     { name: 'Teamsters', icon: 'local_shipping', href: 'https://teamster.org', union: 'International Brotherhood of Teamsters', description: 'Drive the trucks that bring materials, equipment and supplies onto the site and move them around it.' },
   ],

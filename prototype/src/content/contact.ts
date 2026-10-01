@@ -17,7 +17,7 @@ import { contacts, site } from './home';
 const access: Provenance = {
   tier: 'unsourced',
   source: 'direction-board',
-  note: 'No supplied document says whether the public may approach the site (CLAUDE.md §10 #11). Add the access policy here — and only then a map or gate photograph.',
+  note: 'No supplied document says whether the public may approach the site (CLAUDE.md §10 #11). Add the access policy here, and only then a map or gate photograph.',
 };
 const response: Provenance = {
   tier: 'unsourced',
@@ -37,7 +37,7 @@ export const contactPage = {
   hero: {
     eyebrow: 'Contact',
     headline: 'Four inboxes, so your question reaches the people who can answer it.',
-    intro: 'Pick the one that fits. Each goes straight to the team responsible — hiring and suppliers to Kiewit, neighbours and reporters to the Homer City team.',
+    intro: 'Pick the one that fits. Each goes straight to the team responsible: hiring and suppliers to Kiewit, neighbours and reporters to the Homer City team.',
   },
   routes: contacts.map((c) => ({ ...c, for: forWhat[c.audience] })),
   response,

@@ -132,7 +132,7 @@ export const alert: Alert = {
   provenance: {
     tier: 'unsourced',
     source: 'direction-board',
-    note: 'Alert text from the direction board. Not in any supplied document — the client publishes real alerts through the CMS.',
+    note: 'Alert text from the direction board. Not in any supplied document; the client publishes real alerts through the CMS.',
   },
 };
 
@@ -146,7 +146,7 @@ export const hero = {
   media: {
     kind: 'Photograph',
     brief:
-      'Aerial of the campus under construction, set in the county’s farmland. Must be a photograph — the deck cover is a rendering and cannot run here unlabelled.',
+      'Aerial of the campus under construction, set in the county’s farmland. Must be a photograph: the deck cover is a rendering and cannot run here unlabelled.',
     alt: 'Aerial view of the Homer City Energy Campus under construction',
   },
 } as const;
@@ -185,7 +185,7 @@ export const stats: Stat[] = [
   { id: 'capital', qualifier: 'Projected', figure: '$10', unit: 'Billion', label: 'Initial capital investment for power infrastructure and site readiness', provenance: factSheet },
   { id: 'construction-jobs', qualifier: 'Anticipated', figure: '10,000+', label: 'Direct on-site construction-related jobs', footnote: 1, provenance: factSheet },
   { id: 'permanent-jobs', qualifier: 'Anticipated', figure: '~1,000', label: 'Total direct & indirect permanent high-paying positions in technology, operations and energy infrastructure', footnote: 2, provenance: factSheet },
-  { id: 'earth', figure: '~3M', unit: 'cubic meters', label: 'Earth moved — roughly the volume required to build Egypt’s Great Pyramid of Giza', provenance: factSheet },
+  { id: 'earth', figure: '~3M', unit: 'cubic meters', label: 'Earth moved, roughly the volume required to build Egypt’s Great Pyramid of Giza', provenance: factSheet },
 ];
 
 // Verbatim from the fact sheet. Not optional (CLAUDE.md §5.2).
@@ -245,7 +245,7 @@ export const pillars: Pillar[] = [
     copy: 'We are investing in Pennsylvania for the long term, operating as a genuine community partner and becoming one of the state’s leading employers.',
     href: 'community.html',
     linkLabel: 'See the community pages',
-    media: { kind: 'Photograph', brief: 'Community open house — residents, not staff', alt: 'Residents at the community open house' },
+    media: { kind: 'Photograph', brief: 'Community open house: residents, not staff', alt: 'Residents at the community open house' },
   },
   {
     id: 'energy-future',
@@ -261,7 +261,7 @@ export const pillars: Pillar[] = [
 export const powerBlock = {
   heading: 'The Power Block',
   intro:
-    'Seven GE Vernova 7HA.02 high-efficiency natural gas turbines sit at the center of the campus. Together they are expected to produce up to 4.4 GW.',
+    'Seven GE Vernova 7HA.02 high-efficiency natural gas turbines sit at the center of the campus, which is expected to produce up to 4.4 GW of energy on site.',
   facilities: [
     { id: 'power-block', name: 'Power Block', detail: '7 × GE Vernova 7HA.02 natural gas turbines', stamp: 'Aerial looking north · April 2026' },
     { id: 'hrsg', name: 'Heat recovery steam generator (HRSG)', detail: 'Unit 5', stamp: 'July 2026' },
@@ -290,7 +290,7 @@ export const history = {
   media: {
     kind: 'Photograph',
     brief: 'After stacks and towers down (IUP deck photo essay)',
-    alt: 'The site after the stacks and cooling towers came down',
+    alt: 'The site after the stacks and towers came down',
     caption: 'After the stacks and towers came down',
     date: 'November 2025',
   },

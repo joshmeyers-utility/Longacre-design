@@ -15,9 +15,9 @@ const said = (id: string) => milestones.find((m) => m.id === id)!.title;
 const notes: Record<string, string> = {
   station: history.body[0],
   inflection: `${said('demolition')}.`,
-  'towers-down': 'The stacks and cooling towers of the former station are gone.',
+  'towers-down': 'The former station’s stacks and towers have come down.',
   // §10 #12: the essay dates this March, the timeline April. Say both.
-  'first-steel': `Photographed in March 2026. The timeline dates the milestone — “${said('first-steel').toLowerCase()}” — to April 2026.`,
+  'first-steel': `Photographed in March 2026. The timeline dates the milestone, “${said('first-steel').toLowerCase()}”, to April 2026.`,
   hrsg: 'One of the heat recovery steam generators (HRSGs), which capture heat from the turbines’ exhaust to make steam for more power.',
 };
 

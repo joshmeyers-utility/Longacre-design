@@ -25,7 +25,7 @@ const release: Provenance = {
 const partnerLink: Provenance = {
   tier: 'confirm',
   source: 'direction-board',
-  note: 'Links go to each company’s main site. Homer City Generation’s points at the current site, which this one replaces — change it once the domain question (§10 #9) is settled. Logos wait on the brand files.',
+  note: 'Links go to each company’s main site. Homer City Generation’s points at the current site, which this one replaces. Change it once the domain question (§10 #9) is settled. Logos wait on the brand files.',
 };
 
 const stat = (id: string) => [...stats, ...workforce.stats].find((s) => s.id === id)! as Stat;
@@ -34,13 +34,13 @@ export const communityHub = {
   hero: {
     eyebrow: 'Community',
     // The Community pillar, verbatim (fact sheet).
-    headline: 'A community partner for the long term.',
+    headline: 'The campus and Indiana County.',
     intro:
       'We are investing in Pennsylvania for the long term, operating as a genuine community partner and becoming one of the state’s leading employers. These pages cover who is building the campus and what it commits to.',
   },
   routes: [
     { id: 'partners', title: 'Campus partners', body: 'The companies building the campus, and what each one does.', href: 'partners.html', stat: { figure: '7 ×', label: 'GE Vernova 7HA.02 natural gas turbines in the Power Block' } },
-    { id: 'commitments', title: 'Our commitments', body: 'Safety, water, economic impact and workforce development — each with its figures and sources.', href: 'commitments.html', stat: { figure: '~95%', label: 'Of the skilled direct-hire craft workforce is from the local area' } },
+    { id: 'commitments', title: 'Our commitments', body: 'Safety, water, economic impact and workforce development, each with its figures and sources.', href: 'commitments.html', stat: { figure: '~95%', label: 'Of the skilled direct-hire craft workforce is from the local area' } },
     { id: 'voices', title: 'Voices', body: 'Neighbours, workers, businesses and officials on the campus, by name.', href: 'voices.html' },
   ],
   // Fact sheet, 2025 timeline.
@@ -103,7 +103,7 @@ export const commitmentsPage = {
       icon: 'health_and_safety',
       stats: [],
       facts: [{ date: 'November 2025', text: 'PA DEP approved Homer City Generation’s air quality plan, authorizing construction and initial operations' }],
-      provenance: { tier: 'unsourced', source: 'site-structure', note: 'The approval is sourced; a health commitment is not. No supplied document states one — and the emissions claims (external-context.md, tier C) are what this area has to answer. Needs the client’s commitment, with a number, date and source.' },
+      provenance: { tier: 'unsourced', source: 'site-structure', note: 'The approval is sourced; a health commitment is not. No supplied document states one, and the emissions claims (external-context.md, tier C) are what this area has to answer. Needs the client’s commitment, with a number, date and source.' },
     },
     {
       id: 'safety',

@@ -32,17 +32,17 @@ color:var(--color-status-warning-text);font:var(--type-label-sm);letter-spacing:
 
 const pages = [
   { id: 'index', title: 'Homer City Energy Campus', description: 'Facts, figures and construction updates from the Homer City Energy Campus in Indiana County, Pennsylvania.' },
-  { id: 'campus', title: 'The Campus — Homer City Energy Campus', description: 'What is being built at the Homer City Energy Campus: the site tour, build photographs, figures and timeline, with sources.' },
-  { id: 'workforce', title: 'Careers — Homer City Energy Campus', description: 'The trades, figures and hiring contact for the Homer City Energy Campus workforce.' },
-  { id: 'contact', title: 'Contact — Homer City Energy Campus', description: 'The four inboxes for the Homer City Energy Campus — job seekers, neighbours, vendors and the media — and where the campus is.' },
-  { id: 'faq', title: 'FAQs — Homer City Energy Campus', description: 'Questions neighbours ask about the Homer City Energy Campus — the project, water, living nearby, jobs, safety and permits — answered with sources.' },
-  { id: 'news', title: 'News — Homer City Energy Campus', description: 'Press releases, media statements and coverage of the Homer City Energy Campus.' },
-  { id: 'news-workforce-1800', title: 'Workforce grows to more than 1,800 — Homer City Energy Campus', description: 'Press release, 4 September 2026: the Homer City Energy Campus workforce grows to more than 1,800 workers.' },
-  { id: 'community', title: 'Community — Homer City Energy Campus', description: 'How the Homer City Energy Campus works with Indiana County: its partners, its commitments and the people who speak for it.' },
-  { id: 'partners', title: 'Campus partners — Homer City Energy Campus', description: 'The companies building the Homer City Energy Campus, and what each one does.' },
-  { id: 'commitments', title: 'Our commitments — Homer City Energy Campus', description: 'Health, safety, water, economic impact, workforce development and giving back at the Homer City Energy Campus, with figures and sources.' },
-  { id: 'voices', title: 'Voices — Homer City Energy Campus', description: 'Neighbours, workers, businesses and officials on the Homer City Energy Campus, by name.' },
-  { id: 'history', title: 'Our history — Homer City Energy Campus', description: 'The Homer City Energy Campus site from the Homer City Generating Station, 1969–2023, to construction today, in dated photographs.' },
+  { id: 'campus', title: 'The Campus | Homer City Energy Campus', description: 'What is being built at the Homer City Energy Campus: the site tour, build photographs, figures and timeline, with sources.' },
+  { id: 'workforce', title: 'Careers | Homer City Energy Campus', description: 'The trades, figures and hiring contact for the Homer City Energy Campus workforce.' },
+  { id: 'contact', title: 'Contact | Homer City Energy Campus', description: 'The four inboxes for the Homer City Energy Campus (job seekers, neighbours, vendors and the media) and where the campus is.' },
+  { id: 'faq', title: 'FAQs | Homer City Energy Campus', description: 'Questions neighbours ask about the Homer City Energy Campus, on the project, water, living nearby, jobs, safety and permits, answered with sources.' },
+  { id: 'news', title: 'News | Homer City Energy Campus', description: 'Press releases, media statements and coverage of the Homer City Energy Campus.' },
+  { id: 'news-workforce-1800', title: 'Workforce grows to more than 1,800 | Homer City Energy Campus', description: 'Press release, 4 September 2026: the Homer City Energy Campus workforce grows to more than 1,800 workers.' },
+  { id: 'community', title: 'Community | Homer City Energy Campus', description: 'How the Homer City Energy Campus works with Indiana County: its partners, its commitments and the people who speak for it.' },
+  { id: 'partners', title: 'Campus partners | Homer City Energy Campus', description: 'The companies building the Homer City Energy Campus, and what each one does.' },
+  { id: 'commitments', title: 'Our commitments | Homer City Energy Campus', description: 'Health, safety, water, economic impact, workforce development and giving back at the Homer City Energy Campus, with figures and sources.' },
+  { id: 'voices', title: 'Voices | Homer City Energy Campus', description: 'Neighbours, workers, businesses and officials on the Homer City Energy Campus, by name.' },
+  { id: 'history', title: 'Our history | Homer City Energy Campus', description: 'The Homer City Energy Campus site from the Homer City Generating Station (1969 to 2023) to construction today, in dated photographs.' },
 ];
 
 // Icons in use across all pages — keep in sync when adding an <Icon name=…>.

@@ -48,7 +48,7 @@ export const notesOn = typeof window !== 'undefined' && new URLSearchParams(wind
  */
 export function Flag({ provenance }: { provenance: Provenance }) {
   if (provenance.tier === 'canonical' || !notesOn) return null;
-  const label = provenance.tier === 'confirm' ? 'Confirm before launch' : 'Not sourced — cannot ship';
+  const label = provenance.tier === 'confirm' ? 'Confirm before launch' : 'Not sourced, cannot ship';
   return (
     <span className={`flag is-${provenance.tier}`} role="note">
       <Icon name={provenance.tier === 'confirm' ? 'fact_check' : 'report'} />

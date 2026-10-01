@@ -479,7 +479,7 @@ export function SiteFooter({ current = 'home' }: { current?: PageId }) {
       </div>
       <div className="container site-footer_base">
         <p className="footnote">© {new Date().getFullYear()} Homer City Generation</p>
-        <p className="footnote">Prototype — reference implementation for the Webflow build. Not the live site.</p>
+        <p className="footnote">Prototype: a reference implementation for the Webflow build. Not the live site.</p>
       </div>
     </footer>
   );

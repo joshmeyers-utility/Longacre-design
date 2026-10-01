@@ -94,6 +94,7 @@ docs/
   04-design-pass.md        Artboards, component library, interaction spec.
   05-variable-library.md   The current token system: decisions, map, verification.
   06-motion-plan.md        Motion + layout plan from the T1 / Joby references. Awaiting decisions (its §6).
+  07-page-checklist.md     Every page: what is built, what each still waits on. Keep it current.
 design-system/
   tokens.json              Design tokens, W3C format. Exported from Figma — don't hand-edit.
   tokens.css               Same tokens as CSS custom properties. Powers prototype/.
