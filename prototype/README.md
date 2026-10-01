@@ -169,8 +169,8 @@ split, media frame and footer classes. Two new components:
   with ink from the arrow well outward (one scaled circle, `trade-tile_wash`,
   so it never fades through grey), turns the text as the ink reaches it,
   inverts the well, turns the + into an outward arrow, then raises the
-  description — 800ms, on the new `motion/duration/slower` token. Leaving,
-  the text turns back first and the ink pulls back over 500ms, so nothing
+  description — 1s, on the new `motion/duration/slower` token. Leaving,
+  the text turns back first and the ink pulls back over 600ms, so nothing
   lingers on the white tile. On
   touch the description and arrow show from the start. The description
   always holds its space, so the tile never resizes. The links go to each
@@ -257,13 +257,16 @@ changes. A bright or white-sky photo will fail.
 
 ## Before this goes to Webflow
 
-- **New tokens, not yet in Figma:** `radius/nav` (16, both modes), for
-  the desktop menu bar and panel; `size/80` (primitive), now aliased by
-  `size/media/thumb` in both modes (the news-card image, 100 → 80px); and
-  `motion/duration/800` (primitive) with `motion/duration/slower` aliasing
-  it (500 on Mobile, 1ms under reduced motion), for the trade tiles. Both
-  are in `design-system/tokens.*`; add them to Figma file `K7Mb6…` so the
-  export matches.
+- **Token changes, not yet in Figma** (all in `design-system/tokens.*`; mirror
+  them in file `K7Mb6…` so the export matches):
+
+  | Token | Change |
+  | --- | --- |
+  | `radius/nav` | New, 16 in both modes: the desktop menu bar and panel |
+  | `size/80` | New primitive; `size/media/thumb` now aliases it (100 → 80) |
+  | `font/size/88` | New primitive; `type/display/size` desktop 128 → 88 (mobile stays 64) |
+  | `motion/duration/250`, `400`, `600`, `1000` | New primitives |
+  | `motion/duration/*` | Desktop: fast 100 → 150, base 200 → 250, slow 500 → 600, slower 1000 (new). Mobile: fast 150, base 250, slow 300 → 400, slower 600. 1ms under reduced motion, as before |
 
 - **The icon font is 5.4 MB.** Fine locally; unacceptable for a rural,
   mobile-first audience. In Webflow, load Material Symbols Rounded from Google
@@ -282,9 +285,9 @@ changes. A bright or white-sky photo will fail.
 
   | Effect | Trigger | Targets |
   | --- | --- | --- |
-  | Page fades up from ink in 300ms, then hero copy rises in and news cards slide in (under 1s in all) | Page load | `body` (`#root` here), `hero_copy` children, `news-card` |
-  | Cross-fade between pages, 250ms | Native view transition — `@view-transition` in site-wide head code | root |
-  | Fade and rise into place with an 80ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `faq-row`, `split_media`, footer columns |
+  | Page fades up from ink in 400ms, then hero copy rises in and news cards slide in (about 1.6s in all) | Page load | `body` (`#root` here), `hero_copy` children, `news-card` |
+  | Cross-fade between pages, 300ms | Native view transition — `@view-transition` in site-wide head code | root |
+  | Fade and rise into place (750ms fade, 1s rise) with a 100ms sibling stagger | Scroll into view | `section-head`, `stat`, `trades_item`, `facility`, `milestone`, `faq-row`, `split_media`, footer columns |
   | Rail fills top to bottom | While scrolling in view | `timeline_list` progress segment |
   | Pillars open in turn as the pinned stage scrolls, each over a quarter of its travel; the photo cross-fades | While scrolling in view (section `pillars`, sticky `pillars_stage`) | `pillar_panel`, `pillars_frame` |
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |

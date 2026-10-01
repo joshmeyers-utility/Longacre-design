@@ -210,15 +210,20 @@
   --font-size-44: 44px;
   --font-size-56: 56px;
   --font-size-64: 64px;
+  --font-size-88: 88px;
   --font-size-96: 96px;
   --font-size-128: 128px;
   /* motion/duration */
   --motion-duration-100: 100ms;
   --motion-duration-150: 150ms;
   --motion-duration-200: 200ms;
+  --motion-duration-250: 250ms;
   --motion-duration-300: 300ms;
+  --motion-duration-400: 400ms;
   --motion-duration-500: 500ms;
+  --motion-duration-600: 600ms;
   --motion-duration-800: 800ms;
+  --motion-duration-1000: 1000ms;
   /* size/1 */
   --size-1: 1px;
 
@@ -307,11 +312,11 @@
   --radius-nav: var(--radius-16);
   --border-width-divider: var(--border-width-1);
   --border-width-focus: var(--border-width-2);
-  --motion-duration-fast: var(--motion-duration-100);
-  --motion-duration-base: var(--motion-duration-200);
-  --motion-duration-slow: var(--motion-duration-500);
-  --motion-duration-slower: var(--motion-duration-800);
-  --type-display-size: var(--font-size-96);
+  --motion-duration-fast: var(--motion-duration-150);
+  --motion-duration-base: var(--motion-duration-250);
+  --motion-duration-slow: var(--motion-duration-600);
+  --motion-duration-slower: var(--motion-duration-1000);
+  --type-display-size: var(--font-size-88);
   --type-display-weight: var(--font-weight-light);
   --type-heading-xl-size: var(--font-size-64);
   --type-heading-xl-weight: var(--font-weight-regular);
@@ -439,8 +444,8 @@
     --radius-media-sm: var(--radius-16);
     --radius-media-lg: var(--radius-32);
     --radius-section: var(--radius-0);
-    --motion-duration-slow: var(--motion-duration-300);
-    --motion-duration-slower: var(--motion-duration-500);
+    --motion-duration-slow: var(--motion-duration-400);
+    --motion-duration-slower: var(--motion-duration-600);
     --type-display-size: var(--font-size-64);
     --type-heading-xl-size: var(--font-size-40);
     --type-heading-lg-size: var(--font-size-32);

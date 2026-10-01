@@ -708,7 +708,7 @@ a.nav-menu_link:focus-visible,
 }
 .nav-menu.is-open .nav-menu_column,
 .nav-menu.is-open .nav-menu_ctas {
-  transition-delay: 60ms;
+  transition-delay: 80ms;
 }
 
 /* Wide pill with the label left and an arrow right — menu and mobile menu. */
@@ -1107,7 +1107,7 @@ a.nav-menu_link:focus-visible,
   transform: scale(1.02);
   transition:
     opacity var(--motion-duration-slow) var(--ease-out),
-    transform 900ms var(--ease-out);
+    transform 1100ms var(--ease-out);
 }
 .pillars_frame.is-active {
   opacity: 1;
@@ -1171,7 +1171,7 @@ a.nav-menu_link:focus-visible,
 .pillar.is-open .pillar_panel {
   opacity: 1;
   transform: none;
-  transition-delay: 120ms;
+  transition-delay: 150ms;
 }
 /* Padding lives inside the clipped area so a shut panel is truly 0 tall. */
 .pillar_panel > :first-child {
@@ -1235,7 +1235,7 @@ a.nav-menu_link:focus-visible,
 .faq-row.is-open .faq-row_answer {
   opacity: 1;
   transform: none;
-  transition-delay: 120ms;
+  transition-delay: 150ms;
 }
 /* Bottom space inside the clipped area, so a shut row is truly 0 tall. */
 .faq-row_answer > :last-child {
@@ -1616,7 +1616,7 @@ a.nav-menu_link:focus-visible,
  * arrow, then the description rises in. */
 .trade-tile_link:focus-visible {
   color: var(--color-text-inverse);
-  transition: color var(--motion-duration-slow) var(--ease-out) 120ms;
+  transition: color var(--motion-duration-slow) var(--ease-out) 150ms;
 }
 .trade-tile_link:focus-visible .trade-tile_wash {
   transform: translate(-50%, -50%) scale(1);
@@ -1638,8 +1638,8 @@ a.nav-menu_link:focus-visible,
   opacity: 1;
   transform: none;
   transition:
-    opacity var(--motion-duration-slower) var(--ease-out) 200ms,
-    transform var(--motion-duration-slower) var(--ease-out) 200ms;
+    opacity var(--motion-duration-slower) var(--ease-out) 250ms,
+    transform var(--motion-duration-slower) var(--ease-out) 250ms;
 }
 .trade-tile_link:focus-visible .trade-tile_desc {
   color: var(--color-text-inverse);
@@ -1647,7 +1647,7 @@ a.nav-menu_link:focus-visible,
 @media (hover: hover) and (pointer: fine) {
   .trade-tile_link:hover {
     color: var(--color-text-inverse);
-    transition: color var(--motion-duration-slow) var(--ease-out) 120ms;
+    transition: color var(--motion-duration-slow) var(--ease-out) 150ms;
   }
   .trade-tile_link:hover .trade-tile_wash {
     transform: translate(-50%, -50%) scale(1);
@@ -1669,8 +1669,8 @@ a.nav-menu_link:focus-visible,
     opacity: 1;
     transform: none;
     transition:
-      opacity var(--motion-duration-slower) var(--ease-out) 200ms,
-      transform var(--motion-duration-slower) var(--ease-out) 200ms;
+      opacity var(--motion-duration-slower) var(--ease-out) 250ms,
+      transform var(--motion-duration-slower) var(--ease-out) 250ms;
   }
 }
 
@@ -1951,9 +1951,9 @@ a.nav-menu_link:focus-visible,
   }
 }
 
-/* Page load: the page fades up in 300ms, then the hero appears in order —
- * headline, intro, button, then the news cards. Whole sequence is under a
- * second. Webflow: a Page Load interaction (page fade + the same stagger);
+/* Page load: the page fades up in 400ms, then the hero appears in order:
+ * headline, intro, button, then the news cards. Whole sequence settles in
+ * about 1.6s. Webflow: a Page Load interaction (page fade + the same stagger);
  * CSS-only here, so nothing waits on JavaScript. */
 @keyframes page-in {
   from {
@@ -1963,28 +1963,28 @@ a.nav-menu_link:focus-visible,
 /* #root is where React draws; in Webflow, where the markup is already in
  * the page at load, put this on the body. */
 #root {
-  animation: page-in 300ms var(--ease-out) backwards;
+  animation: page-in 400ms var(--ease-out) backwards;
 }
 .hero_copy > * {
-  animation: rise 700ms var(--ease-out) backwards;
-  animation-delay: 150ms;
+  animation: rise 900ms var(--ease-out) backwards;
+  animation-delay: 200ms;
 }
 .hero_copy > :nth-child(2) {
-  animation-delay: 250ms;
+  animation-delay: 300ms;
 }
 .hero_copy > :nth-child(3) {
-  animation-delay: 350ms;
-}
-.news-card {
-  animation: enter-side 700ms var(--ease-out) backwards;
   animation-delay: 450ms;
 }
-.news-card + .news-card {
+.news-card {
+  animation: enter-side 900ms var(--ease-out) backwards;
   animation-delay: 550ms;
+}
+.news-card + .news-card {
+  animation-delay: 700ms;
 }
 
 /* Between pages (once there is more than one): the old page fades out and
- * the new one fades in, 250ms, same curve. Native cross-document view
+ * the new one fades in, 300ms, same curve. Native cross-document view
  * transitions — in Webflow, paste into the site-wide <head> custom code.
  * Browsers without support simply load the page with its own fade above. */
 @view-transition {
@@ -1992,7 +1992,7 @@ a.nav-menu_link:focus-visible,
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 250ms;
+  animation-duration: 300ms;
   animation-timing-function: var(--ease-out);
 }
 
@@ -2017,9 +2017,9 @@ a.nav-menu_link:focus-visible,
 .apply,
 .site-footer_grid > * {
   transition:
-    opacity 600ms var(--ease-out),
-    transform 800ms var(--ease-out);
-  transition-delay: calc(var(--reveal-order, 0) * 80ms);
+    opacity 750ms var(--ease-out),
+    transform 1000ms var(--ease-out);
+  transition-delay: calc(var(--reveal-order, 0) * 100ms);
 }
 
 
