@@ -502,35 +502,37 @@ html {
 }
 
 /* ------------------------------------------------------ mega menu
- * T1, copied: one dark shape. Row 1 is the bar — the logo, then five
- * headings spread with equal space between them (space-between), each
- * track as wide as its heading. Open, the panel drops behind the bar and
- * runs down from its top edge, so bar and panel read as one surface with
- * the bar sitting on it. Row 2 holds each heading's pages in its own
- * column, the first letter of every page under the first letter of its
- * heading (column padding = heading padding). The logo's column and
- * Contact's stay empty below. Row 3 is the two wide pills. The nav is
- * only as tall as the bar, so the open panel hangs over the page instead
- * of pushing it down.
+ * T1's bar at T1's size: a 44px pill-ish bar (radius/nav), centred, only
+ * as wide as what it holds — the round mark and five headings, 24px apart.
+ * Open, the solid ink panel drops behind the bar from its top edge at
+ * exactly the bar's width, so bar and panel read as one shape. Row 2 holds
+ * each heading's pages in its own column (each track as wide as the wider
+ * of its heading and its pages, so nothing overlaps); row 3 is the two
+ * pills. The nav is only as tall as the bar, so the open panel hangs over
+ * the page instead of pushing it down.
  *
+ * Frosted over a photograph (glass, as T1); solid ink over a plain ground,
+ * where glass would read as grey; raised grey once docked or open.
  * Text is grey at rest and turns full white on hover, on the open heading
- * and its column, and for the page you are on. Pages not built yet stay
- * grey with a "Soon" note and are not links. */
+ * and its column, and for the page you are on. */
 .nav-menu {
   display: none;
   position: relative;
   z-index: 3;
-  height: calc(var(--size-control-lg) + var(--space-padding-nav) * 2);
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  height: calc(var(--size-control-sm) + var(--space-padding-nav) * 2);
 }
 .nav-menu_grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, max-content);
-  grid-template-rows: var(--size-control-lg) auto auto;
-  justify-content: space-between;
-  column-gap: var(--space-gap-xs);
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: var(--size-control-sm) auto auto;
+  column-gap: var(--space-gap-lg);
   align-items: center;
-  padding: var(--space-padding-nav);
+  /* T1's end padding at this size: 16px either side. */
+  padding: var(--space-padding-nav) var(--space-gap-md);
 }
 .nav-menu_group {
   display: contents;
@@ -544,17 +546,19 @@ html {
 .nav-menu_panel {
   grid-column: 1 / -1;
   align-self: stretch;
-  margin: calc(var(--space-padding-nav) * -1);
-  /* T1's corner: rounder than a card at this height, not a full pill. */
-  border-radius: var(--radius-media-sm);
+  margin: calc(var(--space-padding-nav) * -1) calc(var(--space-gap-md) * -1);
+  border-radius: var(--radius-nav);
 }
 .nav-menu_bar {
   grid-row: 1;
-  margin-bottom: 0;
-  background: var(--color-scrim-strong);
-  -webkit-backdrop-filter: blur(200px);
-  backdrop-filter: blur(200px);
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
   transition: background-color var(--motion-duration-base) var(--ease-out);
+}
+/* No photograph behind it: glass would read as grey, so solid ink. */
+.site-header.is-on-plain .nav-menu_bar {
+  background: var(--color-scrim-strong);
 }
 /* Docked, the bar may sit over an ink section; open, it sits on the
  * panel's ink. Raised grey stands off ink and white alike. */
@@ -563,8 +567,7 @@ html {
 .nav-menu.is-open .nav-menu_bar {
   background: var(--color-bg-raised);
 }
-/* Solid, as T1's: see-through ink lets a white page's text show through.
- * It starts at the bar's top edge, under the bar. */
+/* Solid, as T1's. It starts at the bar's top edge, under the bar. */
 .nav-menu_panel {
   grid-row: 1 / 4;
   background: var(--color-bg-canvas);
@@ -573,13 +576,12 @@ html {
   position: relative;
   grid-row: 1;
   grid-column: 1;
-  /* Right margin = a heading's side padding, so logo → first heading
-   * matches the gap between headings. */
-  margin: 0 var(--space-padding-control-x) 0 var(--space-gap-sm);
 }
-/* The round mark only until 1440, where the bar has room for the lockup. */
+/* The round mark only: the bar's height is set by the headings, not the
+ * lockup. Half the bar's height, as T1's logo. */
 .nav-menu_logo .site-header_logo-image {
-  width: var(--size-control-sm);
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
   object-fit: cover;
   object-position: left center;
 }
@@ -589,12 +591,12 @@ html {
   justify-self: start;
   display: inline-flex;
   align-items: center;
-  height: var(--size-control-md);
-  padding: 0 var(--space-padding-control-x);
+  height: var(--size-control-sm);
+  padding: 0;
   border-radius: var(--radius-control);
   color: var(--color-text-secondary);
-  font: var(--type-label-lg);
-  letter-spacing: var(--type-label-lg-tracking);
+  font: var(--type-label-md);
+  letter-spacing: var(--type-label-md-tracking);
   white-space: nowrap;
   text-decoration: none;
   transition: color var(--motion-duration-base) var(--ease-out);
@@ -604,30 +606,23 @@ html {
 .nav-menu_trigger.is-current {
   color: var(--color-text-primary);
 }
-/* No width of its own (its pages overflow it), so a page wider than its
- * heading never widens that heading's track or unevens the bar's spacing. */
 .nav-menu_column {
   position: relative;
   grid-row: 2;
-  width: 0;
-  min-width: 0;
   align-self: start;
   display: flex;
   flex-direction: column;
-  gap: var(--space-gap-sm);
-  padding: var(--space-gap-xl) var(--space-padding-control-x) calc(var(--space-gap-xl) * 2);
+  padding: var(--space-gap-md) 0 var(--space-gap-xl);
 }
 .nav-menu_link {
   display: flex;
-  /* Its own width, not the zero-width column's: a real hit box and a real
-   * focus ring. */
   width: max-content;
   align-items: baseline;
   gap: var(--space-gap-xs);
   padding: var(--space-gap-xs) 0;
   color: var(--color-text-secondary);
-  font: var(--type-label-lg);
-  letter-spacing: var(--type-label-lg-tracking);
+  font: var(--type-label-md);
+  letter-spacing: var(--type-label-md-tracking);
   white-space: nowrap;
   text-decoration: none;
   transition: color var(--motion-duration-base) var(--ease-out);
@@ -656,7 +651,15 @@ a.nav-menu_link:focus-visible,
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-gap-xs);
-  padding: 0 var(--space-gap-md) var(--space-gap-md);
+  /* 16px from the panel's bottom edge, as from its sides. */
+  padding-bottom: var(--space-gap-sm);
+}
+/* T1's pills, at the bar's scale. */
+.nav-menu_cta.is-compact {
+  min-height: var(--size-control-sm);
+  padding: 0 var(--space-padding-control-x);
+  font: var(--type-label-md);
+  letter-spacing: var(--type-label-md-tracking);
 }
 /* Panel, columns and pills: hidden until open. The panel fades; columns
  * and pills fade down into place a beat after it. */
@@ -1874,21 +1877,10 @@ a.nav-menu_link:focus-visible,
     gap: 0;
   }
 }
-/* 1200: headings and pages step up to T1's size. */
-@media (min-width: 1200px) {
-  .nav-menu_trigger,
-  .nav-menu_link {
-    font: var(--type-heading-xs);
-    letter-spacing: var(--type-heading-xs-tracking);
-  }
-}
+
 
 /* ===================================================== ≥ 1440px */
 @media (min-width: 1440px) {
-  /* Room for the full lockup in the bar. */
-  .nav-menu_logo .site-header_logo-image {
-    width: auto;
-  }
   .hero_body {
     flex-direction: row;
     align-items: flex-end;

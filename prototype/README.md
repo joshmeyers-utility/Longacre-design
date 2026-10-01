@@ -59,10 +59,18 @@ offline.
 
 ## Header and menu
 
-One ink bar with the logo inside it (T1), on every ground: photo, white or
-ink. At rest it sits at the top of the hero; scrolled past, it docks to the
-top of the window and stays there, switching to raised grey so it stands off
-ink sections too. A slot keeps its resting height, so docking never moves
+T1's bar at T1's size: 44px tall, 16px corners (`radius/nav`), centred and
+only as wide as what it holds — the round logo mark and five headings, 24px
+apart, with 16px at each end (568px at every desktop width). Text is
+`label-md`, 15px regular. Frosted (`bg/glass`, blur) over a photograph;
+solid ink over a plain ground (`SiteHeader ground="plain"`, set by the light
+page hero), where glass would read as grey; raised grey once docked or open.
+Grey text on the frosted bar is checked against the pixels painted behind it
+(at least 5.09:1 at 1024–2560 on the homepage and Careers): re-run that
+sample whenever a hero photo changes.
+
+At rest the bar sits at the top of the hero; scrolled past, it docks to the
+top of the window. A slot keeps its resting height, so docking never moves
 the page, and anchor jumps stop below it (`scroll-padding-top`). Webflow:
 Interactions 2.0 "page scrolled" adds `is-docked` to `site-header`.
 
@@ -74,7 +82,7 @@ every page in the prototype has a home in it:
 | --- | --- |
 | The campus | Overview (`campus.html`) |
 | Who we are | Our history (`history.html`), Careers (`workforce.html`) |
-| Community | Overview (`community.html`), Campus partners, Our commitments, Voices |
+| Community | Overview (`community.html`), Partners, Commitments, Voices |
 | Resources | FAQs (`faq.html`), News (`news.html`, and its item pages) |
 | Contact | — a page of its own (`contact.html`); its column stays empty |
 
@@ -83,20 +91,19 @@ no `href` in `content/home.ts` shows grey with a small "Soon", is not a link
 and is skipped by Tab; none is left, but the state stays for the next page
 the sitemap adds.
 
-**Layout (from 1024px).** T1's, copied: one dark shape. The bar is 60px
-with 24px corners; open, the solid ink panel drops behind it from its top
-edge, so bar and panel read as one surface with the (raised grey) bar
-sitting on it. Bar and panel share one grid: row 1 is the logo and the
-five headings, spread with the same gap between every pair
-(`justify-content: space-between`, the logo offset by a heading's side
-padding so the ends match). Row 2 holds each heading's pages in its own
-column, the first letter of each page under the first letter of its
-heading. Columns have no width of their own, so a long page name never
-pushes the headings apart. Row 3 is T1's two wide pills: Get in touch
-(light, to Contact) and Careers (dark).
+**Layout (from 1024px).** One dark shape: open, the solid ink panel drops
+behind the bar from its top edge at exactly the bar's width. Bar and panel
+share one grid. Row 1 is the mark and the headings, 24px apart; row 2 holds
+each heading's pages in its own column, the first letter of each page under
+the first letter of its heading. Each track is as wide as the wider of its
+heading and its pages, so nothing overlaps — which is why the gap after
+Community is 41px, not 24: "Commitments" is wider than "Community". The
+menu labels are short for the same reason ("Partners", "Commitments"; the
+pages keep their full titles). Row 3 is T1's two pills, Get in touch and
+Careers, at the bar's scale (36px).
 
-**Type and state.** Headings and pages share one size (`label-lg`, then
-`heading-xs` from 1200 — T1's scale). Everything is grey at rest and turns full white on hover, for
+**Type and state.** Headings and pages share one size, `label-md`, at
+every desktop width. Everything is grey at rest and turns full white on hover, for
 the open heading and its column, and for the page you are on.
 
 - **Mouse:** hover opens it; moving off closes it after 200ms.
@@ -247,7 +254,8 @@ changes. A bright or white-sky photo will fail.
 
 ## Before this goes to Webflow
 
-- **New tokens, not yet in Figma:** `size/80` (primitive), now aliased by
+- **New tokens, not yet in Figma:** `radius/nav` (16, both modes), for
+  the desktop menu bar and panel; `size/80` (primitive), now aliased by
   `size/media/thumb` in both modes (the news-card image, 100 → 80px); and
   `motion/duration/800` (primitive) with `motion/duration/slower` aliasing
   it (500 on Mobile, 1ms under reduced motion), for the trade tiles. Both

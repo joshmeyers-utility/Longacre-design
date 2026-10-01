@@ -304,6 +304,7 @@
   --radius-media-sm: var(--radius-24);
   --radius-media-lg: var(--radius-64);
   --radius-section: var(--radius-16);
+  --radius-nav: var(--radius-16);
   --border-width-divider: var(--border-width-1);
   --border-width-focus: var(--border-width-2);
   --motion-duration-fast: var(--motion-duration-100);

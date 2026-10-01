@@ -77,8 +77,8 @@ export const navMenu: NavGroup[] = [
     label: 'Community',
     links: [
       { label: 'Overview', href: 'community.html', page: 'community' },
-      { label: 'Campus partners', href: 'partners.html', page: 'partners' },
-      { label: 'Our commitments', href: 'commitments.html', page: 'commitments' },
+      { label: 'Partners', href: 'partners.html', page: 'partners' },
+      { label: 'Commitments', href: 'commitments.html', page: 'commitments' },
       { label: 'Voices', href: 'voices.html', page: 'voices' },
     ],
   },

@@ -15,7 +15,7 @@ export function PageHero({ current, eyebrow, headline, intro, media, tone = 'dar
   if (tone === 'light') {
     return (
       <section className="hero is-page is-light" aria-labelledby="hero-title">
-        <SiteHeader current={current} />
+        <SiteHeader current={current} ground="plain" />
         <div className="hero_body">
           <div className="hero_copy">
             <p className="eyebrow">{eyebrow}</p>

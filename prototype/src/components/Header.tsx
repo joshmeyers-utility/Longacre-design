@@ -189,7 +189,7 @@ function MegaMenu({ current }: { current: PageId }) {
         })}
         <div className="nav-menu_ctas" inert={!open}>
           {navMenuCtas.map((c) => (
-            <a className={`nav-menu_cta is-${c.tone}`} href={pageHref(c.href, current)} key={c.label} onClick={() => setOpen(false)}>
+            <a className={`nav-menu_cta is-compact is-${c.tone}`} href={pageHref(c.href, current)} key={c.label} onClick={() => setOpen(false)}>
               {c.label}
               <Icon name="arrow_forward" />
             </a>
@@ -231,13 +231,14 @@ function NavEntry({ link, current, className, onPick, children }: { link: NavLin
 }
 
 /**
- * Header: one ink bar with the logo inside it (T1), on every ground. At rest
+ * Header: one dark bar with the logo inside it (T1), on every ground —
+ * frosted over a photograph, solid over a plain ground (`ground`). At rest
  * it sits at the top of the hero; once the page scrolls past it, it docks
  * to the top of the window and stays there. The slot keeps the header's
  * resting height, so docking never shifts the page. From 1024px the bar is
  * the mega menu; below that it holds the logo and the menu button.
  */
-export function SiteHeader({ current = 'home' }: { current?: PageId }) {
+export function SiteHeader({ current = 'home', ground = 'photo' }: { current?: PageId; ground?: 'photo' | 'plain' }) {
   const [open, setOpen] = useState(false);
   const [docked, setDocked] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -291,7 +292,7 @@ export function SiteHeader({ current = 'home' }: { current?: PageId }) {
 
   return (
     <div className="site-header_slot" ref={slot}>
-      <header ref={header} className={`site-header${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}`}>
+      <header ref={header} className={`site-header${ground === 'plain' ? ' is-on-plain' : ''}${open ? ' is-menu-open' : ''}${docked ? ' is-docked' : ''}`}>
         <MegaMenu current={current} />
         <div className="site-header_bar theme-dark">
           <Logo current={current} className="site-header_bar-logo" />
