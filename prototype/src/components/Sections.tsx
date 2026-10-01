@@ -74,14 +74,17 @@ export function Hero() {
 
 /* ------------------------------------------------------ By the numbers */
 
-/** `unit="md"`: a smaller unit, so figure and unit share one line in a three-column grid. */
-export function StatBlock({ stat, size = 'display', unit = 'lg', flag = true }: { stat: Stat; size?: 'display' | 'large'; unit?: 'lg' | 'md'; flag?: boolean }) {
+/**
+ * `unit="md"`: a smaller unit. `third`: the figure sits in a three-column
+ * grid, so it scales with a tablet window and its unit drops under it there.
+ */
+export function StatBlock({ stat, size = 'display', unit = 'lg', third = false, flag = true }: { stat: Stat; size?: 'display' | 'large'; unit?: 'lg' | 'md'; third?: boolean; flag?: boolean }) {
   return (
     <div className="stat">
       <p className="eyebrow stat_qualifier">{stat.qualifier ?? ' '}</p>
-      <p className={`stat_figure is-${size}`}>
+      <p className={`stat_figure is-${size}${third ? ' is-third' : ''}`}>
         {stat.figure}
-        {stat.unit && <span className={`stat_unit${unit === 'md' ? ' is-md' : ''}`}> {stat.unit}</span>}
+        {stat.unit && <span className={`stat_unit${unit === 'md' ? ' is-md' : ''}${third ? ' is-third' : ''}`}> {stat.unit}</span>}
       </p>
       <p className="label-sm stat_label">{stat.label}</p>
       {stat.asOf && (
@@ -104,7 +107,7 @@ export function Numbers() {
         </h2>
         <div className="numbers_grid is-three">
           {stats.map((s) => (
-            <StatBlock unit="md" stat={s} key={s.id} />
+            <StatBlock unit="md" third stat={s} key={s.id} />
           ))}
         </div>
       </div>

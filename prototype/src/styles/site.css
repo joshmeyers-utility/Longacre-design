@@ -2724,15 +2724,28 @@ a.news-row:hover .news-row_arrow {
   }
 }
 
-/* Six figures (or three) sit three across from 1280, where a third of the
- * row holds "3,200+ acres" on one line. Four stay two by two, so no
- * figure is left alone on a row. */
+/* Six figures (or three) sit three across from 768 and stack below it.
+ * Four stay two by two, so no figure is left alone on a row. */
 .stat_unit.is-md {
   font: var(--type-heading-md);
   letter-spacing: var(--type-heading-md-tracking);
 }
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .numbers_grid.is-three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* A third of a tablet is narrow: the figures scale with the window
+   * until they reach full size (about 1100px). One clamp(), expressible
+   * in Webflow. */
+  .stat_figure.is-third {
+    font-size: clamp(var(--type-heading-lg-size), 6.5vw, var(--type-display-size));
+  }
+}
+/* Too narrow for "~3M cubic meters" on one line: every unit takes its own
+ * line under its figure, the same for all six, until 1280. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .stat_unit.is-third {
+    display: block;
+    margin-left: 0;
   }
 }
