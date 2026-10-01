@@ -43,9 +43,9 @@ export function NewsItemPage() {
           <h2 className="heading-sm numbers_title" id="release-numbers">
             The figures in this release
           </h2>
-          <div className="numbers_grid">
+          <div className="numbers_grid is-four">
             {workforce.stats.map((s) => (
-              <StatBlock stat={s} key={s.id} />
+              <StatBlock cols={4} stat={s} key={s.id} />
             ))}
           </div>
         </div>

@@ -2724,8 +2724,7 @@ a.news-row:hover .news-row_arrow {
   }
 }
 
-/* Six figures (or three) sit three across from 768 and stack below it.
- * Four stay two by two, so no figure is left alone on a row. */
+/* Six figures (or three) sit three across from 768 and stack below it. */
 .stat_unit.is-md {
   font: var(--type-heading-md);
   letter-spacing: var(--type-heading-md-tracking);
@@ -2745,6 +2744,25 @@ a.news-row:hover .news-row_arrow {
  * line under its figure, the same for all six, until 1280. */
 @media (min-width: 768px) and (max-width: 1279px) {
   .stat_unit.is-third {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+/* Four figures sit four across from 1024 (two by two below). They scale
+ * with the window until full size (about 1310px); a quarter is too narrow
+ * for "~3M cubic meters" on one line until 1680, so units take their own
+ * line under the figure until then. */
+@media (min-width: 1024px) {
+  .numbers_grid.is-four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .stat_figure.is-quarter {
+    font-size: clamp(var(--type-heading-lg-size), 5.5vw, var(--type-display-size));
+  }
+}
+@media (min-width: 1024px) and (max-width: 1679px) {
+  .stat_unit.is-quarter {
     display: block;
     margin-left: 0;
   }

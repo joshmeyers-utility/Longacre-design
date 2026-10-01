@@ -56,9 +56,9 @@ function CampusNumbers() {
         <h2 className="heading-sm numbers_title" id="numbers-title">
           The campus at a glance
         </h2>
-        <div className="numbers_grid">
+        <div className="numbers_grid is-four">
           {page.stats.map((s) => (
-            <StatBlock unit="md" stat={s} key={s.id} />
+            <StatBlock unit="md" cols={4} stat={s} key={s.id} />
           ))}
         </div>
       </div>

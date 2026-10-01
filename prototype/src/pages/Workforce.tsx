@@ -61,9 +61,9 @@ function WorkforceNumbers() {
         <h2 className="heading-sm numbers_title" id="numbers-title">
           Who is on site
         </h2>
-        <div className="numbers_grid">
+        <div className="numbers_grid is-four">
           {page.stats.map((s) => (
-            <StatBlock stat={s} flag={false} key={s.id} />
+            <StatBlock cols={4} stat={s} flag={false} key={s.id} />
           ))}
         </div>
         {/* All four share one source, so they share one flag. */}
