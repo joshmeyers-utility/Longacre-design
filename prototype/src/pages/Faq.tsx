@@ -47,10 +47,16 @@ function Questions() {
   const [category, setCategory] = useState('all');
   const [open, setOpen] = useState<Set<string>>(() => new Set());
 
-  // An address like #water opens that question and scrolls to it.
+  // An address like #water opens that question, on load and whenever the
+  // address changes while the page is open (a link to another question).
   useEffect(() => {
-    const id = decodeURIComponent(location.hash.slice(1));
-    if (id && categories.some((c) => c.items.some((f) => f.id === id))) setOpen(new Set([id]));
+    const openFromHash = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      if (id && categories.some((c) => c.items.some((f) => f.id === id))) setOpen((prev) => new Set(prev).add(id));
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+    return () => window.removeEventListener('hashchange', openFromHash);
   }, []);
 
   const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);

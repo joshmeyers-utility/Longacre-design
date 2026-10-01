@@ -7,7 +7,7 @@ Tick a box when it lands; keep this file current with the prototype.
 ⬜ not started. Numbers like §10 #14 point to the open questions in
 `CLAUDE.md`.
 
-Last updated: 1 October 2026.
+Last updated: 1 October 2026 (QA pass below).
 
 ---
 
@@ -144,3 +144,38 @@ because each still waits on something only the client can supply.
 - [ ] A response time, if the team can keep one
 - [ ] A community liaison or hotline, if one exists
 - [ ] Site access policy, then a map and gate photograph (§10 #11)
+
+---
+
+## QA pass, 1 October 2026
+
+Automated sweep of all 12 pages at 375 and 1440px, plus interaction tests.
+
+| Check | Result |
+| --- | --- |
+| axe (WCAG 2.2 AA + best practice) | 0 violations, every page, both widths |
+| Console errors, failed requests | None |
+| Broken page links, broken `#anchor` links | None |
+| One `h1` per page, no skipped heading levels | Pass |
+| Unnamed buttons or links | None |
+| Images: width and height set; lazy below the fold | Pass |
+| Sideways scroll, 13 widths from 320 to 1920 | None |
+| Stat figures fit their columns, units on the figure's line | Pass, 12 widths |
+| No dashes, no "coal", no 4.5 GW | Pass |
+| 10,000+ and ~1,000 always with their footnote; 1,800+ always dated | Pass |
+| Skip link, `main`, alert and footer on every page | Pass |
+| Visible focus ring, first 40 tab stops on Home | Pass |
+| Mega menu: hover, keyboard, Escape, touch, current page | Pass |
+| Phone menu opens and closes on all 12 pages | Pass |
+| Alert dismissal remembered across pages | Pass |
+| FAQ search, filters, open rows, deep links | Pass (deep links fixed: a link to another question on the same page now opens it) |
+| Contact copy buttons, News to item and back, essay arrows, trade tiles, growth table, Voices filter | Pass |
+| Reduced motion collapses every duration | Pass |
+| Same gutter (64 / 16px), section spacing and headline sizes across pages | Pass |
+
+**Flagged, not changed (content decisions):**
+
+- The photo essay's 12 stages appear on both The campus and Our history.
+- The milestone timeline appears on Home, The campus and Our history.
+- Every photograph is the same stand-in until the library arrives (§10 #4).
+
