@@ -6,7 +6,6 @@
  * about the station's past — no supplied document tells its story, so the
  * page lets the photographs do it.
  */
-import type { Media } from './types';
 import { campusPage } from './campus';
 import { history, milestones } from './home';
 
@@ -27,11 +26,6 @@ export const historyPage = {
     eyebrow: 'Our history',
     headline: 'The same ground, from 1969 to today.',
     intro: 'The Homer City Generating Station produced power here from 1969 to 2023. These dated photographs show the site since, stage by stage.',
-    media: {
-      kind: 'Photograph',
-      brief: 'Homer City Generating Station, 1969–2023 (IUP deck photo essay, first frame)',
-      alt: 'The Homer City Generating Station',
-    } satisfies Media,
   },
   pair: {
     heading: 'Then and now',

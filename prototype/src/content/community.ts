@@ -12,7 +12,7 @@
  *   flag with notes on until the client supplies the commitment itself.
  * - Every quote (CLAUDE.md §5.6). None supplied with a name, role and photo.
  */
-import type { Media, Provenance, Stat } from './types';
+import type { Provenance, Stat } from './types';
 import { footnotes, stats, workforce } from './home';
 
 const factSheet = { tier: 'canonical', source: 'fact-sheet' } as const;
@@ -28,7 +28,6 @@ const partnerLink: Provenance = {
   note: 'Links go to each company’s main site. Homer City Generation’s points at the current site, which this one replaces — change it once the domain question (§10 #9) is settled. Logos wait on the brand files.',
 };
 
-const photo = (brief: string, alt: string): Media => ({ kind: 'Photograph', brief, alt });
 const stat = (id: string) => [...stats, ...workforce.stats].find((s) => s.id === id)! as Stat;
 
 export const communityHub = {
@@ -38,7 +37,6 @@ export const communityHub = {
     headline: 'A community partner for the long term.',
     intro:
       'We are investing in Pennsylvania for the long term, operating as a genuine community partner and becoming one of the state’s leading employers. These pages cover who is building the campus and what it commits to.',
-    media: photo('Community open house — residents, not staff', 'Residents at the community open house'),
   },
   routes: [
     { id: 'partners', title: 'Campus partners', body: 'The companies building the campus, and what each one does.', href: 'partners.html', stat: { figure: '7 ×', label: 'GE Vernova 7HA.02 natural gas turbines in the Power Block' } },
@@ -70,7 +68,6 @@ export const partnersPage = {
     eyebrow: 'Campus partners',
     headline: 'Who is building the campus.',
     intro: 'Homer City Generation is developing the campus, in partnership with Kiewit Power Constructors Co. GE Vernova is providing the turbines.',
-    media: photo('Kiewit and Homer City Generation teams on site, logos on hard hats or vests', 'The partner teams on site'),
   },
   partners: [
     { id: 'hcg', name: 'Homer City Generation', icon: 'domain', role: 'Developing the Homer City Energy Campus. Corey Hessen was appointed CEO in April 2025, bringing significant experience in power generation operations.', href: 'https://www.homercityredevelopment.com/', provenance: factSheet },

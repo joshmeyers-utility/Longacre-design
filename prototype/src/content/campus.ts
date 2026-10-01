@@ -58,7 +58,6 @@ export const campusPage = {
     headline: 'A natural gas power plant and data center campus, on the site of the former generating station.',
     intro:
       'The Homer City Energy Campus covers more than 3,200 acres in Indiana County. At its center, seven GE Vernova natural gas turbines are expected to produce up to 4.4 GW. It is being built in partnership with Kiewit Power Constructors Co.',
-    media: photo('Aerial of the whole campus with the Power Block in frame. A photograph, not the deck’s cover render.', 'The campus from the air'),
   },
 
   /** Fact-sheet figures that describe the site itself. The job figures live on Careers. */

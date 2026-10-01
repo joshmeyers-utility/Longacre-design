@@ -13,7 +13,7 @@ import { trackScrollProgress } from '../motion';
 export function HistoryPage() {
   const { hero } = page;
   return (
-    <PageShell current="history" hero={<PageHero current="history" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} media={hero.media} />}>
+    <PageShell current="history" hero={<PageHero current="history" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} />}>
       <Pair />
       <Stages />
       <Timeline />

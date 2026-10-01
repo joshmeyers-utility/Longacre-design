@@ -11,8 +11,8 @@ import { communityHub as page } from '../content/community';
 export function CommunityPage() {
   const { hero } = page;
   return (
-    <PageShell current="community" hero={<PageHero current="community" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} media={hero.media} />}>
-      <section className="section" aria-labelledby="routes-title">
+    <PageShell current="community" hero={<PageHero current="community" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} />}>
+      <section className="section is-tight" aria-labelledby="routes-title">
         <div className="container">
           <h2 className="sr-only" id="routes-title">
             In this section

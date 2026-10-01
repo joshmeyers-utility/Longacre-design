@@ -14,7 +14,7 @@ const partners = page.partners.filter((p) => p.provenance.tier !== 'unsourced' |
 export function PartnersPage() {
   const { hero } = page;
   return (
-    <PageShell current="partners" hero={<PageHero current="partners" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} media={hero.media} />}>
+    <PageShell current="partners" hero={<PageHero current="partners" tone="light" eyebrow={hero.eyebrow} headline={hero.headline} intro={hero.intro} />}>
       <section className="section is-surface" aria-labelledby="partners-title">
         <div className="container">
           <SectionHead eyebrow={`${partners.length} partners`} title="What each one does" id="partners-title" />

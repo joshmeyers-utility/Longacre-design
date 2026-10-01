@@ -15,14 +15,14 @@ export function NewsItemPage() {
     <PageShell
       current="news"
       hero={
-        <PageHero current="news" tone="light" eyebrow={`${item.type} · ${item.date}`} headline={item.headline!} intro={item.summary!} media={item.media}>
+        <PageHero current="news" tone="light" eyebrow={`${item.type} · ${item.date}`} headline={item.headline!} intro={item.summary!}>
           <CopyButton text={typeof location === 'undefined' ? '' : location.href} label="Copy a link to this release">
             Copy link
           </CopyButton>
         </PageHero>
       }
     >
-      <section className="section" aria-label="The release">
+      <section className="section is-tight" aria-label="The release">
         <div className="container article">
           <a className="text-link article_back" href="news.html">
             <Icon name="arrow_back" />

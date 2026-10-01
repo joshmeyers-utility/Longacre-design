@@ -110,6 +110,7 @@ the open heading and its column, and for the page you are on.
 - **Keyboard and touch:** click, tap or Enter opens and closes it. Tab moves
   from a heading into its pages and on to the next heading. Escape closes
   it and returns focus. Closed, the panel is `inert`.
+- **White-hero pages** (The Campus, Our history, Community, Partners, Commitments, Voices, FAQs, News, the news item, Contact) have no hero photo: headline and intro only.
 - **Below 1024px:** a compact bar with the logo and the menu button. The
   full-screen menu fades in while its headings, pages and pills rise 12px
   into place 35ms apart; closing fades it all out together.
