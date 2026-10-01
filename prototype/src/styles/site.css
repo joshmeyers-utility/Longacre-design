@@ -1528,8 +1528,6 @@ a.nav-menu_link:focus-visible,
   background: var(--color-bg-canvas);
   color: var(--color-text-primary);
   text-decoration: none;
-  /* Leaving: text turns back at once, before the wash uncovers it. */
-  transition: color var(--motion-duration-base) var(--ease-out);
 }
 .trade-tile_icon {
   grid-row: 1;
@@ -1547,23 +1545,6 @@ a.nav-menu_link:focus-visible,
     background-color var(--motion-duration-base) var(--ease-out),
     color var(--motion-duration-base) var(--ease-out);
 }
-/* The colour change: an ink circle centred on the arrow well grows until it
- * fills the tile, so the tile never passes through grey and the well is
- * never lost against it. One scaled element — Interactions 2.0 native.
- * Sits under the tile's content (z-index -1 inside the isolated link). */
-.trade-tile_wash {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  width: 80rem;
-  height: 80rem;
-  border-radius: 50%;
-  background: var(--color-bg-inverse);
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform var(--motion-duration-slow) var(--ease-out);
-  pointer-events: none;
-}
 /* The + and the outward arrow share the well; one hands over to the other. */
 .trade-tile_more-icon {
   grid-area: 1 / 1;
@@ -1575,15 +1556,14 @@ a.nav-menu_link:focus-visible,
   opacity: 0;
   transform: rotate(-45deg) scale(0.6);
 }
-/* Only ever seen on ink (hover devices), so it keeps the inverse colour and
- * only fades — no colour change to lag behind on the way out. */
+/* Hidden until hover or focus; rises in on the white tile. */
 .trade-tile_desc {
   grid-row: 2;
   grid-column: 1 / -1;
   align-self: end;
-  color: var(--color-text-inverse);
+  color: var(--color-text-secondary);
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(12px);
   transition:
     opacity var(--motion-duration-base) var(--ease-out),
     transform var(--motion-duration-base) var(--ease-out);
@@ -1595,11 +1575,10 @@ a.nav-menu_link:focus-visible,
 .trade-tile_link:focus-visible {
   outline-offset: 4px;
 }
-/* Touch has no hover, so the description sits on the white tile face
- * and the well shows the outward arrow from the start. */
+/* Touch has no hover, so the description sits on the tile face and the
+ * well shows the outward arrow from the start. */
 @media (hover: none) {
   .trade-tile_desc {
-    color: var(--color-text-secondary);
     opacity: 1;
     transform: none;
   }
@@ -1611,20 +1590,12 @@ a.nav-menu_link:focus-visible,
     transform: none;
   }
 }
-/* On: keyboard focus anywhere, hover on a real pointer. The wash grows,
- * the text turns as it arrives, the well inverts and the + becomes the
- * arrow, then the description rises in. */
-.trade-tile_link:focus-visible {
-  color: var(--color-text-inverse);
-  transition: color var(--motion-duration-slow) var(--ease-out) 150ms;
-}
-.trade-tile_link:focus-visible .trade-tile_wash {
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform var(--motion-duration-slower) var(--ease-out);
-}
+/* On: keyboard focus anywhere, hover on a real pointer. The tile stays
+ * white; only the well changes, ink to action blue, as the + turns into
+ * the outward arrow, and the description rises in a beat later. */
 .trade-tile_link:focus-visible .trade-tile_more {
-  background: var(--color-text-inverse);
-  color: var(--color-bg-inverse);
+  background: var(--color-action-primary-bg);
+  color: var(--color-action-primary-text);
 }
 .trade-tile_link:focus-visible .trade-tile_more-icon.is-add {
   opacity: 0;
@@ -1638,24 +1609,13 @@ a.nav-menu_link:focus-visible,
   opacity: 1;
   transform: none;
   transition:
-    opacity var(--motion-duration-slower) var(--ease-out) 250ms,
-    transform var(--motion-duration-slower) var(--ease-out) 250ms;
-}
-.trade-tile_link:focus-visible .trade-tile_desc {
-  color: var(--color-text-inverse);
+    opacity var(--motion-duration-slower) var(--ease-out) 100ms,
+    transform var(--motion-duration-slower) var(--ease-out) 100ms;
 }
 @media (hover: hover) and (pointer: fine) {
-  .trade-tile_link:hover {
-    color: var(--color-text-inverse);
-    transition: color var(--motion-duration-slow) var(--ease-out) 150ms;
-  }
-  .trade-tile_link:hover .trade-tile_wash {
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform var(--motion-duration-slower) var(--ease-out);
-  }
   .trade-tile_link:hover .trade-tile_more {
-    background: var(--color-text-inverse);
-    color: var(--color-bg-inverse);
+    background: var(--color-action-primary-bg);
+    color: var(--color-action-primary-text);
   }
   .trade-tile_link:hover .trade-tile_more-icon.is-add {
     opacity: 0;
@@ -1669,8 +1629,8 @@ a.nav-menu_link:focus-visible,
     opacity: 1;
     transform: none;
     transition:
-      opacity var(--motion-duration-slower) var(--ease-out) 250ms,
-      transform var(--motion-duration-slower) var(--ease-out) 250ms;
+      opacity var(--motion-duration-slower) var(--ease-out) 100ms,
+      transform var(--motion-duration-slower) var(--ease-out) 100ms;
   }
 }
 

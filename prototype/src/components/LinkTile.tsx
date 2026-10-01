@@ -3,8 +3,8 @@ import { Icon } from './primitives';
 
 /**
  * The trade tile, shared: an icon, a name and a description that eases in
- * as ink spreads from the corner, the + turning into ↗ for a link that
- * leaves the site. On touch the description sits on the tile face. Used
+ * on hover or focus while the well turns blue and its + becomes ↗, for a
+ * link that leaves the site. On touch the description sits on the tile face. Used
  * for the nine trades (Careers) and the campus partners.
  */
 export function LinkTile({ icon, name, description, href, hidden }: { icon: string; name: string; description: string; href?: string; hidden?: string }) {
@@ -17,7 +17,6 @@ export function LinkTile({ icon, name, description, href, hidden }: { icon: stri
         {hidden && <span className="sr-only">{hidden}</span>}
       </span>
       <span className="icon-button trade-tile_more" aria-hidden="true">
-        <span className="trade-tile_wash" />
         <Icon name="add" className="trade-tile_more-icon is-add" />
         <Icon name="arrow_outward" className="trade-tile_more-icon is-out" />
       </span>

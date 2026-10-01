@@ -165,13 +165,10 @@ split, media frame and footer classes. Two new components:
   on three columns; hover or focus any column for its source; "Show as a
   table" holds every value.
 - **Trade tiles** (`trade-grid`, `trade-tile`): nine tiles, each a link out
-  to its trade's union in a new tab. Hover or keyboard focus fills the tile
-  with ink from the arrow well outward (one scaled circle, `trade-tile_wash`,
-  so it never fades through grey), turns the text as the ink reaches it,
-  inverts the well, turns the + into an outward arrow, then raises the
-  description — 1s, on the new `motion/duration/slower` token. Leaving,
-  the text turns back first and the ink pulls back over 600ms, so nothing
-  lingers on the white tile. On
+  to its trade's union in a new tab. Hover or keyboard focus leaves the
+  tile white and changes only the round well, ink to action blue, as its +
+  turns into an outward arrow; the description rises in a beat later (1s,
+  `motion/duration/slower`). Campus partners use the same tile. On
   touch the description and arrow show from the start. The description
   always holds its space, so the tile never resizes. The links go to each
   trade's international union for now, flagged, until the nine locals are
@@ -294,7 +291,7 @@ changes. A bright or white-sky photo will fail.
   | A pillar title jumps the page to that pillar's quarter | Click (anchor scroll) | `pillar_toggle` |
   | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
   | Card lifts 2px, arrow nudges | Hover | `news-card` (`news-card_arrow`), `button_well` |
-  | Ink circle grows from the arrow well to fill the tile; text turns, + hands over to an outward arrow, description rises in | Hover (and focus) | `trade-tile_wash` (scale 0 → 1), `trade-tile_link`, `trade-tile_more-icon`, `trade-tile_desc` |
+  | Well turns ink to blue, + hands over to an outward arrow, description rises in | Hover (and focus) | `trade-tile_more`, `trade-tile_more-icon`, `trade-tile_desc` |
 
   Every transition uses one ease-out curve, `cubic-bezier(0.16, 1, 0.3, 1)`
   (expo out; Webflow's "outExpo").
