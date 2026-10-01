@@ -74,13 +74,14 @@ export function Hero() {
 
 /* ------------------------------------------------------ By the numbers */
 
-export function StatBlock({ stat, size = 'display', flag = true }: { stat: Stat; size?: 'display' | 'large'; flag?: boolean }) {
+/** `unit="md"`: a smaller unit, so figure and unit share one line in a three-column grid. */
+export function StatBlock({ stat, size = 'display', unit = 'lg', flag = true }: { stat: Stat; size?: 'display' | 'large'; unit?: 'lg' | 'md'; flag?: boolean }) {
   return (
     <div className="stat">
       <p className="eyebrow stat_qualifier">{stat.qualifier ?? ' '}</p>
       <p className={`stat_figure is-${size}`}>
         {stat.figure}
-        {stat.unit && <span className="stat_unit"> {stat.unit}</span>}
+        {stat.unit && <span className={`stat_unit${unit === 'md' ? ' is-md' : ''}`}> {stat.unit}</span>}
       </p>
       <p className="label-sm stat_label">{stat.label}</p>
       {stat.asOf && (
@@ -101,9 +102,9 @@ export function Numbers() {
         <h2 className="heading-sm numbers_title" id="numbers-title">
           Campus by the numbers
         </h2>
-        <div className="numbers_grid">
+        <div className="numbers_grid is-three">
           {stats.map((s) => (
-            <StatBlock stat={s} key={s.id} />
+            <StatBlock unit="md" stat={s} key={s.id} />
           ))}
         </div>
       </div>

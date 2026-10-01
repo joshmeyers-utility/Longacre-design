@@ -65,9 +65,7 @@ apart, with 16px at each end (568px at every desktop width). Text is
 `label-md`, 15px regular. Over a photograph it wears the announcement
 cards' glass (`bg/glass-card`, 200px blur); over a plain ground
 (`SiteHeader ground="plain"`, set by the light page hero) it is solid ink,
-since glass would read as grey. Docked, it keeps the cards' glass and blur
-at the scrim tint with a faint white lift, so it reads over white and ink
-sections alike (grey text 5.03:1 or better across 47 docked positions). On the glass, grey text
+since glass would read as grey; docked, raised grey. On the glass, grey text
 measured 3.4:1 against the pixels behind it, so there the headings are full
 white (5.22:1 or better, 1024 to 2560px, homepage and Careers) and the open,
 hovered or current heading is underlined instead of brightened. Re-run that

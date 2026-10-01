@@ -311,7 +311,7 @@
   --motion-duration-base: var(--motion-duration-200);
   --motion-duration-slow: var(--motion-duration-500);
   --motion-duration-slower: var(--motion-duration-800);
-  --type-display-size: var(--font-size-128);
+  --type-display-size: var(--font-size-96);
   --type-display-weight: var(--font-weight-light);
   --type-heading-xl-size: var(--font-size-64);
   --type-heading-xl-weight: var(--font-weight-regular);

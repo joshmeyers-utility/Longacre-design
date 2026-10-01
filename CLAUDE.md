@@ -271,7 +271,7 @@ warning or an error.
 Rounded Light** for icons. Headings are **Regular**, stat figures **Light**,
 buttons and eyebrows **Medium**. Family, style and size are bound to Semantic
 variables; line height and tracking are percentages on the style, so Mobile
-changes only size. Hero 64 → 40, stat figure 128 → 64. Full table in
+changes only size. Hero 64 → 40, stat figure 96 → 64. Full table in
 `docs/05-variable-library.md` §2.
 
 ---

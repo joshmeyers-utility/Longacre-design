@@ -98,7 +98,7 @@ comps' type specimen.
 
 | Style | Desktop | Mobile | Line height | Tracking | Use |
 | --- | --- | --- | --- | --- | --- |
-| Display | 128 Light | 64 | 96% | −3% | Stat figures |
+| Display | 96 Light | 64 | 96% | −3% | Stat figures |
 | Heading/XL | 64 | 40 | 108% | −2% | Hero headline |
 | Heading/LG | 44 | 32 | 112% | −1.5% | Section headings, commitment tabs |
 | Heading/MD | 26 | 22 | 130% | −1% | FAQ questions |
