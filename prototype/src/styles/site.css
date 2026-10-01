@@ -2733,37 +2733,29 @@ a.news-row:hover .news-row_arrow {
   .numbers_grid.is-three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  /* A third of a tablet is narrow: the figures scale with the window
-   * until they reach full size (about 1100px). One clamp(), expressible
-   * in Webflow. */
+  /* A third of a tablet is narrow, so figure and unit both scale with the
+   * window (sized so "~3M cubic meters" and "3,200+ acres" keep to one
+   * line) until they reach full size, about 1260px. One clamp() each,
+   * expressible in Webflow. */
   .stat_figure.is-third {
-    font-size: clamp(var(--type-heading-lg-size), 6.5vw, var(--type-display-size));
+    font-size: clamp(var(--type-heading-lg-size), 5.7vw, var(--type-display-size));
   }
-}
-/* Too narrow for "~3M cubic meters" on one line: every unit takes its own
- * line under its figure, the same for all six, until 1280. */
-@media (min-width: 768px) and (max-width: 1279px) {
   .stat_unit.is-third {
-    display: block;
-    margin-left: 0;
+    font-size: clamp(var(--type-body-md-size), 2.1vw, var(--type-heading-md-size));
   }
 }
 
-/* Four figures sit four across from 1024 (two by two below). They scale
- * with the window until full size (about 1310px); a quarter is too narrow
- * for "~3M cubic meters" on one line until 1680, so units take their own
- * line under the figure until then. */
+/* Four figures sit four across from 1024 (two by two below). Figure and
+ * unit scale with the window, unit beside figure, until full size (about
+ * 1600px). */
 @media (min-width: 1024px) {
   .numbers_grid.is-four {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .stat_figure.is-quarter {
-    font-size: clamp(var(--type-heading-lg-size), 5.5vw, var(--type-display-size));
+    font-size: clamp(var(--type-heading-lg-size), 4.5vw, var(--type-display-size));
   }
-}
-@media (min-width: 1024px) and (max-width: 1679px) {
   .stat_unit.is-quarter {
-    display: block;
-    margin-left: 0;
+    font-size: clamp(var(--type-body-md-size), 1.6vw, var(--type-heading-md-size));
   }
 }
