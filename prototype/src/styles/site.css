@@ -1312,8 +1312,8 @@ a.nav-menu_link:focus-visible,
 }
 .hero.is-light .hero_body {
   justify-content: flex-start;
-  padding-top: calc(var(--space-gap-xl) * 2);
-  padding-bottom: var(--space-gap-xl);
+  padding-top: calc(var(--space-gap-xl) * 4);
+  padding-bottom: calc(var(--space-gap-xl) * 3);
 }
 .hero.is-light .hero_copy {
   flex: 1 1 auto;
@@ -2177,28 +2177,27 @@ a.nav-menu_link:focus-visible,
 }
 
 @media (min-width: 1024px) {
-  /* Light hero: headline left, intro and buttons right, bottoms aligned. */
+  /* Light hero: headline with its buttons under it on the left, intro on
+   * the right, its first line level with the headline's. */
   .hero.is-light .hero_copy {
     display: grid;
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     grid-template-areas:
-      'eyebrow .'
       'title intro'
-      'title actions';
+      'actions intro';
     column-gap: var(--space-layout-column-gap);
-    align-items: end;
+    row-gap: var(--space-gap-xl);
+    align-items: start;
     max-width: none;
     width: 100%;
   }
-  .hero.is-light .hero_copy > .eyebrow {
-    grid-area: eyebrow;
-  }
   .hero.is-light .hero_copy > h1 {
     grid-area: title;
-    align-self: end;
   }
   .hero.is-light .hero_copy > .hero_intro {
     grid-area: intro;
+    /* Sits on the headline's first line, not the top of its line box. */
+    padding-top: var(--space-gap-xs);
   }
   .hero.is-light .hero_copy > .button-row {
     grid-area: actions;

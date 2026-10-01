@@ -17,8 +17,8 @@ export function PageHero({ current, eyebrow, headline, intro, media, tone = 'dar
       <section className="hero is-page is-light" aria-labelledby="hero-title">
         <SiteHeader current={current} ground="plain" />
         <div className="hero_body">
+          {/* No overline: the nav already marks where you are. */}
           <div className="hero_copy">
-            <p className="eyebrow">{eyebrow}</p>
             <h1 className="heading-lg" id="hero-title">
               {headline}
             </h1>
