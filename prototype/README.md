@@ -65,7 +65,9 @@ apart, with 16px at each end (568px at every desktop width). Text is
 `label-md`, 15px regular. Over a photograph it wears the announcement
 cards' glass (`bg/glass-card`, 200px blur); over a plain ground
 (`SiteHeader ground="plain"`, set by the light page hero) it is solid ink,
-since glass would read as grey; docked, raised grey. On the glass, grey text
+since glass would read as grey. Docked, it keeps the cards' glass and blur
+at the scrim tint with a faint white lift, so it reads over white and ink
+sections alike (grey text 5.03:1 or better across 47 docked positions). On the glass, grey text
 measured 3.4:1 against the pixels behind it, so there the headings are full
 white (5.22:1 or better, 1024 to 2560px, homepage and Careers) and the open,
 hovered or current heading is underlined instead of brightened. Re-run that
@@ -291,6 +293,9 @@ changes. A bright or white-sky photo will fail.
   | Opened content fades in | Click | `pillar_panel`, `faq-row_answer` |
   | Card lifts 2px, arrow nudges | Hover | `news-card` (`news-card_arrow`), `button_well` |
   | Ink circle grows from the arrow well to fill the tile; text turns, + hands over to an outward arrow, description rises in | Hover (and focus) | `trade-tile_wash` (scale 0 → 1), `trade-tile_link`, `trade-tile_more-icon`, `trade-tile_desc` |
+
+  Every transition uses one ease-out curve, `cubic-bezier(0.16, 1, 0.3, 1)`
+  (expo out; Webflow's "outExpo").
 
   Figures never count up — a transparency site should not display a number
   that is not true, even for half a second. Everything is off under

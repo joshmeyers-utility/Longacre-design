@@ -84,10 +84,11 @@ address {
   color: var(--color-text-primary);
 }
 
-/* Ease-out for every reveal (fast start, long gentle settle). In Webflow:
- * Interactions easing "outQuint", or this curve as a custom value. */
+/* Ease-out for every transition (fast start, long gentle settle). Expo
+ * out, one step softer at the end than the quint it replaced. In Webflow:
+ * Interactions easing "outExpo", or this curve as a custom value. */
 :root {
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* `hidden` must win over any display rule (pillar and FAQ panels, menu). */
@@ -578,10 +579,16 @@ html {
 .site-header.is-frosted .nav-menu_trigger.is-current {
   text-decoration-color: currentColor;
 }
-/* Docked, the bar may sit over white or ink: raised grey stands off both. */
+/* Docked, the bar sits over white, greige or ink sections, not a photo.
+ * Same glass and blur as the announcement cards, at the scrim tint (the
+ * cards' 25% would leave the text unreadable over white), lifted by the
+ * nav's white hover tint so it still stands off ink sections. */
 .site-header.is-docked .nav-menu_bar,
 .site-header.is-docked .site-header_bar {
-  background: var(--color-bg-raised);
+  background: var(--color-scrim-strong);
+  box-shadow: inset 0 0 0 100rem var(--color-action-nav-bg-hover);
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
 }
 /* Its own shape, 4px under the bar (T1). Solid, as T1's: see-through ink
  * lets a white page's text show through. */
