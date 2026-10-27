@@ -148,8 +148,8 @@ function header(page, onPhoto) {
     <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home"><img class="site-header_logo-image" src="img/logo.webp" alt="" width="155" height="32"></a>
     <nav class="site-header_nav" aria-label="Primary">
       ${links.map(([l, h, p]) => `<a class="site-header_link" href="${h}"${cur(p)}>${l}</a>`).join('\n      ')}
-      <a class="button is-inverse site-header_cta" href="contact.html"${cur('contact')}>Contact</a>
     </nav>
+    <a class="button is-inverse site-header_cta" href="contact.html"${cur('contact')}>Contact</a>
     <button class="menu-button" type="button" id="menu-open" aria-expanded="false" aria-controls="site-menu"><span class="menu-button_text">Menu</span><span class="menu-button_lines" aria-hidden="true"><span></span><span></span></span>${srOnly('Open menu')}</button>
   </div>
 </header>`;
