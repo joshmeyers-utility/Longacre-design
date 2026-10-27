@@ -169,6 +169,7 @@ export const pillars = [
 export const powerBlock = {
   heading: 'Seven turbines at the center of the campus.',
   intro: 'The Power Block holds seven GE Vernova 7HA.02 high-efficiency natural gas turbines. The campus is expected to produce up to 4.4&nbsp;GW of energy on&nbsp;site.',
+  media: media(3, 'Power Block aerial looking north (IUP deck photo essay)', { caption: 'Power Block aerial, looking north', date: 'April 2026' }),
   facilities: [
     { id: 'power-block', name: 'Power Block', detail: '7 × GE Vernova 7HA.02 natural gas turbines', stamp: 'April 2026' },
     { id: 'hrsg', name: 'Heat recovery steam generator', detail: 'HRSG. Unit 5, pictured on the July 2026 site tour.', stamp: 'July 2026' },

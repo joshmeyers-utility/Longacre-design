@@ -143,8 +143,7 @@ function header(page, onPhoto) {
   <div class="container site-header_bar">
     <button class="menu-button" type="button" id="menu-open" aria-expanded="false" aria-controls="site-menu"><span class="menu-button_lines" aria-hidden="true"><span></span><span></span></span><span class="menu-button_text">Menu</span>${srOnly('Open menu')}</button>
     <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home">
-      <span class="site-header_mark"><img src="img/logo.webp" alt="" width="135" height="28"></span>
-      <span class="site-header_name">Homer City Energy Campus</span>
+      <span class="site-header_mark"><img src="img/logo.webp" alt="" width="145" height="30"></span>
     </a>
     <div class="site-header_links">
       <a class="site-header_link" href="workforce.html"${cur('workforce')}>Careers</a>
@@ -160,7 +159,7 @@ function menu(page) {
   <div class="container">
     <div class="site-menu_bar">
       <button class="site-menu_close" type="button" id="menu-close">${icon('close', true)}Close</button>
-      <span class="site-header_name">Homer City Energy Campus</span>
+      <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home"><span class="site-header_mark"><img src="img/logo.webp" alt="" width="145" height="30"></span></a>
     </div>
     <ul class="site-menu_list">
       ${c.nav

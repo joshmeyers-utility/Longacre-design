@@ -122,12 +122,7 @@ export function home() {
         <h2 class="statement" id="power-title" data-reveal>${c.powerBlock.heading}</h2>
         <p class="lede text-secondary" style="max-width:36rem" data-reveal>${c.powerBlock.intro}</p>
       </div>
-      <figure class="band" data-reveal>
-        <div class="units" role="img" aria-label="Seven GE Vernova 7HA.02 natural gas turbines in the Power Block">
-          ${[1, 2, 3, 4, 5, 6, 7].map((n) => `<span class="unit" style="--i:${n}"><span class="unit_no">${n}</span></span>`).join('')}
-        </div>
-        <figcaption class="caption"><span>Power Block</span><span>7 × GE Vernova 7HA.02 natural gas turbines</span></figcaption>
-      </figure>
+      <div class="band" data-reveal data-parallax>${mediaFrame(c.powerBlock.media, { ratio: '21/9', sizes: '100vw', cls: 'is-wide' })}</div>
       <ul class="facilities">
         ${c.powerBlock.facilities
           .map((f) => `<li class="facility" data-reveal><h3 class="heading-3">${f.name}</h3><p>${f.detail}</p><span class="facility_stamp">${f.stamp}</span></li>`)
