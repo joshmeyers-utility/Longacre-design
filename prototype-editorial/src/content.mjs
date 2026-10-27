@@ -57,11 +57,11 @@ const media = (photo, brief, extra = {}) => ({ kind: 'Photograph', photo, brief,
 // Seven top-level pages, as the T1 artifact settled on (flat, no dropdowns).
 export const nav = [
   { label: 'The campus', href: 'campus.html', page: 'campus' },
-  { label: 'Who we are', href: 'history.html', page: 'history' },
+  { label: 'About', href: 'history.html', page: 'history' },
   { label: 'Community', href: 'community.html', page: 'community' },
   { label: 'Careers', href: 'workforce.html', page: 'workforce' },
   { label: 'FAQs', href: 'faq.html', page: 'faq' },
-  { label: 'News', href: 'news.html', page: 'news' },
+  { label: 'News &amp; resources', href: 'news.html', page: 'news' },
   { label: 'Contact', href: 'contact.html', page: 'contact' },
 ];
 

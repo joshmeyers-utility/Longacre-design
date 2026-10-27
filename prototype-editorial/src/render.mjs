@@ -139,17 +139,18 @@ function alertBar() {
 
 function header(page, onPhoto) {
   const cur = (p) => (p === page ? ' aria-current="page"' : '');
+  const links = [
+    ['The campus', 'campus.html', 'campus'], ['About', 'history.html', 'history'], ['Careers', 'workforce.html', 'workforce'],
+    ['Community', 'community.html', 'community'], ['FAQs', 'faq.html', 'faq'], ['News &amp; resources', 'news.html', 'news'],
+  ];
   return `<header class="site-header${onPhoto ? '' : ' is-plain'}" id="header">
   <div class="container site-header_bar">
-    <button class="menu-button" type="button" id="menu-open" aria-expanded="false" aria-controls="site-menu"><span class="menu-button_lines" aria-hidden="true"><span></span><span></span></span><span class="menu-button_text">Menu</span>${srOnly('Open menu')}</button>
-    <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home">
-      <span class="site-header_mark"><img src="img/logo.webp" alt="" width="145" height="30"></span>
-    </a>
-    <div class="site-header_links">
-      <a class="site-header_link" href="workforce.html"${cur('workforce')}>Careers</a>
-      <a class="site-header_link" href="faq.html"${cur('faq')}>FAQs</a>
-      <a class="button is-inverse site-header_cta" href="contact.html">Contact us</a>
-    </div>
+    <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home"><img class="site-header_logo-image" src="img/logo.webp" alt="" width="155" height="32"></a>
+    <nav class="site-header_nav" aria-label="Primary">
+      ${links.map(([l, h, p]) => `<a class="site-header_link" href="${h}"${cur(p)}>${l}</a>`).join('\n      ')}
+      <a class="button is-inverse site-header_cta" href="contact.html"${cur('contact')}>Contact</a>
+    </nav>
+    <button class="menu-button" type="button" id="menu-open" aria-expanded="false" aria-controls="site-menu"><span class="menu-button_text">Menu</span><span class="menu-button_lines" aria-hidden="true"><span></span><span></span></span>${srOnly('Open menu')}</button>
   </div>
 </header>`;
 }
@@ -158,8 +159,8 @@ function menu(page) {
   return `<div class="site-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" inert>
   <div class="container">
     <div class="site-menu_bar">
-      <button class="site-menu_close" type="button" id="menu-close">${icon('close', true)}Close</button>
-      <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home"><span class="site-header_mark"><img src="img/logo.webp" alt="" width="145" height="30"></span></a>
+      <a class="site-header_logo" href="index.html" aria-label="Homer City Energy Campus, home"><img class="site-header_logo-image" src="img/logo.webp" alt="" width="155" height="32"></a>
+      <button class="site-menu_close" type="button" id="menu-close">Close ${icon('close', true)}</button>
     </div>
     <ul class="site-menu_list">
       ${c.nav

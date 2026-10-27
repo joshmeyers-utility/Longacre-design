@@ -23,7 +23,6 @@ export function home() {
           <p class="lede hero_lede">${c.hero.intro}</p>
           <div class="button-row hero_actions">
             ${button('campus.html', 'Explore the campus', 'inverse')}
-            ${textLink('workforce.html', 'Work here')}
           </div>
         </div>
       </div>
