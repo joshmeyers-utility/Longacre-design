@@ -81,7 +81,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 0 | Sources transcribed + content review | ✅ Complete |
 | 1 | Site Map | ✅ Approved |
 | 2 | Content (copy decks) | ✅ Built — 23 decks, flags in `docs/05` |
-| 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ⬜ |
+| 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ✅ Built |
 | 4 | Component Library | ⬜ |
 | 5 | Mobile Site (375) | ⬜ |
 | 6 | Desktop Site (1440) | ⬜ |
@@ -110,8 +110,10 @@ docs/
   04-design-pass.md        Artboards, component library, interaction spec.
   05-content-review.md     Rebuild: new IA, source conflicts, decisions, sequence.
 design-system/
-  tokens.json              Design tokens, W3C format. Generated — don't hand-edit.
-  tokens.css               Same tokens as CSS custom properties. Powers prototype/.
+  tokens.py                Token source of truth (Modern). Run it to regenerate:
+  tokens.json              W3C format. Generated — don't hand-edit.
+  tokens.css               CSS custom properties. Generated.
+  figma.json               Data for the Figma variable build. Generated.
 (The draft lives in Figma, not in this repo — client decision at Stage 4.)
 ```
 
@@ -220,164 +222,80 @@ fixed brand architecture. Same names, same order, everywhere. Copy in
 
 ---
 
-## 7. Design system
+## 7. Design system — Modern direction (rebuilt Nov 2026)
 
-**Resolved in Stage 3, revised during the Stage 4 modern pass.** Full rationale
-in `docs/03-design-system.md`; values in `design-system/tokens.json` and
-`tokens.css`; live in Figma as 270 variables across four collections
-(Primitives, Semantic, Typography, Motion), 32 text styles and 5 effect styles.
+**Source of truth: `design-system/tokens.py`.** It writes `tokens.json`,
+`tokens.css` and `figma.json`; the Figma variables in the rebuild file are built
+from `figma.json`. Never hand-edit the generated files — edit `tokens.py`,
+re-run it, rebuild the variables. (The Stage 4 file had drifted from its own
+docs — Arimo instead of Geist, a "paper" ground — which is why there is now
+one generator for all three.) Rationale: `docs/03-design-system.md` §15.
+
+Live in Figma: **244 variables** — Primitives 117 (hidden, `scopes = []`),
+Semantic 96 (Desktop/Mobile), Typography 18 (Desktop/Mobile), Motion 13 — plus
+**16 text styles** (font size bound to Typography) and **3 effect styles**
+(Glass, Focus ring, Focus ring inverse). Documented on the *Design System
+Documentation* page.
 
 ### The one rule
 
 **Components use semantic tokens only — never primitives.** `action/primary-bg`,
-not `color/blue/700`. Colour primitives are deliberately hidden from every Figma
-picker (`scopes = []`) to enforce this. It is what makes a brand-guide
-correction a one-line change instead of a rebuild.
+not `color/blue/700`. A brand-guide correction is then a one-line change.
 
-| Layer | Examples |
+### What changed for Modern (user decision, 3 Nov 2026)
+
+| Before (Stage 4) | Modern |
 | --- | --- |
-| Primitives | `color/blue/700`, `space/16`, `font-size/300`, `radius/md` |
-| Semantic | `surface/page`, `text/primary`, `action/primary-bg`, `pillar/safety`, `space/stack-md`, `radius/surface`, `icon/lg` |
-| Typography | `type/hero`, `type/h2`, `type/body`, `type/eyebrow` — **Desktop and Mobile modes** |
-| Motion | `duration/base`, `ease/appear`, `distance/md` |
+| Surfaces and media square (`radius/media` 4) | **Rounded media**: `radius/media` 24 / 16 mobile, `radius/media-lg` 32 / 20. Bands and sections stay square (`radius/surface` 0). |
+| Buttons square-ish, no chip | **Pill buttons** (`radius/control`) with a circular icon chip: primary (blue / white chip), secondary (ink-100 / ink chip), inverse (white / navy chip). |
+| No cards, ever | **One exception: frosted cards over hero photography** (`surface/glass` + Glass blur, `radius/card`). A ground is needed there for legibility. Everywhere else, still no cards. |
+| Pillar list carried pillar colours | Modern pillars list is type-only; `pillar/*` remain the only pillar marks and are optional. |
+| Hero 104 / 44 | Hero 72 / 40 (`type/hero`), H1 56/34, H2 44/30. |
 
-Verified state: **9,668 bound values across both artboard pages, zero unbound,
-zero reaching past the semantic layer, zero tinted grounds, 1,494 contrast
-checks against real painted ancestors, zero failures.** If you add anything,
-bind it.
+### Unchanged rules
 
-### The other rule: strokes are dividers
-
-**A stroke separates two pieces of content. Nothing else.** No card outlines, no
-tile accents, no severity bars, no button borders — those are ground, space, or a
-filled rectangle. The file currently holds 37 hairline dividers and 29 circular
-timeline markers, and nothing else. Check before you add one.
-
-### The third rule: a brief is not a caption
-
-**Production notes and published copy never share a field.** A caption that
-reads *"Photography needed at full resolution"* is one forgotten edit away from
-saying exactly that on the live site, under a real photograph. In the **Image
-Band** component the brief lives *inside* the image area — the region the
-photograph destroys — and the caption lives outside it. The same separation
-applies anywhere a placeholder describes what is still missing.
-
-Two consequences:
-
-- **Date is its own field, not part of the caption string.** §5.3 is structural,
-  not a typing convention.
-- **`Kind = Photograph | Rendering`.** The deck's cover is a render of a campus
-  that does not exist yet. On this site, labelling that is the same discipline
-  as the "as of" date.
-
-### And no cards
-
-**A filled box is not a grouping device.** Columns are separated by a hairline
-at the top and by space — never by a white rectangle on a light ground, which is
-the clearest 2015-era signal available and does the job space already does. The
-file had 28 of them; four were white on white, invisible and still in the
-markup. Grounds stay white, near-white and navy: there are **no tinted
-grounds**, and the one that existed (an aqua CTA band) is gone.
-
-### Stats are a ledger, not cards
-
-Figure hard left, explanation in a narrow column hard right, a hairline spanning
-the full width between rows and closing the block. The middle stays empty — the
-rule spanning it is what binds figure to label, which is also why the row needs
-no card and no border. **Required footnotes live in the right-hand column,
-beneath the label**, inside the rule that binds the row. Not an asterisk, not a
-pointer to the page foot. Qualifiers — *Anticipated*, *Projected*, *Up to* — sit
-as an eyebrow directly above the figure rather than buried mid-label.
-
-**Band widths come from the parent's padding, never from the band:**
-`space/container-x-desktop` (160) → contained 1120 · `space/container-x-wide`
-(80) → wide 1280 · zero → full bleed 1440 · `space/container-x-mobile` (16) →
-mobile. Full bleed is spent, not spread: once in the body of the site, never two
-photographic bands adjacent.
-
-- **Type: Geist 300–700** (Google-hosted, ports to Webflow). Replaced Open
-  Sans, which was the web's default 2011–2016 and carried that period into the
-  design regardless of palette. Hero runs 104px desktop / 44px mobile. Stat
-  figures are Light (300) — inherited from the fact sheet — but sit in
-  `text/stat-figure` (near-black), not blue.
-- **Sentence case everywhere. No all-caps**, including labels and buttons.
-- **A pillar colour marks one of the four pillars, and nothing else.** Not a
-  nav card, not a section icon, never a link. Used as decoration it stops being
-  a signal. Home's "Project pillars" is the only section that may carry them.
-- **Blue means link.** Nothing else is blue — **icons included**. An icon is
-  blue only when the icon *is* the control (`arrow_forward`, `add`, `remove`,
-  `download`, `open_in_new`, `expand_more`, `close`, `search`, `menu`). A trade
-  mark, a commitment mark, a resource-type mark or a category mark is
-  `text/primary` on light and `text/inverse-secondary` on navy. Labels, eyebrows and metadata are
-  grays (`text/eyebrow` → `stone/700`). A blue label that is not clickable is a
-  small lie repeated on every page.
-- **Eyebrow:** 12px SemiBold, 4% tracking, sentence case. Not decoration — it is
-  where a section's date-stamp, category or scope lives, per §5.3.
-- **Grounds: white, and near-white.** `surface/subtle` is `stone/50`; navy
-  bands mark institutional moments. **No tinted grounds** — the `sand` family
-  exists in the primitives but is used by no semantic role.
-- **`stone/700` is the floor for neutral text** — the lightest step that clears
-  4.5:1 on white. Nothing lighter may carry text on any ground.
-- **Icons:** Material Symbols **Rounded**, weight 300, `opsz` matched to render
-  size. Not Outlined — Figma does not have it.
-- **Spacing:** 2px base unit; the primitive name is the pixel value
-  (`space/16` = 16px), but components use roles — `space/stack-md`,
-  `space/card-padding`, `space/section-y`.
-- **Radius:** four roles, not eight sizes. `radius/control` (2),
-  `radius/surface` (**0**), `radius/media` (4), `radius/pill`. Surfaces are
-  square; softening the whole system is one re-pointed token.
-- **Responsive type:** only font size varies by breakpoint, via the Typography
-  collection's Desktop/Mobile modes. Line height and tracking are percentages so
-  they scale on their own. Set the mode on the artboard, never per node.
-- **Motion:** gentle, never overshooting. `ease/appear` for reveals,
-  `ease/interact` for hover and press, `ease/transition` for layout.
-  `prefers-reduced-motion` support is in `tokens.css` and is not optional.
-- **Two grounds:** warm `stone` neutrals for reading, cool `navy` for
-  institutional moments. They alternate down the page.
+- **Blue means link.** Text links, buttons and control icons (`arrow_forward`,
+  `add`, `remove`, `download`, `open_in_new`, `expand_more`, `close`, `search`,
+  `menu`). Nothing else is blue — not labels, not decorative icons.
+  `text/link` (`blue/700`, 5.07:1) must not sit on `action/secondary-bg` —
+  4.29:1 — which is why there is no `surface/muted`.
+- **Strokes are dividers.** A hairline separates two pieces of content —
+  `border/divider` on light, `border/divider-inverse` on navy. No outlines.
+- **Stats are a ledger.** Figure left, label right, hairline between rows,
+  qualifier (*Up to*, *Projected*, *Anticipated*) as an eyebrow above the
+  figure, **required footnotes under the label inside the row** — not at the
+  page foot, even where the client's outline asks for that.
+- **A brief is not a caption.** Production notes live inside the image area;
+  caption, date and `Kind = Photograph | Rendering | Video` are separate fields.
+- **Grounds: white (`surface/page`), near-white (`surface/subtle`), navy
+  (`surface/inverse`).** No tinted grounds. Navy, not the comps' near-black,
+  for dark bands — it is the client's colour and what the moodboard showed.
+- **`ink/700` is the floor for neutral text** (5.64:1 on white, 5.14:1 on
+  `surface/subtle`).
+- **Sentence case everywhere.** No all-caps. Eyebrow: 12px SemiBold, 4%.
+- **Type: Geist** 300/400/500/600. Stat figures Light, `text/stat-figure`.
+  Only size varies by breakpoint; set the Typography mode on the artboard.
+- **Icons:** Material Symbols Rounded, weight 300.
+- **Band widths come from the parent's padding:** `space/container-x` 80 →
+  wide 1280; `space/container-x-contained` 160 → 1120; 0 → bleed; 16 mobile.
+- **Motion:** `ease/appear`, `ease/interact`, `ease/transition`; reduced
+  motion zeroes every duration in `tokens.css`.
+- **Contrast:** 45 text/ground pairs checked by `tokens.py`'s palette, all ≥ AA.
 
 ### Palette authority
 
-The ramps are generated from the **client's five-colour palette** —
-`#143251` navy, `#238FC8` blue, `#AFECF1` aqua, `#F3F1D0` cream, `#D8B471` gold
-— each reproduced at a named step (see `docs/03-design-system.md` §11).
+Ramps carry the client's five colours at named steps: `navy/900` #143251,
+`blue/600` #238FC8 (identity blue — **not** the link blue; 3.60:1 fails AA),
+`aqua/200` #AFECF1, `gold/400` #D8B471; cream #F3F1D0 is used by no role.
+Confirm against the brand guide (open question #1).
 
-Two things to hold on to:
+**Logo:** circular four-petal mark in blue and green; wordmark "HOMER CITY"
+over a rule-flanked "GENERATION". Needs a vector.
 
-- **`#238FC8` is the identity blue, not the link blue.** At 3.60:1 on white it
-  fails AA for body text. Links use `blue/700`. Do not "correct" this.
-- **`stone` is never tinted.** It is the text ramp. The warm tint lives in
-  `sand`, which is for grounds only.
-
-The palette introduces cream and gold, which appear nowhere in the supplied
-collateral. That is a brand decision rather than a derivation — confirm it
-against the brand guide (open question #1).
-
-### Source anchors sampled from the client PDFs
-
-**Superseded** by the palette above. Kept for traceability.
-
-| Role in collateral | Sampled | Notes |
-| --- | --- | --- |
-| Masthead navy | `#161A4B` | Darkest point of the header gradient |
-| Section-bar blue | `#001A85` | Solid bars, white all-caps type |
-| Logo cerulean | `#0B72BE` | Brighter, more approachable than the section bar |
-| Logo / pillar green | `#005D33` | Deep forest green; carries the pillar icons |
-| Stat blue | `#65A4DB` | Large figures, light weight |
-| Pale blue tint | `#E1EDF7` | Stat cells, timeline rail background |
-| Page tint | `#E0E8F0` | Broad background wash |
-
-**Logo:** circular four-petal mark in blue and green; wordmark "HOMER CITY" set
-above a rule-flanked "GENERATION". Needs to be sourced as vector.
-
-**Photography:** the strongest asset in the source material. Aerial and landscape
-frames of the campus set in Indiana County's rolling farmland — green fields,
-forest, the town itself in shot. Plus a dated construction photo essay from
-1969–2023 through July 2026 (`docs/source/iup-deck.md`). This imagery is what
-makes the site feel like a *place* rather than a *company*. Design around it.
-
-**Typography:** not identified. The fact sheet uses a geometric sans for headings
-with letterspaced all-caps labels; the IUP deck falls back to a plain grotesque.
-The fact sheet is the better reference. Treat the typeface as an open question.
+**Photography** is the strongest asset — aerials of the campus in Indiana
+County farmland, the dated construction photo essay, the workforce assembled
+on site. Design around it. Renderings (power plant, data center campus) are
+labelled as renderings wherever they appear.
 
 ---
 

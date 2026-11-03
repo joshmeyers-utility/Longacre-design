@@ -687,3 +687,29 @@ tile accents, no band borders. The rule holds.
 **9,434 bound values across both artboard pages, zero unbound, zero reaching
 past the semantic layer, 1,453 contrast checks against real painted ancestors,
 zero failures.**
+
+---
+
+## 15. Modern direction rebuild (Nov 2026)
+
+The client chose Direction 1 (Modern). The rebuild file
+(`8RV4XecnHv5rFzjQVnSuNV`) started with no local variables — its comps were
+bound to an unlinked remote library — and the Stage 4 file had drifted from
+this document (Arimo, a "paper" ground, ink primary buttons). So the token set
+was rewritten once, in `design-system/tokens.py`, which now generates
+`tokens.json`, `tokens.css` and the Figma variable data. Sections 1–14 above
+remain the reasoning for the palette and the rules; where they disagree with
+`tokens.py`, `tokens.py` wins.
+
+What the Modern comps contributed, measured from their bound variables:
+pill controls with a 40px icon chip (48px control height), media radius 24,
+large media 32 (comps used 64 — reduced so a 375px crop still reads as a
+photograph rather than a pill), card radius 20 (comps 32), section padding
+160, column gap 104, display type in Geist Regular/Light. What was **not**
+taken: the comps' near-black inverse ground (`#1D1D1F`) — the moodboard the
+client approved used navy, and navy is the client's colour.
+
+**One contrast decision.** Link blue (`blue/700`) is 5.07:1 on white but
+4.29:1 on `ink/100`, the secondary-button fill. Rather than darken links
+site-wide, `ink/100` exists only as `action/secondary-bg` — there is no
+`surface/muted` ground for a link to land on.

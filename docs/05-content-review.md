@@ -228,7 +228,8 @@ Each step ends in a review gate, per CLAUDE.md §3.
 | --- | --- |
 | 1 Site Map | ✅ Approved |
 | 2 Content | ✅ Built — 23 copy decks |
-| 3–7 | ⬜ |
+| 3 Design system | ✅ Built — 244 variables, 16 text styles, 3 effects |
+| 4–7 | ⬜ |
 
 ### Step 2 output — Content page
 
