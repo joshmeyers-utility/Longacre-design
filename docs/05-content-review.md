@@ -63,7 +63,7 @@ to describe it. It is not overridden silently. See §6 Q-D.
 ## 2. The new IA (from the outline, slide 1 + nav bars)
 
 The outline replaces the comps' seven-section IA. **8 top-level nav items,
-~27 pages.** Status shows what the content supports today.
+21 pages.** Status shows what the content supports today.
 
 | Nav | Page | Outline slides | Content status |
 | --- | --- | --- | --- |
@@ -226,5 +226,5 @@ Each step ends in a review gate, per CLAUDE.md §3.
 
 | Step | Status |
 | --- | --- |
-| 1 Site Map | ⏳ In progress |
+| 1 Site Map | ✅ Built — awaiting review |
 | 2–7 | ⬜ |

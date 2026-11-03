@@ -79,7 +79,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | Step | Figma page | Status |
 | --- | --- | --- |
 | 0 | Sources transcribed + content review | ✅ Complete |
-| 1 | Site Map | ⏳ In progress |
+| 1 | Site Map | ✅ Built — awaiting review |
 | 2 | Content (copy decks) | ⬜ |
 | 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ⬜ |
 | 4 | Component Library | ⬜ |
