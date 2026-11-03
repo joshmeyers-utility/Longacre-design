@@ -226,5 +226,46 @@ Each step ends in a review gate, per CLAUDE.md §3.
 
 | Step | Status |
 | --- | --- |
-| 1 Site Map | ✅ Built — awaiting review |
-| 2–7 | ⬜ |
+| 1 Site Map | ✅ Approved |
+| 2 Content | ✅ Built — 23 copy decks |
+| 3–7 | ⬜ |
+
+### Step 2 output — Content page
+
+23 frames, one per page in nav order (plus a legend and a global
+header/footer deck). Every field names its source. Flags are production
+notes and never publish:
+
+| Flag | Count | Meaning |
+| --- | --- | --- |
+| Changed | 44 | Client copy re-phrased ("coal" removed) or a figure corrected to the dated fact sheet |
+| Draft | 26 | FAQ answers assembled from client sentences |
+| Gap | 44 | Content not supplied |
+| Footnote | 20 | Required footnote attached to its figure |
+| CMS | 17 | Collection field, date-stamped where it moves |
+
+Audit: no publishable field contains "coal", "4.5 GW", "~4.4", "over 95%"
+or "~95%".
+
+FAQ: 35 questions — the client's 29 plus 6 asked in "Common questions"
+blocks on other pages — plus 1 held (air quality appeal, not on the client
+list). 4 client answers, 26 drafts, 5 unanswered: HCR vs HCG, financing,
+renderings, customer selection, who builds the data centers.
+
+**New questions surfaced while writing the decks** (added to CLAUDE.md §10):
+
+- Home credits the April 2025 announcement to *Homer City Redevelopment*;
+  Campus future credits *Homer City Generation*. Which?
+- Water copy names both *Two Lick Reservoir* and *Two Lick Creek* as the
+  withdrawal point.
+- NextEra's role ("delivering the natural gas") is not in the power fact
+  sheet, which names the pipeline operators instead.
+- Two superlatives can't survive removing "coal": "largest coal-burning power
+  plant in Pennsylvania" (Campus future, History). Dropped; client may supply a
+  replacement.
+- "Campus pillars" or "core values" or "project pillars"; "Giving back" or
+  one of two alternates — naming choices the outline leaves open.
+- The site address appears in no September document.
+- The outline asks for workforce footnotes "in footer of page"; the site
+  rule puts them under the label. Rule kept.
+- Quotes need dates and portraits; safety value 5 is clipped in the graphic.

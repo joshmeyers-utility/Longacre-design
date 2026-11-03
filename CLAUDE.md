@@ -79,8 +79,8 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | Step | Figma page | Status |
 | --- | --- | --- |
 | 0 | Sources transcribed + content review | ✅ Complete |
-| 1 | Site Map | ✅ Built — awaiting review |
-| 2 | Content (copy decks) | ⬜ |
+| 1 | Site Map | ✅ Approved |
+| 2 | Content (copy decks) | ✅ Built — 23 decks, flags in `docs/05` |
 | 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ⬜ |
 | 4 | Component Library | ⬜ |
 | 5 | Mobile Site (375) | ⬜ |
@@ -462,6 +462,7 @@ the first line rather than refactoring later.
 | 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
 | 15 | **Content placeholders in the outline:** Data Centers (Amazon), Sound, Giving Back, IBEW Local 5 videos, SMS short code ("text XXXX"), Facebook URL, Water/Sound fact sheet PDFs, portraits for the 5 quoted people. | Their pages |
 | 16 | **Figure conflicts** between the outline and the dated fact sheets — 11 listed in `docs/05-content-review.md` §3, resolved to the fact sheet pending confirmation. | Launch |
+| 17 | **Raised by the Content step** — HCR vs HCG credited for the Apr 2025 announcement; Two Lick Reservoir vs Two Lick Creek; NextEra's role; dropped "largest coal-burning" superlatives; pillars/giving-back naming; address source; quote dates. Detail in `docs/05` step 2. | Launch |
 | 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
 
 ---
