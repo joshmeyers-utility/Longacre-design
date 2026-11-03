@@ -82,7 +82,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 1 | Site Map | ✅ Approved |
 | 2 | Content (copy decks) | ✅ Built — 23 decks, flags in `docs/05` |
 | 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ✅ Built |
-| 4 | Component Library | ⬜ |
+| 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ⬜ |
 | 6 | Desktop Site (1440) | ⬜ |
 

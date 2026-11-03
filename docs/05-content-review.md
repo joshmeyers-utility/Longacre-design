@@ -229,7 +229,27 @@ Each step ends in a review gate, per CLAUDE.md §3.
 | 1 Site Map | ✅ Approved |
 | 2 Content | ✅ Built — 23 copy decks |
 | 3 Design system | ✅ Built — 244 variables, 16 text styles, 3 effects |
-| 4–7 | ⬜ |
+| 4 Component library | ✅ Built — 26 components, 67 variants, 367 bound paints, 0 unbound, 0 primitive refs |
+| 5–7 | ⬜ |
+
+### Step 4 output — Component library
+
+| Group | Components |
+| --- | --- |
+| Controls | Button (Primary/Secondary/Inverse × Default/Hover/Focus), Text link, Chip, Search field |
+| Chrome | Logo (placeholder), Site header (Desktop/Mobile × Light/Over photo), Site footer, Section sub-nav, Alert bar (Device × Info/Construction/Urgent), Divider |
+| Content | Section header, Stat row (the ledger; Desktop/Mobile × Light/Inverse), Glance tile, Glass card, Image (Photograph/Rendering/Video), FAQ row, Milestone entry, News item, Link tile, Fact item, Quote, Partner, Contact route, Download row, Trade item, Pillar item |
+
+Decisions made while building, recorded in each component's description:
+
+- **Nav labels are `text/primary`, not blue.** Navigation is identified by
+  position; blue stays reserved for in-content links.
+- **Alert bar text, link and close use the severity colour**, underlined, so
+  the bar reads as one unit.
+- **The search field is the one outlined element** — WCAG 1.4.11 requires a
+  3:1 boundary on an input, so `border/input` is a control boundary.
+- **Pillar colour is a 4px filled mark**, not a stroke.
+- **Renderings carry a published "Artist's rendering" label** on the image.
 
 ### Step 2 output — Content page
 
