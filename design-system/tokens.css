@@ -124,7 +124,7 @@
   --surface-glass: var(--color-white-alpha-16);
   --surface-glass-strong: var(--color-white-alpha-24);
   --surface-media: var(--color-ink-200);
-  --scrim-hero: var(--color-navy-950);
+  --scrim-hero: var(--color-base-black);
   --text-primary: var(--color-ink-950);
   --text-secondary: var(--color-ink-800);
   --text-tertiary: var(--color-ink-700);

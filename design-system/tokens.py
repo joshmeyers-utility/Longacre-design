@@ -57,7 +57,7 @@ SEM_COLOR = [
     ("surface/glass", "white-alpha/16", [F, S]),
     ("surface/glass-strong", "white-alpha/24", [F, S]),
     ("surface/media", "ink/200", [F, S]),
-    ("scrim/hero", "navy/950", [F, S]),
+    ("scrim/hero", "base/black", [F, S]),  # true black (user, Nov 2026)
     # Text. ink/700 is the floor for neutral text on white and ink/50.
     ("text/primary", "ink/950", [T]),
     ("text/secondary", "ink/800", [T]),
