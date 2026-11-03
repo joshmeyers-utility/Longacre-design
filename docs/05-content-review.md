@@ -363,3 +363,40 @@ renderings, customer selection, who builds the data centers.
 - The outline asks for workforce footnotes "in footer of page"; the site
   rule puts them under the label. Rule kept.
 - Quotes need dates and portraits; safety value 5 is clipped in the graphic.
+
+---
+
+## 9. Review round 1 (client direction, Nov 2026)
+
+Applied to Mobile and Desktop together; parity check after: every page pair
+has identical visible text.
+
+**Component changes (library):**
+
+| Component | Change |
+| --- | --- |
+| Alert bar | Black (`surface/alert`), white text, white underlined link, white close. No icon. Severity variants kept as a CMS field but render identically. |
+| Site header | Nav items have no gap between them. |
+| Section header | New `Show eyebrow` boolean, **off by default** — sections carry a title, not a label. |
+| Fact item | New `Show mark` boolean (Home differentiators run without icons). |
+| Button | New `Icon` text property — `arrow_forward` or `download`. Labels are short nouns, not sentences. |
+
+**Content changes (every page, both breakpoints):**
+
+- Section labels removed. Where the label was the real section title and the
+  heading was a design-introduced line, the label became the heading (e.g.
+  "Campus by the numbers"). This retires the "secondary section headings"
+  listed under copy introduced in design.
+- Page-hero eyebrows and Home's "Homer City Energy Campus · Indiana County,
+  Pennsylvania" removed.
+- CTAs shortened site-wide; in-section text links became buttons with short
+  labels ("Site history", "Careers", "All questions", "All news").
+- A "Download fact sheet" button closes each figures section that has a
+  source fact sheet: Home, Power plant, Workforce, Economic impact. The
+  separate download rows on Power plant and Workforce were removed; News &
+  resources keeps its fact-sheet list.
+- Kept deliberately: stat qualifiers (*Up to*, *Projected*, *Anticipated*),
+  as-of dates, milestone status, news meta — these are facts, not labels.
+- Fixed while checking parity: mobile Home showed the workforce photo as
+  Shawn's video still with an unverified "2026" date; now a briefed
+  placeholder, no date, matching desktop.

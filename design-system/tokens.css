@@ -161,6 +161,8 @@
   --pillar-infrastructure: var(--color-navy-900);
   --pillar-community: var(--color-blue-800);
   --pillar-energy-future: var(--color-gold-800);
+  --surface-alert: var(--color-base-black);
+  --text-on-alert: var(--color-base-white);
   --feedback-info-surface: var(--color-blue-100);
   --feedback-info-text: var(--color-blue-900);
   --feedback-construction-surface: var(--color-gold-100);

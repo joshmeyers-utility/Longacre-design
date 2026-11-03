@@ -275,6 +275,13 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **`ink/700` is the floor for neutral text** (5.64:1 on white, 5.14:1 on
   `surface/subtle`).
 - **Sentence case everywhere.** No all-caps. Eyebrow: 12px SemiBold, 4%.
+- **Sections have titles, not labels** (client, Nov 2026). Section header
+  eyebrows are off by default; use one only for a date-stamp or scope.
+- **CTAs are short** — a noun or two-word phrase ("Site history", "All
+  questions"), never a sentence. In-section links are buttons.
+- **Figures sections end with "Download fact sheet"** when a source fact
+  sheet exists.
+- **Alert bar is black** (`surface/alert`) with white text and close; no icon.
 - **Type: Geist** 300/400/500/600. Stat figures Light, `text/stat-figure`.
   Only size varies by breakpoint; set the Typography mode on the artboard.
 - **Icons:** Material Symbols Rounded, weight 300.

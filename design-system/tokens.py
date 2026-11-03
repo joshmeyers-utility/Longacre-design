@@ -99,7 +99,10 @@ SEM_COLOR = [
     ("pillar/infrastructure", "navy/900", [F, S, T, ST]),
     ("pillar/community", "blue/800", [F, S, T, ST]),
     ("pillar/energy-future", "gold/800", [F, S, T, ST]),
-    # Alert bar severities.
+    # Alert bar: black with white text and close (user, Nov 2026).
+    ("surface/alert", "base/black", [F, S]),
+    ("text/on-alert", "base/white", [T, F, S]),
+    # Severity tints — retained for a future urgent state; not used by the bar.
     ("feedback/info-surface", "blue/100", [F, S]),
     ("feedback/info-text", "blue/900", [T]),
     ("feedback/construction-surface", "gold/100", [F, S]),
