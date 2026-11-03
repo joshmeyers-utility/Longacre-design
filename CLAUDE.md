@@ -84,7 +84,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ✅ Built |
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
-| 6 | Desktop Site (1440) | ⬜ |
+| 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.

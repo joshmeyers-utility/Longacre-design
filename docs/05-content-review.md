@@ -231,7 +231,37 @@ Each step ends in a review gate, per CLAUDE.md §3.
 | 3 Design system | ✅ Built — 244 variables, 16 text styles, 3 effects |
 | 4 Component library | ✅ Built — 26 components, 67 variants, 367 bound paints, 0 unbound, 0 primitive refs |
 | 5 Mobile site | ✅ Built — 19 frames at 375 |
-| 6–7 | ⬜ |
+| 6 Desktop site | ✅ Built — 18 frames at 1440 |
+| 7 Repo | ✅ CLAUDE.md, README, tokens current |
+
+### Step 6 output — Desktop site
+
+18 frames at 1440 in nav order. Home was composed by hand (photo hero with a
+0.72 scrim, glass cards bottom right, split bands). The other 17 were
+**derived from their approved mobile pages** — cloned, switched to the
+Desktop variable modes, device variants swapped, bands re-flowed into a
+360px section-header column beside the content, and lists turned into
+grids (link tiles 3-up, partners 2-up, trades 3-up, at-a-glance 4–5-up,
+news 3-up). Copy is therefore identical at both breakpoints by
+construction. Quotes are capped at a 760px measure; the header's current
+section is set per page.
+
+Audit: 2,437 bound colours, 0 unbound, 0 primitive references; no banned
+strings.
+
+## 8. What is left before Webflow
+
+1. **Client confirmation** of the 44 Changed flags (Content page) and the
+   26 Draft FAQ answers.
+2. **Assets**: logo vector; the renderings and worker stills from the
+   content outline (drop in by hand — upload is blocked here); IUP
+   photo-essay files and rights; portraits for the five quoted people;
+   partner logos; captions and dates for the moodboard photographs.
+3. **Gaps**: Data centers, Sound, Giving back pages; 5 unanswered FAQs;
+   water footnote ¹; SMS short code; Facebook URL; local-partner
+   descriptions; six union names.
+4. **Copy introduced in design** (secondary headings, contact descriptions,
+   page leads) — approve or replace.
 
 ### Step 5 output — Mobile site
 
