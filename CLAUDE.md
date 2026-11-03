@@ -69,6 +69,23 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
+### Rebuild (from Nov 2026) — Modern direction, real content
+
+The client chose **Direction 1 (Modern)** and supplied the real copy. The site is
+rebuilt from a fresh canvas in a **new Figma file**:
+<https://www.figma.com/design/8RV4XecnHv5rFzjQVnSuNV/Untitled> (`8RV4XecnHv5rFzjQVnSuNV`).
+Plan, conflicts and decisions: `docs/05-content-review.md`.
+
+| Step | Figma page | Status |
+| --- | --- | --- |
+| 0 | Sources transcribed + content review | ✅ Complete |
+| 1 | Site Map | ⏳ In progress |
+| 2 | Content (copy decks) | ⬜ |
+| 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ⬜ |
+| 4 | Component Library | ⬜ |
+| 5 | Mobile Site (375) | ⬜ |
+| 6 | Desktop Site (1440) | ⬜ |
+
 Keep this table current. It is how the user and the next session both know where
 things stand.
 
@@ -83,11 +100,15 @@ docs/
   source/                  Faithful transcriptions of client source material.
     fact-sheet.md          Fact Sheet, May 2026 — canonical approved copy.
     iup-deck.md            IUP tour deck, July 2026 — freshest figures.
-    site-structure.md      Client IA brief — authority on scope.
+    content-outline.md     Content outline, 28 Sep 2026 — IA + page copy. NEWEST.
+    fact-sheets-sept-2026.md  Quick facts (4 Sep), Power (9 Sep), Econ +
+                           workforce (24 Sep), workforce graphic.
+    site-structure.md      Original client IA brief — superseded by the outline.
     external-context.md    Secondary research. NOT approved copy — see §5.
   02-plan.md               IA, page specs, 13-collection CMS model.
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
+  05-content-review.md     Rebuild: new IA, source conflicts, decisions, sequence.
 design-system/
   tokens.json              Design tokens, W3C format. Generated — don't hand-edit.
   tokens.css               Same tokens as CSS custom properties. Powers prototype/.
@@ -105,9 +126,11 @@ transcriptions as the in-repo record.
 This site's whole value is that its numbers can be trusted. Violating these is
 worse than shipping late.
 
-0. **"Coal" is not a word this site uses.** It appears in no client document —
-   only in `external-context.md`. The fact sheet's own phrasing is *"the former
-   Homer City Generating Station"*. Use theirs.
+0. **"Coal" is not a word this site uses.** Since Sep 2026 the client's own
+   documents use "the former coal plant" freely; the user decided (3 Nov 2026)
+   the site still does not. Re-phrase to *"the former Homer City Generating
+   Station"* / *"the former plant"*, and flag each re-phrased client sentence
+   on the Content page so the client sees the change.
 1. **Every figure traces to `docs/source/`.** If a number is not in those files,
    it does not go on the page. Do not estimate, do not interpolate, do not round
    for visual balance (`~1,300` is not `1.3K`).
@@ -126,7 +149,12 @@ worse than shipping late.
    2026) → ~1,500 (July 2026). It ships as a CMS field with a visible *"as of
    {month} {year}"*. A stale number on a transparency site is a self-inflicted
    wound.
-4. **July 2026 beats May 2026.** On conflicts, the IUP deck is newer. Milestones
+4. **Newer beats older; the dated fact sheet beats the outline on a figure.**
+   Order: content outline (28 Sep) › econ/workforce sheet (24 Sep) › power
+   sheet (9 Sep) › quick facts (4 Sep) › IUP deck (Jul) › May fact sheet. But
+   where the outline's copy states a figure differently from a dated fact sheet
+   (e.g. "~4.4 GW", "60–65%", "30% more efficient", "55+ years"), the fact sheet
+   wins and the change is flagged for the client. Historic note — **July 2026 beats May 2026.** On conflicts, the IUP deck is newer. Milestones
    the deck marks complete are complete; milestones only the fact sheet lists as
    forward-looking need confirmation before being shown as done.
 5. **Projections are labelled as projections.** "Projected", "anticipated",
@@ -142,24 +170,29 @@ Copy from here, not from memory.
 
 | Figure | Label | Volatility |
 | --- | --- | --- |
-| 1,800+ | Direct-hire tradespeople and skilled contractors active on site *as of September 2026* | **Changes ~monthly — CMS field, date-stamped.** Tier A, confirm wording |
+| 1,800+ | Skilled contractors and direct-hire tradespeople currently active onsite, *data as of September 4, 2026* — expected to grow to 2,000 by end of 2026 | **Changes ~monthly — CMS field, date-stamped.** Fact sheet C |
 | 10,000+ | Direct on-site construction-related jobs | Footnote 1 required |
 | ~1,000 | Total direct & indirect permanent high-paying positions in technology, operations and energy infrastructure | Footnote 2 required |
 | Up to 4.4 GW | Energy expected to be produced on-site | Stable |
-| $10 Billion | Projected initial capital investment for power infrastructure and site readiness | Stable |
+| $10 Billion+ | Projected initial capital investment for power infrastructure and site readiness | Footnote: "With data center development to add billions more." |
+| Early 2028 | Anticipated first power on site | Fact sheets A, B |
+| 60% / 40% | Less CO₂ per MWh / more efficient (heat rate) than the former plant | Fact sheet B — not the outline's 60–65% / 30% |
+| Zero | OSHA-recordable incidents | Footnote: "As of September 4, 2026." |
 | 3,200+ acres | Natural gas-powered campus designed to meet the needs of America's digital future | Stable |
 | ~3M cubic meters | Earth moved — roughly the volume required to build Egypt's Great Pyramid of Giza | Stable |
 | 7 × GE Vernova 7HA.02 | High-efficiency natural gas turbines in the Power Block | Stable |
 
-### Workforce figures — tier A, confirm before publishing
+### Workforce figures — now canonical (fact sheet C, 24 Sep 2026)
 
-From the client's own 4 Sep 2026 press release, not from the supplied PDFs. These
-are the stats the brief asked for and no supplied document contained.
+Footnotes travel with them: **9** → "Direct-hire workforce excludes
+contractors. Data as of September 4, 2026."; **95%** → "Local refers to workers
+dispatched from the local union halls with jurisdiction over the project." Use
+**95%** — not "~95%", not "over 95%".
 
 | Figure | Label |
 | --- | --- |
 | 9 | Local union organizations represented on site |
-| ~95% | Of the skilled direct-hire craft workforce is from the local area |
+| 95% | Of direct-hire craft workers onsite are local |
 | 135+ | Apprentices training alongside experienced journeymen |
 | ~2,000 | Projected total workers by year-end 2026 |
 
@@ -410,13 +443,13 @@ the first line rather than refactoring later.
 | # | Question | Blocks |
 | --- | --- | --- |
 | 1 | Brand guide: real typefaces, exact colour values, logo vector, clear-space rules. | Stage 3 |
-| 2 | **Names of the nine unions** + per-union copy for the rollover module. Counts are public; the roster is not. | Stage 4 Workforce page |
-| 3 | Partner detail for **Independence** and **Kovalchick** — neither appears in the PDFs. Logos + descriptions. | Partners page |
+| 2 | **Names of the nine unions** — 3 now public via quotes (Boilermakers Local 154, IBEW Local 5, Plumbers & Pipefitters Local 354); 6 still needed, plus logos for the union scroller. | Careers pages |
+| 3 | **Local partner detail** — outline names Independence Excavating (demolition), Kovalchick Corporation (salvage & recycling), Aquatech (water technology), Edwards Moving & Rigging (heavy transport) with roles only. Descriptions + URLs needed. AWS card is "TBD on initial inclusion". | Who We Are |
 | 4 | Photo library access — the IUP deck's imagery at full resolution, plus usage rights. | Stage 4 |
 | 5 | **Review the drafted permit-appeal FAQ answer.** Client decided to address it; the answer is drafted from public filings and carries an amber DRAFT flag in Figma. Needs client and legal sign-off before it ships. | Launch |
 | 10 | **Which library assets are renderings, not photographs?** The IUP deck's cover is a full-bleed *render* of a campus that does not exist yet, and it is the most likely asset for someone to grab for a hero. Every supplied frame needs a photo/render flag. | Launch |
 | 11 | **Site access policy.** No supplied document says whether the public may approach an active construction site. Blocks the Contact entrance photograph — an inviting gate shot with no policy beside it is a promise the site cannot keep. | Contact page imagery |
-| 14 | **The water answer has no canonical source.** "Two Lick Reservoir", "the same source the former plant used" and "usage will be roughly the same" trace **only** to `external-context.md` — tier B press coverage. The fact sheet, the tour deck and the IA brief never name a water source at all. This is the question the brief says is asked most, on the topic with the most organised opposition, and the client's own material does not answer it. Flagged amber in Figma; needs the client's own words before it ships. | Launch |
+| 14 | ~~Water answer has no canonical source~~ **Resolved** by the content outline (Two Lick Reservoir, owned and operated by Homer City Generation; usage in line with historical levels). Its footnote ¹ has no text — still needed. | Water page |
 
 **Non-blocking — can proceed with a stated assumption:**
 
@@ -427,13 +460,16 @@ the first line rather than refactoring later.
 | 8 | Is "Campus Partners / Commitment to the Community / Testimonials" one page or three? | **Resolved:** one "Community" nav item with three child pages. |
 | 9 | Domain: does the new site stay on homercityredevelopment.com given the Energy Campus pivot? | Flag as a client decision; it affects nav, metadata and email routing. |
 | 12 | **First steel: March or April 2026?** The IUP deck's photo essay dates "First Steel, Going Vertical" to **March 2026**; the same deck's timeline dates the milestone to **April 2026**. A photograph can legitimately predate an announcement, but both will appear on the same site. | Caption uses the photo's date (March); timeline uses April. One client question resolves it. |
+| 15 | **Content placeholders in the outline:** Data Centers (Amazon), Sound, Giving Back, IBEW Local 5 videos, SMS short code ("text XXXX"), Facebook URL, Water/Sound fact sheet PDFs, portraits for the 5 quoted people. | Their pages |
+| 16 | **Figure conflicts** between the outline and the dated fact sheets — 11 listed in `docs/05-content-review.md` §3, resolved to the fact sheet pending confirmation. | Launch |
 | 13 | **"Powerblock" or "Power Block"?** The deck spells it both ways, in the same document. | Using the two-word form, matching slide 6 and §6 here. |
 
 ---
 
 ## 11. Conventions
 
-- **Branch:** `claude/keen-allen-x6me7z`. Do not push elsewhere.
+- **Branch:** the one the session names (rebuild: `claude/inspiring-mendel-qv80rj`).
+  Do not push elsewhere.
 - **Commits:** one per stage, descriptive subject, body explaining what changed
   and why.
 - **Markdown:** wrap prose at ~80 characters. Tables for anything comparative.

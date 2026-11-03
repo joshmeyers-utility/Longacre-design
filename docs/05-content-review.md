@@ -199,16 +199,14 @@ Renderings carry `Kind = Rendering` on every surface (CLAUDE.md §7).
 
 ---
 
-## 6. Decisions needed before the Figma build
+## 6. Decisions (3 Nov 2026)
 
-- **Q-A "Coal"** — adopt the client's own wording and retire rule 0?
-- **Q-B Conflicts** — accept the §3 proposals as working copy, flagged for client
-  confirmation?
-- **Q-C FAQ answers** — draft the 25 missing answers *only* from sourced copy
-  (flagged DRAFT), or show questions without answers until the client writes
-  them?
-- **Q-D Design rules** — revise CLAUDE.md §7 to describe the Modern direction
-  (rounded media, pill buttons, frosted hero cards)?
+| # | Question | Decision |
+| --- | --- | --- |
+| Q-A | Adopt the client's "former coal plant" wording? | **No — keep avoiding it.** Rule 0 stands even though the client's documents now use the word. Client sentences containing it are re-phrased to "the former Homer City Generating Station" / "the former plant", and each re-phrasing is flagged in the Content page so the client sees the change. B1 is resolved this way. |
+| Q-B | How to resolve figure conflicts | **The dated fact sheet wins.** The §3 proposals are working copy, and each one is flagged in Figma for client confirmation. |
+| Q-C | The 25 missing FAQ answers | **Draft from sources only.** An answer is assembled only from sentences already in client documents, cites its source and carries a DRAFT flag. A question with no sourced answer ships unanswered. |
+| Q-D | Modern direction vs CLAUDE.md §7 | **Follow Modern and rewrite §7 to describe it**: rounded media, pill buttons, frosted hero cards. Unchanged: blue means link, the stat ledger, footnotes travel with figures, contrast and scrim rules, sentence case, no tinted grounds. Rewritten in step 3 alongside the tokens. |
 
 ---
 
@@ -226,5 +224,7 @@ Each step ends in a review gate, per CLAUDE.md §3.
 | 6 | **Desktop Site** | 1440px, same order | Mostly re-flow of the mobile build |
 | 7 | Repo | `CLAUDE.md` §3/§5/§6/§7/§10, README, tokens | Keeps the next session honest |
 
-Steps 1 and 2 can both be built before Q-D is answered. Step 2 needs Q-A, Q-B
-and Q-C.
+| Step | Status |
+| --- | --- |
+| 1 Site Map | ⏳ In progress |
+| 2–7 | ⬜ |
