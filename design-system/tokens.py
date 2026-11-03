@@ -278,7 +278,9 @@ def build():
     figma = {
         "prim_color": COLOR, "space": SPACE, "radius": RADIUS,
         "sem_color": [[n, r, s] for n, r, s in SEM_COLOR],
-        "sem_float": [[n, d, m, s] for n, d, m, s in SEM_FLOAT],
+        # Figma binds opacity variables as percentages (0–100); CSS keeps 0–1.
+        "sem_float": [[n, d * 100, m * 100, s] if n.startswith("opacity/") else [n, d, m, s]
+                      for n, d, m, s in SEM_FLOAT],
         "type": [[r, d, m] for r, d, m, *_ in TYPE],
         "styles": [[r, wt, lh, tr] for r, _, _, wt, lh, tr in TYPE],
         "family": FONT_FAMILY, "motion": MOTION, "effects": EFFECTS,

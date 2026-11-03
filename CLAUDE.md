@@ -83,7 +83,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 2 | Content (copy decks) | ✅ Built — 23 decks, flags in `docs/05` |
 | 3 | Design System Documentation (variables, styles; §7 rewritten for Modern) | ✅ Built |
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
-| 5 | Mobile Site (375) | ⬜ |
+| 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ⬜ |
 
 Keep this table current. It is how the user and the next session both know where
@@ -230,6 +230,8 @@ from `figma.json`. Never hand-edit the generated files — edit `tokens.py`,
 re-run it, rebuild the variables. (The Stage 4 file had drifted from its own
 docs — Arimo instead of Geist, a "paper" ground — which is why there is now
 one generator for all three.) Rationale: `docs/03-design-system.md` §15.
+
+Figma opacity variables are **percentages (0–100)**; `tokens.py` emits them ×100 for Figma.
 
 Live in Figma: **244 variables** — Primitives 117 (hidden, `scopes = []`),
 Semantic 96 (Desktop/Mobile), Typography 18 (Desktop/Mobile), Motion 13 — plus

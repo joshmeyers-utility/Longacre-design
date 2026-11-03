@@ -230,7 +230,50 @@ Each step ends in a review gate, per CLAUDE.md §3.
 | 2 Content | ✅ Built — 23 copy decks |
 | 3 Design system | ✅ Built — 244 variables, 16 text styles, 3 effects |
 | 4 Component library | ✅ Built — 26 components, 67 variants, 367 bound paints, 0 unbound, 0 primitive refs |
-| 5–7 | ⬜ |
+| 5 Mobile site | ✅ Built — 19 frames at 375 |
+| 6–7 | ⬜ |
+
+### Step 5 output — Mobile site
+
+19 frames at 375, in nav order: Home, the open menu, and every page whose
+content is ready or partial. The three blocked pages (Data centers, Sound,
+Giving back) are not drawn — they are out of the nav until content lands.
+
+Audit: 2,278 bound colours, 0 unbound, 0 primitive references; no visible
+text contains "coal", "4.5 GW", "~4.4", "over 95%", "~95%", "XXXX" or "TBD".
+
+**Real imagery used** (already in the file, from the moodboard): the
+construction aerial (hero), the workforce assembled on site, a worker at a
+trench, the site aerial with the former station building, the logo mark and
+white wordmark. **Not used:** the moodboard's power-pylon photograph — it is
+stock, not the site.
+
+**Not placed, and why.** The client's renderings (power plant, campus) and the
+worker video stills (Shawn, Isaac) are in the content-outline deck. Figma's
+asset upload endpoint is blocked by this environment's network policy, so
+they appear as briefed placeholders (`Kind = Rendering` / `Video`). Drop them
+in by hand from the deck, slides 4, 8, 9 and 19.
+
+**Captions are only written where the source dates the photo.** None of the
+moodboard photographs comes with a caption or date, so they run without one
+until the client identifies them (open question 10).
+
+**Copy introduced in design, for client approval** — not in the content
+outline:
+
+- Secondary section headings under the outline's section titles (e.g.
+  "Seven turbines, up to 4.4 GW", "Who is on site", "In their words").
+- Contact route descriptions for General, Press and Vendor inquiries.
+- Page-hero leads on FAQs, News & resources, Timeline and History.
+- The SMS sign-up line, which replaces "please text XXXX" until the short
+  code exists.
+
+Bugs found and fixed while building: opacity variables must be 0–100 in
+Figma (scrims rendered at 0.88%; `tokens.py` now emits ×100 for Figma);
+instance sublayers cannot be resized (Image now sizes from the instance);
+three quotes had been shortened (restored — only the client shortens a
+quote); production text had leaked into published fields on Water and
+Article (moved into placeholder regions).
 
 ### Step 4 output — Component library
 
