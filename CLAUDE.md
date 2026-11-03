@@ -336,9 +336,11 @@ the first line rather than refactoring later.
 - **Text over a photograph is guaranteed by the scrim, not by a checker.** An
   automated contrast sweep walks to the nearest *solid* painted ancestor, and a
   photograph is not one — so it will report a pass no matter what the image
-  does. Hero scrims are set so the weakest point over the text column still
-  clears AA against a pure white photograph (desktop 0.72 at the end of the
-  900px column; mobile 0.88 throughout). Do not lighten them. `docs/04` §12.6.
+  does. The scrim is **true black** (`scrim/hero` → `base/black`, Nov 2026) and
+  is set so white text clears AA even over a pure-white photograph: desktop
+  **0.62** (6.2:1), mobile **0.76** (10.8:1). The AA floor for a black scrim
+  is **0.535** — never go below it, and re-run the check in `tokens.py` if the
+  scrim colour changes.
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible
   focus states, keyboard paths through every rollover interaction, and captions

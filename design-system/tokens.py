@@ -155,8 +155,9 @@ SEM_FLOAT = [
     ("icon/lg", 24, 24, [W]),
     ("icon/xl", 32, 32, [W]),
     # Hero scrims are set so text clears AA over a pure white photograph.
-    ("opacity/scrim-hero-start", 0.88, 0.88, [O]),
-    ("opacity/scrim-hero-end", 0.72, 0.88, [O]),
+    # Black scrim: AA (4.5:1) floor is 0.535. 0.62 -> 6.2:1, 0.76 -> 10.8:1.
+    ("opacity/scrim-hero-start", 0.76, 0.76, [O]),
+    ("opacity/scrim-hero-end", 0.62, 0.76, [O]),
     ("opacity/scrim-media", 0.24, 0.24, [O]),
     ("opacity/disabled", 0.38, 0.38, [O]),
 ]

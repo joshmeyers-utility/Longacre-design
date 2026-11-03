@@ -209,8 +209,8 @@
   --icon-md: 20px;
   --icon-lg: 24px;
   --icon-xl: 32px;
-  --opacity-scrim-hero-start: 0.88;
-  --opacity-scrim-hero-end: 0.72;
+  --opacity-scrim-hero-start: 0.76;
+  --opacity-scrim-hero-end: 0.62;
   --opacity-scrim-media: 0.24;
   --opacity-disabled: 0.38;
   --font-sans: 'Geist', system-ui, sans-serif;
@@ -313,7 +313,7 @@
     --radius-media: 16px;
     --radius-media-lg: 20px;
     --size-control-lg: 52px;
-    --opacity-scrim-hero-end: 0.88;
+    --opacity-scrim-hero-end: 0.76;
     --type-hero-size: 40px;
     --type-h1-size: 34px;
     --type-h2-size: 30px;
