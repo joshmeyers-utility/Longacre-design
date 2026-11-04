@@ -861,3 +861,22 @@ Values?]") is still open.
 - **Job opportunities, Job board:** white ground (was black); job rows on
   `surface/subtle`, section header Light. It now runs on from the white hero
   as one block. Desktop + mobile.
+
+### Water — water treatment diagram from slide 26 (client, 5 Nov 2026)
+
+The image placeholder in "How our water treatment system works" is replaced
+by a drawn diagram in a `surface/subtle` panel. The heading and text now span
+the full content column above it.
+- **Desktop:** 4 × 3 grid of white nodes (Reservoir · Capture and reuse
+  water · Water intake · Water treatment · Data center · Water discharge ·
+  Cooling water treatment · Power plant · Power grid in navy). A wavy
+  navy line on the left stands for the creek / watershed. **Water arrows
+  are solid, electricity arrows dashed** (power plant → power grid → data
+  center), with a key. The slide's red/blue arrow colours are not used,
+  because blue means link and colour alone can't carry meaning.
+- **Mobile:** a vertical flow with the same node names, pairs where the slide
+  branches, and a separate electricity row.
+- **Introduced labels, for approval:** the key label "Two Lick Creek"; on
+  mobile "From Two Lick Creek", "Back to Two Lick Creek" and "From the power
+  plant". The slide shows the creek as a drawing only. Two Lick Reservoir vs
+  Creek is still open Q17.
