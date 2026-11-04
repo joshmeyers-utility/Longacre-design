@@ -1032,3 +1032,26 @@ Heading 2 (v2 had body-size text there).
 - Text parity with desktop v3 is exact apart from mobile-only items (menu
   button, stacked story panels, diagram connector labels).
 - *Menu (open) · Mobile* copied to the left of the frames.
+
+### v3 outline check (4 Nov 2026)
+
+The outline slide columns are copied onto Desktop Site v3 beside each page.
+The v3 frames now use v2's spacing (3,120 apart) to make room. Every
+outline text item (slides 3–37) was matched against v3's text automatically.
+Items scoring below 80% were reviewed by hand:
+
+- **Gap fixed:** slide 22's intro, "On the Homer City Energy Campus, our
+  workforce includes a wide range of skilled trade crafts:", was missing from
+  Job opportunities (also missing in v2). It is now the intro of *Nine trades
+  on site*, on desktop and mobile.
+- **Deliberate changes:** these were already flagged under the fact rules and
+  in `docs/05`. "Coal" was rephrased. 55 → 54 years. ~4.4 → up to 4.4 GW.
+  60–65% → 60% and 30% → 40% (fact sheet). "nearly 10,000" → 10,000+. "As of
+  September 7" → September 4. The "largest coal-burning" superlatives were
+  dropped. "Generating Station" → "Generation" where the operator is meant.
+  CTAs were shortened ("Site history", "All questions", "Download fact sheet").
+- **Slide furniture, not copy:** slide titles, "[TICKERING UP]", carousel
+  notes, "ADD PHOTOS …", "Click to continue", and "[link to website]".
+- **Still ⛔ (open questions, unchanged):** Data centers / AWS card and the
+  Amazon partner copy; local partner links; SMS short code ("text XXXX");
+  community spotlights (no stories supplied); video carousel; giving back.
