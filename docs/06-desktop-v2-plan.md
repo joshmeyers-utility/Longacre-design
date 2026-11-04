@@ -469,5 +469,12 @@ panels switch instantly. Mobile drops the sticky behaviour: steps stack, each
 label above its own content. In the Figma prototype, clicking a tab switches
 the variant.
 
-**Open question:** Home's white group (past, workforce, what we're building)
-is the same run of P4 rows. It is left as the client laid it out unless asked.
+Round 2 (client):
+
+- P21: the button now sits **below** the media. Each panel gains an optional
+  `body` paragraph (Body large), hidden by default.
+- **Home's white group is now a three-step P21**: From past to present (body),
+  Meet the tradesmen and women (statement + video), See what we're building
+  (body + rendering). Home is about 1,000 px shorter.
+- **P10 statement bands breathe more**: new token `space/section-y-lg` 240 /
+  120 on the component, Home's statement and the PJM statement.

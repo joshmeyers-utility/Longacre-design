@@ -175,6 +175,7 @@
   --feedback-urgent-text: var(--color-red-900);
   --space-section-y: 160px;
   --space-section-y-sm: 96px;
+  --space-section-y-lg: 240px;
   --space-container-x: 80px;
   --space-container-x-contained: 160px;
   --space-gutter: 24px;
@@ -302,6 +303,7 @@
     --scrim-hero-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.25) 22%, rgba(0, 0, 0, 0.55) 32%, rgba(0, 0, 0, 0.7) 44%, rgba(0, 0, 0, 0.85) 100%);
     --space-section-y: 80px;
     --space-section-y-sm: 56px;
+    --space-section-y-lg: 120px;
     --space-container-x: 16px;
     --space-container-x-contained: 16px;
     --space-gutter: 16px;

@@ -60,7 +60,7 @@ decisions and open items: [`docs/05-content-review.md`](docs/05-content-review.m
 | 0 | Sources transcribed, content reviewed | ✅ |
 | 1 | Site Map — 8 sections, 21 pages | ✅ Approved |
 | 2 | Content — 23 copy decks, every field sourced and flagged | ✅ |
-| 3 | Design System Documentation — 245 variables from `design-system/tokens.py` | ✅ |
+| 3 | Design System Documentation — 246 variables from `design-system/tokens.py` | ✅ |
 | 4 | Component Library — 26 components, 67 variants | ✅ |
 | 5 | Mobile Site — 19 frames at 375 | ✅ |
 | 6 | Desktop Site — 18 frames at 1440 | ✅ |

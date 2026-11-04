@@ -234,8 +234,8 @@ one generator for all three.) Rationale: `docs/03-design-system.md` §15.
 
 Figma opacity variables are **percentages (0–100)**; `tokens.py` emits them ×100 for Figma.
 
-Live in Figma: **245 variables** — Primitives 117 (hidden, `scopes = []`),
-Semantic 97 (Desktop/Mobile), Typography 18 (Desktop/Mobile), Motion 13 — plus
+Live in Figma: **246 variables** — Primitives 117 (hidden, `scopes = []`),
+Semantic 98 (Desktop/Mobile), Typography 18 (Desktop/Mobile), Motion 13 — plus
 **16 text styles** (font size bound to Typography) and **3 effect styles**
 (Glass, Focus ring, Focus ring inverse). Documented on the *Design System
 Documentation* page.
@@ -285,9 +285,10 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   exception is a deliberate *white group* — consecutive white sections in
   the same format, separated by space. Breathers between groups: a
   full-bleed photograph or a black statement band (one sourced sentence,
-  Heading 2, white). Section padding is `space/section-y` (160 / 80).
-  Home order: hero · numbers (navy) · white group (past, workforce,
-  what we're building — one two-column format, media side alternating) ·
+  Heading 2, white). Section padding is `space/section-y` (160 / 80); statement bands use
+  `space/section-y-lg` (240 / 120).
+  Home order: hero · numbers (navy) · scroll story (P21: past, workforce,
+  what we're building) ·
   full-bleed photo · differentiators (subtle) · statement (black) ·
   stewardship (subtle) · questions (navy) · news (white) · learn more
   (subtle) · footer (navy). Hero carries one glass card (newest news).

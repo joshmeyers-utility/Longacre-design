@@ -125,6 +125,8 @@ SEM_FLOAT = [
     # Layout. Band width comes from the parent's padding, never the band.
     ("space/section-y", 160, 80, [W, G]),
     ("space/section-y-sm", 96, 56, [W, G]),
+    # Statement bands (P10) breathe more than ordinary sections (client, Nov 2026).
+    ("space/section-y-lg", 240, 120, [W, G]),
     ("space/container-x", 80, 16, [W, G]),           # wide 1280
     ("space/container-x-contained", 160, 16, [W, G]),  # contained 1120
     ("space/gutter", 24, 16, [G]),
