@@ -75,6 +75,7 @@ structure; no content).
 | P18 | Partner grid | Campus / local partners | Existing *Partner* component, 2–3 up |
 | P19 | Media sequence | History "then & now", photos & videos | Existing *Image*, 3-up grid with date captions |
 | P20 | Contact routes | Four inboxes | Existing *Contact route*, 2 × 2 |
+| **P21** | **Scroll story** | Client, Nov 2026 — replaces a run of consecutive P4 rows (Granola-style) | New *Story tab* component; `Active=1/2/3` variants, `Show step 3` |
 
 P17–P20 exist as components already; they need a section wrapper only. P14–P16
 need new components.
@@ -451,3 +452,22 @@ active tab by override.
 | 5 | Then & now shows all 12 stages. Caption expansions for approval: "Module yard: pipe rack fabrication" (deck: "Mod Yard Piperack Fab"), "GIS: working at height", "Unit 5 heat recovery steam generator (HRSG)". All 12 photographs ⛔ (IUP files + rights). |
 | 5 | "An experienced local workforce." has no body in the source; its body line is hidden. |
 | 3–6 | FAQ answers: only the expanded row carries a sourced answer; collapsed rows still hold the component's placeholder until the FAQ answers land. |
+
+### Review round — Nov 2026 (client)
+
+| Request | Done |
+| --- | --- |
+| Remove or update the dividers in Key facts (P6) | **Removed.** Fact rows in P6 carry no hairline and no closing divider; rows are separated by 24 px of space plus their own padding. Applied to the P6 component and all six P6 sections on pages 2–5. P7 and the stat ledger keep their hairlines. |
+| Combine the Campus future P4 rows into a dynamic scroll component | **New P21 · Scroll story** (Sections page). Steps on the left with a hairline track and a progress bar under the active step; the active step's statement, CTA and media on the right. Campus future uses it with two steps (The campus, The power plant). |
+
+**P21 behaviour (for the build).** Desktop: the section is about one viewport
+tall per step, and its inner row is `position: sticky`. Scroll progress moves
+the active step and fills the bar (Interactions 2.0 scroll-progress). Each tab is
+a button (`role="tab"`): click, tap and the arrow keys select a step, so
+nothing depends on scrolling. With reduced motion there is no bar animation and
+panels switch instantly. Mobile drops the sticky behaviour: steps stack, each
+label above its own content. In the Figma prototype, clicking a tab switches
+the variant.
+
+**Open question:** Home's white group (past, workforce, what we're building)
+is the same run of P4 rows. It is left as the client laid it out unless asked.

@@ -268,6 +268,11 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **Strokes are dividers.** A hairline separates two pieces of content —
   `border/divider` on light, `border/divider-inverse` on navy,
   `border/divider-black` on black (navy/700 reads blue there). No outlines.
+- **Key facts have no dividers** (client, Nov 2026). P6 fact rows are
+  separated by space; the ledger, link rows and FAQ rows keep hairlines.
+- **Runs of link-to-section rows become a scroll story** (P21, client, Nov
+  2026): sticky steps left, the active step's statement + CTA + media right.
+  Every tab is a button, so scrolling is never the only way through.
 - **Stats are a ledger.** Figure left, label right, hairline between rows,
   qualifier (*Up to*, *Projected*, *Anticipated*) as an eyebrow above the
   figure, **required footnotes under the label inside the row** — not at the
