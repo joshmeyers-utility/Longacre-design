@@ -812,3 +812,15 @@ The text-only diagram in the left column is replaced by a drawn flow (slide
   dropped (§5 rule 0); "nearly 55 years" → "54 years" (1969–2023, fact
   sheet rule). Slide placeholders "[additional historical details?]" and
   "[add demo brown field clean up]" ⛔.
+
+### Campus history — Then & now as a near-bleed mosaic (client, 5 Nov 2026)
+
+Section side padding 0; the title and intro sit in a wrapper padded to the
+content column (`space/container-x-contained`). Images run to a
+`space/stack-sm` (12) gutter with the same gap between them, in rows that
+alternate full width (560 tall) and a pair (395 tall), chronological:
+1969–2023 · Mar 2025 + Nov 2025 · Feb 2026 · Feb–Mar 2026 + Mar 2026 ·
+Apr 2026 · Apr 2026 + Apr 2026 · Jul 2026 · Jul 2026 + Jul 2026. Captions
+and dates stay under each image (a brief is not a caption). Mobile:
+`space/stack-xs` (8) gutter, one image per row (pairs were too narrow for
+captions).
