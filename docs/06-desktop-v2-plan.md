@@ -75,6 +75,7 @@ structure; no content).
 | P18 | Partner grid | Campus / local partners | Existing *Partner* component, 2–3 up |
 | P19 | Media sequence | History "then & now", photos & videos | Existing *Image*, 3-up grid with date captions |
 | P20 | Contact routes | Four inboxes | Existing *Contact route*, 2 × 2 |
+| **P2s** | **Hero, statement** | Client, Nov 2026 — long page intros read as a white statement | P2 restyled: title Heading 4 secondary (still the h1), intro Heading 2 at 900, `space/section-y-lg` |
 | **P22** | **Topic tiles** | Client, Nov 2026 — the outline's Community Stewardship tile row | New *Topic tile* component (Label, Icon, Show divider) |
 | **P21** | **Scroll story** | Client, Nov 2026 — replaces a run of consecutive P4 rows (Granola-style) | New *Story tab* component; `Active=1/2/3` variants, `Show step 3` |
 
@@ -607,3 +608,12 @@ page ("Our community commitments", no button — it is that page). Order
 follows the outline: Construction alerts first. The label stays "Charitable
 giving" (the outline tile says "Giving back"; the name is still open). Mobile
 spec: a 2-up grid, or stacked rows with the icon on the left.
+
+### P2s Hero, statement (client, 4 Nov 2026)
+
+The page hero on Campus partners, Community stewardship, Water, Health &
+safety and Economic impact is now a white statement. The intro is set in
+Heading 2 (900 wide, like the black P10 band), with the page title above it
+in Heading 4, `text/secondary`. The title is still the page's `<h1>`, so the
+outline order and screen readers are unchanged. Padding is
+`space/section-y-lg`. Short intros stay P2.

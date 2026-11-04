@@ -273,6 +273,8 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **Runs of link-to-section rows become a scroll story** (P21, client, Nov
   2026): sticky steps left, the active step's statement + CTA + media right.
   Every tab is a button, so scrolling is never the only way through.
+- **Long page intros are white statements** (P2s, client, Nov 2026): intro
+  in Heading 2, page title small above it (still the h1).
 - **Sibling destinations with a clear icon are topic tiles** (P22, client,
   Nov 2026): equal columns, hairlines between, decorative icon (not blue).
   Plain link lists stay P5.
