@@ -922,3 +922,13 @@ bar is removed; the header's dropdown replaces it.
   (`aria-expanded`) that expands the indented sub-pages. Shown: *What we're
   building* expanded. Who we are, FAQs and Contact us are plain link rows.
   Row padding was opened up at the client's request.
+
+### Type: default line height and letter spacing (client, 5 Nov 2026)
+
+All 16 text styles are now line height **auto** and letter spacing **0%**
+(Figma). `tokens.py` TYPE uses `None` / 0, so CSS emits `--type-*-line:
+normal` and `--type-*-tracking: 0em`. Knock-on: the desktop Home headline
+wraps to four lines and starts at 0.233 of the hero, so the desktop scrim's
+upper stops moved (0.15 → 0.20, 0.25 → 0.50). `TEXT_AT` was re-measured
+(desktop 0.233 / 0.733, mobile 0.285 / 0.555) and `check_scrim()` passes.
+Figma's Home hero and P1 gradients are updated to match.

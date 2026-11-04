@@ -306,7 +306,9 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   for dark bands — it is the client's colour and what the moodboard showed.
 - **`ink/700` is the floor for neutral text** (5.64:1 on white, 5.14:1 on
   `surface/subtle`).
-- **Sentence case everywhere.** No all-caps. Eyebrow: 12px SemiBold, 4%.
+- **Sentence case everywhere.** No all-caps. Eyebrow: 12px SemiBold.
+  **Line height and letter spacing are the font's defaults** (auto / 0%) on
+  every text style (client, 5 Nov 2026).
 - **Sections have titles, not labels** (client, Nov 2026). Section header
   eyebrows are off by default; use one only for a date-stamp or scope.
 - **CTAs are short** — a noun or two-word phrase ("Site history", "All
@@ -394,8 +396,9 @@ the first line rather than refactoring later.
   the large headline **≥ 0.42** (3:1). `TEXT_AT` records where each
   breakpoint's text starts; `check_scrim()` fails the build if a stop drops
   below that. **If you move hero text up, re-measure `TEXT_AT` first.**
-  Current (Nov 2026, full headline): desktop headline 4.1:1, lead 6.5:1;
-  mobile headline α 0.47, lead α 0.70 (1,021px hero). Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
+  Current (5 Nov 2026, default line height — desktop headline wraps to 4
+  lines): desktop headline α 0.45, lead α 0.64; mobile headline α 0.45,
+  lead α 0.73 (1,053px hero). Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
   variables).
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible

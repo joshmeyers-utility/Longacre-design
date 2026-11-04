@@ -174,26 +174,27 @@ SEM_FLOAT = [
 ]
 
 # ---------------------------------------------------------------- typography
-# Only font size varies by breakpoint. Line height and tracking are
-# percentages, so they scale on their own.
-# (role, desktop size, mobile size, weight, line height %, tracking %)
+# Only font size varies by breakpoint. Line height and letter spacing are the
+# font's defaults (client, 5 Nov 2026): line height None = auto/normal,
+# tracking 0.
+# (role, desktop size, mobile size, weight, line height % or None, tracking %)
 TYPE = [
-    ("hero", 72, 40, "Regular", 100, -3),
-    ("h1", 56, 34, "Regular", 104, -2.5),
-    ("h2", 44, 30, "Regular", 110, -2),
-    ("h3", 26, 22, "Regular", 122, -1),
-    ("h4", 20, 18, "Medium", 130, -0.5),
-    ("body-lg", 20, 18, "Regular", 150, -0.5),
-    ("body", 16, 16, "Regular", 155, 0),
-    ("body-sm", 14, 14, "Regular", 150, 0),
-    ("label", 16, 16, "Medium", 130, 0),
-    ("label-sm", 14, 14, "Medium", 130, 0),
-    ("caption", 13, 13, "Regular", 145, 0),
-    ("eyebrow", 12, 12, "SemiBold", 130, 4),
-    ("stat", 64, 44, "Light", 100, -2.5),
-    ("stat-sm", 44, 34, "Light", 104, -2),
-    ("stat-unit", 22, 18, "Regular", 120, -0.5),
-    ("quote", 26, 21, "Light", 135, -1),
+    ("hero", 72, 40, "Regular", None, 0),
+    ("h1", 56, 34, "Regular", None, 0),
+    ("h2", 44, 30, "Regular", None, 0),
+    ("h3", 26, 22, "Regular", None, 0),
+    ("h4", 20, 18, "Medium", None, 0),
+    ("body-lg", 20, 18, "Regular", None, 0),
+    ("body", 16, 16, "Regular", None, 0),
+    ("body-sm", 14, 14, "Regular", None, 0),
+    ("label", 16, 16, "Medium", None, 0),
+    ("label-sm", 14, 14, "Medium", None, 0),
+    ("caption", 13, 13, "Regular", None, 0),
+    ("eyebrow", 12, 12, "SemiBold", None, 0),
+    ("stat", 64, 44, "Light", None, 0),
+    ("stat-sm", 44, 34, "Light", None, 0),
+    ("stat-unit", 22, 18, "Regular", None, 0),
+    ("quote", 26, 21, "Light", None, 0),
 ]
 FONT_FAMILY = {"sans": "Geist", "icon": "Material Symbols Rounded"}
 
@@ -215,12 +216,12 @@ MOTION = {
 # TEXT_AT records where each breakpoint's text starts, measured from the comp;
 # check_scrim() fails the build if a stop is lowered below what the text needs.
 SCRIM_GRADIENT = {
-    "desktop": [(0.0, 0.10), (0.28, 0.20), (0.40, 0.50), (0.70, 0.62), (1.0, 0.80)],
+    "desktop": [(0.0, 0.10), (0.15, 0.20), (0.25, 0.50), (0.70, 0.62), (1.0, 0.80)],
     "mobile":  [(0.0, 0.10), (0.22, 0.25), (0.32, 0.55), (0.44, 0.70), (1.0, 0.85)],
 }
 TEXT_AT = {  # (position of top of line, minimum alpha it needs)
-    "desktop": [(0.417, 0.42), (0.718, 0.535)],   # headline (3 lines, Nov 2026), lead (800px hero)
-    "mobile":  [(0.294, 0.42), (0.513, 0.535)],   # headline (full line, Nov 2026), lead (1021px hero)
+    "desktop": [(0.233, 0.42), (0.733, 0.535)],   # headline (4 lines, default line height, 5 Nov 2026), lead (800px hero)
+    "mobile":  [(0.285, 0.42), (0.555, 0.535)],   # headline (default line height, 5 Nov 2026), lead (1053px hero)
 }
 
 
@@ -279,7 +280,7 @@ def build():
         tokens["type"][role] = {"$type": "typography", "$value": {
             "fontFamily": FONT_FAMILY["sans"], "fontWeight": wt,
             "fontSize": f"{d}px", "fontSizeMobile": f"{m}px",
-            "lineHeight": f"{lh}%", "letterSpacing": f"{tr}%"}}
+            "lineHeight": "normal" if lh is None else f"{lh}%", "letterSpacing": f"{tr}%"}}
     for k, v in MOTION.items():
         put(tokens["motion"], k, v if isinstance(v, str) else f"{v}ms" if k.startswith(("duration", "stagger")) else f"{v}px",
             "cubicBezier" if k.startswith("ease") else "duration" if k.startswith(("duration", "stagger")) else "dimension")
@@ -297,7 +298,7 @@ def build():
     for role, d, _, wt, lh, tr in TYPE:
         w = {"Light": 300, "Regular": 400, "Medium": 500, "SemiBold": 600}[wt]
         out += [f"  --type-{role}-size: {d}px;", f"  --type-{role}-weight: {w};",
-                f"  --type-{role}-line: {lh / 100};", f"  --type-{role}-tracking: {tr / 100}em;"]
+                f"  --type-{role}-line: {'normal' if lh is None else lh / 100};", f"  --type-{role}-tracking: {tr / 100}em;"]
     for k, v in MOTION.items():
         unit = "ms" if k.startswith(("duration", "stagger")) else "px" if k.startswith("distance") else ""
         out.append(f"  {css_name(k)}: {v}{unit};")
