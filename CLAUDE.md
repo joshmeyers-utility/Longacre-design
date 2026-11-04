@@ -113,6 +113,7 @@ docs/
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
   05-content-review.md     Rebuild: new IA, source conflicts, decisions, sequence.
+  07-shot-list.md          Photo, video, rendering and logo shot list (v3 slots).
 design-system/
   tokens.py                Token source of truth (Modern). Run it to regenerate:
   tokens.json              W3C format. Generated — don't hand-edit.
