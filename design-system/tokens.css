@@ -122,6 +122,7 @@
   --surface-subtle: var(--color-ink-50);
   --surface-inverse: var(--color-navy-900);
   --surface-inverse-raised: var(--color-navy-800);
+  --surface-black: var(--color-base-black);
   --surface-glass: var(--color-white-alpha-16);
   --surface-glass-strong: var(--color-white-alpha-24);
   --surface-glass-dark: var(--color-black-alpha-56);

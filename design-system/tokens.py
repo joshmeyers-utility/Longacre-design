@@ -56,6 +56,9 @@ SEM_COLOR = [
     ("surface/subtle", "ink/50", [F, S]),
     ("surface/inverse", "navy/900", [F, S]),
     ("surface/inverse-raised", "navy/800", [F, S]),
+    # Black ground for statement bands and alternating dark sections
+    # (client, Nov 2026) — used so no two adjacent sections share a ground.
+    ("surface/black", "base/black", [F, S]),
     ("surface/glass", "white-alpha/16", [F, S]),
     ("surface/glass-strong", "white-alpha/24", [F, S]),
     # Header bar over photography: dark glass. White text clears AA (4.95:1)

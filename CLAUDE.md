@@ -273,7 +273,16 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **A brief is not a caption.** Production notes live inside the image area;
   caption, date and `Kind = Photograph | Rendering | Video` are separate fields.
 - **Grounds: white (`surface/page`), near-white (`surface/subtle`), navy
-  (`surface/inverse`).** No tinted grounds. Navy, not the comps' near-black,
+  (`surface/inverse`), black (`surface/black`, Nov 2026).** No tinted grounds.
+- **No two adjacent sections share a ground** (client, Nov 2026). The one
+  exception is a deliberate *white group* — consecutive white sections in
+  the same format, separated by space. Breathers between groups: a
+  full-bleed photograph or a black statement band (one sourced sentence,
+  Heading 2, white). Section padding is `space/section-y` (160 / 80).
+  Home order: hero · numbers (navy) · white group (past, workforce,
+  renderings) · full-bleed photo · differentiators (subtle) · statement
+  (black) · stewardship (subtle) · questions (black) · news (white) · learn
+  more (subtle) · footer (navy). Navy, not the comps' near-black,
   for dark bands — it is the client's colour and what the moodboard showed.
 - **`ink/700` is the floor for neutral text** (5.64:1 on white, 5.14:1 on
   `surface/subtle`).
