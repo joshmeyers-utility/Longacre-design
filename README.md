@@ -65,7 +65,7 @@ decisions and open items: [`docs/05-content-review.md`](docs/05-content-review.m
 | 5 | Mobile Site — 19 frames at 375 | ✅ |
 | 6 | Desktop Site — 18 frames at 1440 | ✅ |
 | 7 | Desktop Site v2 — rebuilt from section patterns ([`docs/06`](docs/06-desktop-v2-plan.md)): all 21 pages | ✅ Awaiting review |
-| 8 | Mobile Site v2 — 21 frames at 375, parity with desktop v2 | ✅ Awaiting review | |
+| 8 | Mobile Site v2 — 21 frames at 375, parity with desktop v2 | ✅ Awaiting review |
 | — | Webflow build | ⬜ |
 
 ---
