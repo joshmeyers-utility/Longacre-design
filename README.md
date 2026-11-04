@@ -64,7 +64,7 @@ decisions and open items: [`docs/05-content-review.md`](docs/05-content-review.m
 | 4 | Component Library — 26 components, 67 variants | ✅ |
 | 5 | Mobile Site — 19 frames at 375 | ✅ |
 | 6 | Desktop Site — 18 frames at 1440 | ✅ |
-| 7 | Desktop Site v2 — rebuilt from section patterns ([`docs/06`](docs/06-desktop-v2-plan.md)): Home and What we're building (pages 2–6) | ⏳ Pages 7–20 next |
+| 7 | Desktop Site v2 — rebuilt from section patterns ([`docs/06`](docs/06-desktop-v2-plan.md)): Home and pages 2–11 (What we're building, Who we are, Careers) | ⏳ Pages 12–20 next |
 | — | Webflow build | ⬜ |
 
 ---

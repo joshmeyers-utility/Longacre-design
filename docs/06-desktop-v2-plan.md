@@ -401,7 +401,8 @@ supplies dated schedules. D only once alerts are frequent enough to fill it.
 | **Sections** page — P1–P13 from *Hand Done* as components, P8w (white FAQ), P14–P20 new | ✅ |
 | Desktop Site v2 · 1 Home | ✅ — awaiting review |
 | Desktop Site v2 · 2–6 What we're building (Campus future, The campus, Power plant & fuel supply, Campus history, Development timeline) | ✅ — awaiting review |
-| Pages 7–20 | ⬜ |
+| Desktop Site v2 · 7–11 Who we are (Campus partners, Local partners, Campus pillars) + Careers (Meet the workforce, Job opportunities) | ✅ — awaiting review |
+| Pages 12–20 | ⬜ |
 
 Copy introduced while building, for approval: section titles "The unions on
 site" (P14) and "Job board" (P15); the job-board intro's second sentence
@@ -478,3 +479,28 @@ Round 2 (client):
   (body + rendering). Home is about 1,000 px shorter.
 - **P10 statement bands breathe more**: new token `space/section-y-lg` 240 /
   120 on the component, Home's statement and the PJM statement.
+
+### Pages 7–11 — what changed from the plan, and flags
+
+| Page | Sequence |
+| --- | --- |
+| 7 Campus partners | white hero · subtle P18 (4) · white P4 → Meet the workforce · subtle P5 |
+| 8 Local partners | white hero · subtle P18 (4, role only) · white P4 · subtle P5 |
+| 9 Campus pillars | white hero · photo · black P6 four pillars · navy P8 · subtle P5 |
+| 10 Meet the workforce | white hero · photo · navy P3 (6) · black P6 · white P21 spotlights · subtle P14 · white P17 (3) · black P7 commitments · subtle P5 |
+| 11 Job opportunities | white hero · black P15 job board · subtle P7 nine trades (3 × 3) · white P17 · subtle P5 how to get hired |
+
+- The site header's active nav item is now set per page (it said *What we're
+  building* everywhere). The sub-nav relabels and hides tabs per section.
+- Page 10's two worker spotlights are a P21 (run of P4s → scroll story).
+  The statement "IBEW Local 5 worker spotlight: {name}, {place}." is
+  introduced copy. Its CTA, *Job opportunities*, is too.
+- Page 11's Steffee pull runs as the **full** quote in P17, not shortened.
+
+| Page | Flag |
+| --- | --- |
+| 7 | v1 linked Homer City Generation to "Visit kiewit.com". That is wrong, so its link is hidden until a URL is supplied. Logos ⛔ (vectors). AWS hidden ("TBD"). |
+| 8 | Role only; descriptions, URLs and logos ⛔. v1 linked all four to kiewit.com — removed. |
+| 9 | Page name ⛔ (Campus pillars vs Our values vs Project pillars). No intro copy exists, so the hero carries only the title. Section title "The four pillars" introduced. |
+| 10 | **Quote portraits ⛔.** Per §5 rule 6 these quotes do not ship until each has a real photo. Spotlight videos ⛔; the third IBEW Local 5 video ⛔. Union logos ⛔, and 6 of 9 union names ⛔. |
+| 10–11 | The workforce photo is used on pages 7, 8 and 10. Swap in more of the library when it arrives. |

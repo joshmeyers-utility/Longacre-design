@@ -85,7 +85,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
-| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ⏳ Sections page built; Home + What we're building (2–6) done; pages 7–20 next |
+| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ⏳ Sections page built; Home + pages 2–11 done; Community stewardship (12–16) next |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
