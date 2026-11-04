@@ -880,3 +880,6 @@ the full content column above it.
   mobile "From Two Lick Creek", "Back to Two Lick Creek" and "From the power
   plant". The slide shows the creek as a drawing only. Two Lick Reservoir vs
   Creek is still open Q17.
+- (5 Nov, client) Mobile diagrams (Power plant, Water): arrow-glyph icons
+  replaced with drawn connectors, matching desktop (water solid, electricity
+  dashed); both sit in the `surface/subtle` bounding panel.
