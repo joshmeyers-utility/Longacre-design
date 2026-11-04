@@ -637,3 +637,25 @@ The site is now **21 pages**. News & resources gains a child page.
   resources" / "Photos, videos & voices"), or promote the first section
   title.
 - Meet the workforce's hero is now a P2s statement.
+
+### Round — scroll story stewardship, unions grid (client, 4 Nov 2026)
+
+- **P21 extended to five steps** (`Active=1…5`, `Show step 3/4/5`; 4 and 5
+  default off, so existing 2- and 3-step stories are unchanged — verified).
+- **Home stewardship is a five-step P21** (Construction alerts, Water, Health &
+  safety, Economic impact, Charitable giving), replacing P22 on Home. It is on
+  `surface/subtle` so it doesn't run into the white news row. Each step's body
+  is sourced copy (alerts sign-up line, water hero, the OSHA sentence with its
+  date, econ hero). **Charitable giving has no copy** — its step shows the
+  CTA and a content-needed brief only. The Home title "Community
+  stewardship" and the *Our commitments* button are not on the scroll story
+  (P21 has no header). P22 stays on the Community stewardship page.
+- **P14 is now "Unions"** — a static 3 × 3 grid replaces the marquee (no
+  motion, so no pause control). Three names shown; six slots carry a "name
+  and logo needed" brief (no guessing which trade each union is). Applied to
+  Meet the workforce and to the parked copy beside Home.
+- **Home order (client edit):** hero · statement (black) · numbers (navy) ·
+  differentiators · photo · scroll story (past) · questions (navy) · scroll
+  story (stewardship, subtle) · news (white) · learn more (subtle) · footer.
+  The union section is off Home (parked at x −2001). Two scroll stories now
+  sit on Home.
