@@ -402,7 +402,9 @@ supplies dated schedules. D only once alerts are frequent enough to fill it.
 | Desktop Site v2 · 1 Home | ✅ — awaiting review |
 | Desktop Site v2 · 2–6 What we're building (Campus future, The campus, Power plant & fuel supply, Campus history, Development timeline) | ✅ — awaiting review |
 | Desktop Site v2 · 7–11 Who we are (Campus partners, Local partners, Campus pillars) + Careers (Meet the workforce, Job opportunities) | ✅ — awaiting review |
-| Pages 12–20 | ⬜ |
+| Desktop Site v2 · 12–16 Community stewardship (landing, Water, Health & safety, Economic impact, Charitable giving) | ✅ — awaiting review |
+| Desktop Site v2 · 17–20 FAQs, News & resources, Article, Contact | ✅ — awaiting review |
+| Mobile Site v2 (375) — parity with desktop v2 | ⬜ |
 
 Copy introduced while building, for approval: section titles "The unions on
 site" (P14) and "Job board" (P15); the job-board intro's second sentence
@@ -504,3 +506,39 @@ Round 2 (client):
 | 9 | Page name ⛔ (Campus pillars vs Our values vs Project pillars). No intro copy exists, so the hero carries only the title. Section title "The four pillars" introduced. |
 | 10 | **Quote portraits ⛔.** Per §5 rule 6 these quotes do not ship until each has a real photo. Spotlight videos ⛔; the third IBEW Local 5 video ⛔. Union logos ⛔, and 6 of 9 union names ⛔. |
 | 10–11 | The workforce photo is used on pages 7, 8 and 10. Swap in more of the library when it arrives. |
+
+### Footer (client, Nov 2026)
+
+*Site footer* (both variants) is now `surface/black` with a
+`border/divider-black` rule. Every v2 page ends on a subtle or white section,
+so the footer never touches another black band.
+
+### Pages 12–20 — sequences and flags
+
+| Page | Sequence |
+| --- | --- |
+| 12 Community stewardship | white hero · black P6 environmental responsibility (4) · subtle P5 commitments → Water, Health & safety, Economic impact, Charitable giving, Construction alerts |
+| 13 Water | white hero · black P6 key facts (3) · white P4 treatment diagram · black P10 · navy P8 · subtle P5 |
+| 14 Health & safety | white hero · navy P3 (Zero OSHA) · black P6 (3) · subtle P7 core values (5) · navy P8 · subtle P5 |
+| 15 Economic impact | white hero · navy P3 (5) · black P6 (6) · photo · subtle P7 (4) · navy P8 · subtle P5 |
+| 16 Charitable giving | white hero · subtle P19 "Giving back" (3 content-needed slots) |
+| 17 FAQs | white hero (search + category chips) · P8 / P8w × 6, navy / white alternating · subtle P5 "Didn't find your question?" |
+| 18 News & resources | white hero · subtle P16 alerts + text sign-up · white P11 press releases · subtle fact sheets · white P11 recent news · subtle P17 soundbites · white P19 photos & videos |
+| 19 Article | white hero (headline, type · date · source) · image + 760 body column · navy P3 figures in this release · subtle P5 media contact |
+| 20 Contact | white hero · subtle P20 four inboxes · black P10 Facebook + button · white P6 location |
+
+Every interior page except the What we're building, Who we are, Careers and
+stewardship groups hides the sub-nav. The header's active item is set per
+page.
+
+| Page | Flag |
+| --- | --- |
+| 12 | "Construction alerts" links to the alerts section on News & resources (option B). |
+| 13 | Water footnote ¹ ⛔ (intro sentence). Water fact sheet ⛔, so there is no download button. Treatment diagram drawn as a brief: an accessible SVG with the steps as real text. The second commitment line ("Throughout the construction process…") isn't carried; it repeats the landing page. FAQ answers are outline-only (not a public document), so all rows stay collapsed. |
+| 14 | "Our safety record" is introduced as a section title. |
+| 15 | Photo is the trench image; an aerial would suit better once the library lands. "Thousands of homes" is a phrase in the ledger, not a figure. FAQ answers ⛔ (collapsed). |
+| 16 | ⛔ **No content.** Name, photos, captions and copy all needed from HCR or Kiewit. |
+| 17 | 26 drafted answers still await approval (only 3 are expanded with sourced answers). The permit-appeal answer (open Q5) is not on the page yet; it lands only with client and legal sign-off. |
+| 18 | Community spotlights left out (no stories). SMS short code ⛔. Quote portraits ⛔ for Pittman and Struzzi. News thumbnails ⛔. |
+| 19 | The release body is a CMS rich-text field (brief). The image is the release photo; replace it with the file supplied with the release. |
+| 20 | Facebook URL ⛔. P10 carries a button here only (instance addition). Site access policy (open Q11) still blocks an entrance photograph. |
