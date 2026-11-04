@@ -915,3 +915,10 @@ bar is removed; the header's dropdown replaces it.
   trial frame is deleted; its spec note sits above Campus future. Mobile
   menu: the same tree as expandable rows (spec; the menu sheet isn't drawn
   yet).
+- **Mobile menu drawn (5 Nov 2026):** frame *Menu (open) · Mobile* at the end
+  of Mobile Site v2, with a spec note. It's a full-height sheet: logo + Close
+  (44 px); the sections as rows with hairlines. Sections with sub-pages have
+  a label link (→ the section's main page) plus a 44 px round toggle
+  (`aria-expanded`) that expands the indented sub-pages. Shown: *What we're
+  building* expanded. Who we are, FAQs and Contact us are plain link rows.
+  Row padding was opened up at the client's request.
