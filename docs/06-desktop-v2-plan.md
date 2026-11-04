@@ -824,3 +824,16 @@ Apr 2026 · Apr 2026 + Apr 2026 · Jul 2026 · Jul 2026 + Jul 2026. Captions
 and dates stay under each image (a brief is not a caption). Mobile:
 `space/stack-xs` (8) gutter, one image per row (pairs were too narrow for
 captions).
+
+### Campus partners page follows slide 16 (client, 5 Nov 2026)
+
+Slide 16 is one "Who We Are" page: intro · Campus partners · Local partners
+· "Learn more about the workforce bringing the campus to life → [CTA to
+Workforce page]". The page now has: statement hero (white) · Campus
+partners (subtle, 4 — AWS hidden, "TBD on initial inclusion") · **Local
+partners (white, 4, roles only)** · workforce link (subtle) · footer. The
+"Learn more" list (not on the slide) is removed. Desktop + mobile.
+
+**Open:** the separate *Local partners* page now duplicates the section.
+The site structure (slide 1) still lists Local Partners as a sub-page, so
+it stays until the client decides.
