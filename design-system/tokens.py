@@ -215,11 +215,11 @@ MOTION = {
 # TEXT_AT records where each breakpoint's text starts, measured from the comp;
 # check_scrim() fails the build if a stop is lowered below what the text needs.
 SCRIM_GRADIENT = {
-    "desktop": [(0.0, 0.10), (0.35, 0.20), (0.48, 0.50), (0.70, 0.62), (1.0, 0.80)],
+    "desktop": [(0.0, 0.10), (0.28, 0.20), (0.40, 0.50), (0.70, 0.62), (1.0, 0.80)],
     "mobile":  [(0.0, 0.10), (0.22, 0.25), (0.32, 0.55), (0.44, 0.70), (1.0, 0.85)],
 }
 TEXT_AT = {  # (position of top of line, minimum alpha it needs)
-    "desktop": [(0.508, 0.42), (0.718, 0.535)],   # headline, lead (800px hero)
+    "desktop": [(0.417, 0.42), (0.718, 0.535)],   # headline (3 lines, Nov 2026), lead (800px hero)
     "mobile":  [(0.333, 0.42), (0.448, 0.535)],   # headline, lead (901px hero)
 }
 

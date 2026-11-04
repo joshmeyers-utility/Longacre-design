@@ -384,7 +384,7 @@ the first line rather than refactoring later.
   the large headline **≥ 0.42** (3:1). `TEXT_AT` records where each
   breakpoint's text starts; `check_scrim()` fails the build if a stop drops
   below that. **If you move hero text up, re-measure `TEXT_AT` first.**
-  Current: desktop headline 4.2:1, lead 6.5:1; mobile headline 5.1:1, lead
+  Current (Nov 2026, three-line headline): desktop headline 4.1:1, lead 6.5:1; mobile headline 5.1:1, lead
   8.6:1. Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
   variables).
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a

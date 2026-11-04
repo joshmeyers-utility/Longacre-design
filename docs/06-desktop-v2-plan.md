@@ -570,7 +570,19 @@ Redevelopment site" → "Homer City Energy Campus" in three FAQ questions
 rows, not at the page foot. Design notes, placeholders and the appendix's
 reference sites are not copy.
 
-**Needs a decision:**
+**Decisions (client, 4 Nov 2026): A1 full headline; A2–A4 restored.**
+
+- A1: Home headline is now the outline's full line. It wraps to three lines, so the
+  desktop scrim stops moved up (0.28 → 0.20, 0.40 → 0.50) and `TEXT_AT`
+  was re-measured (headline top 0.417, alpha 0.507, about 4.1:1 over white).
+- A2: "Powering homes and America's digital future" is the sixth key fact.
+- A3: How it works has a text diagram in the left column (plant → grid →
+  customer / local homes). It's real text, not an image; the arrows are decorative.
+- A4: the full natural-areas question is restored ("Homer City Energy
+  Campus" for "Homer City Redevelopment site").
+
+Original list:
+
 
 | # | Item |
 | --- | --- |
