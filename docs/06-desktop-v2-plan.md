@@ -851,3 +851,13 @@ outline slides moved to this page's column. The sub-nav is hidden (single
 page). The workforce photo band from the old pillars page is not carried,
 as slide 17 has no photo. Naming of the pillars ("Campus pillars [or Core
 Values?]") is still open.
+
+### 5 Nov — dividers and grounds (client)
+
+- **Campus history, history section:** light dividers added (`border/divider`
+  above each of the three statements plus a closing divider), desktop +
+  mobile. This is a deliberate exception to "key facts have no dividers",
+  at the client's request.
+- **Job opportunities, Job board:** white ground (was black); job rows on
+  `surface/subtle`, section header Light. It now runs on from the white hero
+  as one block. Desktop + mobile.
