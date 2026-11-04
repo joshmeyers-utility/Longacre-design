@@ -83,6 +83,7 @@
   --color-white-alpha-12: #FFFFFF1F;
   --color-white-alpha-16: #FFFFFF29;
   --color-white-alpha-24: #FFFFFF3D;
+  --color-black-alpha-56: #0000008F;
   --space-0: 0px;
   --space-2: 2px;
   --space-4: 4px;
@@ -123,6 +124,7 @@
   --surface-inverse-raised: var(--color-navy-800);
   --surface-glass: var(--color-white-alpha-16);
   --surface-glass-strong: var(--color-white-alpha-24);
+  --surface-glass-dark: var(--color-black-alpha-56);
   --surface-media: var(--color-ink-200);
   --scrim-hero: var(--color-base-black);
   --text-primary: var(--color-ink-950);

@@ -39,6 +39,8 @@ for name, hexes in RAMPS.items():
 # Alpha whites for frosted surfaces over photographs.
 for a in (8, 12, 16, 24):
     COLOR[f"white-alpha/{a}"] = f"#FFFFFF{round(a * 2.55):02X}"
+# Alpha black for the dark-glass header bar over photography.
+COLOR["black-alpha/56"] = f"#000000{round(56 * 2.55):02X}"
 
 SPACE = [0, 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 72, 80,
          96, 104, 120, 144, 160, 200]
@@ -56,6 +58,9 @@ SEM_COLOR = [
     ("surface/inverse-raised", "navy/800", [F, S]),
     ("surface/glass", "white-alpha/16", [F, S]),
     ("surface/glass-strong", "white-alpha/24", [F, S]),
+    # Header bar over photography: dark glass. White text clears AA (4.95:1)
+    # even over a pure-white photograph; the blur is extra, not relied on.
+    ("surface/glass-dark", "black-alpha/56", [F, S]),
     ("surface/media", "ink/200", [F, S]),
     ("scrim/hero", "base/black", [F, S]),  # true black (user, Nov 2026)
     # Text. ink/700 is the floor for neutral text on white and ink/50.

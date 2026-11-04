@@ -282,6 +282,9 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **Figures sections end with "Download fact sheet"** when a source fact
   sheet exists.
 - **Alert bar is black** (`surface/alert`) with white text and close; no icon.
+- **Header over a photo is dark glass** (`surface/glass-dark`, black 56% +
+  blur): white nav text clears AA (4.95:1) even over pure white. Don't stack
+  it with the white `surface/glass` — that combination needs 64% black.
 - **Type: Geist** 300/400/500/600. Stat figures Light, `text/stat-figure`.
   Only size varies by breakpoint; set the Typography mode on the artboard.
 - **Icons:** Material Symbols Rounded, weight 300.
