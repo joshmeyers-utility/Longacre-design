@@ -795,3 +795,20 @@ The text-only diagram in the left column is replaced by a drawn flow (slide
   is not a content card, so the no-cards rule doesn't apply.
 - (5 Nov, client) Diagram now sits in a bounding panel (`surface/subtle`,
   `radius/media-lg`, 48 / 16 padding) with white nodes; icons removed.
+
+### Campus history checked against slide 13 (client, 5 Nov 2026)
+
+- History section on **white** (was black). The page's title block was
+  removed in Figma (client), so the section carries the slide's heading
+  "Homer City's history"; it is the page h1 in the build.
+- **Removed introduced copy:** the intro line "The same ground, from 1969 to
+  today."; the leads "Since 1969." / "Connected to two grids." /
+  "Decommissioned in 2023."; "already on the site." and "from Two Lick
+  Reservoir." under the legacy attributes.
+- History is now the slide's three statements; the legacy site attributes are
+  the slide's four labels (Transmission lines connected to the power grid ·
+  Substations · Water access · Experienced local workforce).
+- **Kept, flagged:** "largest coal-burning power plant in Pennsylvania"
+  dropped (§5 rule 0); "nearly 55 years" → "54 years" (1969–2023, fact
+  sheet rule). Slide placeholders "[additional historical details?]" and
+  "[add demo brown field clean up]" ⛔.
