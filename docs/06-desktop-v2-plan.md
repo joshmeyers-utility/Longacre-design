@@ -730,6 +730,16 @@ Removed copy: the leads "A 3,200+ acre natural gas-powered energy
 campus." and "A plan announced in April 2025.", and the scroll-story
 statements.
 
-**Open:** the separate **The campus** page now duplicates sections 4–6.
-Proposal: delete it and its sub-nav tab ("The Power Plant" child = the
-Power plant & fuel supply page).
+**Done (client, 5 Nov):** the separate *The campus* page is deleted
+(desktop + mobile); the site is **20 pages**. Its outline slides 8 and 12
+sit with Campus future. The sub-nav's *The campus* tab is hidden by
+instance override on the What we're building pages. It is not deleted from
+the component, because the Who we are pages reuse that slot as *Local
+partners*.
+
+**Parity check (5 Nov):** visible text and section order compared,
+desktop vs mobile, on all 20 pages. The only differences are by design:
+mobile scroll stories show every step stacked. Fixed along the way: mobile
+Home's Unions title ("Unions on site", client edit) and its section order
+(client re-ordered desktop Home). Home differentiators are bound to
+`surface/subtle`; they had been raw white next to the white Unions.

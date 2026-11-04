@@ -85,8 +85,8 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
-| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ All 21 pages built — awaiting review |
-| 8 | **Mobile Site v2** — 21 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — awaiting review |
+| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ All 20 pages built — awaiting review (The campus folded into Campus future, 5 Nov) |
+| 8 | **Mobile Site v2** — 20 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — awaiting review |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
@@ -293,10 +293,11 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   full-bleed photograph or a black statement band (one sourced sentence,
   Heading 2, white). Section padding is `space/section-y` (160 / 80); statement bands use
   `space/section-y-lg` (240 / 120).
-  Home order (client, 4 Nov 2026): hero · statement (black) · numbers
-  (navy) · differentiators · full-bleed photo · scroll story (past,
-  workforce, building) · questions (navy) · unions (white) · scroll story (stewardship,
-  subtle) · news (white) · learn more (subtle) · footer (black). Hero carries one glass card (newest news).
+  Home order (client, 5 Nov 2026): hero · statement (black) · scroll story
+  (past, workforce, building; white) · numbers (navy) · differentiators
+  (subtle) · unions on site (white) · full-bleed photo · scroll story
+  (stewardship, subtle) · news (white) · learn more (subtle) · questions
+  (navy) · footer (black). Hero carries one glass card (newest news).
   Desktop Home is frame `67:8121` (client's layout). Navy, not the comps' near-black,
   for dark bands — it is the client's colour and what the moodboard showed.
 - **`ink/700` is the floor for neutral text** (5.64:1 on white, 5.14:1 on
