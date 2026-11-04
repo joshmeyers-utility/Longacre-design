@@ -775,3 +775,21 @@ the site says "At Homer City Generation" (the station is the former plant).
 Flag for the client. Local partners, Campus pillars and Charitable giving
 have no title block in Figma (as on News); each page still needs an h1 in
 the build.
+
+### Power plant — How it works diagram (client, 5 Nov 2026)
+
+The text-only diagram in the left column is replaced by a drawn flow (slide
+11). Every label is live text, with the slide's exact wording:
+- **Desktop:** full width under the section. Power plant → Public grid,
+  which branches to **Customer** (navy; "Contracted power defined in Power
+  Purchase Agreement") and **Local homes** ("Remaining capacity"). Connector
+  labels "Sends all power to", "Delivers to" and "Remaining capacity goes to".
+  Nodes are `surface/subtle` / `surface/inverse` with `radius/media`;
+  connectors and labels are `text/secondary`; icons are decorative
+  (factory, electric_meter, domain, home).
+- **Mobile:** plant and grid stacked, then the branch as two side-by-side
+  nodes, each with its own label, so nothing reads as power passing through
+  the customer.
+- **Build:** the nodes are real text in reading order (plant → grid →
+  customer → local homes); connectors are decorative SVG. A diagram/infographic
+  is not a content card, so the no-cards rule doesn't apply.
