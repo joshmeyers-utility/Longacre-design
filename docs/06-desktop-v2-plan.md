@@ -542,3 +542,40 @@ page.
 | 18 | Community spotlights left out (no stories). SMS short code ⛔. Quote portraits ⛔ for Pittman and Struzzi. News thumbnails ⛔. |
 | 19 | The release body is a CMS rich-text field (brief). The image is the release photo; replace it with the file supplied with the release. |
 | 20 | Facebook URL ⛔. P10 carries a button here only (instance addition). Site access policy (open Q11) still blocks an entrance photograph. |
+
+---
+
+## 8. Copy audit against the content outline (4 Nov 2026)
+
+Every text block in the 28 Sep outline (44 slides, 423 unique blocks) was
+checked against the visible text on the 20 Desktop v2 pages. Script:
+outline paragraphs × site strings, word overlap; everything below 100 % was
+read by hand.
+
+**Restored (lost in v1, carried into v2):**
+
+| Page | Restored |
+| --- | --- |
+| FAQs · Campus plans | 5 questions: HCR vs HCG difference · who is financing · where to see renderings · has a customer been selected (and when announced) · who is building the prospective data centers. Answers pending, like the other collapsed rows. |
+| Power plant | "Two underground connections" lead-in ("…two underground "lateral" lines…") and the full "A more efficient fuel source" sentence. |
+| Campus future | Vision subtitle "Honoring our past, reimagining our future." |
+| Job opportunities | Steffee introduction line above the quote. |
+
+**Intentionally different (no action):** "coal" re-phrased (§5 rule 0),
+including the dropped "largest coal-burning" superlatives. Figures resolved
+to the dated fact sheets (~4.4 → up to 4.4 GW, 55+ → 54 years, 60–65 % / 30 %
+→ 60 % / 40 %, "nearly 10,000" → 10,000+, "over 95 %" → 95 %). "Homer City
+Redevelopment site" → "Homer City Energy Campus" in three FAQ questions
+(the pivot). Title case → sentence case. CTAs shortened. Footnotes inside
+rows, not at the page foot. Design notes, placeholders and the appendix's
+reference sites are not copy.
+
+**Needs a decision:**
+
+| # | Item |
+| --- | --- |
+| A1 | Home headline: outline "Building America's energy future while honoring Pennsylvania's proud past" (alt. "Pennsylvania energy, built in Indiana County."). Home carries "Building America's energy future." from the client layout `67:8121`. |
+| A2 | Power plant "Powering homes and America's digital future" + its sentence (dropped as a repeat of "The rest stays on the grid"). Restore? |
+| A3 | Power plant "How it works" diagram labels (metered delivery, PPA, remaining capacity) — no diagram pattern yet; the three rows carry the meaning. |
+| A4 | FAQ "…most cherished natural areas" preamble shortened to the question alone. |
+| A5 | Still ⛔ from the outline: Data centers page and AWS card (Amazon), Sound page, Giving back content, third IBEW Local 5 video, union names ("[Others to be added]"), local partner links, SMS short code, video carousel, community spotlights. |
