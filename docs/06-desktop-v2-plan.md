@@ -388,3 +388,20 @@ supplies dated schedules. D only once alerts are frequent enough to fill it.
 | FAQ row / section | White-ground variant for P8 |
 | Chip | Non-interactive *Tag* variant (job board) |
 | Sections P1–P20 | Saved as reusable section components on a *Sections* page |
+
+---
+
+## 7. Build log
+
+| Step | Status |
+| --- | --- |
+| Decisions Q1–Q6 | ✅ Approved as recommended (client, Nov 2026) |
+| New components — Job row, Alert row (Active/Upcoming/Past), Union logo, Chip `State=Tag` | ✅ Component Library |
+| **Sections** page — P1–P13 from *Hand Done* as components, P8w (white FAQ), P14–P20 new | ✅ |
+| Desktop Site v2 · 1 Home | ✅ — awaiting review |
+| Pages 2–20 | ⬜ |
+
+Copy introduced while building, for approval: section titles "The unions on
+site" (P14) and "Job board" (P15); the job-board intro's second sentence
+("Each row opens Kiewit's union craft opportunities page."); the alert
+sign-up line.
