@@ -99,6 +99,8 @@ SEM_COLOR = [
     # Strokes are dividers. Nothing else.
     ("border/divider", "ink/300", [ST]),
     ("border/divider-inverse", "navy/700", [ST]),
+    # On surface/black: navy/700 reads as blue there (Nov 2026).
+    ("border/divider-black", "white-alpha/24", [ST]),
     ("border/input", "ink/600", [ST]),
     ("focus/ring", "blue/700", [ST, FX]),
     ("focus/ring-inverse", "blue/300", [ST, FX]),

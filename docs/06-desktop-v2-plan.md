@@ -399,9 +399,55 @@ supplies dated schedules. D only once alerts are frequent enough to fill it.
 | New components — Job row, Alert row (Active/Upcoming/Past), Union logo, Chip `State=Tag` | ✅ Component Library |
 | **Sections** page — P1–P13 from *Hand Done* as components, P8w (white FAQ), P14–P20 new | ✅ |
 | Desktop Site v2 · 1 Home | ✅ — awaiting review |
-| Pages 2–20 | ⬜ |
+| Desktop Site v2 · 2–6 What we're building (Campus future, The campus, Power plant & fuel supply, Campus history, Development timeline) | ✅ — awaiting review |
+| Pages 7–20 | ⬜ |
 
 Copy introduced while building, for approval: section titles "The unions on
 site" (P14) and "Job board" (P15); the job-board intro's second sentence
 ("Each row opens Kiewit's union craft opportunities page."); the alert
 sign-up line.
+
+### Pages 2–6 — what changed from the plan, and flags
+
+Sub-nav component now has five tabs (adds *The campus*); each page sets its
+active tab by override.
+
+**Section grounds as built** (no two adjacent alike):
+
+| Page | Sequence |
+| --- | --- |
+| 2 Campus future | white hero · photo · black P6 vision · navy P3 · white P4 ×2 · subtle P5 |
+| 3 The campus | white hero · site plan (bleed) · black P6 hotspots · subtle P5 attributes · navy P3 · white P6 · navy P8 · subtle P5 |
+| 4 Power plant | white hero · rendering (bleed) · navy P3 · black P6 key facts · white P6 how it works · black P10 · subtle P7 · navy P8 · subtle P5 |
+| 5 Campus history | white hero · black P6 · video (bleed) · subtle P7 · white P19 · subtle P5 |
+| 6 Timeline | white header · subtle P13 · navy P8 · subtle P5 |
+
+**System fixes made on the way**
+
+- **P6 is black** on the *Hand Done* library, but was built from light-ground
+  items with the text overridden to white. Rebuilt properly: `surface/black`,
+  Inverse variants. A white P6 is the same section with Light variants.
+- **New token `border/divider-black`** → `white-alpha/24`. `divider-inverse`
+  is `navy/700` and reads as a blue line on black. Fact-item hairlines on
+  black sections override to it.
+- P2, P4 and P13 grounds were raw hex; now bound to `surface/page` /
+  `surface/subtle`.
+- Fact-item marks are off on every v2 page (matches the Home decision).
+  Placeholder bleed media use the *Image* component at 1440 with square
+  corners, so the brief stays inside the image area.
+
+**Flags**
+
+| Page | Flag |
+| --- | --- |
+| 2 | Fact-row leads introduced for approval: "A 3,200+ acre natural gas-powered energy campus." and "A plan announced in April 2025." (each restates its body). "At a glance" is 4 figures, not 5 — "One of the largest…" is in the lead. |
+| 2 | Aerial photograph has the client's logo baked into the corner — needs a clean file. |
+| 3 | Site plan is a brief (vector redraw + hotspots); Data center hotspot ⛔ (Amazon). Hotspot section title "The site plan" and intro introduced. |
+| 3 | Unique site attributes have no body copy in the outline — built as link rows (P5), not fact rows (P6). |
+| 3 | The workforce development / local power rows take the outline's subtitle "A re-energized future for Indiana County and beyond" as their title. |
+| 4 | "Front of the meter" dropped from the ledger (it's a phrase); it's the third key fact. |
+| 4 | "Powering homes and America's digital future" paragraph not carried — it repeats "The rest stays on the grid". Restore if wanted. |
+| 4 | P10 (PJM line) moved after *How it works* so two black bands don't touch. How-it-works diagram still has no pattern; kept as rows. |
+| 5 | Then & now shows all 12 stages. Caption expansions for approval: "Module yard: pipe rack fabrication" (deck: "Mod Yard Piperack Fab"), "GIS: working at height", "Unit 5 heat recovery steam generator (HRSG)". All 12 photographs ⛔ (IUP files + rights). |
+| 5 | "An experienced local workforce." has no body in the source; its body line is hidden. |
+| 3–6 | FAQ answers: only the expanded row carries a sourced answer; collapsed rows still hold the component's placeholder until the FAQ answers land. |

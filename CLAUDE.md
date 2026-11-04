@@ -85,7 +85,7 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
-| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ⏳ Sections page built; Home done; pages 2–20 next |
+| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ⏳ Sections page built; Home + What we're building (2–6) done; pages 7–20 next |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
@@ -234,8 +234,8 @@ one generator for all three.) Rationale: `docs/03-design-system.md` §15.
 
 Figma opacity variables are **percentages (0–100)**; `tokens.py` emits them ×100 for Figma.
 
-Live in Figma: **244 variables** — Primitives 117 (hidden, `scopes = []`),
-Semantic 96 (Desktop/Mobile), Typography 18 (Desktop/Mobile), Motion 13 — plus
+Live in Figma: **245 variables** — Primitives 117 (hidden, `scopes = []`),
+Semantic 97 (Desktop/Mobile), Typography 18 (Desktop/Mobile), Motion 13 — plus
 **16 text styles** (font size bound to Typography) and **3 effect styles**
 (Glass, Focus ring, Focus ring inverse). Documented on the *Design System
 Documentation* page.
@@ -266,7 +266,8 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   more", commitments, menu) are `text/primary` / `text/inverse`; the arrow
   and hairline row mark them as links, and hover underlines the label.
 - **Strokes are dividers.** A hairline separates two pieces of content —
-  `border/divider` on light, `border/divider-inverse` on navy. No outlines.
+  `border/divider` on light, `border/divider-inverse` on navy,
+  `border/divider-black` on black (navy/700 reads blue there). No outlines.
 - **Stats are a ledger.** Figure left, label right, hairline between rows,
   qualifier (*Up to*, *Projected*, *Anticipated*) as an eyebrow above the
   figure, **required footnotes under the label inside the row** — not at the

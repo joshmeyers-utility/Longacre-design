@@ -157,6 +157,7 @@
   --action-icon-control-inverse: var(--color-base-white);
   --border-divider: var(--color-ink-300);
   --border-divider-inverse: var(--color-navy-700);
+  --border-divider-black: var(--color-white-alpha-24);
   --border-input: var(--color-ink-600);
   --focus-ring: var(--color-blue-700);
   --focus-ring-inverse: var(--color-blue-300);
