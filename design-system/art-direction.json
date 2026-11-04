@@ -1,0 +1,170 @@
+{
+  "$schema": "art-direction/v1",
+  "name": "Homer City Energy Campus — photographic art direction",
+  "status": "Experiment. Drives generated imagery on the Figma page 'Desktop Experiment' (file 8RV4XecnHv5rFzjQVnSuNV). Generated images are stand-ins until the client photo library (CLAUDE.md §10 #4) is available.",
+  "updated": "2026-11-04",
+
+  "intent": "A real place being built in real country. Big, calm, wide frames that show the scale of the campus inside the rolling farmland and forest of Indiana County, Pennsylvania. Documentary, never staged. Quiet, warm-faded colour that sits comfortably next to a near-white, near-black, Geist-set interface.",
+
+  "rules": {
+    "scale": "Prefer large-scale shots: high drone aerials, oblique aerials, satellite-style top-downs and wide ground-level landscapes. Close-ups only for objects and materials (steel, conduit, turbine parts), never for people.",
+    "people": "No faces. People appear only as small figures in wide or aerial frames, or from behind. No portraits, no group photos posed for camera, no identifiable individuals.",
+    "sky": "Clear. Cloudless or near-cloudless pale-to-deep blue, or a clean low-sun haze at the horizon. No overcast, no storm cover, no dramatic cumulus.",
+    "season": "Late summer through autumn by default: deep green woodland, rust, amber and gold tree lines, harvested patchwork fields. Light frost or snow is allowed only for timeline/history frames.",
+    "text_and_marks": "No text, signage, logos, brand marks, licence plates or watermarks anywhere in frame. Equipment is unbranded.",
+    "realism": "Photographs must look taken, not generated. Include real-site imperfections: uneven crowd density and stragglers, people facing different ways, tyre marks and dust on fresh asphalt, puddle stains, patched gravel, stray cones and barrels, mismatched pickup trucks, mud on equipment, slightly crooked delineator posts, utility poles and overhead lines, dumpsters and portable toilets at the edges, mild drone lens softness toward the corners, slight sensor noise. No perfect symmetry, no evenly spaced people, no showroom-clean equipment.",
+    "honesty": "The campus is under construction. Frames of finished buildings are renderings by definition — keep them in a clean architectural-render style so they never pass as a photograph of something that exists. Do not depict cooling towers, coal stockpiles or smoke plumes as part of the new campus."
+  },
+
+  "grade": {
+    "summary": "Faded cinematic film grade.",
+    "blacks": "Lifted — deepest shadows sit around #1E2326, never pure black.",
+    "highlights": "Warm, soft roll-off; no clipped whites.",
+    "shadows": "Slightly teal-tinted.",
+    "saturation": "Reduced ~20–30%. Hi-vis orange and crane yellow stay legible but never neon.",
+    "contrast": "Medium-low, airy.",
+    "texture": "Very fine film grain; gentle atmospheric haze toward the horizon.",
+    "palette": {
+      "earth_graded": "#8A8378",
+      "earth_warm": "#B59A7A",
+      "gravel": "#A8A6A0",
+      "asphalt": "#3A3D40",
+      "steel_new": "#E6E6E2",
+      "steel_grey": "#8E949A",
+      "crane_yellow": "#D9A43A",
+      "hivis_orange": "#E0703A",
+      "forest": "#2F4A33",
+      "field_green": "#6E7F4E",
+      "autumn_rust": "#A5552E",
+      "autumn_gold": "#C9963F",
+      "sky_clear": "#A9C6D6",
+      "haze": "#D9DCD6"
+    }
+  },
+
+  "light": {
+    "default": "Clear daylight, sun mid-to-low (roughly 9–11am or 3–5pm), long soft shadows across graded ground.",
+    "hero": "Late afternoon, low warm sun raking across the site, clear sky with a soft haze band at the horizon.",
+    "avoid": ["overcast", "harsh noon top-light", "night", "golden-hour orange wash", "HDR halos"]
+  },
+
+  "camera": {
+    "aerial_high": "Drone at 120–400 m, 20–45° down-angle, 24–35 mm equivalent; horizon in the top fifth or out of frame.",
+    "aerial_top_down": "90° nadir, satellite-like; land-use pattern reads as texture (forest, field strips, roads, pads).",
+    "aerial_oblique": "Drone at 60–150 m, 15–30° down-angle; the structure in context of the hills behind it.",
+    "ground_wide": "Eye level or low angle, 24 mm; structure dominant, people tiny or absent.",
+    "detail": "Material close-up, shallow depth of field, soft round bokeh; objects only.",
+    "render": "Clean architectural/product render: matte grey and graphite materials, soft shadow, flat plain background, no photographic noise."
+  },
+
+  "subjects": {
+    "place": [
+      "Rolling wooded ridges of western Pennsylvania receding to a long horizon",
+      "Contour-strip and patchwork farm fields in greens, browns and harvested gold",
+      "Two Lick Creek–style wooded stream valleys between ridges",
+      "A small brick main-street town with flat roofs, a rail line and a pale water tower"
+    ],
+    "site_now": [
+      "Grey rock and gravel graded pads, haul roads with tyre tracks",
+      "Tall yellow lattice crawler cranes and tower cranes",
+      "New grey and white steel frames for turbine halls going vertical",
+      "Concrete foundations and turbine pedestals",
+      "Electrical conduit duct banks — grey PVC runs in white spacers",
+      "The existing switchyard: steel lattice and transformers",
+      "Beige modular site offices, rows of pickup trucks, a rail spur",
+      "Fresh striped asphalt laydown/parking lots",
+      "The dark boiler structures and pale blue silos of the former generating station, at the edge of frame"
+    ],
+    "site_future_render": [
+      "Seven gas turbine units in a regular grid on a light-grey concrete pad",
+      "Each unit: a rectangular turbine hall, a heat recovery steam generator, one slender white exhaust stack, a dark bank of air-cooled condenser fans",
+      "Wide context: campus pads, substation and solar fields set into forest and contour-farmed hills"
+    ],
+    "people": [
+      "Large gatherings of tradespeople in orange and lime hi-vis and white/yellow/blue hard hats, seen from high above",
+      "Ironworkers on steel or in a boom lift, small in frame or from behind"
+    ]
+  },
+
+  "negative": "faces, close-up people, portraits, posed group photo, readable text, signage, logos, brand names, licence plates, watermark, overcast sky, storm clouds, dramatic cumulus, cooling-tower steam plumes, smoke, coal piles, desert, sand dunes, palm trees, neon saturation, HDR, fisheye distortion",
+
+  "prompt_template": "{shot}. {subject}. Location: Indiana County, western Pennsylvania — rolling wooded ridges and patchwork farmland. Light: {light}. Sky: completely clear, no clouds. Grade: faded cinematic film — lifted blacks, warm soft highlights, slightly teal-tinted shadows, saturation reduced, fine grain, gentle horizon haze. No faces; any people are small figures seen from far above or behind. No text, signage or logos. Documentary realism.",
+
+  "slots": {
+    "home.hero": {
+      "ratio": "16:10",
+      "shot": "aerial_high",
+      "subject": "The whole campus under construction: graded grey pads, new steel turbine-hall frames, two yellow crawler cranes, the former station's boiler structures and blue silos at one edge, the switchyard, rust and gold tree lines, farmland to the horizon",
+      "light": "hero",
+      "note": "Lower-left third must stay calm and darker for headline legibility; scrim still required."
+    },
+    "home.story.past": {
+      "ratio": "3:4",
+      "shot": "aerial_oblique",
+      "subject": "Homer City-style small town main street in autumn with the former station's tall stack on the hazy horizon"
+    },
+    "home.story.workforce": {
+      "ratio": "3:4",
+      "shot": "aerial_high",
+      "subject": "Crews of tradespeople in hi-vis working across a large concrete foundation and rebar mat, seen from directly above, tiny figures, long shadows"
+    },
+    "home.story.building": {
+      "ratio": "3:4",
+      "shot": "aerial_oblique",
+      "subject": "Grey steel turbine-hall frame going vertical beside a tall yellow crawler crane, wooded ridge behind"
+    },
+    "home.stats": { "ratio": "1:1", "shot": "render", "subject": "Gas turbine rotor blades, black and white" },
+    "home.differentiators": {
+      "ratio": "13:16",
+      "shot": "render",
+      "subject": "Isometric seven-unit power block on a concrete pad",
+      "background": "Matches the section ground exactly (navy #143251 when the section is navy)."
+    },
+    "home.workforce_band": {
+      "ratio": "16:9",
+      "shot": "aerial_high",
+      "subject": "Hundreds of tradespeople gathered on a striped asphalt lot for an all-hands meeting, modular offices and pickups at the edges"
+    },
+    "home.community": {
+      "ratio": "4:3",
+      "shot": "aerial_oblique",
+      "subject": "A heavy-haul truck with escort vehicle carrying a large cylindrical component along a two-lane rural road through autumn hills"
+    },
+    "home.news.coverage": {
+      "ratio": "3:2",
+      "shot": "aerial_oblique",
+      "subject": "Small-town main street in autumn with a radio mast on a nearby ridge"
+    },
+    "home.news.advisory": {
+      "ratio": "3:2",
+      "shot": "aerial_high",
+      "subject": "A rural road intersection being widened: fresh asphalt turning lane, orange barrels, a small paving crew"
+    }
+  },
+
+  "references": {
+    "note": "Supplied by the user in-session as art direction. Not committed; descriptions only. Take the listed qualities, never the specific frame.",
+    "grade_and_framing": [
+      { "id": "R1", "what": "High aerial of a large graded pad with a white steel frame and two crawler cranes", "take": ["faded warm-teal grade", "lifted blacks", "high drone scale", "white steel against earth"], "leave": ["sandy desert ground"] },
+      { "id": "R2", "what": "Oblique aerial of a long building half roofed, forest beyond", "take": ["structure-in-landscape framing", "long horizon"], "leave": ["cumulus sky"] },
+      { "id": "R3", "what": "Elevated view across an open steel roof grid", "take": ["geometry of steel", "long shadows on ground"], "leave": [] },
+      { "id": "R4", "what": "Wide aerial with two crawler cranes and a distant flat horizon", "take": ["scale of cranes vs land"], "leave": ["overcast sky"] },
+      { "id": "R5", "what": "Aerial of a small town in autumn with a water tower", "take": ["small-town main street", "autumn palette", "warm faded grade"], "leave": [] },
+      { "id": "R6", "what": "Close-up of a worker's gloved hands at a bench, bokeh", "take": ["bokeh and material detail for object close-ups"], "leave": ["faces"] },
+      { "id": "R7", "what": "Macro of a soldering tip on cell ribbons", "take": ["cool teal material detail"], "leave": ["solar-specific subject"] },
+      { "id": "R8", "what": "Top-down satellite-style forest and clearing with CTA overlaid", "take": ["nadir texture as a calm ground for type"], "leave": [] }
+    ],
+    "location": [
+      { "id": "L1", "what": "All-hands gathering on a striped asphalt lot, modular offices, rail spur", "take": ["crowd from high above", "hi-vis colour field"] },
+      { "id": "L2", "what": "Large yellow crawler crane against the sky", "take": ["crane yellow", "lattice detail"], "leave": ["overcast sky"] },
+      { "id": "L3", "what": "Aerial of the former station and graded site, autumn hills", "take": ["former boiler structures and blue silos", "switchyard", "rust tree line"], "leave": ["flat grey sky", "logo"] },
+      { "id": "L4", "what": "Electrical conduit duct banks on gravel", "take": ["material detail without people"], "leave": ["brand print on pipe"] },
+      { "id": "L5", "what": "Steel frame going up, boom lift, crane, clear patches of blue", "take": ["low-angle steel geometry"], "leave": ["people in foreground"] },
+      { "id": "L6", "what": "Satellite view of the former generating station and surroundings", "take": ["site layout", "wooded ridges and fields"], "leave": ["annotations", "stockpiles", "cooling-tower plumes"] },
+      { "id": "L7", "what": "Rendering of a seven-unit gas power block", "take": ["seven-unit grid", "stacks", "condenser banks", "render style"] },
+      { "id": "L8", "what": "Winter aerial of early earthworks and foundations", "take": ["foundations", "haul roads", "crane positions"], "leave": ["snow cover for default slots"] },
+      { "id": "L9", "what": "Wide rendered aerial of the campus in contour-farmed hills", "take": ["regional scale", "patchwork and contour fields"] },
+      { "id": "L10", "what": "Visitor group posed in front of cranes", "take": ["crane skyline"], "leave": ["faces", "posed group", "overcast sky"] }
+    ]
+  }
+}
