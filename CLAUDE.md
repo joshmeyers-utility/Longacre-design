@@ -85,7 +85,8 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
-| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ All 21 pages built — awaiting review; Mobile v2 next |
+| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ All 21 pages built — awaiting review |
+| 8 | **Mobile Site v2** — 21 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — awaiting review |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
@@ -294,7 +295,7 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   `space/section-y-lg` (240 / 120).
   Home order (client, 4 Nov 2026): hero · statement (black) · numbers
   (navy) · differentiators · full-bleed photo · scroll story (past,
-  workforce, building) · questions (navy) · scroll story (stewardship,
+  workforce, building) · questions (navy) · unions (white) · scroll story (stewardship,
   subtle) · news (white) · learn more (subtle) · footer (black). Hero carries one glass card (newest news).
   Desktop Home is frame `67:8121` (client's layout). Navy, not the comps' near-black,
   for dark bands — it is the client's colour and what the moodboard showed.
@@ -388,8 +389,8 @@ the first line rather than refactoring later.
   the large headline **≥ 0.42** (3:1). `TEXT_AT` records where each
   breakpoint's text starts; `check_scrim()` fails the build if a stop drops
   below that. **If you move hero text up, re-measure `TEXT_AT` first.**
-  Current (Nov 2026, three-line headline): desktop headline 4.1:1, lead 6.5:1; mobile headline 5.1:1, lead
-  8.6:1. Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
+  Current (Nov 2026, full headline): desktop headline 4.1:1, lead 6.5:1;
+  mobile headline α 0.47, lead α 0.70 (1,021px hero). Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
   variables).
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible

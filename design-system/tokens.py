@@ -220,7 +220,7 @@ SCRIM_GRADIENT = {
 }
 TEXT_AT = {  # (position of top of line, minimum alpha it needs)
     "desktop": [(0.417, 0.42), (0.718, 0.535)],   # headline (3 lines, Nov 2026), lead (800px hero)
-    "mobile":  [(0.333, 0.42), (0.448, 0.535)],   # headline, lead (901px hero)
+    "mobile":  [(0.294, 0.42), (0.513, 0.535)],   # headline (full line, Nov 2026), lead (1021px hero)
 }
 
 

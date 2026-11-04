@@ -406,7 +406,7 @@ supplies dated schedules. D only once alerts are frequent enough to fill it.
 | Desktop Site v2 · 7–11 Who we are (Campus partners, Local partners, Campus pillars) + Careers (Meet the workforce, Job opportunities) | ✅ — awaiting review |
 | Desktop Site v2 · 12–16 Community stewardship (landing, Water, Health & safety, Economic impact, Charitable giving) | ✅ — awaiting review |
 | Desktop Site v2 · 17–20 FAQs, News & resources, Article, Contact | ✅ — awaiting review |
-| Mobile Site v2 (375) — parity with desktop v2 | ⬜ |
+| Mobile Site v2 (375) — parity with desktop v2, 21 frames | ✅ — awaiting review |
 
 Copy introduced while building, for approval: section titles "The unions on
 site" (P14) and "Job board" (P15); the job-board intro's second sentence
@@ -659,3 +659,47 @@ The site is now **21 pages**. News & resources gains a child page.
   story (stewardship, subtle) · news (white) · learn more (subtle) · footer.
   The union section is off Home (parked at x −2001). Two scroll stories now
   sit on Home.
+
+---
+
+## 9. Mobile Site v2 (4 Nov 2026)
+
+New Figma page **Mobile Site v2**, 21 frames at 375, one per desktop v2
+page, in the same order (Home at x 0, then 475 apart).
+
+**How each frame was made:** each one is a copy of its desktop page, so the
+copy is identical by construction. Then:
+
+1. Semantic and Typography collections set to **Mobile** on the frame, so all
+   spacing (`space/section-y` 80, `section-y-lg` 120,
+   `container-x-contained` 16) and type sizes switch through the tokens.
+2. Header, footer, alert bar and sub-nav swapped to `Device=Mobile`; stat
+   rows to `Layout=Mobile`. The sub-nav keeps each page's labels and active
+   tab.
+3. Side-by-side layouts (split, columns, fact columns, partner and route
+   grids, news rows, media grids, the diagram branch) stack.
+4. Full-bleed photos and briefs are 420 tall. In-column media are 4:3 at
+   column width.
+5. **Scroll stories (P21) stack**, per their spec: each step's label
+   (Heading 3) above its own copy, media and CTA. No sticky behaviour on
+   mobile.
+
+**Hand-fixed:**
+
+| Where | Fix |
+| --- | --- |
+| Home hero | The v1 mobile hero (already tuned to the mobile scrim) with the full headline. It wraps to five lines and the hero grows to 1,021. The headline starts at 0.294 (scrim α 0.47 ≥ 0.42) and the lead at 0.513 (α 0.70 ≥ 0.535). `TEXT_AT` mobile is updated; `check_scrim()` passes. |
+| Unions | 2-up grid. Section side padding was a raw 80, now bound to the token. |
+| Topic tiles (P22) | 2-up grid, hairline above each tile instead of beside it. |
+| Job board | Tags wrap; the "Hiring via Kiewit" pill drops under the tags. |
+| Timeline | Milestone entries put the date above the text. |
+| Article | Image and body get side padding. |
+| All text components | Hug height (news items had kept desktop heights and overlapped). Buttons hug their label. |
+
+**Also:** Unions is back on desktop Home (client edit, between questions
+and the stewardship story). It now has a white ground with light-grey logo
+slots, so it doesn't share the stewardship section's grey.
+
+**Component gaps to fold back later:** Milestone entry and Job row have no
+mobile variant (fixed on the instances). The Union logo slot ground is an
+instance override.
