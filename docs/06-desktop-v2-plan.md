@@ -1055,3 +1055,33 @@ Items scoring below 80% were reviewed by hand:
 - **Still ⛔ (open questions, unchanged):** Data centers / AWS card and the
   Amazon partner copy; local partner links; SMS short code ("text XXXX");
   community spotlights (no stories supplied); video carousel; giving back.
+
+### Mobile v3 review — cut-offs and nested margins (4 Nov 2026)
+
+The client saw job rows inset ~64 px (24 gutter + 40 row padding) with tags
+cut off. Every mobile frame was swept automatically: visible nodes clipped by
+a parent, text past the right edge, and body text inset past the gutter.
+After the fixes the sweep reports **nothing clipped and nothing off-screen**.
+Content now aligns to the 24 px gutter. The only remaining insets are
+intentional: a portrait beside a quote, an icon beside a fact sheet, diagram
+nodes, and the hero's news card.
+
+| Fix | Where |
+| --- | --- |
+| **Job row** gets a Device=Mobile variant: no side padding, tags wrap, "Hiring via Kiewit" below | P15 |
+| **Alert row** gets Device=Mobile variants: status chip moves above the dates, text gets the full width | P16 |
+| **Milestone entry** gets Device=Mobile variants: date + photo icon on one line, milestone full width below (it was three squeezed columns) | P13, Timeline |
+| Topic tiles: inner side padding removed on mobile | P22 |
+| Long stat figures wrap ("Front of the meter") | P3 |
+| Link-tile labels wrap (long email addresses) | P5, Article |
+| Statement button left-aligned with its text | P10 |
+| Water diagram: electricity row stacked vertically (nodes were 81 px wide); node labels wrap | Water |
+| Diagram nodes: 16 px side padding on mobile | Power plant, Water |
+
+Layout direction can't be overridden on an instance, so the restructures are
+real variants. Swapping to them dropped some instance text; alerts and
+timeline entries were re-copied from desktop v3. The Home mobile headline is
+the full sentence (the client asked for it earlier). Text parity between
+desktop v3 and mobile v3 is exact again. The one exception is the water
+diagram key ("Two Lick Creek", "Water"): mobile labels its connectors inline
+instead of using a key, the same as in v2.
