@@ -75,6 +75,7 @@ structure; no content).
 | P18 | Partner grid | Campus / local partners | Existing *Partner* component, 2–3 up |
 | P19 | Media sequence | History "then & now", photos & videos | Existing *Image*, 3-up grid with date captions |
 | P20 | Contact routes | Four inboxes | Existing *Contact route*, 2 × 2 |
+| **P22** | **Topic tiles** | Client, Nov 2026 — the outline's Community Stewardship tile row | New *Topic tile* component (Label, Icon, Show divider) |
 | **P21** | **Scroll story** | Client, Nov 2026 — replaces a run of consecutive P4 rows (Granola-style) | New *Story tab* component; `Active=1/2/3` variants, `Show step 3` |
 
 P17–P20 exist as components already; they need a section wrapper only. P14–P16
@@ -591,3 +592,18 @@ Original list:
 | A3 | Power plant "How it works" diagram labels (metered delivery, PPA, remaining capacity) — no diagram pattern yet; the three rows carry the meaning. |
 | A4 | FAQ "…most cherished natural areas" preamble shortened to the question alone. |
 | A5 | Still ⛔ from the outline: Data centers page and AWS card (Amazon), Sound page, Giving back content, third IBEW Local 5 video, union names ("[Others to be added]"), local partner links, SMS short code, video carousel, community spotlights. |
+
+### P22 Topic tiles (client, 4 Nov 2026)
+
+Built from the outline's Community stewardship tile row: five equal columns
+on the subtle ground, hairlines between them (dividers, not boxed cards),
+label + link arrow at the top, a 56 px decorative Material Symbols icon
+below. The whole tile is the link and the icon is `aria-hidden`. Icons:
+`warning`, `water_drop`, `engineering`, `home`, `groups`.
+
+Swapped in for the P5 link lists on **Home** (title "Community
+stewardship" + *Our commitments* button) and the **Community stewardship**
+page ("Our community commitments", no button — it is that page). Order
+follows the outline: Construction alerts first. The label stays "Charitable
+giving" (the outline tile says "Giving back"; the name is still open). Mobile
+spec: a 2-up grid, or stacked rows with the icon on the left.

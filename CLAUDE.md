@@ -273,6 +273,9 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **Runs of link-to-section rows become a scroll story** (P21, client, Nov
   2026): sticky steps left, the active step's statement + CTA + media right.
   Every tab is a button, so scrolling is never the only way through.
+- **Sibling destinations with a clear icon are topic tiles** (P22, client,
+  Nov 2026): equal columns, hairlines between, decorative icon (not blue).
+  Plain link lists stay P5.
 - **Stats are a ledger.** Figure left, label right, hairline between rows,
   qualifier (*Up to*, *Projected*, *Anticipated*) as an eyebrow above the
   figure, **required footnotes under the label inside the row** — not at the
@@ -290,7 +293,7 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   Home order: hero · numbers (navy) · scroll story (P21: past, workforce,
   what we're building) ·
   full-bleed photo · differentiators (subtle) · statement (black) ·
-  stewardship (subtle) · questions (navy) · news (white) · learn more
+  stewardship (subtle, P22 topic tiles) · questions (navy) · news (white) · learn more
   (subtle) · footer (black, Nov 2026). Hero carries one glass card (newest news).
   Desktop Home is frame `67:8121` (client's layout). Navy, not the comps' near-black,
   for dark bands — it is the client's colour and what the moodboard showed.
