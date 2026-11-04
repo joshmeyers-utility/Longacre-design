@@ -883,3 +883,28 @@ the full content column above it.
 - (5 Nov, client) Mobile diagrams (Power plant, Water): arrow-glyph icons
   replaced with drawn connectors, matching desktop (water solid, electricity
   dashed); both sit in the `surface/subtle` bounding panel.
+
+### Dropdown navigation — trial version (client, 5 Nov 2026)
+
+Frame **"Campus future · Desktop — dropdown nav"**, under the Campus future
+page on Desktop Site v2, with a spec note beside it. The secondary navigation
+bar is removed; the header's dropdown replaces it.
+
+- **Split control:** a top-level item with sub-pages has a label that is a link
+  to the section's main page (*What we're building* → Campus future) and a
+  chevron that is a separate `<button aria-expanded>` opening the dropdown.
+- **Dropdown:** the section's other pages only (Power plant & fuel supply ·
+  Campus history · Development timeline) as link rows in a white panel
+  (`radius/card`, soft shadow).
+- **No sub-pages, no chevron:** Who we are (now a single page), FAQs,
+  Contact us. The *Who we are* chevron is removed from the Site header
+  component.
+- **Keyboard and touch:** opens on click, tap, Enter or Space, and on hover
+  for fine pointers only. Esc closes and returns focus to the chevron; arrow
+  keys move through the list; the current child is marked
+  `aria-current="page"`.
+- **Other sections, if adopted:** Careers → Meet the workforce (Job
+  opportunities) · Community stewardship → landing (Water, Health & safety,
+  Economic impact, Charitable giving) · News & resources → News (Photos,
+  videos & voices). Mobile: the same tree in the menu sheet, as expandable
+  rows.
