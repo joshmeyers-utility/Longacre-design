@@ -280,9 +280,11 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   full-bleed photograph or a black statement band (one sourced sentence,
   Heading 2, white). Section padding is `space/section-y` (160 / 80).
   Home order: hero · numbers (navy) · white group (past, workforce,
-  renderings) · full-bleed photo · differentiators (subtle) · statement
-  (black) · stewardship (subtle) · questions (black) · news (white) · learn
-  more (subtle) · footer (navy). Navy, not the comps' near-black,
+  what we're building — one two-column format, media side alternating) ·
+  full-bleed photo · differentiators (subtle) · statement (black) ·
+  stewardship (subtle) · questions (navy) · news (white) · learn more
+  (subtle) · footer (navy). Hero carries one glass card (newest news).
+  Desktop Home is frame `67:8121` (client's layout). Navy, not the comps' near-black,
   for dark bands — it is the client's colour and what the moodboard showed.
 - **`ink/700` is the floor for neutral text** (5.64:1 on white, 5.14:1 on
   `surface/subtle`).

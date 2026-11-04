@@ -400,3 +400,20 @@ has identical visible text.
 - Fixed while checking parity: mobile Home showed the workforce photo as
   Shawn's video still with an unverified "2026" date; now a briefed
   placeholder, no date, matching desktop.
+
+## 10. Home restructure (client layout, Nov 2026)
+
+Desktop Home follows the client's frame `67:8121`; mobile matched to it
+(105 visible strings, identical). Changes carried to both breakpoints: one
+hero glass card; "See what we're building" in the white group's two-column
+format with a single rendering (`Kind = Rendering`); Common questions on
+navy (`surface/inverse`); captions and briefs hidden in the white group.
+
+**Copy assembled in design, for client approval:**
+
+- "See what we're building" body: *"A 3,200+ acre site transformed into a
+  state-of-the-art energy campus, with a natural gas-powered plant expected
+  to produce up to 4.4 GW of energy."* — joined from the outline's two tile
+  captions (slides 4 and 8). Replaces a duplicated From-past-to-present
+  paragraph.
+- Statement band: the outline's vision line (slide 7), verbatim.
