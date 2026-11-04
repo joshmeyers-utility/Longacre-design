@@ -617,3 +617,23 @@ Heading 2 (900 wide, like the black P10 band), with the page title above it
 in Heading 4, `text/secondary`. The title is still the page's `<h1>`, so the
 outline order and screen readers are unchanged. Padding is
 `space/section-y-lg`. Short intros stay P2.
+
+### News & resources: combine and split (client, 4 Nov 2026)
+
+The site is now **21 pages**. News & resources gains a child page.
+
+| Page | Sequence |
+| --- | --- |
+| 18 News & resources | header + sub-nav · subtle alerts + text sign-up · white **Latest news** (press release + coverage + commentary in one row of four, filter chips All / Press releases / Coverage / Commentary) · subtle **Fact sheets & media** (intro + press inbox left, three PDF downloads right) |
+| 18b **Photos, videos & voices** (new) | header + sub-nav · subtle Photos & videos · white Soundbites from the community |
+
+- "Recent press releases" had one item, so it merges into Latest news. The
+  type label on each item keeps press releases distinguishable.
+- The press inbox moves into Fact sheets & media. The Fact sheets & media
+  intro is introduced copy.
+- The News & resources title block was removed in Figma (client edit), so
+  both pages open on the sub-nav. **Flag (accessibility):** each page still
+  needs an `<h1>` in the build. Options: a visually hidden h1 ("News &
+  resources" / "Photos, videos & voices"), or promote the first section
+  title.
+- Meet the workforce's hero is now a P2s statement.
