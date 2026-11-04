@@ -932,3 +932,103 @@ wraps to four lines and starts at 0.233 of the hero, so the desktop scrim's
 upper stops moved (0.15 → 0.20, 0.25 → 0.50). `TEXT_AT` was re-measured
 (desktop 0.233 / 0.733, mobile 0.285 / 0.555) and `check_scrim()` passes.
 Figma's Home hero and P1 gradients are updated to match.
+
+---
+
+## v3 — consolidation (4 Nov 2026)
+
+New Figma pages **Desktop Site v3** and **Mobile Site v3**; v2 is untouched
+as the previous version (except shared tokens — see "Mobile spacing").
+
+### Components (Sections page)
+
+Every reusable section is now a component set with **Ground × Device**
+variants (P7 also **Columns 3 / 4**). Extra list items are pre-built and
+hidden, so a page only toggles visibility.
+
+| Set | Grounds | Max items |
+| --- | --- | --- |
+| P1 Hero, primary | — (Device only; mobile from v2) | — |
+| P2 Hero, secondary · P2s Hero, statement | White | — |
+| P3 Numbers & figures | Navy | 6 stat rows |
+| P4 Link to another section | White, Subtle | 1 row (was 3, double-padded) |
+| P5 Link group — also the shared **Learn more** | Subtle, White | 8 |
+| P6 Key facts | White, Subtle, Black | 6 |
+| P7 3-up facts | Subtle, White, Black × 3/4 columns | 9 |
+| P8 Common questions (P8w deleted — now Ground=White) | Navy, White | — |
+| P9 Full-bleed media (nested Image, Kind = Photograph / Rendering / Video, radius 0) | — | — |
+| P10 Callout (statement) + optional *Show button* | Black | — |
+| P11 News row | White | 4 |
+| P13 Timeline | Subtle | — |
+| P14 Unions — title "Unions on site"; mobile is a 2-up grid | White, Subtle | 9 |
+| P15 Job board | White | 12 |
+| P16 Alerts | Subtle, White | 4 |
+| P17 Quotes (Testimonials collection) | White, Subtle | 5 |
+| P18 Partner grid | White, Subtle | 6 |
+| P19 Media sequence | Subtle, White | 6 |
+| P20 Contact routes | Subtle, White | — |
+| P22 Topic tiles | Subtle, White | 6 |
+| **Diagram node** (new) | Size Large/Compact × Emphasis Default/Highlight | — |
+
+On subtle grounds, logo slots (P14, P18) are white so they stay visible.
+
+### Port
+
+Each v2 section was mapped to its pattern and replaced by an instance of the
+matching variant; content was copied node-by-node (text, nested props,
+visibility, images). **Text parity with v2 is exact** on every page; the only
+additions are the restored titles.
+
+Kept as one-off frames (genuinely unique): Home hero's news card, Then & now
+mosaic, Timeline, How it works and water diagrams (nodes are now *Diagram
+node* instances), FAQ categories (search, chips, FAQ rows), Latest news with
+chips, Fact sheets & media, Article body, the scroll stories (already P21).
+
+### Audit fixes applied
+
+- **Learn more** — one module, labels are page names, current page excluded:
+  Meet the workforce · Who we are · Campus history · Water stewardship ·
+  Power plant & fuel supply · Economic impact (spares: Health & safety,
+  Development timeline). "Campus partners", "Careers", "Project partners",
+  "Safety", "Workforce", "Power plant" retired.
+- **Titles restored** on Campus history, Job opportunities, Charitable giving,
+  News & resources, Photos, videos & voices, Contact us (title only — no lead
+  invented). Where the next section repeated the title (Campus history,
+  Contact us) that section heading is hidden. Timeline keeps its title inside
+  the timeline section.
+- **Key facts are no longer black.** Black is reserved for statements (P10).
+  Grounds re-sequenced so no two neighbours share one: e.g. Who we are —
+  pillars subtle, campus partners white, local partners subtle; Workforce —
+  commitments subtle, unions white, commentary subtle, learn more white.
+  Campus history's facts stay white with dividers, as the client set them.
+- Paddings bound to `space/section-y` (How it works, Fact sheets & media were
+  `section-y-sm`); Latest news fill bound to `surface/page`.
+- Layer names: "Frame 3" → *wordmark*, "From past to present" → *row*.
+
+### Kept as the client left them in v2
+
+Article without "The figures in this release"; Contact without Location;
+Who we are with Campus pillars before the partners. Mobile v3 follows suit.
+
+One visible change: Home's statement band is now the P10 component's
+Heading 2 (v2 had body-size text there).
+
+### Mobile v3
+
+- Every instance is the desktop v3 instance swapped to its Device=Mobile
+  variant, so content and overrides are shared. Bespoke sections come from
+  Mobile v2 (stacked scroll stories, mobile diagrams, FAQ, mosaic).
+- Section order now matches desktop exactly (v2 mobile had drifted on Who we
+  are and Meet the workforce).
+- **Mobile spacing (tokens):** `space/container-x` and
+  `container-x-contained` 16 → **24**, `space/section-y` 80 → **96**,
+  `space/column-gap` 40 → **48**. These are shared variables, so Mobile v2
+  shifts too.
+- Fixed 343-wide children set to Fill; long stat figures ("Front of the
+  meter") wrap; P11 header gap 24; unions 2-up.
+- Hero scrim re-measured with the wider gutter: headline 0.271, lead 0.576 of
+  a 1,105 px hero. The 0.22 stop moved to 0.18 (headline α 0.445, lead
+  α 0.74); `check_scrim()` passes; Figma's P1 mobile gradient matches.
+- Text parity with desktop v3 is exact apart from mobile-only items (menu
+  button, stacked story panels, diagram connector labels).
+- *Menu (open) · Mobile* copied to the left of the frames.

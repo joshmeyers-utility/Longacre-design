@@ -123,14 +123,14 @@ SEM_COLOR = [
 G, W, CR, O = "GAP", "WIDTH_HEIGHT", "CORNER_RADIUS", "OPACITY"
 SEM_FLOAT = [
     # Layout. Band width comes from the parent's padding, never the band.
-    ("space/section-y", 160, 80, [W, G]),
+    ("space/section-y", 160, 96, [W, G]),
     ("space/section-y-sm", 96, 56, [W, G]),
     # Statement bands (P10) breathe more than ordinary sections (client, Nov 2026).
     ("space/section-y-lg", 240, 120, [W, G]),
-    ("space/container-x", 80, 16, [W, G]),           # wide 1280
-    ("space/container-x-contained", 160, 16, [W, G]),  # contained 1120
+    ("space/container-x", 80, 24, [W, G]),           # wide 1280
+    ("space/container-x-contained", 160, 24, [W, G]),  # contained 1120
     ("space/gutter", 24, 16, [G]),
-    ("space/column-gap", 104, 40, [G]),
+    ("space/column-gap", 104, 48, [G]),
     ("space/stack-2xs", 4, 4, [G]),
     ("space/stack-xs", 8, 8, [G]),
     ("space/stack-sm", 12, 12, [G]),
@@ -217,11 +217,11 @@ MOTION = {
 # check_scrim() fails the build if a stop is lowered below what the text needs.
 SCRIM_GRADIENT = {
     "desktop": [(0.0, 0.10), (0.15, 0.20), (0.25, 0.50), (0.70, 0.62), (1.0, 0.80)],
-    "mobile":  [(0.0, 0.10), (0.22, 0.25), (0.32, 0.55), (0.44, 0.70), (1.0, 0.85)],
+    "mobile":  [(0.0, 0.10), (0.18, 0.25), (0.32, 0.55), (0.44, 0.70), (1.0, 0.85)],
 }
 TEXT_AT = {  # (position of top of line, minimum alpha it needs)
     "desktop": [(0.233, 0.42), (0.733, 0.535)],   # headline (4 lines, default line height, 5 Nov 2026), lead (800px hero)
-    "mobile":  [(0.285, 0.42), (0.555, 0.535)],   # headline (default line height, 5 Nov 2026), lead (1053px hero)
+    "mobile":  [(0.271, 0.42), (0.576, 0.535)],   # headline, lead (1,105px hero, 24px gutter — 4 Nov 2026)
 }
 
 

@@ -86,7 +86,9 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
 | 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ 18 pages — awaiting review (5 Nov: The campus folded into Campus future; Campus partners, Local partners and Campus pillars merged into Who we are) |
-| 8 | **Mobile Site v2** — 18 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — awaiting review |
+| 8 | **Mobile Site v2** — 18 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — kept as a version |
+| 9 | **Desktop Site v3** — consolidation: sections re-linked as component instances (Ground × Device variants), shared Learn more / Common questions, titles restored (`docs/06` §v3) | ✅ 18 pages — awaiting review |
+| 10 | **Mobile Site v3** — v3 instances swapped to Device=Mobile; mobile spacing opened up (gutter 24, section 96) | ✅ 18 frames + menu — awaiting review |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
@@ -295,7 +297,7 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   exception is a deliberate *white group* — consecutive white sections in
   the same format, separated by space. Breathers between groups: a
   full-bleed photograph or a black statement band (one sourced sentence,
-  Heading 2, white). Section padding is `space/section-y` (160 / 80); statement bands use
+  Heading 2, white). Section padding is `space/section-y` (160 / 96); statement bands use
   `space/section-y-lg` (240 / 120).
   Home order (client, 5 Nov 2026): hero · statement (black) · scroll story
   (past, workforce, building; white) · numbers (navy) · differentiators
@@ -326,7 +328,7 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   Only size varies by breakpoint; set the Typography mode on the artboard.
 - **Icons:** Material Symbols Rounded, weight 300.
 - **Band widths come from the parent's padding:** `space/container-x` 80 →
-  wide 1280; `space/container-x-contained` 160 → 1120; 0 → bleed; 16 mobile.
+  wide 1280; `space/container-x-contained` 160 → 1120; 0 → bleed; 24 mobile (was 16; opened up for v3, 4 Nov 2026).
 - **Near-bleed media rows** (client, Nov 2026 — Home "See what we're
   building"): the band has no side padding; the title and CTA sit in
   wrappers padded to the content column; the images run to a small gutter —
@@ -397,8 +399,8 @@ the first line rather than refactoring later.
   breakpoint's text starts; `check_scrim()` fails the build if a stop drops
   below that. **If you move hero text up, re-measure `TEXT_AT` first.**
   Current (5 Nov 2026, default line height — desktop headline wraps to 4
-  lines): desktop headline α 0.45, lead α 0.64; mobile headline α 0.45,
-  lead α 0.73 (1,053px hero). Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
+  lines): desktop headline α 0.45, lead α 0.64; mobile headline α 0.445,
+  lead α 0.74 (1,105px hero, 24px gutter — v3). Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
   variables).
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible
