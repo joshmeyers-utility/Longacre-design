@@ -349,11 +349,16 @@ the first line rather than refactoring later.
 - **Text over a photograph is guaranteed by the scrim, not by a checker.** An
   automated contrast sweep walks to the nearest *solid* painted ancestor, and a
   photograph is not one — so it will report a pass no matter what the image
-  does. The scrim is **true black** (`scrim/hero` → `base/black`, Nov 2026) and
-  is set so white text clears AA even over a pure-white photograph: desktop
-  **0.62** (6.2:1), mobile **0.76** (10.8:1). The AA floor for a black scrim
-  is **0.535** — never go below it, and re-run the check in `tokens.py` if the
-  scrim colour changes.
+  does. The scrim is a **true-black top-to-bottom gradient** (Nov 2026: photo
+  clear at the top, dark where the text sits), defined once in
+  `tokens.py` → `SCRIM_GRADIENT` and emitted as `--scrim-hero-gradient`.
+  Over a pure-white photograph, body text needs alpha **≥ 0.535** (4.5:1) and
+  the large headline **≥ 0.42** (3:1). `TEXT_AT` records where each
+  breakpoint's text starts; `check_scrim()` fails the build if a stop drops
+  below that. **If you move hero text up, re-measure `TEXT_AT` first.**
+  Current: desktop headline 4.2:1, lead 6.5:1; mobile headline 5.1:1, lead
+  8.6:1. Figma's gradient stops mirror `tokens.py` by hand (stops can't bind
+  variables).
 - **Accessibility: WCAG 2.2 AA, non-negotiable.** A public information site for a
   whole community. That means real text over images (not baked-in type), visible
   focus states, keyboard paths through every rollover interaction, and captions

@@ -162,10 +162,6 @@ SEM_FLOAT = [
     ("icon/md", 20, 20, [W]),
     ("icon/lg", 24, 24, [W]),
     ("icon/xl", 32, 32, [W]),
-    # Hero scrims are set so text clears AA over a pure white photograph.
-    # Black scrim: AA (4.5:1) floor is 0.535. 0.62 -> 6.2:1, 0.76 -> 10.8:1.
-    ("opacity/scrim-hero-start", 0.76, 0.76, [O]),
-    ("opacity/scrim-hero-end", 0.62, 0.76, [O]),
     ("opacity/scrim-media", 0.24, 0.24, [O]),
     ("opacity/disabled", 0.38, 0.38, [O]),
 ]
@@ -204,6 +200,36 @@ MOTION = {
     "ease/transition": "cubic-bezier(0.40, 0, 0.20, 1)",
     "ease/exit": "cubic-bezier(0.40, 0, 1, 1)",
 }
+
+# Hero scrim: a top-to-bottom black gradient (user, Nov 2026 — photo clear at
+# the top, dark where the text sits). (position 0–1, black alpha). Every text
+# line must sit where alpha clears AA over a PURE WHITE photograph:
+#   body text (4.5:1) needs >= 0.535; large headline (3:1) needs >= 0.42.
+# TEXT_AT records where each breakpoint's text starts, measured from the comp;
+# check_scrim() fails the build if a stop is lowered below what the text needs.
+SCRIM_GRADIENT = {
+    "desktop": [(0.0, 0.10), (0.35, 0.20), (0.48, 0.50), (0.70, 0.62), (1.0, 0.80)],
+    "mobile":  [(0.0, 0.10), (0.22, 0.25), (0.32, 0.55), (0.44, 0.70), (1.0, 0.85)],
+}
+TEXT_AT = {  # (position of top of line, minimum alpha it needs)
+    "desktop": [(0.508, 0.42), (0.718, 0.535)],   # headline, lead (800px hero)
+    "mobile":  [(0.333, 0.42), (0.448, 0.535)],   # headline, lead (901px hero)
+}
+
+
+def scrim_alpha(stops, t):
+    for (p0, a0), (p1, a1) in zip(stops, stops[1:]):
+        if p0 <= t <= p1:
+            return a0 + (a1 - a0) * (t - p0) / (p1 - p0)
+    return stops[-1][1]
+
+
+def check_scrim():
+    for bp, lines in TEXT_AT.items():
+        for t, need in lines:
+            a = scrim_alpha(SCRIM_GRADIENT[bp], t)
+            assert a >= need, f"scrim too light on {bp} at {t}: {a:.3f} < {need}"
+
 
 EFFECTS = {
     "glass": {"type": "BACKGROUND_BLUR", "radius": 24},
@@ -268,8 +294,13 @@ def build():
     for k, v in MOTION.items():
         unit = "ms" if k.startswith(("duration", "stagger")) else "px" if k.startswith("distance") else ""
         out.append(f"  {css_name(k)}: {v}{unit};")
+    def grad_css(stops):
+        return "linear-gradient(180deg, " + ", ".join(
+            f"rgba(0, 0, 0, {a}) {round(p * 100)}%" for p, a in stops) + ")"
+    out.append(f"  --scrim-hero-gradient: {grad_css(SCRIM_GRADIENT['desktop'])};")
     out.append("}")
     out.append("@media (max-width: 767px) {\n  :root {")
+    out.append(f"    --scrim-hero-gradient: {grad_css(SCRIM_GRADIENT['mobile'])};")
     for n, d, m, _ in SEM_FLOAT:
         if m != d:
             out.append(f"    {css_name(n)}: {m if n.startswith('opacity') else str(m) + 'px'};")
@@ -293,10 +324,12 @@ def build():
         "type": [[r, d, m] for r, d, m, *_ in TYPE],
         "styles": [[r, wt, lh, tr] for r, _, _, wt, lh, tr in TYPE],
         "family": FONT_FAMILY, "motion": MOTION, "effects": EFFECTS,
+        "scrim_gradient": SCRIM_GRADIENT,
     }
     (HERE / "figma.json").write_text(json.dumps(figma, separators=(",", ":")) + "\n")
 
 
 if __name__ == "__main__":
+    check_scrim()
     build()
     print("tokens.json, tokens.css, figma.json written")

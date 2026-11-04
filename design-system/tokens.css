@@ -213,8 +213,6 @@
   --icon-md: 20px;
   --icon-lg: 24px;
   --icon-xl: 32px;
-  --opacity-scrim-hero-start: 0.76;
-  --opacity-scrim-hero-end: 0.62;
   --opacity-scrim-media: 0.24;
   --opacity-disabled: 0.38;
   --font-sans: 'Geist', system-ui, sans-serif;
@@ -295,9 +293,11 @@
   --ease-interact: cubic-bezier(0.30, 0, 0.20, 1);
   --ease-transition: cubic-bezier(0.40, 0, 0.20, 1);
   --ease-exit: cubic-bezier(0.40, 0, 1, 1);
+  --scrim-hero-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.62) 70%, rgba(0, 0, 0, 0.8) 100%);
 }
 @media (max-width: 767px) {
   :root {
+    --scrim-hero-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.25) 22%, rgba(0, 0, 0, 0.55) 32%, rgba(0, 0, 0, 0.7) 44%, rgba(0, 0, 0, 0.85) 100%);
     --space-section-y: 80px;
     --space-section-y-sm: 56px;
     --space-container-x: 16px;
@@ -317,7 +317,6 @@
     --radius-media: 16px;
     --radius-media-lg: 20px;
     --size-control-lg: 52px;
-    --opacity-scrim-hero-end: 0.76;
     --type-hero-size: 40px;
     --type-h1-size: 34px;
     --type-h2-size: 30px;
