@@ -293,6 +293,12 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
 - **Icons:** Material Symbols Rounded, weight 300.
 - **Band widths come from the parent's padding:** `space/container-x` 80 →
   wide 1280; `space/container-x-contained` 160 → 1120; 0 → bleed; 16 mobile.
+- **Near-bleed media rows** (client, Nov 2026 — Home "See what we're
+  building"): the band has no side padding; the title and CTA sit in
+  wrappers padded to the content column; the images run to a small gutter —
+  `space/stack-sm` (12) desktop, `space/stack-xs` (8) mobile — with the
+  same value between them. Spend it sparingly: never two photographic bands
+  adjacent.
 - **Motion:** `ease/appear`, `ease/interact`, `ease/transition`; reduced
   motion zeroes every duration in `tokens.css`.
 - **Contrast:** 45 text/ground pairs checked by `tokens.py`'s palette, all ≥ AA.
