@@ -743,3 +743,35 @@ mobile scroll stories show every step stacked. Fixed along the way: mobile
 Home's Unions title ("Unions on site", client edit) and its section order
 (client re-ordered desktop Home). Home differentiators are bound to
 `surface/subtle`; they had been raw white next to the white Unions.
+
+### Page-by-page check against outline slides (5 Nov 2026)
+
+Each page was compared with its slide images (now on the canvas). Fixed,
+desktop + mobile (parity re-checked: no differences):
+
+| Page | Fix |
+| --- | --- |
+| Power plant | "Front of the meter" restored as the 4th at-a-glance item (label "Power", as on slide 9). |
+| Development timeline | Common questions = the slide's four (How large · When operational · Who is building the data center · How much water). Learn more = Power plant & fuel supply · Water stewardship · Workforce · Project partners · Safety · Economic impact. |
+| Campus pillars | Same four questions. Learn more = Workforce · Water stewardship · Power plant · Latest news · Safety · Economic impact. Safety pillar copy now the outline's "Safety is our #1 priority; …" (was the May fact sheet's). |
+| Meet the workforce | Community commentary has all five quotes (adds Pittman, Struzzi). Workforce commitments are the outline's three sentences; the invented leads are hidden. |
+| Community stewardship | Tiles follow slide 24: Power · Water · Health & safety · Economic impact · Charitable giving (Sound ⛔). |
+| Water | "Our commitment on water" carries both statements (was one). |
+| FAQs | Category names from slide 32 (Environmental considerations & water stewardship · Economic & community impacts · Job & partnership opportunities). Power generation in the outline's order. |
+
+**Kept, with reason:**
+
+| Page | Difference | Why |
+| --- | --- | --- |
+| Economic impact | Ledger also shows 10,000+ and ~1,000 (slide shows 3 figures) | Their footnotes have to appear on the page (§5 rule 2); the "Jobs" bullet repeats both figures. |
+| Health & safety | "Our safety record — Zero" section isn't on slide 27 | Sourced figure (fact sheet C) with its date; remove if unwanted. |
+| Contact | Location block isn't on slide 37 | Canonical address; address source is still open Q17. |
+| Campus partners | Hero title "Who is building the campus" (not in outline) | Introduced; the outline has no title for this page. |
+| Photos, videos & voices | Photos before soundbites (slide 35: soundbites first) | Client-approved split; reorder if wanted. |
+| Home | 3 news items (slide: 6); one worker video in the scroll story (slide: Shawn + Isaac); one rendering under "See what we're building" (slide: two images) | Format limits of P11/P21; content otherwise matches. |
+
+Health & safety intro: the outline says "At Homer City Generating Station";
+the site says "At Homer City Generation" (the station is the former plant).
+Flag for the client. Local partners, Campus pillars and Charitable giving
+have no title block in Figma (as on News); each page still needs an h1 in
+the build.
