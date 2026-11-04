@@ -261,6 +261,9 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   `menu`). Nothing else is blue — not labels, not decorative icons.
   `text/link` (`blue/700`, 5.07:1) must not sit on `action/secondary-bg` —
   4.29:1 — which is why there is no `surface/muted`.
+  **Exception (client, Nov 2026): link-list rows** (Link tile — "Learn
+  more", commitments, menu) are `text/primary` / `text/inverse`; the arrow
+  and hairline row mark them as links, and hover underlines the label.
 - **Strokes are dividers.** A hairline separates two pieces of content —
   `border/divider` on light, `border/divider-inverse` on navy. No outlines.
 - **Stats are a ledger.** Figure left, label right, hairline between rows,
