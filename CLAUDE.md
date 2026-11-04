@@ -276,6 +276,10 @@ not `color/blue/700`. A brand-guide correction is then a one-line change.
   Every tab is a button, so scrolling is never the only way through.
 - **Long page intros are white statements** (P2s, client, Nov 2026): intro
   in Heading 2, page title small above it (still the h1).
+- **Navigation is the header dropdown, no secondary bar** (client, 5 Nov
+  2026). A section with sub-pages is a split control: the label links to the
+  section's main page, the chevron (a button) opens the *Nav dropdown* with
+  the other pages. No sub-pages → no chevron (Who we are, FAQs, Contact us).
 - **Sibling destinations with a clear icon are topic tiles** (P22, client,
   Nov 2026): equal columns, hairlines between, decorative icon (not blue).
   Plain link lists stay P5.

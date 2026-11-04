@@ -908,3 +908,10 @@ bar is removed; the header's dropdown replaces it.
   Economic impact, Charitable giving) · News & resources → News (Photos,
   videos & voices). Mobile: the same tree in the menu sheet, as expandable
   rows.
+- **Rolled out (client, 5 Nov 2026):** the secondary navigation bar is removed
+  from all 36 page heroes (desktop + mobile) and from the P2 / P2s section
+  components. Title blocks now use `space/section-y-sm` top padding. The
+  dropdown panel is the **Nav dropdown** component (Component Library). The
+  trial frame is deleted; its spec note sits above Campus future. Mobile
+  menu: the same tree as expandable rows (spec; the menu sheet isn't drawn
+  yet).
