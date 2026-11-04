@@ -703,3 +703,33 @@ slots, so it doesn't share the stewardship section's grey.
 **Component gaps to fold back later:** Milestone entry and Job row have no
 mobile variant (fixed on the instances). The Union logo slot ground is an
 instance override.
+
+### Campus future corrected against outline slides 7–8 (client, 5 Nov 2026)
+
+The outline's Campus future page is **slides 7 and 8** (both slides have the
+nav tab "What We're Building – Campus Future" active). In the site
+structure (slide 1), "The Campus" and "The Power Plant" are indented
+*under* Campus future. The build had split slide 8 into a separate "The
+campus" page and padded Campus future with copy that isn't in the outline.
+Rebuilt, desktop and mobile, in slide order:
+
+1. About the Homer City Energy Campus — **both** paragraphs (the
+   partnership paragraph had been moved into a fact row with an invented
+   lead).
+2. The vision for Homer City — "Honoring our past, reimagining our future"
+   + the vision paragraph, **no invented lead**.
+3. At a glance (ledger).
+4. **What we're building** — the site plan (brief) + hotspots: the energy
+   campus, the power plant, Two Lick Reservoir (data center ⛔ Amazon).
+   Replaces the two-step scroll story, which wasn't in the outline.
+5. Unique site attributes.
+6. Local economic & job benefits + "A re-energized future for Indiana
+   County and beyond" (workforce development, local power).
+
+Removed copy: the leads "A 3,200+ acre natural gas-powered energy
+campus." and "A plan announced in April 2025.", and the scroll-story
+statements.
+
+**Open:** the separate **The campus** page now duplicates sections 4–6.
+Proposal: delete it and its sub-nav tab ("The Power Plant" child = the
+Power plant & fuel supply page).
