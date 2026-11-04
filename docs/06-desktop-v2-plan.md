@@ -837,3 +837,17 @@ partners (white, 4, roles only)** · workforce link (subtle) · footer. The
 **Open:** the separate *Local partners* page now duplicates the section.
 The site structure (slide 1) still lists Local Partners as a sub-page, so
 it stays until the client decides.
+
+### Who we are: one page (client, 5 Nov 2026)
+
+Campus partners, Local partners and Campus pillars are combined into a
+single **Who we are** page (desktop + mobile). The site is now **18 pages**.
+Order follows slides 16 → 17: statement hero (h1 "Who we are") · Campus
+partners (subtle) · Local partners (white) · workforce link (subtle) ·
+**Campus pillars** (black; the title uses the slide's heading in place of
+"The four pillars") · Common questions (navy) · Learn more (subtle) ·
+footer. The Local partners and Campus pillars frames are deleted, and their
+outline slides moved to this page's column. The sub-nav is hidden (single
+page). The workforce photo band from the old pillars page is not carried,
+as slide 17 has no photo. Naming of the pillars ("Campus pillars [or Core
+Values?]") is still open.

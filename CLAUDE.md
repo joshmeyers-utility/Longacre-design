@@ -85,8 +85,8 @@ Plan, conflicts and decisions: `docs/05-content-review.md`.
 | 4 | Component Library | ✅ Built — 26 components, 67 variants |
 | 5 | Mobile Site (375) | ✅ Built — 19 frames |
 | 6 | Desktop Site (1440) | ✅ Built — 18 frames, derived from mobile |
-| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ All 20 pages built — awaiting review (The campus folded into Campus future, 5 Nov) |
-| 8 | **Mobile Site v2** — 20 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — awaiting review |
+| 7 | **Desktop Site v2** — rebuild from section patterns (`docs/06`) | ✅ 18 pages — awaiting review (5 Nov: The campus folded into Campus future; Campus partners, Local partners and Campus pillars merged into Who we are) |
+| 8 | **Mobile Site v2** — 18 frames at 375, copies of desktop v2 in Mobile mode (`docs/06` §9) | ✅ Built — awaiting review |
 
 Keep this table current. It is how the user and the next session both know where
 things stand.
