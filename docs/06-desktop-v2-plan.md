@@ -793,3 +793,5 @@ The text-only diagram in the left column is replaced by a drawn flow (slide
 - **Build:** the nodes are real text in reading order (plant → grid →
   customer → local homes); connectors are decorative SVG. A diagram/infographic
   is not a content card, so the no-cards rule doesn't apply.
+- (5 Nov, client) Diagram now sits in a bounding panel (`surface/subtle`,
+  `radius/media-lg`, 48 / 16 padding) with white nodes; icons removed.
