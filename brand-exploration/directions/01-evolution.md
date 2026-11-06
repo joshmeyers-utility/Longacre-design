@@ -128,8 +128,10 @@ Hero 104 → 84 narrows the gap to the 68px ledger figure, so the ledger
 reads as the second voice of the page, not a footer to the hero. The locked
 homepage headline is 74 characters; at 104px it runs to five lines and
 pushes the intro off a 900px screen. On a phone the ledger figure goes *up*,
-44 → 56: the figures are the proof. Every size is an existing primitive
-except the 40px mobile hero, the one new step.
+44 → 56: the figures are the proof. Display sizes all reuse existing
+primitives; four odd steps are new (13 qualifier, 15 footnote, 17 phone
+body, 40 phone hero). They break the even-number habit on purpose: they are
+the reading sizes, tuned by eye at 375.
 
 ---
 
