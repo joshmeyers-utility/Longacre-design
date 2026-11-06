@@ -134,3 +134,63 @@ Fixed after screenshot: the superscript range on "10,000+¹" first landed on
 the leading "1". Footnote numerals are set on the baseline at 20–30px Bold
 rather than raised; Schibsted has no `sups` feature exposed in Figma. In
 Webflow use `<sup>`.
+
+## 4. Hero: built
+
+Section `4 · Hero` **21:2585**.
+
+| Frame | ID | Size |
+| --- | --- | --- |
+| Hero · Workforce · 375 (Typography Mobile) | 21:3165 | 375 × 1321 |
+| Hero · Workforce · 1440 (Typography Desktop) | 21:3201 | 1440 × 1234 |
+
+D02 components (atoms, nested as instances in both frames):
+
+| Component | ID | Notes |
+| --- | --- | --- |
+| D02/Portrait placeholder (set) | 21:2598 | Field = Gold 21:2586, Aqua 21:2589, Navy 21:2592, Cream 21:2595; text props `Brief title`, `Brief` |
+| D02/Button | 21:2599 | pill, `action/primary-*`, min height 44 (`size/tap-min`), `Label` prop |
+| D02/Pill | 21:2601 | nav pill |
+| D02/Flag | 21:2603 | dashed tier-A flag, production note, not copy |
+
+Copy, all locked: alert (desktop: "News · 4 September 2026" + the 4 Sep
+release headline + "View all"; mobile: QA's "What's happening…" / "Heavy
+equipment transport… September 16."), QA nav, eyebrow "Careers", H1 "Meet
+the *tradesmen and women* building the campus", the QA workforce header
+description verbatim, button "Find work on the campus →". Trade strip:
+1440 shows seven tiles with the seventh clipped at the edge to signal the
+sideways scroll; 375 a 2-col grid of four (as the board). Captions name the
+trade only.
+
+Compared with the board (screens `reviews/screens/02-hero-375.png`,
+`02-hero-1440.png`): type pairing, scale, cream/paper grounds and the
+portrait fields match. Fixed after first screenshot: the placeholder
+highlight sat bottom-right; moved to top-left (board's `30% 18%` radial).
+Differences kept: the hero is the workforce page (locked H1 per task), not
+the board's home hero; no ghost button (root §7 "no button borders").
+
+Contrast: navy on every light field ≥ 6.66:1, cream on navy 11.41:1, aqua
+"View all" link on navy 10.03:1. No text over photographs in this section.
+
+Webflow: alert = CMS item + dismiss stored in localStorage (Interactions
+can't remember; one small embed). Strip = flex row, `overflow-x:auto`,
+`scroll-snap-type:x mandatory` (custom property in Designer is supported).
+Portrait highlight gradient is decorative and unbound (raw white/aqua
+alpha); in production it is the photograph.
+
+---
+
+## Stopped here (coordinator's 50% check-in, 6 Nov 2026)
+
+Done: 0 clean-up, 1 Cover, 2 Tokens, 3 Type, 4 Hero.
+**Not started:** 5 The nine trades + By the Numbers (375, 1440; screenshots
+02-numbers-375/1440), 6 Brand in the world (02-world.png), 7 Motion &
+imagery notes. Motion tokens already exist in `D02 Motion` (durations
+0/120/240/480 ms, distance 16, scale 1.03, eases appear/interact/reduced).
+
+Open issues:
+- Fraunces renders without opsz 144 / SOFT 50 in Figma (static default).
+- Footnote numerals sit on the baseline in Figma (no `sups`).
+- QA descriptions for Operators and Laborers look swapped (brief §11);
+  still to be used verbatim in section 5 and flagged.
+- No write conflicts or timeouts so far.
