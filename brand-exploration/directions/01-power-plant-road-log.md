@@ -124,3 +124,44 @@ Started 6 November 2026.
   the H1 is broken into spans by hand, otherwise GSAP SplitText (flag).
 - Open: 375 nav collapses to a "Menu" pill — the open menu state is not yet
   designed.
+
+## 5. By the Numbers — built
+
+- Section `5 · By the Numbers` 21:3660: `Numbers — 375` 21:3661 (Mobile mode),
+  `Numbers — 1440` 21:3717 (Desktop mode).
+- Rows ("the receipt"): pill → figure (900 italic) + footnote mark → label
+  (700) → 2px rule → footnote (numeral 900 + text 500), all inside the row's
+  own field. Field order gold / navy / cream / gold / navy.
+  - 1,800+ · pill "As of September 2026" · label per root §6 (tier A —
+    confirm wording; CMS field + date field).
+  - 10,000+ · "Anticipated" · footnote 1 verbatim from fact-sheet.md.
+  - ~1,000 · "Anticipated" · footnote 2 verbatim.
+  - 4.4 GW · pill "Up to" · "Energy expected to be produced on-site".
+  - $10 Billion · pill "Projected" · label verbatim (label also starts with
+    "Projected" — the pill repeats the source's own qualifier, no new claim).
+- Added `D01/Stat unit` text style (Black Italic 96 / 36, 0.42em of figure)
+  + `type/stat-unit/*` variables; semantic `space/receipt/*`.
+- Compared with board: matched (board shows 4 rows; $10 Billion added per
+  brief, on navy to keep the alternation). Fix applied — the desktop "1" on
+  10,000+ was clipped by the figure column (figure 858 vs column 852);
+  unclipped figure frames and tightened the row gap to 30.
+- Contrast: navy on gold 6.66, gold on navy 6.66, cream footnote on navy
+  11.41, navy on cream 11.41. All pass at footnote size (16/14).
+- Screens: `reviews/screens/01-numbers-375.png`, `01-numbers-1440.png`.
+- Webflow: each row is a CMS Stats item (figure, unit, qualifier pill,
+  label, footnote ref, as-of date, field colour as an option field). Figure
+  slide-in 40px + receipt fade after 150ms = scroll-into-view, native. No
+  count-up.
+
+## Stopped here (coordinator stop request, 50% usage check-in)
+
+Remaining, not started:
+- 6. Brand in the world (fence banner, hard-hat sticker + patch, social card
+  with footnote 1) + screenshot `01-world.png`.
+- 7. Motion & imagery notes frame (motion tokens already exist in
+  `D01 Motion`, 21:364; the frame that presents them does not).
+Open issues:
+- 375 menu open state not designed.
+- Alert dismiss hit area to be ≥24px (WCAG 2.2 2.5.8).
+- 1,800+ label wording is tier A — confirm with client.
+- Logo is a dashed placeholder; vector logo still needed (root §10 #1).

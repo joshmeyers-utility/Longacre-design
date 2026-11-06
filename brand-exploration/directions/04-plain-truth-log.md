@@ -87,3 +87,43 @@ look: `moodboards/04-plain-truth.html` (exact values) and its screenshots.
   two modes (Desktop on base, Mobile at ≤479). Anton styles use
   `text-transform: uppercase` on the class, never typed caps, so the CMS stores
   sentence case.
+
+## 4 · Hero — built
+- Section `21:1776`: `Hero · 375` `21:3583` (Mobile mode, left) and
+  `Hero · 1440` `21:3611` (Desktop mode).
+- Locked copy: H1 "Building America’s energy future while honoring
+  Pennsylvania’s proud past." (QA Home wording), the QA hero intro, buttons
+  "What we’re building →" / "Local alerts & advisories". Alert bar (aqua,
+  CMS, dismissible, 24×24 dismiss target per WCAG 2.2 2.5.8): "Active · From
+  September 16 — Heavy equipment transport to Homer City Energy Campus begins
+  September 16" + "Read the advisory" (desktop). Navy strip: 1,800+ /
+  "Direct-hire tradespeople and skilled contractors active on site" / aqua
+  stamp "As of September 2026" (separate CMS date field, per §5.3).
+- Image: stand-in 20-steel-beams-topdown, tag inside the frame. Cropped left
+  (CROP transform, 15–20%) as on the board, which also keeps the generated
+  figure at the right edge out of frame.
+- Contrast: all hero type is ink on blue (4.83:1), navy on aqua (10.03),
+  cream on navy (11.41), white on ink buttons (17.37). No text over the photograph.
+- Compared with the board: it matches. The desktop nav sits ~24px lower than
+  on the board (nav padding 24 instead of 20; tokens snap to stack-lg). Left
+  as is.
+- Screens: `reviews/screens/04-hero-375.png`, `reviews/screens/04-hero-1440.png`.
+- Webflow: alert = CMS "Alerts" item, dismissal in localStorage via a small
+  embed; slide-down 250ms in Interactions 2.0 (page load). Hero = Grid
+  (1fr 470px); 375 stacks. Buttons are flat classes `button` / `is-secondary`.
+- Doubt carried from the brief: the locked H1 reads as a slogan in giant
+  caps; a factual H1 is a copy question for Josh.
+
+## STOPPED here — coordinator's 50% check-in stop request
+Not yet built: **5 · By the Numbers** (section `21:1777`, empty),
+**6 · Brand in the world** (`21:1778`, empty), **7 · Motion & imagery**
+(`21:1779`, empty). Motion tokens already exist in `D04 Motion`. Stand-in
+images still to upload for 5 and 7 are already downsized in the scratchpad
+(`12-haul-road-dump-truck`, `05-roller-closeup`); re-derive them from
+`content/imagery/` if the scratchpad is gone. Still to save: 04-numbers-375.png,
+04-numbers-1440.png, 04-world.png.
+
+Open items:
+- Hero H1 copy (above). The board's blue highlight in the cover statement was
+  rendered as ExtraBold, because a text range in Figma can't take a box behind it.
+- No write conflicts or timeouts on the shared file this session.
