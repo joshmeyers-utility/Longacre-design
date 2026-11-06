@@ -1,199 +1,214 @@
-# Research synthesis
+# Research synthesis (visual)
 
-Phase 1, 6 November 2026. Drawn from the six angle files in this folder,
-`../../docs/source/external-context.md` (not re-researched) and the Homer City
-QA content snapshot (`../content/homer-city-qa.md`).
+Phase 1, 6 November 2026. **Rewritten from screenshots.** Josh's direction:
+content is locked, so research is about how things look and move, and
+screenshots are the evidence. Every claim below points at an image in
+`screens/`. The six angle files hold the detail; each `screens/<angle>/INDEX.md`
+lists what was captured and what failed.
 
-**Read this caveat first.** Every researcher fetched pages as text, not
-rendered screens. Layout, voice, structure and Webflow mechanics are reliable;
-typefaces, hex values and motion on most references are marked "verify" or
-"background" in the angle files. Designers should open a reference before
-borrowing its look. Nothing here was copied into Figma as an image.
+What was captured:
+- desktop at 1440, full page and mobile at 375 for about 60 references
+- computed fonts and colours (`*-styles.json`)
+- 11 type specimens setting real fact-sheet copy on all six palette grounds
+- motion frame sequences, hover and focus states, mobile-menu opens,
+  reduced-motion runs, and three recordings
+
+Not captured: orsted.com (bot check; documented instead from the Kontrapunkt
+case study), Foster, Vestas, Vogtle, AEP, the Elizabeth line, and some
+mobile-menu taps. Hex values marked "unsampled" in the angle files are
+estimates.
 
 ---
 
-## 1. The one finding
-
-All six angles found the same gap from different directions:
+## 1. The one finding still holds, and now it's visible
 
 > **Nobody puts the receipt next to the claim.**
 
-- Energy-campus sites (Microsoft, Google, Intel, Meta): commitments and
-  rebuttals with no inline source, date or document.
-- Construction programmes (Sizewell C, Gateway, Mortenson): headline figures
-  with no source or as-of date. Tideway's "Data last updated" is the nearest.
-- Civic and data sites (OWID, GOV.UK, ProPublica): provenance exists, but on
-  charts and errata pages, never on a stat row beside a figure.
-- Type and motion: no one designs footnotes and date stamps as a visible
-  element, and no one animates a figure together with its qualifier.
+| Seen | What the screenshot shows | Image |
+| --- | --- | --- |
+| Tideway | The only stat anywhere with a footnote and a data date, set in small centred grey *below* a teal block, easy to miss | `screens/civic/tideway-stat-footnote.jpg` |
+| Kiewit | Stats as outlined yellow numerals on a navy band that **count up**, so the figure is wrong for about a second. No date, no source | `screens/architecture-and-construction/kiewit-*`, `screens/motion/` |
+| Gateway, Sizewell C | Centred bold figures in a flat green band, or in rings. No date, no footnote | `screens/architecture-and-construction/` |
+| OWID, GOV.UK | The cleanest date rows seen: "Last updated / Next expected update", "Published / Last updated / See all updates". But on pages and charts, never on a stat | `screens/civic/` |
+| Type specimens | Under a stat, the footnote is the first element to fail: white footnote text on blue `#238FC8` fails contrast | `screens/type-and-color/specimen-*.jpg` |
+| Mobile, everywhere | The source line wraps and is the first thing pushed below the fold | `screens/civic/*-mobile.jpg` |
 
-A site where **every figure carries its date, its footnote and a document**
-would be unique in the whole set. That is not a style. It is the brief, and
-every direction must do it. Directions differ in *how* it looks and feels.
+**What every direction must design:** figure, qualifier, label, footnote, "as
+of" date and document link as **one aligned unit**, at 375px first. Designed,
+not fine print. How it looks is where the directions differ.
 
 ---
 
-## 2. Shared patterns (use them, don't count on them for distinctiveness)
+## 2. Visual references that matter most
 
-| Pattern | Seen at | For us |
+| Reference | Why it matters visually | Use it for |
 | --- | --- | --- |
-| Topic doors named for neighbour worries (water, noise, traffic, jobs, bills) | Microsoft, Google, Intel | Needed. Card grids are the cliché; what is behind the door is the differentiator. |
-| Dated, reverse-chronological update log with concrete detail (hours, gates, dust) | Microsoft East Point, GOV.UK "See all updates" | Maps to the alert banner + News collection. |
-| Named human contact closing every update | East Point, AEP, Gateway | Maps to the four inboxes. Never collapse them. |
-| Proof in site units: work hours, trades, apprentices, local share | Vogtle, Hinkley, Gateway | Matches the §6 workforce ledger. |
-| Status and date on the component, not in the caption | Tideway, GOV.UK | Matches the repo's "brief is not a caption" rule. |
-| Big numbers turned into pictures | Tideway (pools) | We have one sourced comparison: ~3M cubic meters ≈ the Great Pyramid of Giza. Use only that one. |
-| Progress as camera or dated gallery | Gateway, Hinkley | The 1969–2026 photo essay. |
-| Two dates per figure: "as of" and "next update" | OWID | Worth testing: it turns a stale number into a promise. |
-| Third-person errata log ("originally said…") | ProPublica, Texas Tribune | A strong sceptic signal. Cheap in Webflow CMS. |
-| Restraint in motion; motion earns its keep in nav | Ørsted, Fervo, CFS, GOV.UK | Serious operators ship plain heroes. |
-| One accent colour that means one thing | GOV.UK yellow focus, OVO green | Matches "blue means link". |
-| Navy carries all text; variety comes from grounds | Computed contrast (type-and-color) | Under Anchored latitude, gold and aqua are grounds with navy text, never text. |
+| **Ørsted** (Kontrapunkt case study) | **Josh's pick.** Light-weight rounded geometric type at large sizes (Ørsted Sans, custom). Pale, airy grounds with one aqua or blue accent. Uniform soft grading. Big thin numerals. Ørsted's turquoise and sky blue sit almost on our aqua `#AFECF1` and blue `#238FC8`. Nearest web stand-in: **Outfit** (or Jost) | The light, confident, uncluttered register. Keep the craft, drop the green and wind-farm cues: this is a gas campus |
+| **Form Energy** | A real aerial of a former steel-mill site in Weirton, WV: river, hills, town, autumn colour. Very close to how Homer City looks. Condensed caps, one ochre accent, real workers | Proof that a former-industrial Appalachian site *is* the image. Avoid the generic headline |
+| **Skellefteå Kraft** | A tile grid of local faces, duotoned to one brand colour. The nearest thing to "the workforce is the identity" | A people-led grid with uniform grading |
+| **Tideway** | The logo as a tile hanging from the header; teal dates on every news card; a swimming-pool illustration translating a big number; the only footnote and data date seen | Status and dates in the accent colour; the Giza comparison as a picture |
+| **Kiewit** | Near-black and navy (`#162E46`) grounds, yellow `#FFD202` rule and logo tile, squared grotesque, dusk plant photography graded into the palette | **The register to stay clear of.** Workers on site wear it |
+| **Commonwealth Fusion Systems** | Orange on taupe `#CCC8C3`, patent-drawing layouts. Hover and keyboard focus are the same white-box state | The hover-equals-focus pattern |
+| **Ember** | Stats as unboxed rows with a hairline | The ledger look |
+| **GOV.UK / OWID / ProPublica** | Bold run-in labels ("Correction, Oct. 27, 2026:", "Data source:"); label and value date rows; file tiles giving format, size and pages | The receipt typography |
+| **Heatherwick** | Warm off-white ground `#F4F3EF` with dark text and serif headlines | Credible proof of a warm ground |
+| **Sound Transit** | Hairline-ruled project list with a provenance line ("voters approved 1996/2008/2016") | The nearest thing to a ledger in infrastructure |
 
-## 3. Clichés to avoid (named so the critic can block them)
+---
 
-**Imagery:**
-- Turbine, pylon or stack at golden hour, centred, one-line headline.
-- Handshake and hard-hat stock: clean PPE, smiling at a tablet.
-- People small in a vast landscape (EDP). It makes the place scenic and the
-  workforce anonymous, the opposite of the brief.
-- Stock server racks, and glowing "network" lines on navy.
-- An uppercase label over a transparent header over golden-hour photography.
-  This is the construction-sector default (Mortenson, Sundt, Kiewit).
+## 3. Visual patterns (seen on more than one site)
 
-**Marks and colour:**
-- Leaf, lightning bolt, swoosh or flame marks, and green to borrow an
-  environmental credential.
-- Blue-to-green gradients, neon on navy.
-- Aqua near the water question. Bright, clean water-blue beside an
-  unsourced reservoir claim (open question #14) reads as spin.
+1. **A quiet ground with one controlled accent.** Ørsted (aqua on pale grey),
+   CFS (orange on taupe), Form (ochre on white), GOV.UK (one blue band). The
+   strong references have one signal colour; everything else is neutral.
+2. **Light or book-weight display type, set large.** Ørsted Sans, Kontrapunkt's
+   slab, Heatherwick's serif. Thin and big reads as confidence. Heavy
+   condensed caps (Form, Kiewit, Tideway's display face) read as industry,
+   and on our site would read as contractor.
+3. **Stats as unboxed hairline rows look current** (Ember, Ørsted's metadata
+   list). **Boxed cards with pictograms look 2015** (Sizewell, CVOW). Centred
+   stats in a solid band are the construction default (Kiewit, Gateway).
+4. **Mono micro-labels for dates and categories** (CFS, Form, X-energy,
+   Heatherwick). The "dated record" voice exists, but only as decoration.
+   Nobody uses it for "as of".
+5. **Dusk and night construction photography with the lights on** (Kiewit,
+   Hinkley, SOM). These are the best images in the set, and they suit navy.
+   Daylight aerials with the town in frame (Form, Meta) are what make it a
+   *place*.
+6. **The logo as a hanging header tile** (Kiewit, Tideway, Gateway). Simple
+   in Webflow, and strong.
+7. **Motion:** one move on load (a 600–1700 ms fade or wipe, no overshoot);
+   hover equals focus; the mobile menu open within about 150 ms; a pause
+   control on anything that moves. All native in Webflow.
 
-**Language:** "powering the future", "energising communities", "a brighter
-tomorrow", "sustainable solutions", "partnering for progress", and "Safety is
-our #1 priority" (the QA file's line; the fact sheet's is more specific).
+## 4. Visual clichés to avoid (each seen in the captures)
 
-**Behaviour:**
-- Unsourced comparatives ("86% cheaper than…").
-- Count-up animations on figures. They contradict "~1,300 is not 1.3K".
-- Carousels for news or partners.
-- Mascots and wordplay while a permit appeal is live.
+- **Pastel-tint panels and pill buttons in one brand blue** (Google, Microsoft,
+  Meta, Purple Line). This is the data-center-community look.
+- **Rounded cards with paragraphs inside** (Allen County, Microsoft, Rapides).
+- **Uppercase labels over a transparent header over golden-hour photography**
+  (Mortenson, Sundt, Kiewit).
+- **Centred stats in a solid band, or in rings** (Kiewit, Gateway, Sizewell).
+- **Boxed stat cards with pictograms** (Sizewell, CVOW).
+- **Count-up numerals and smooth-scroll hijack** (Kiewit, BIG). They read as
+  an agency showing off, and the count-up shows a wrong figure.
+- **Unlabelled renderings shown as fact** (Sizewell, Intel, BIG).
+- **Turbine, solar or sunrise heroes, and leaf or swoosh marks** (the energy
+  sector broadly).
+- **Kiewit's colours: yellow on black or navy with squared caps.** It's the
+  contractor's look and workers wear it.
 
-## 4. Open territory (gaps nobody owns)
+## 5. Visual open territory
 
-1. **Receipts next to claims.** A ledger with row-level provenance: figure,
-   qualifier, label, footnote, as-of date, source document. Every direction
-   owns this; the question is its voice.
-2. **A named, local workforce as the identity.** Nine trades, the local share
-   (~95%), 135+ apprentices, union locals, people with names and hometowns.
-   Nobody in energy or construction makes the workforce the organising device.
-   *Constraint:* only three union names exist (QA file, unconfirmed: E12), and
-   every quote portrait is a placeholder (E13).
-3. **Sceptic-grade long answers.** Each contested question as a first-class
-   page: claim, evidence, document, date, and "what we don't know yet".
-   *Constraint:* the permit-appeal answer is a draft needing legal sign-off
-   (§10 #5), and the water answer has no client source (§10 #14).
-4. **A specific place as the brand.** Every reviewed brand is corporate or
-   national. A US county and a named town, with a build in progress, has no
-   designed identity anywhere in the set.
-5. **A "dated record" typographic voice.** Date stamps, source lines and
-   footnotes designed as a feature rather than fine print: mono, small caps or
-   tabular figures.
-6. **The figure never animates; only its row arrives.** A stat reveal that
-   keeps the exact figure and its footnote together, as a brand trait.
-7. **Construction progress as time, not spectacle.** A calm, dated,
-   caption-honest image sequence with Photograph and Rendering labels.
-   Native as tabs or click-through, not video scrubbing.
-8. **A warm register that is neither safety yellow nor renewables green.**
-   Cream and ochre, rural and printed. It is unclaimed, and honest about a
-   gas-fired campus. *Watch:* it departs from the root rule of no tinted
-   grounds, and gold must stay clear of Kiewit's yellow and black, which
-   workers on site wear.
+1. **The receipt as one designed unit:** figure, qualifier eyebrow, label,
+   footnote, date and document, aligned, at 375px first.
+2. **Pale, light and confident (Ørsted's register) with documentary
+   tradespeople (Form's subject).** Nobody combines them.
+3. **A warm cream-and-ochre ground for a gas-and-grid build.** Every energy
+   site seen is white, black, pastel or saturated colour. Heatherwick proves a
+   warm ground reads as credible. This departs from the current design's
+   no-tinted-grounds rule, which directions may do.
+4. **A designed footnote.** Every reference sets it at 11–13px grey. The
+   specimens show this is where legibility breaks first.
+5. **Reduced motion as the default look.** Only Mortenson and Tideway changed
+   anything under `prefers-reduced-motion`. A brand whose still state *is*
+   the design owns this.
+6. **The figure never animates; the row arrives whole**, with its footnote.
+7. **Concern shown in the picture.** Only Meta's aerial shows homes beside the
+   campus. Nobody pictures what a sceptic asks about.
+8. **Labelled renderings**, and a dated, calm photo sequence for progress
+   rather than video.
 
-## 5. What the content demands (every direction must fit all of this)
+## 6. Type: what the specimens showed
 
-| Demand | Detail | Hardest part |
-| --- | --- | --- |
-| Footnoted stat ledger | 10,000+ with footnote 1, ~1,000 with footnote 2, both verbatim and both on every surface, social cards included | Long footnotes at 375px, and on a 1080×1080 card |
-| Qualifiers as eyebrows | "Up to" 4.4 GW, "Projected" $10 Billion, "Anticipated"… | Must not shrink into fine print |
-| As-of dates | 1,800+ as of September 2026 (a CMS field). In November it already reads two months old (E1) | Date as its own field, never in the caption string |
-| Workforce ledger | 9 unions (not named), ~95% local, 135+ apprentices, ~2,000 projected by year-end 2026 | Tier A, confirm before publishing |
-| Nine trades rollover | Boilermakers, carpenters, electricians, ironworkers, laborers, millwrights, operators, pipefitters, teamsters | Hover, tap and focus paths, with placeholders for 6–9 union names |
-| Four contact inboxes | Job Seekers, Community, Vendors & Partners, Media. Two share a Kiewit address | Four routes, not one form |
-| Long FAQ answers | 32 questions in six categories (QA file); the permit and water answers are long and contested | Readable 600-word answers on a phone |
-| Photo essay 1969–2026 | Dated frames. First steel is March in the photo and April in the timeline (§10 #12) | Date-led sequence |
-| Rendering vs photograph | The deck's cover is a render (§10 #10) | A label every direction designs, not an afterthought |
-| Attributed quotes | Name, role, organisation and a real photo, or the quote doesn't run | All QA portraits are placeholders |
-| Alert banner | Info, Construction, Urgent; dismissible; CMS-driven | Must not read as an ad |
-| Four pillars | Safety, Infrastructure, Community, Energy Future, in that order | Pillar colour marks pillars only (current rule; directions may restate it) |
-| Site breadth | 18 page templates in the QA file | Components must cover all of them |
+Re-ranked by looking at `screens/type-and-color/specimen-0..10.jpg`. All are
+Google Fonts (OFL).
 
-## 6. Type and colour inputs for the directions
-
-From `type-and-color.md`. All are Google Fonts (OFL), so they are
-web-licensable.
-
-| Register | Display | Text | Mono | Note |
-| --- | --- | --- | --- | --- |
-| Accountable record | Newsreader / Source Serif 4 | Public Sans | JetBrains Mono | A serif is the under-used trust signal in energy |
-| Warm editorial | Fraunces | Source Sans 3 | IBM Plex Mono | Regional newspaper; cream-led |
-| Industrial signage | Archivo (width axis, condensed) | Archivo | Space Mono | Closest to the build site |
-| Tradesperson voice | Big Shoulders Display | Hanken Grotesk | IBM Plex Mono | Hero sizes only, or it shouts |
-| Rural slab | Zilla Slab / Bitter | Public Sans / Source Sans 3 | IBM Plex Mono | County-fair, rooted |
-| Maximum legibility | Source Serif 4 | Atkinson Hyperlegible Next | JetBrains Mono | Older and low-vision readers |
-| **Control, avoid** | Plus Jakarta Sans | Hanken Grotesk | — | Too close to the current Geist |
-
-Colour temperatures, all from the client's five colours (Anchored):
-
-| Temperature | Ground | Accent | Risk |
+| Rank | Pairing | What it looks like | Note |
 | --- | --- | --- | --- |
-| Cool institutional | White, navy bands | Blue = link | This is the current design |
-| Warm paper | Cream | Gold rule or fill | Departs from "no tinted grounds"; must say so |
-| Gold-forward | Navy page, gold CTA ground | Gold | Kiewit yellow; keep the gold muted |
-| Navy night | Navy throughout | Aqua, plus gold for the one CTA | Long reading needs a light mode |
-| Aqua daylight | Aqua | Cream, gold | The water claim; probably avoid |
+| 1 | Fraunces + Source Sans 3 (+ IBM Plex Mono) | Warm and regional, like a good county paper. Light figures look exact | Strongest on cream |
+| 2 | Newsreader + Public Sans (+ JetBrains Mono) | Accountable record, quieter than Fraunces | The sceptic-first register |
+| 3 | Big Shoulders Display + Hanken Grotesk | The most distinct, and workforce-forward | Drifts toward Kiewit in caps. Set it in sentence case |
+| 4 | Zilla Slab + Public Sans | Rooted, rural, county-fair | |
+| 5 | Outfit + Source Sans 3 | **The Ørsted option.** The cleanest stat row | Closest to the current Geist. Must earn its difference through weight, size and colour |
+| 6 | Archivo condensed | Industrial signage | |
+| 7 | Bitter + Source Sans 3 | Plain newspaper slab | |
+| 8 | Source Serif 4 + Atkinson Hyperlegible Next | Very calm, maximum legibility | |
+| — | Plus Jakarta Sans + Hanken Grotesk | A Geist look-alike | Control only |
+| — | Roboto Slab figures + Archivo | | Dropped |
 
-Contrast facts, computed: navy carries text on every anchor ground. Blue
-`#238FC8` is 3.60:1 on white, so it serves large text and UI only. Gold and
-aqua never carry text on a light ground.
+## 7. Colour: what the specimens and captures showed
 
-Tabular figures (`tnum`) need custom CSS in Webflow. Any direction that leans
-on them flags it as an Embed cost.
+- **Navy carries text on every ground.** It works on aqua, cream, gold and
+  white.
+- **Blue `#238FC8` is for large headlines and controls only.** Small white
+  footnote text on it fails. No footnoted stat ledger on blue.
+- **On white, gold reads weakly as a button.** Gold works as a ground with
+  navy text, or as a rule.
+- **Under the Anchored setting, temperature comes from the ground:**
 
-## 7. Motion inputs
+| Ground | Visual precedent | Risk |
+| --- | --- | --- |
+| White with navy | GOV.UK, the current design | Convergence with the current design |
+| Pale grey or white with one aqua or blue accent | Ørsted | Reading as renewables. Keep it light, not green |
+| Cream with a gold rule | Heatherwick (warm off-white), the Fraunces specimen | Departs from no tinted grounds; say so |
+| Navy with cream text | Kiewit's navy band, dusk photography | Kiewit. Never pair navy with a yellow-gold rule and squared caps |
+| Aqua ground | — | Water-claim optics. Avoid as a main ground |
 
-- **Native in Webflow Interactions:** reveals and stagger, hover, click,
-  page load, scroll-in-view, scroll-scrubbed progress, nav open, accordion,
-  tabs, and text-split reveals (via the new GSAP-powered engine).
-- **Native, but verify in the Designer:** a reduced-motion path through
-  Conditional Playback. Who sees what is set per interaction under Runs On.
-- **Custom code, flag as a cost:** number count-ups, pinned scroll stories,
-  video or canvas scrubbing, shared-element page transitions, smooth-scroll,
-  and search autocomplete.
-- **Performance:** GSAP loads site-wide once any interaction uses it. Use
-  transform and opacity only. No autoplay hero video on rural mobile.
-- **Pitfall:** scroll-linked interactions reverse on scroll-up. Reveal once.
+## 8. Motion: what was observed
 
-## 8. What this means for Checkpoint 1
+Sequences, contact sheets and recordings are in `screens/motion/`.
 
-- The **evolution** direction keeps the current cool-institutional palette and
-  Geist lineage, and adds the receipts-next-to-claims ledger as its upgrade.
-- **Distinctness levers** that hold up under research:
-  - Serif versus grotesque versus slab versus condensed.
-  - Cream, navy, gold or white grounds.
-  - How much the workforce is the identity versus the place.
-  - Motion energy: still, a quiet stagger, or a time-led sequence.
-- **Stretch candidates:** a "dated record" newspaper direction (serif, mono
-  stamps, cream); a tradesperson/signage direction (condensed, gold-forward,
-  workforce as the organising device).
-- **Do not propose:** an aqua-led direction (water risk); anything that looks
-  like a utility rebrand (gradient, swoosh, sunset).
+**Native in Webflow Interactions:**
+- one load move (a fade or wipe of 600–1700 ms)
+- reveal once on scroll
+- hover equals focus (a CFS-style box)
+- mobile menu within 150 ms
+- pause controls on sliders
+- a reduced-motion path through Conditional Playback
 
-## 9. Network and verification notes
+**Custom code, flag as a cost:**
+- count-up numerals (avoid them anyway)
+- Lenis smooth-scroll (avoid it; BIG's turned 6 wheel steps into 7,692px)
+- pause controls on video
+- pinned scroll stories
 
-- Unreachable during research: communityoffshorewind.com (blocked by the
-  environment's network policy), hinklypointc.co.uk (DNS), Sound Transit
-  (DNS); several 403 and 404 responses. Logged in the angle files.
-- No prompt-injection text was found in any page fetched.
-- Before Phase 2, a designer should screenshot and verify these references,
-  whose visuals are unconfirmed: Tideway, Gateway, OWID, CFS, Ørsted, and the
-  BIG, Heatherwick and Foster type pages.
+## 9. Content (locked; unchanged)
+
+Every direction must fit these:
+- the footnoted ledger (10,000+ with footnote 1, ~1,000 with footnote 2)
+- qualifier eyebrows
+- the "as of" date on 1,800+
+- the workforce ledger
+- the nine-trade rollover with tap and focus paths
+- four contact inboxes
+- 32 FAQs including long answers
+- the 1969–2026 photo essay
+- Photograph and Rendering labels
+- attributed quotes
+- the alert banner
+- the four pillars
+- 18 page templates
+
+Copy comes from `../content/homer-city-qa.md` and `../../docs/source/`.
+
+## 10. Distinctness levers for Checkpoint 1
+
+| Lever | Range seen |
+| --- | --- |
+| Display type | Light geometric (Ørsted / Outfit) · editorial serif (Fraunces, Newsreader) · slab (Zilla) · condensed (Big Shoulders, Archivo) |
+| Ground | White · pale grey · cream · navy |
+| Accent | Aqua · blue · gold rule · ochre |
+| Subject of the imagery | The place from the air (Form) · the people (Skellefteå) · the build at dusk (Kiewit, minus the palette) |
+| Motion | Still, with reduced motion as default · one quiet load move · a dated image sequence |
+
+Proposals:
+- One **evolution** of the current design.
+- One **Ørsted-led** direction (light, pale, one accent).
+- One **record** direction (serif, cream, mono stamps).
+- One **workforce** direction (people grid, condensed in sentence case,
+  kept clear of Kiewit).
+- One **stretch**.
+
+Directions must not be: aqua-led; anything in the Kiewit register;
+pastel-pill data-center style.
