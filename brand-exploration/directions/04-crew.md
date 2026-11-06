@@ -268,7 +268,7 @@ Figures stay as sourced.
 
 | Fact sheet (May 2026) | Crew |
 | --- | --- |
-| "Mobilized construction workforce with Kiewit and local unions with 1,000+ workers active on site" | "Kiewit and the local unions put the crew together. 1,000+ workers were active on site." |
+| "Mobilized construction workforce with Kiewit and local unions with 1,000+ workers active on site" | "Kiewit and the local unions put the crew together. By May 2026, 1,000+ workers were active on site." *(Fact sheet milestone, May 2026; dated per critic round 0.)* |
 | "Safety is every HCG employee's #1 priority; we are accountable for our actions and responsive to concerns." | "Safety is the #1 priority for every Homer City Generation employee. We're accountable for what we do here, and responsive when you raise a concern." |
 
 ## 10. The 375px hero
