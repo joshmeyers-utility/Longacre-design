@@ -60,3 +60,44 @@ Decisions:
 Webflow: seal and mark ship as static SVG (inline for the reveal, `<img>`
 elsewhere). Mode-switching becomes three SVG colourways or `currentColor`.
 
+## Section 2 · Tokens — built
+
+Section `02 · Tokens` (21:3262), frame `Tokens · 1440` (21:3263, Cream mode).
+
+Variable collections (all new, nothing deleted):
+
+| Collection | ID | Contents |
+| --- | --- | --- |
+| D03 Primitives | VariableCollectionId:21:697 | 59 · 12 colours + 7 alpha steps (scopes `[]`, hidden), space 0–150 px-named, size, radius 0/2/full |
+| D03 Semantic | VariableCollectionId:21:757 | 56 · modes **Navy / Cream / Gold**; colour roles, space roles, size roles, radius roles. One hop to primitives |
+| D03 Typography | VariableCollectionId:21:993 | 107 · modes Desktop / Mobile; family, style, size, line-height (px), letter-spacing (px) per role |
+| D03 Motion | VariableCollectionId:21:1117 | 9 · modes Default / Reduced motion (all zero / linear) |
+
+26 text styles `D03/…` (Display Hero/XL/H2/H3/Lead + italic companions,
+Figure XL/Unit/Mark/Qualifier, Stamp MD/Date, Text Lede/Body/Body Strong/
+Label/Footnote/Footnote Numeral/Eyebrow/Button/Caption/Note), all five
+properties bound to D03 Typography. Display styles carry `textCase: UPPER`.
+
+Frame shows: palette at board share (38/30/12/8/6/6), the three ground modes
+as live cards (same nodes, different mode), a 14-pair contrast ledger, and the
+space roles with bound widths.
+
+Contrast (computed with alpha composited over the ground): every text pairing
+≥ 4.5:1 except navy on blue (3.64, 24px+ display only) and cream/white on blue
+(not used for text). Stand-in plate: cream on ink 90% over pure white = 10.86.
+
+Known nit: "Aqua" swatch name wraps to two lines at 79px wide.
+
+## Stopped here — coordinator's 50% check-in (2026-11-06)
+
+Not yet built: 3 · Type specimen frame (the text styles and Typography
+variables exist; the specimen frame does not), 4 · Hero 375/1440, 5 · By the
+Numbers 375/1440 + photo-essay strip, 6 · Brand in the world, 7 · Motion &
+imagery notes. No screenshots exported yet (first due after section 4).
+Section x-positions used: Cover 0, Tokens 3400; continue to the right.
+
+Webflow notes so far: three semantic modes → three combo classes
+(`is-navy`, `is-cream`, `is-gold`) re-pointing the same CSS variables;
+lining figures need the site-wide `font-variant-numeric: lining-nums`;
+display caps via `text-transform: uppercase` only.
+

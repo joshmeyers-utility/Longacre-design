@@ -75,3 +75,42 @@ and `moodboards/05-current.html` (values copied from its CSS, not eyeballed).
 - Webflow: every semantic colour maps 1:1 to a Webflow Variable. Alpha colours (band,
   rule, ghost) are expressible as Webflow colour variables with alpha. The band's
   gradient is a Webflow linear-gradient background using those two variables.
+
+## 3. Type — built
+
+- Section **21:1737**; `Type specimen · 1440 (Desktop mode)` **21:3467**,
+  `Type specimen · 375 (Mobile mode)` **21:3525**. Mode is set on the frame, never per node;
+  every text node uses a `D05/` text style bound to `D05 Typography` (VariableCollectionId:
+  21:1130, modes Desktop 21:32 / Mobile 21:33, 67 vars: 4 family + 21 roles × size,
+  line-height, style).
+- 21 text styles `D05/…`: caps-name-a, caps-name-b, caps-cover, heading, label, tag, lede,
+  hero-h1, hero-moment, body, stat-label, footnote, footnote-mark, qualifier, figure,
+  figure-unit, moment, date-caps, nav, caption, caption-strong. Family, style, size and
+  line-height bound; letter-spacing kept as a percentage literal (tracking scales with size,
+  as in CSS; Figma letter-spacing variables are px only).
+- Caps sizes measured in Figma, not guessed: Syne ExtraBold at −1% tracking fits
+  HOMER CITY to 1376px at 128.5px and to 343px at 32px; ENERGY CAMPUS at 92.4 / 23px.
+- **Font check / substitutions:**
+  - Syne (Medium–ExtraBold), Newsreader (static Light–ExtraBold + italics), Instrument
+    Serif (Regular, Italic) and Archivo (static Thin–Black) all load in Figma.
+  - **Archivo `wdth 125` does not load**: Figma lists only static Archivo widths
+    (Archivo, Archivo Black, Archivo Narrow; no Expanded). Figures use **Archivo Black at
+    wdth 100**, narrower than the board. Build still ships the variable TTF as a Webflow
+    custom font (per brief §7).
+  - **Newsreader 350** (lede) is not a static weight; Regular 400 used.
+  - Newsreader optical size is not exposed; static instances used.
+- Fix: 375 pill row was clipping its wrapped fourth pill; wrap rows now hug height.
+- Layout: Type section widened to 2055px; empty sections 4–7 shifted right
+  (Hero 21:1738 x=5855, Numbers 21:1739 x=8155, World 21:1740 x=10455,
+  Motion 21:1741 x=12255).
+
+## Paused — coordinator stop at the 50% check-in (6 Nov 2026)
+
+Done: sections 1 Cover, 2 Tokens, 3 Type. Not started: 4 Hero, 5 By the Numbers,
+6 Brand in the world, 7 Motion & imagery notes (their section shells exist and are empty).
+`D05 Motion` tokens exist already (section 7 only needs the notes frame).
+Field stills for the remaining sections are already rendered in the scratchpad
+(`fig05/field-*.jpg`) but the container is temporary: re-render with
+`fig05/render.mjs` + `field.html` (field-only copy of the board CSS) if lost.
+No screenshots saved to `reviews/screens/` yet; those are due after sections 4–6.
+No write conflicts with other designers so far.
