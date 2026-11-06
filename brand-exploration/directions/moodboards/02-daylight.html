@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daylight mood board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --haze:#F1F4F6; --navy:#143251; --slate:#4F5F72;
+  --blue:#238FC8; --blue-deep:#16679A; --sky:#A9D3EA;
+  --aqua:#AFECF1; --gold:#D8B471; --cream:#F3F1D0; --rule:#D5DCE2;
+  --display:'Outfit',system-ui,sans-serif; --text:'Figtree',system-ui,sans-serif;
+  --x:80px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--white);color:var(--navy);font-family:var(--text);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;width:1440px}
+a{color:var(--blue-deep);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.wrap{padding:0 var(--x)}
+.eyebrow{font-size:14px;font-weight:500;color:var(--slate);letter-spacing:.01em}
+.sec{padding:120px var(--x)}
+.sec-head{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:baseline;margin-bottom:64px}
+.sec-head h2{font-family:var(--display);font-weight:200;font-size:64px;line-height:1.02;letter-spacing:-.03em}
+.sec-head .eyebrow{padding-top:6px}
+.note{font-size:15px;color:var(--slate);line-height:1.55}
+.haze{background:var(--haze)}
+
+/* cover */
+.cover{background:var(--haze);padding:48px var(--x) 120px}
+.cover-top{display:flex;justify-content:space-between;font-size:14px;color:var(--slate);font-weight:500}
+.cover h1{font-family:var(--display);font-weight:200;font-size:248px;line-height:.9;letter-spacing:-.05em;margin:150px 0 56px 0}
+.cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.position{font-family:var(--display);font-weight:300;font-size:34px;line-height:1.2;letter-spacing:-.015em;max-width:24ch}
+.meta{display:grid;grid-template-columns:150px 1fr;row-gap:14px;font-size:16px;padding-top:10px}
+.meta dt{color:var(--slate)}
+.meta dd{color:var(--navy)}
+
+/* palette */
+.swatches{display:grid;grid-template-columns:2.2fr 1.4fr 1.2fr 1fr 1fr .55fr .55fr;gap:0;height:360px}
+.sw{padding:22px 20px;display:flex;flex-direction:column;justify-content:space-between;font-size:14px;line-height:1.45}
+.sw .n{font-family:var(--display);font-weight:300;font-size:26px;letter-spacing:-.01em;line-height:1.1}
+.sw .h{font-variant-numeric:tabular-nums;font-weight:500}
+.sw .r{opacity:1}
+.share{display:flex;height:10px;margin-top:28px}
+.share i{display:block;height:100%}
+.share-l{display:flex;justify-content:space-between;font-size:13px;color:var(--slate);margin-top:10px}
+table.cr{width:100%;border-collapse:collapse;margin-top:56px;font-size:15px}
+table.cr th{text-align:left;font-weight:500;color:var(--slate);padding:0 16px 10px 0;border-bottom:1px solid var(--rule)}
+table.cr td{padding:11px 16px 11px 0;border-bottom:1px solid var(--rule);vertical-align:middle}
+table.cr td.k{font-variant-numeric:tabular-nums;font-weight:500}
+.chip{display:inline-block;width:56px;height:26px;border-radius:999px;font-size:13px;line-height:26px;text-align:center;font-weight:500}
+
+/* type */
+.typegrid{display:grid;grid-template-columns:1fr;gap:56px}
+.t-hero{font-family:var(--display);font-weight:200;font-size:104px;line-height:1.0;letter-spacing:-.035em;max-width:13.5ch}
+.t-h2{font-family:var(--display);font-weight:300;font-size:56px;line-height:1.06;letter-spacing:-.025em;max-width:20ch}
+.t-row{display:grid;grid-template-columns:320px minmax(0,1fr);gap:40px;border-top:1px solid var(--rule);padding-top:22px}
+.t-body{font-size:20px;line-height:1.6;max-width:62ch}
+.t-figs{font-family:var(--display);font-weight:200;font-size:128px;line-height:.95;letter-spacing:-.045em;color:var(--blue);display:flex;gap:48px}
+.scale{width:100%;border-collapse:collapse;font-size:15px}
+.scale td,.scale th{padding:10px 16px 10px 0;border-bottom:1px solid var(--rule);text-align:left}
+.scale th{font-weight:500;color:var(--slate)}
+
+/* hero mock */
+.mock-label{padding:0 var(--x);margin-bottom:20px;display:flex;justify-content:space-between}
+.hero{background:var(--haze)}
+.alert{background:var(--navy);color:#fff;font-size:15px;padding:12px var(--x);display:flex;gap:16px;align-items:center}
+.alert b{font-weight:600}
+.alert a{color:var(--sky)}
+.alert .x{margin-left:auto;font-size:20px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:26px var(--x)}
+.logo{font-family:var(--display);font-weight:400;font-size:18px;display:flex;align-items:center;gap:10px}
+.logo i{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--navy);position:relative;display:inline-block}
+.logo i:after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--blue)}
+.links{display:flex;gap:30px;font-size:16px;font-weight:500;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-deep);color:#fff;text-decoration:none;font-weight:500;font-size:16px;padding:14px 22px;border-radius:999px}
+.btn.arrow:after{content:"→";font-size:18px}
+.btn.ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.hero-body{display:grid;grid-template-columns:1fr 340px;gap:72px;padding:110px var(--x) 72px;align-items:end}
+.hero-body h1{font-family:var(--display);font-weight:200;font-size:104px;line-height:1.0;letter-spacing:-.035em}
+.hero-side p{font-size:19px;line-height:1.55;margin-bottom:28px}
+.hero-side .acts{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.ph{position:relative;background:linear-gradient(180deg,#DCE7EE 0%,#F4F7F9 48%,#EDEFEA 100%);overflow:hidden}
+.ph .frame{position:absolute;inset:16px;border:1px dashed #B5C2CD;border-radius:4px}
+.ph .brief{position:absolute;left:36px;bottom:32px;max-width:52ch;font-size:15px;line-height:1.5;color:var(--slate)}
+.ph .brief b{display:block;color:var(--navy);font-weight:600;margin-bottom:4px}
+.ph .kind{position:absolute;left:36px;top:32px;font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+.k-photo{background:var(--white);color:var(--navy)}
+.k-render{background:var(--gold);color:var(--navy)}
+.cap{display:flex;justify-content:space-between;font-size:14px;color:var(--slate);padding:12px var(--x) 0}
+
+/* ledger */
+.ledger{display:grid;grid-template-columns:1fr 1fr;column-gap:80px}
+.rc{border-top:1px solid var(--navy);padding:26px 0 64px;display:flex;flex-direction:column}
+.rc .q{font-size:15px;font-weight:500;color:var(--slate);min-height:28px;display:flex;align-items:center;gap:10px}
+.asof{background:var(--aqua);color:var(--navy);font-size:14px;font-weight:600;padding:3px 12px;border-radius:999px}
+.rc .fig{font-family:var(--display);font-weight:200;font-size:136px;line-height:.95;letter-spacing:-.045em;color:var(--blue);margin:8px 0 24px;margin-left:-6px}
+.rc .fig small{font-size:.42em;letter-spacing:-.01em;margin-left:10px;font-weight:300}
+.rc .label{font-size:20px;line-height:1.45;max-width:30ch}
+.rc .label sup{font-size:.65em;font-weight:600;color:var(--blue-deep)}
+.rc .fn{margin-top:18px;font-size:15px;line-height:1.55;color:var(--slate);max-width:56ch;padding-left:16px;border-left:1px solid var(--rule)}
+.rc .fn sup{font-weight:600;color:var(--navy)}
+.rc .src{margin-top:auto;padding-top:26px;display:flex;gap:24px;font-size:15px;color:var(--slate);align-items:baseline}
+.rc .src a{font-weight:500;margin-left:auto}
+
+/* components */
+.comp{display:grid;grid-template-columns:repeat(3,1fr);gap:0 80px}
+.comp > div{border-top:1px solid var(--rule);padding-top:22px}
+.comp h3{font-size:15px;font-weight:500;color:var(--slate);margin-bottom:24px}
+.stack{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.btn.hover{background:var(--navy)}
+.btn.focus{background:var(--navy);outline:2px solid var(--navy);outline-offset:3px}
+a.hov{text-decoration-thickness:2px}
+a.foc{outline:2px solid var(--navy);outline-offset:3px;border-radius:2px;text-decoration-thickness:2px}
+.mini{font-size:13px;color:var(--slate)}
+
+/* imagery */
+.img-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+.recipe{display:grid;grid-template-columns:320px 1fr;gap:40px;margin-top:72px;border-top:1px solid var(--rule);padding-top:22px}
+.recipe dl{display:grid;grid-template-columns:200px 1fr;row-gap:12px;column-gap:24px;font-size:16px}
+.recipe dt{color:var(--slate)}
+.ramp{display:flex;height:56px;margin-top:28px}
+.ramp i{flex:1}
+.essay{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:72px}
+.essay .ph{aspect-ratio:4/5}
+.essay .ph .brief{left:14px;bottom:14px;right:14px;font-size:12.5px}
+.essay .ph .frame{inset:8px}
+.essay .d{font-size:14px;font-weight:500;margin-top:10px;border-top:1px solid var(--rule);padding-top:8px}
+.essay .c{font-size:13px;color:var(--slate);line-height:1.4}
+
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.grade{filter:brightness(1.1) contrast(.86) saturate(.62) sepia(.12) hue-rotate(-8deg)}
+.ph.lift:after{content:"";position:absolute;inset:0;background:#F1F4F6;mix-blend-mode:screen;opacity:.16;pointer-events:none}
+.stand{z-index:2;position:absolute;left:20px;top:20px;background:rgba(255,255,255,.94);color:var(--navy);font-size:13px;font-weight:600;line-height:1.35;padding:7px 12px;border-radius:4px;max-width:calc(100% - 40px)}
+.ph .need{z-index:2;position:absolute;right:20px;bottom:20px;max-width:46ch;background:rgba(255,255,255,.94);color:var(--slate);font-size:13.5px;line-height:1.45;padding:12px 14px;border-radius:4px}
+.ph .need b{color:var(--navy);font-weight:600;display:block}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:72px}
+.ba .t{font-size:14px;font-weight:500;color:var(--slate);margin-top:10px}
+/* motion + avoid + mobile */
+.split{display:grid;grid-template-columns:420px 1fr;gap:96px;align-items:start}
+.phone{width:375px;height:auto;display:block;box-shadow:0 0 0 1px var(--rule);border-radius:4px;background:#fff}
+.mtable{width:100%;border-collapse:collapse;font-size:15px}
+.mtable td,.mtable th{padding:11px 16px 11px 0;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.mtable th{font-weight:500;color:var(--slate)}
+.avoid{list-style:none;margin-top:56px;columns:2;column-gap:56px}
+.avoid li{break-inside:avoid;padding:12px 0;border-top:1px solid var(--rule);font-size:16px}
+.avoid li b{font-weight:600}
+.foot{background:var(--navy);color:#fff;padding:72px var(--x);display:grid;grid-template-columns:1fr 1fr;gap:80px;font-size:15px}
+.foot .big{font-family:var(--display);font-weight:200;font-size:56px;line-height:1.05;letter-spacing:-.025em}
+.foot a{color:var(--sky)}
+.foot dl{display:grid;grid-template-columns:180px 1fr;row-gap:10px}
+.foot dt{color:#C9D3DD}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-top"><span>Homer City Energy Campus · brand exploration</span><span>Direction 02 · November 2026</span></div>
+  <h1>Daylight</h1>
+  <div class="cover-grid">
+    <p class="position">The former Homer City Generating Station, rebuilt in plain sight: the fields, the town and the build in clear daylight, every number signed and dated.</p>
+    <dl class="meta">
+      <dt>Led by</dt><dd>Ørsted, by Kontrapunkt: light type set large, pale ground, one accent, big thin numerals</dd>
+      <dt>Display</dt><dd>Outfit 200 and 300</dd>
+      <dt>Text</dt><dd>Figtree 400, 500 and 600</dd>
+      <dt>Accent</dt><dd>Identity blue #238FC8, for large figures only</dd>
+      <dt>Ground</dt><dd>White and haze. Navy only at the edges</dd>
+      <dt>Images</dt><dd>Real place photography, high-key and soft</dd>
+      <dt>Motion</dt><dd>Light coming up: one slow fade, then stillness</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section class="sec">
+  <div class="sec-head"><p class="eyebrow">Colour</p><h2>Mostly air. One blue, used large.</h2></div>
+  <div class="swatches">
+    <div class="sw" style="background:var(--white);box-shadow:inset 0 0 0 1px var(--rule)"><span class="n">White</span><span><span class="h">#FFFFFF</span><br>Page ground. Reading surfaces</span></div>
+    <div class="sw" style="background:var(--haze)"><span class="n">Haze</span><span><span class="h">#F1F4F6</span><br>Hero and alternate ground. Neutral, from the navy hue</span></div>
+    <div class="sw" style="background:var(--navy);color:#fff"><span class="n">Navy</span><span><span class="h">#143251</span><br>All text. Alert bar and footer only</span></div>
+    <div class="sw" style="background:var(--blue);color:var(--navy)"><span class="n">Blue</span><span><span class="h">#238FC8</span><br>Large figures and display. Never small text</span></div>
+    <div class="sw" style="background:var(--blue-deep);color:#fff"><span class="n">Deep blue</span><span><span class="h">#16679A</span><br>Links and the button. The AA step of #238FC8</span></div>
+    <div class="sw" style="background:var(--aqua);color:var(--navy)"><span class="n">Aqua</span><span><span class="h">#AFECF1</span><br>“As of” chip. Small only</span></div>
+    <div class="sw" style="background:var(--gold);color:var(--navy)"><span class="n">Gold</span><span><span class="h">#D8B471</span><br>“Rendering” chip. Small only</span></div>
+  </div>
+  <div class="share" aria-hidden="true">
+    <i style="flex:58;background:#fff;box-shadow:inset 0 0 0 1px var(--rule)"></i><i style="flex:26;background:var(--haze)"></i><i style="flex:9;background:var(--navy)"></i><i style="flex:4;background:var(--blue)"></i><i style="flex:2;background:var(--blue-deep)"></i><i style="flex:.6;background:var(--aqua)"></i><i style="flex:.4;background:var(--gold)"></i>
+  </div>
+  <div class="share-l"><span>Share of a typical page: white 58 · haze 26 · navy 9 · blue 4 · deep blue 2 · aqua and gold under 1</span><span>Cream #F3F1D0 is not a surface here. It is the white point of the photo grade.</span></div>
+
+  <table class="cr">
+    <tr><th>Text pairing</th><th>Ratio</th><th>Use</th><th>Pairing</th><th>Ratio</th><th>Use</th></tr>
+    <tr><td>Navy on white</td><td class="k">13.09</td><td>Body, headings</td><td>Blue on white</td><td class="k">3.60</td><td>Figures 64px and up only</td></tr>
+    <tr><td>Navy on haze</td><td class="k">11.85</td><td>Hero text</td><td>Blue on haze</td><td class="k">3.26</td><td>Figures 64px and up only</td></tr>
+    <tr><td>Slate #4F5F72 on white</td><td class="k">6.54</td><td>Eyebrows, footnotes, captions</td><td>White on deep blue</td><td class="k">6.10</td><td>Button label</td></tr>
+    <tr><td>Slate on haze</td><td class="k">5.92</td><td>Eyebrows on haze</td><td>Navy on aqua</td><td class="k">10.03</td><td>“As of” chip</td></tr>
+    <tr><td>Deep blue on white</td><td class="k">6.10</td><td>Links</td><td>Navy on gold</td><td class="k">6.66</td><td>“Rendering” chip</td></tr>
+    <tr><td>Deep blue on haze</td><td class="k">5.53</td><td>Links on haze</td><td>White on navy · sky #A9D3EA on navy</td><td class="k">13.09 · 8.22</td><td>Alert bar, footer, footer links</td></tr>
+  </table>
+</section>
+
+<!-- TYPE -->
+<section class="sec haze">
+  <div class="sec-head"><p class="eyebrow">Type</p><h2>Thin and large reads as calm. Small stays sturdy.</h2></div>
+  <div class="typegrid">
+    <div class="t-row"><p class="eyebrow">Hero · Outfit 200 · 104 / 44</p><p class="t-hero">Building America’s energy future by drawing on Pennsylvania’s proud past.</p></div>
+    <div class="t-row"><p class="eyebrow">Section · Outfit 300 · 56 / 32</p><p class="t-h2">Meet the tradesmen and women building the campus</p></div>
+    <div class="t-row"><p class="eyebrow">Figures · Outfit 200 · 136 / 68 (300 below 80px)</p><div class="t-figs"><span><small style="font-family:var(--text);font-size:15px;font-weight:500;color:var(--slate);letter-spacing:0;display:block;margin-bottom:8px">Up to</small>4.4<small style="font-size:.42em;margin-left:8px;font-weight:300">GW</small></span><span><small style="font-family:var(--text);font-size:15px;font-weight:500;color:var(--slate);letter-spacing:0;display:block;margin-bottom:8px">&nbsp;</small>3,200+<small style="font-size:.42em;margin-left:8px;font-weight:300">acres</small></span></div></div>
+    <div class="t-row"><p class="eyebrow">Body · Figtree 400 · 20 / 17</p><p class="t-body">The Homer City Generating Station produced power on this site from 1969 to 2023. In April 2025, a plan was unveiled to build the Homer City Energy Campus in its place, in partnership with Kiewit Power Constructors Co. Demolition of the stacks and towers began the month before.</p></div>
+    <div class="t-row"><p class="eyebrow">Ramp</p>
+      <table class="scale">
+        <tr><th>Role</th><th>Face</th><th>Weight</th><th>375</th><th>1440</th><th>Line height</th><th>Tracking</th></tr>
+        <tr><td>Hero</td><td>Outfit</td><td>200</td><td>44</td><td>104</td><td>1.04 / 1.00</td><td>−2.5% / −3.5%</td></tr>
+        <tr><td>Figure</td><td>Outfit</td><td>300 / 200</td><td>68</td><td>136</td><td>1.00 / 0.95</td><td>−3.5% / −4.5%</td></tr>
+        <tr><td>H2</td><td>Outfit</td><td>300</td><td>32</td><td>56</td><td>1.10 / 1.06</td><td>−2%</td></tr>
+        <tr><td>H3</td><td>Outfit</td><td>400</td><td>22</td><td>28</td><td>1.20</td><td>−1%</td></tr>
+        <tr><td>Body large</td><td>Figtree</td><td>400</td><td>18</td><td>20</td><td>1.55</td><td>0</td></tr>
+        <tr><td>Body, stat label</td><td>Figtree</td><td>400</td><td>17</td><td>18–20</td><td>1.5</td><td>0</td></tr>
+        <tr><td>Eyebrow, qualifier</td><td>Figtree</td><td>500</td><td>14</td><td>14–15</td><td>1.4</td><td>+1%</td></tr>
+        <tr><td>Footnote, source</td><td>Figtree</td><td>400</td><td>14</td><td>15</td><td>1.55</td><td>0</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HERO 1440 -->
+<section style="padding:120px 0 0">
+  <div class="mock-label"><p class="eyebrow">Home hero · 1440</p><p class="eyebrow">Text never sits on the photograph. No scrim needed.</p></div>
+  <div class="hero">
+    <div class="alert"><span><b>News · 4 September 2026.</b> Homer City Energy Campus workforce grows to more than 1,800 workers, including members of 9 building and construction trade unions.</span><a href="#">Read more</a><span class="x" aria-label="Dismiss">×</span></div>
+    <header class="nav"><span class="logo"><i aria-hidden="true"></i>Homer City Energy Campus</span>
+      <nav class="links"><span>What we’re building</span><span>Who we are</span><span>Careers</span><span>Community stewardship</span><span>FAQs</span><span>News &amp; resources</span><a class="btn" href="#">Contact us</a></nav></header>
+    <div class="hero-body">
+      <h1>Building America’s energy future by drawing on Pennsylvania’s proud past.</h1>
+      <div class="hero-side">
+        <p>A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.</p>
+        <div class="acts"><a class="btn arrow" href="#">See what we’re building</a><a href="#">Local alerts &amp; advisories</a></div>
+      </div>
+    </div>
+    <div class="ph lift" style="height:560px;margin:0 var(--x)"><img class="grade" src="../../content/imagery/07-campus-landscape-aerial.jpg" alt="" width="1600" height="800" style="object-position:50% 60%">
+      <span class="stand">Stand-in — suspected generated image, not a photograph of the campus. Shown for crop and grade only.</span>
+      <p class="need"><b>Real photograph needed · 21:9</b>Oblique aerial of the campus with Homer City and the farmland in frame. Overcast-bright or high sun, horizon in the top third. Graded with the Daylight recipe.</p></div>
+  </div>
+  <p class="cap"><span>Caption field · Kind field (Photograph or Rendering) · Date field, each separate</span><span>Text sits on haze above; the image carries no type</span></p>
+</section>
+
+<!-- LEDGER -->
+<section class="sec">
+  <div class="sec-head"><p class="eyebrow">By the numbers</p><h2>Each figure arrives with its receipt.</h2></div>
+  <div class="ledger">
+    <div class="rc">
+      <p class="q">Anticipated</p>
+      <p class="fig">10,000+</p>
+      <p class="label">Direct on-site construction-related jobs<sup>1</sup></p>
+      <p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+      <p class="src"><span>Source: Fact sheet, May 2026</span><a href="#">Download the fact sheet (PDF)</a></p>
+    </div>
+    <div class="rc">
+      <p class="q">Anticipated</p>
+      <p class="fig">~1,000</p>
+      <p class="label">Total direct &amp; indirect permanent high-paying positions in technology, operations and energy infrastructure<sup>2</sup></p>
+      <p class="fn"><sup>2</sup> Anticipated total number of direct and indirect permanent positions to support the operations of both the natural gas-powered plant and all aspects of the data center campus once running at full capacity following the completion of the construction based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+      <p class="src"><span>Source: Fact sheet, May 2026</span><a href="#">Download the fact sheet (PDF)</a></p>
+    </div>
+    <div class="rc">
+      <p class="q">Up to</p>
+      <p class="fig">4.4<small>GW</small></p>
+      <p class="label">Energy expected to be produced on-site</p>
+      <p class="src"><span>Source: Fact sheet, May 2026 · tour deck, July 2026</span><a href="#">Download the fact sheet (PDF)</a></p>
+    </div>
+    <div class="rc">
+      <p class="q"><span class="asof">As of September 2026</span></p>
+      <p class="fig">1,800+</p>
+      <p class="label">Direct-hire tradespeople and skilled contractors active on site</p>
+      <p class="src"><span>Source: Homer City Generation, 4 September 2026</span><a href="#">Read the announcement</a></p>
+    </div>
+  </div>
+  <p class="note" style="margin-top:8px;max-width:90ch">One unit: qualifier eyebrow, figure, label, footnote, source and date, document link. The figure never counts up; the row arrives whole. Moving figures carry the aqua “as of” chip in the qualifier slot, so the date is the first thing read. At 375 the unit stacks in the same order (see below).</p>
+</section>
+
+<!-- COMPONENTS -->
+<section class="sec haze">
+  <div class="sec-head"><p class="eyebrow">Controls</p><h2>Soft at the edges, firm on focus.</h2></div>
+  <div class="comp">
+    <div><h3>Button · default, hover, focus</h3>
+      <div class="stack"><a class="btn arrow" href="#">See what we’re building</a><a class="btn arrow hover" href="#">See what we’re building</a><a class="btn arrow focus" href="#">See what we’re building</a><a class="btn ghost" href="#">All questions</a>
+      <p class="mini">Pill, deep blue, white label 6.10:1. Hover and focus are the same navy state; focus adds a 2px navy ring, 3px offset.</p></div></div>
+    <div><h3>Link · default, hover, focus</h3>
+      <div class="stack" style="font-size:18px"><a href="#">Read the safety questions</a><a class="hov" href="#">Read the safety questions</a><a class="foc" href="#">Read the safety questions</a>
+      <p class="mini">Deep blue, always underlined. The underline thickens on hover and focus. Blue figures are never underlined and never clickable.</p></div></div>
+    <div><h3>Labels that carry facts</h3>
+      <div class="stack"><span class="asof">As of September 2026</span><span class="kind k-render" style="font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--gold)">Rendering</span><span class="kind k-photo" style="font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--rule)">Photograph</span>
+      <p class="mini">The only two places aqua and gold appear. Small, rounded, with navy text. Never a ground, never decoration.</p></div></div>
+  </div>
+</section>
+
+<!-- IMAGERY -->
+<section class="sec">
+  <div class="sec-head"><p class="eyebrow">Imagery</p><h2>The place, in plain daylight.</h2></div>
+  <div class="img-grid">
+    <div class="ph" style="aspect-ratio:16/9"><div class="frame"></div><p class="brief"><b>Photograph needed · the town with the build behind</b>From a Homer City street or field edge: houses, a road, a fence line in front; Power Block steel and cranes behind. Eye level, daylight, no people posed. Answers “what will it look like from my house”.</p></div>
+    <div class="ph lift" style="aspect-ratio:auto"><img class="grade" src="../../content/imagery/03-crew-at-foundation-forms.jpg" alt="" style="object-position:92% 50%"><span class="stand">Stand-in — suspected generated image, not a photograph of the campus</span><p class="need" style="left:20px"><b>Real photograph needed · named tradesperson, 4:5</b>One person at work in daylight, at ease. Name, trade and local union in the caption, with consent, or it does not run.</p></div>
+  </div>
+  <div class="img-grid" style="margin-top:24px;grid-template-columns:1fr 2fr">
+    <div class="ph lift" style="aspect-ratio:4/5"><img class="grade" src="../../content/imagery/15-steel-and-crane.jpg" alt="" style="object-position:70% 50%"><span class="stand">Stand-in — suspected generated image, not a photograph of the campus</span><p class="need" style="left:20px"><b>Real photograph needed · the build, 4:5</b>Steel, piperack or the Unit 5 HRSG (heat recovery steam generator) against open sky.</p></div>
+    <div class="ph" style="aspect-ratio:auto"><div class="frame"></div><span class="kind k-render">Rendering</span><p class="brief"><b>Rendering · the campus as planned</b>Deck cover render, if used at all. Always carries the gold Rendering chip on the image and Kind = Rendering in the caption field. Never a hero, never graded to pass as a photograph.</p></div>
+  </div>
+
+  <div class="ba">
+    <div><div class="ph" style="aspect-ratio:2/1"><img src="../../content/imagery/07-campus-landscape-aerial.jpg" alt=""><span class="stand">Stand-in — suspected generated image, not a photograph of the campus</span></div><p class="t">Before: as supplied. Saturated greens, deep shadows, cyan sky</p></div>
+    <div><div class="ph lift" style="aspect-ratio:2/1"><img class="grade" src="../../content/imagery/07-campus-landscape-aerial.jpg" alt=""><span class="stand">Stand-in — suspected generated image, not a photograph of the campus</span></div><p class="t">After: Daylight grade. Lifted, softened, greens toward straw, sky toward haze</p></div>
+  </div>
+  <div class="recipe">
+    <p class="eyebrow">Grading recipe</p>
+    <div>
+      <dl>
+        <dt>Light</dt><dd>Overcast-bright or high sun. No golden hour, no dusk: dusk belongs to other directions and to Kiewit.</dd>
+        <dt>Exposure</dt><dd>High-key: +0.3 to +0.5 stop. Highlights roll off to cream #F3F1D0, never blown to pure white.</dd>
+        <dt>Shadows</dt><dd>Lifted. Black point no darker than a navy-tinted #2A3A4C.</dd>
+        <dt>Contrast · saturation</dt><dd>Contrast −10. Saturation −15 to −20. Greens pulled toward olive and straw, so fields read as Pennsylvania farmland, not as “green energy”.</dd>
+        <dt>White balance</dt><dd>Neutral to a touch warm. Never pushed cyan or blue (no water or renewables reading).</dd>
+        <dt>Crop</dt><dd>Wide: 21:9 and 16:9 for place, horizon in the top third. People and detail: 4:5. One subject per frame.</dd>
+        <dt>CSS preview</dt><dd style="font-variant-numeric:tabular-nums">brightness(1.1) contrast(0.86) saturate(0.62) sepia(0.12) hue-rotate(−8deg), plus a 16% haze screen to lift shadows, for comps only. Final grade is done on the files.</dd>
+      </dl>
+      <div class="ramp" aria-hidden="true"><i style="background:#2A3A4C"></i><i style="background:#4F5F72"></i><i style="background:#7E8E86"></i><i style="background:#A7AE95"></i><i style="background:#C9CCB4"></i><i style="background:#E3E6D7"></i><i style="background:#F3F1D0"></i><i style="background:#FAF9EE"></i></div>
+      <p class="mini" style="margin-top:8px">Tonal range of a graded frame: navy-tinted black point to cream white point. Illustrative, not sampled from a photograph.</p>
+    </div>
+  </div>
+
+  <div class="essay">
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Archive photo</b>The station in operation</p></div><p class="d">1969–2023</p><p class="c">Homer City Generating Station</p></div>
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Deck photo</b>Same view</p></div><p class="d">March 2025</p><p class="c">Inflection Point</p></div>
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Deck photo</b>Same view</p></div><p class="d">November 2025</p><p class="c">After Stacks and Towers Down</p></div>
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Deck photo</b>From the north</p></div><p class="d">February 2026</p><p class="c">View from the North</p></div>
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Deck photo</b>Steel</p></div><p class="d">March 2026</p><p class="c">First Steel, Going Vertical</p></div>
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Deck photo</b>Aerial</p></div><p class="d">April 2026</p><p class="c">Power Block Aerial Looking North</p></div>
+    <div><div class="ph"><div class="frame"></div><p class="brief"><b>Deck photo</b>Detail</p></div><p class="d">July 2026</p><p class="c">Unit 5 HRSG</p></div>
+  </div>
+  <p class="note" style="margin-top:16px">The 1969–2026 photo essay as a calm, dated strip: one grade across all of it, archive frames included, so 54 years read as one place. The date leads each caption.</p>
+</section>
+
+<!-- MOBILE + MOTION -->
+<section class="sec haze">
+  <div class="sec-head"><p class="eyebrow">375 first</p><h2>The phone gets the same air.</h2></div>
+  <div class="split">
+    <div><img class="phone" src="02-daylight-375.jpg" alt="Daylight home page at 375 pixels: hero and first two receipts"><p class="mini" style="margin-top:10px">True 375px render of 02-daylight-375.html. Above the fold: alert, headline, intro, button, and the top of the photograph.</p></div>
+    <div>
+      <p class="eyebrow" style="margin-bottom:16px">Motion · light coming up</p>
+      <table class="mtable">
+        <tr><th>Moment</th><th>Move</th><th>Token</th><th>Webflow</th></tr>
+        <tr><td>Page load</td><td>Headline fades in, 16px rise. Photo comes up from haze: opacity 0 → 1</td><td>1100 ms, ease-out (0.2, 0.7, 0.2, 1)</td><td>Page load, native</td></tr>
+        <tr><td>Scroll</td><td>Each receipt fades in whole, once. Figure never counts</td><td>700 ms, same ease, 12px</td><td>Scroll into view, native</td></tr>
+        <tr><td>Hover = focus</td><td>Button to navy; link underline 1 → 2px</td><td>160 ms, ease-in-out</td><td>Hover + :focus-visible class, native</td></tr>
+        <tr><td>Menu</td><td>Panel fades over haze</td><td>140 ms</td><td>Click, native</td></tr>
+        <tr><td>Reduced motion</td><td>Everything is already in place. The still page is the design</td><td>0 ms</td><td>Conditional playback; CSS media query in head</td></tr>
+      </table>
+      <p class="note" style="margin-top:24px">No parallax, no count-up, no smooth-scroll, no video hero. All native to Interactions 2.0.</p>
+
+      <p class="eyebrow" style="margin:64px 0 16px">What Daylight avoids</p>
+      <ul class="avoid">
+        <li><b>Green.</b> No leaves, no wind or solar imagery, no green accent, no saturated fields.</li>
+        <li><b>Aqua as a ground.</b> A pale-aqua band beside a water answer looks like a claim.</li>
+        <li><b>Blue small text.</b> #238FC8 only at 64px and up.</li>
+        <li><b>Text over photographs.</b> The headline sits on haze; the picture sits below.</li>
+        <li><b>Dusk and golden hour.</b> The light is ordinary daylight.</li>
+        <li><b>Cards, tiles, pictograms.</b> Hairlines and space only.</li>
+        <li><b>Ørsted’s lifestyle cast.</b> No kitesurfers. Real, named neighbours.</li>
+        <li><b>Gradients and particle textures.</b> They read as a tech vendor.</li>
+        <li><b>Count-up numbers.</b> The figure is right from the first frame.</li>
+        <li><b>The current look.</b> No navy hero, no Geist, no near-black figures.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div><p class="big">Daylight</p><p style="margin-top:14px;color:#C9D3DD">Direction 02 mood board. Figures from the fact sheet (May 2026), the tour deck (July 2026) and root CLAUDE.md §6. No real campus photography is available yet. Images shown are labelled stand-ins (suspected generated) used only to demonstrate crop and grade; every real-photo need is briefed inside the image area.</p></div>
+  <dl>
+    <dt>Community members</dt><dd><a href="#">info@homercityredevelopment.com</a></dd>
+    <dt>Job seekers</dt><dd><a href="#">HomerCity.Info@Kiewit.com</a></dd>
+    <dt>Vendors &amp; partners</dt><dd><a href="#">HomerCity.Info@Kiewit.com</a></dd>
+    <dt>Media inquiries</dt><dd><a href="#">press@homercityredevelopment.com</a></dd>
+    <dt>Site</dt><dd>1750 Power Plant Rd, Homer City, PA 15748</dd>
+  </dl>
+</footer>
+</body>
+</html>

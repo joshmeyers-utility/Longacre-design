@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 The Record — mood board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- D03 tokens (primitive -> semantic) ---------- */
+:root{
+  /* primitives, all from the client's five */
+  --navy-900:#143251;      /* client navy */
+  --navy-600:#4A5A6E;      /* navy, lifted for secondary text */
+  --blue-500:#238FC8;      /* client blue: identity only */
+  --blue-700:#145E8C;      /* client blue, darkened for links */
+  --aqua-200:#AFECF1;      /* client aqua */
+  --cream-50:#FAF8EC;      /* client cream, lightened step */
+  --cream-100:#F3F1D0;     /* client cream */
+  --cream-300:#E4DFBA;     /* cream, deepened: placeholders */
+  --gold-400:#D8B471;      /* client gold */
+  --gold-800:#6E5418;      /* client gold, darkened for stamps */
+
+  /* semantic */
+  --surface-page:var(--cream-50);
+  --surface-ledger:var(--cream-100);
+  --surface-institutional:var(--navy-900);
+  --surface-placeholder:var(--cream-300);
+  --text-primary:var(--navy-900);
+  --text-secondary:var(--navy-600);
+  --text-stamp:var(--gold-800);
+  --text-inverse:var(--cream-50);
+  --text-inverse-stamp:var(--gold-400);
+  --link:var(--blue-700);
+  --link-inverse:var(--aqua-200);
+  --rule:var(--gold-400);
+  --rule-strong:var(--navy-900);
+  --focus:var(--navy-900);
+  --focus-inverse:var(--aqua-200);
+
+  --font-display:'Fraunces', Georgia, serif;
+  --font-text:'Newsreader', Georgia, serif;
+  --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+
+  --duration-fade:400ms;
+  --ease-quiet:cubic-bezier(.2,0,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--surface-page)}
+body{background:var(--surface-page);color:var(--text-primary);font-family:var(--font-text);
+  font-size:20px;line-height:1.5;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible,.button:focus-visible{outline:3px solid var(--focus);outline-offset:3px;text-decoration:none}
+.is-inverse a{color:var(--link-inverse)}
+.is-inverse a:focus-visible{outline-color:var(--focus-inverse)}
+
+.container{max-width:1440px;margin:0 auto;padding:0 120px}
+.section{padding-top:96px;padding-bottom:96px}
+.rule{border:0;border-top:1px solid var(--rule)}
+.rule.is-strong{border-top:2px solid var(--rule-strong)}
+
+/* board furniture (not part of the design) */
+.board-note{font-family:var(--font-mono);font-size:13px;line-height:1.5;color:var(--text-secondary);
+  display:flex;gap:24px;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--rule)}
+.board-label{font-family:var(--font-mono);font-size:13px;color:var(--text-stamp);margin-bottom:24px;display:block}
+
+/* type roles */
+.stamp{font-family:var(--font-mono);font-size:13px;line-height:1.5;color:var(--text-stamp);letter-spacing:0}
+.is-inverse .stamp{color:var(--text-inverse-stamp)}
+.runin{font-weight:700}
+.h1{font-family:var(--font-display);font-weight:330;font-size:88px;line-height:1.03;letter-spacing:-.02em;font-variation-settings:'opsz' 72}
+.h2{font-family:var(--font-display);font-weight:360;font-size:56px;line-height:1.08;letter-spacing:-.014em;font-variation-settings:'opsz' 60}
+.h3{font-family:var(--font-display);font-weight:400;font-size:28px;line-height:1.2;font-variation-settings:'opsz' 36}
+.lede{font-size:24px;line-height:1.45;color:var(--text-primary);max-width:30em}
+.small{font-size:16px;line-height:1.5}
+.qualifier{font-style:italic;font-weight:600;font-size:17px;line-height:1.3;color:var(--text-secondary)}
+
+/* ---------- board cover ---------- */
+.cover{padding-top:72px;padding-bottom:88px}
+.cover_grid{display:grid;grid-template-columns:7fr 5fr;gap:80px;align-items:end;margin-top:56px}
+.cover_title{font-family:var(--font-display);font-weight:300;font-size:132px;line-height:.95;letter-spacing:-.025em;font-variation-settings:'opsz' 96}
+.cover_title em{font-style:italic;font-weight:300}
+.cover_pos{font-family:var(--font-display);font-size:34px;line-height:1.2;font-weight:350;font-variation-settings:'opsz' 72;margin-top:40px;max-width:19em}
+.cover_body p+p{margin-top:16px}
+
+/* ---------- site header + hero ---------- */
+.site{background:var(--surface-page);border:1px solid var(--rule)}
+.site-head{display:flex;align-items:center;justify-content:space-between;padding:22px 56px;border-bottom:2px solid var(--rule-strong)}
+.site-head_brand{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-size:22px;font-weight:500;font-variation-settings:'opsz' 36;color:var(--text-primary);text-decoration:none}
+.logo-slot{width:40px;height:40px;flex:none;border-radius:50%;background:var(--surface-placeholder);display:grid;place-items:center;font-family:var(--font-mono);font-size:10px;line-height:1.1;text-align:center;color:var(--text-primary)}
+.site-nav{display:flex;gap:30px;font-size:17px;font-weight:500}
+.site-nav a{color:var(--text-primary);text-decoration:none}
+.site-nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--rule);text-decoration-thickness:2px;text-underline-offset:.4em}
+.dateline{display:flex;justify-content:space-between;padding:12px 56px;border-bottom:1px solid var(--rule)}
+.hero{display:grid;grid-template-columns:8.6fr 3.4fr;gap:56px;padding:64px 56px 56px}
+.hero_lede{margin-top:32px}
+.hero_actions{display:flex;gap:28px;align-items:center;margin-top:40px}
+.latest{border-top:2px solid var(--rule-strong);padding-top:16px}
+.latest_item{padding:18px 0;border-bottom:1px solid var(--rule)}
+.latest_item .h3{font-size:22px;margin-top:6px}
+.latest_item a{color:var(--text-primary);text-decoration:none}
+.latest_item a:hover{text-decoration:underline}
+.hero_media{padding:0 56px 56px}
+
+.button{display:inline-flex;align-items:center;gap:10px;background:var(--navy-900);color:var(--text-inverse);
+  font-family:var(--font-text);font-weight:600;font-size:18px;line-height:1;padding:17px 24px;border-radius:2px;text-decoration:none}
+.button:hover{background:#0E2540}
+.textlink{font-weight:600;font-size:18px}
+
+/* image + caption: caption is a typographic feature */
+.figure{display:block}
+.placeholder{background:var(--surface-placeholder);color:var(--text-primary);display:flex;flex-direction:column;justify-content:space-between;padding:24px;font-family:var(--font-mono);font-size:13px;line-height:1.5;border-radius:4px}
+.placeholder_brief{max-width:34em}
+.placeholder_kind{align-self:flex-start;background:var(--navy-900);color:var(--text-inverse);padding:3px 8px;border-radius:2px}
+.caption{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin-top:14px;font-size:16px;line-height:1.45;padding-top:12px;border-top:1px solid var(--rule)}
+.caption_meta{font-family:var(--font-mono);font-size:13px;color:var(--text-stamp);white-space:nowrap;padding-top:2px}
+.caption_text .runin{font-weight:700}
+.caption_credit{color:var(--text-secondary)}
+
+.standin{position:relative;overflow:hidden;border-radius:4px;background:var(--surface-placeholder)}
+.standin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);filter:saturate(.9)}
+.standin_label{position:absolute;left:16px;top:16px;right:16px;max-width:max-content;background:var(--navy-900);color:var(--text-inverse);font-family:var(--font-mono);font-size:13px;line-height:1.4;padding:6px 10px;border-radius:2px}
+/* ---------- palette ---------- */
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 32px;margin-top:48px}
+.swatch_chip{height:132px;border-radius:2px;display:flex;align-items:flex-end;padding:14px;font-family:var(--font-display);font-size:30px;font-weight:300;font-variation-settings:'opsz' 72}
+.swatch_name{font-weight:700;margin-top:14px;font-size:18px}
+.swatch_hex{font-family:var(--font-mono);font-size:13px;color:var(--text-stamp)}
+.swatch_role{font-size:16px;line-height:1.45;color:var(--text-secondary);margin-top:4px}
+.ratios{margin-top:64px;width:100%;border-collapse:collapse;font-size:16px}
+.ratios th,.ratios td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.ratios th{font-weight:700;border-bottom:2px solid var(--rule-strong)}
+.ratios td.num{font-family:var(--font-mono);font-size:14px}
+
+/* ---------- type ---------- */
+.typerow{display:grid;grid-template-columns:3fr 9fr;gap:48px;padding:40px 0;border-top:1px solid var(--rule)}
+.typerow:last-child{border-bottom:1px solid var(--rule)}
+.typerow_spec{font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--text-stamp)}
+.typerow_spec b{font-family:var(--font-text);font-size:18px;color:var(--text-primary);display:block;margin-bottom:6px}
+
+/* ---------- the ledger ---------- */
+.ledger-band{background:var(--surface-ledger)}
+.ledger{margin-top:48px;border-bottom:1px solid var(--rule)}
+.receipt{display:grid;grid-template-columns:5fr 5fr 2.4fr;gap:48px;padding:36px 0 40px;border-top:1px solid var(--rule)}
+.receipt_figure{font-family:var(--font-display);font-weight:300;font-size:120px;line-height:.92;letter-spacing:-.025em;font-variation-settings:'opsz' 72;font-variant-numeric:lining-nums;margin-top:8px}
+.receipt_unit{font-size:.5em;letter-spacing:-.01em}
+.receipt_label{font-size:22px;line-height:1.4}
+.receipt_note{font-size:16px;line-height:1.5;color:var(--text-secondary);margin-top:16px;padding-left:14px;border-left:2px solid var(--rule)}
+.receipt_note .runin{color:var(--text-primary)}
+.receipt_meta{display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.4}
+.receipt_meta .stamp{display:block}
+.receipt_asof{display:inline-block;font-family:var(--font-mono);font-size:13px;color:var(--text-primary);background:var(--surface-page);padding:4px 8px;border-radius:2px}
+.sup{font-size:.6em;vertical-align:.55em;line-height:0;font-weight:600}
+
+/* ---------- imagery ---------- */
+.img-grid{display:grid;grid-template-columns:7fr 5fr;gap:48px;margin-top:48px}
+.essay{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:56px}
+.essay .placeholder{aspect-ratio:3/4;padding:14px;font-size:11.5px}
+.essay_date{font-family:var(--font-mono);font-size:13px;color:var(--text-stamp);margin-top:12px;padding-top:10px;border-top:1px solid var(--rule)}
+.essay_cap{font-size:16px;line-height:1.35;margin-top:4px}
+
+/* ---------- controls + navy ---------- */
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px}
+.controls_panel{padding:48px}
+.controls_panel.is-inverse{background:var(--surface-institutional);color:var(--text-inverse)}
+.controls_list{display:flex;flex-direction:column;gap:28px;margin-top:24px}
+.button.is-inverse{background:var(--cream-50);color:var(--navy-900)}
+.focus-demo{outline:3px solid var(--focus);outline-offset:3px}
+.is-inverse .focus-demo{outline-color:var(--focus-inverse)}
+
+.avoid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.avoid p{font-size:17px;padding-top:14px;border-top:1px solid var(--rule)}
+
+/* motion: still by default; one quiet fade, only if motion is welcome */
+@media (prefers-reduced-motion:no-preference){
+  .fade{animation:fade var(--duration-fade) var(--ease-quiet) both}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+}
+
+/* ---------- 375 ---------- */
+@media (max-width:600px){
+  body{font-size:18px}
+  .container{padding:0 16px}
+  .section{padding:56px 0}
+  .site{border:0}
+  .site-head{padding:14px 16px}
+  .site-head_brand{font-size:17px;gap:10px}
+  .is-hero-wrap{padding:0}
+  .dateline_place{display:none}
+  .logo-slot{width:32px;height:32px;font-size:6.5px}
+  .site-nav{display:none}
+  .menu{font-weight:600;font-size:17px;color:var(--text-primary);text-decoration:none}
+  .dateline{padding:10px 16px;flex-direction:column;gap:0}
+  .hero{grid-template-columns:1fr;gap:32px;padding:28px 16px 32px}
+  .h1{font-size:44px;line-height:1.04;letter-spacing:-.012em}
+  .h2{font-size:34px}
+  .hero_lede{margin-top:20px;font-size:19px}
+  .hero_actions{flex-direction:column;align-items:stretch;gap:18px;margin-top:28px}
+  .button{justify-content:center;min-height:52px}
+  .hero_media{padding:0 16px 32px}
+  .hero_media .placeholder{height:240px !important}
+  .latest{display:none}
+  .receipt{grid-template-columns:1fr;gap:12px;padding:28px 0 32px}
+  .receipt_figure{font-size:72px}
+  .qualifier.is-empty{display:none}
+  .receipt_label{font-size:19px}
+  .receipt_note{font-size:15px}
+  .receipt_meta{flex-direction:row;flex-wrap:wrap;gap:6px 16px;margin-top:6px;font-size:15px}
+  .caption{grid-template-columns:1fr;gap:2px}
+  .ledger{margin-top:28px}
+}
+@media (min-width:601px){ .menu{display:none} }
+html.is-mobile-board [data-board]{display:none}
+</style>
+<script>if(location.hash==='#m')document.documentElement.classList.add('is-mobile-board')</script>
+</head>
+<body>
+
+<!-- =============== COVER =============== -->
+<header class="container cover" data-board>
+  <div class="board-note"><span>Homer City Energy Campus · brand exploration · direction 03</span><span>Mood board · 6 November 2026 · Checkpoint 1</span></div>
+  <div class="cover_grid">
+    <div>
+      <h1 class="cover_title">The <em>Record</em></h1>
+      <p class="cover_pos">The record of what is being built on Power Plant Road, kept for the people who live beside it.</p>
+    </div>
+    <div class="cover_body small">
+      <p><span class="runin">Concept.</span> The site reads like a serious regional paper’s data desk: a light editorial serif, a warm paper ground, gold hairline rules. The trust is typographic. Every figure carries its qualifier, its note, its date and its document, set as one unit.</p>
+      <p><span class="runin">Still by default.</span> Reduced motion is the look, not the fallback. One quiet fade, and only when the reader’s settings allow it.</p>
+      <p><span class="runin">Departs from</span> the current design’s “no tinted grounds” rule: the page itself is paper, a lightened step of the client’s cream <span class="stamp">#F3F1D0</span>. There are still no cards.</p>
+    </div>
+  </div>
+</header>
+
+<!-- =============== HERO 1440 =============== -->
+<section class="container is-hero-wrap" aria-label="Homepage hero">
+  <span class="board-label" data-board>Homepage hero · 1440</span>
+  <div class="site fade">
+    <div class="site-head">
+      <a class="site-head_brand" href="#"><span class="logo-slot" aria-hidden="true">logo</span>Homer City Energy Campus</a>
+      <nav class="site-nav" aria-label="Main"><a href="#" aria-current="page">The campus</a><a href="#">Who we are</a><a href="#">Community</a><a href="#">Careers</a><a href="#">FAQs</a><a href="#">News</a><a href="#">Contact</a></nav>
+      <a class="menu" href="#">Menu</a>
+    </div>
+    <div class="dateline">
+      <span class="stamp dateline_place">Homer City, Indiana County, Pennsylvania</span>
+      <span class="stamp">Latest press release: 4 September 2026</span>
+    </div>
+    <div class="hero">
+      <div>
+        <h2 class="h1">Building America’s energy future by drawing on Pennsylvania’s proud past.</h2>
+        <p class="lede hero_lede">A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.</p>
+        <div class="hero_actions">
+          <a class="button" href="#">See what we’re building <span aria-hidden="true">→</span></a>
+          <a class="textlink" href="#">Read the fact sheet (PDF)</a>
+        </div>
+      </div>
+      <aside class="latest" aria-label="Latest">
+        <span class="stamp">Latest from the record</span>
+        <div class="latest_item">
+          <span class="stamp">Press release · 4 September 2026</span>
+          <p class="h3"><a href="#">Homer City Energy Campus workforce grows to more than 1,800 workers, including members of 9 building and construction trade unions</a></p>
+        </div>
+        <div class="latest_item">
+          <span class="stamp">Milestone · June 2026</span>
+          <p class="h3"><a href="#">Completed major demolition and transitioned into full construction phase</a></p>
+        </div>
+      </aside>
+    </div>
+    <figure class="hero_media figure">
+      <div class="placeholder" style="height:520px">
+        <span class="placeholder_kind">Photograph needed</span>
+        <p class="placeholder_brief">Brief: “Powerblock Aerial Looking North”, IUP tour deck, April 2026, at full resolution with usage rights confirmed. Daylight, natural grade, horizon kept, farmland at the edges. Not the deck cover: that is a rendering.</p>
+      </div>
+      <figcaption class="caption">
+        <span class="caption_meta">Photograph · April 2026</span>
+        <span class="caption_text"><span class="runin">Power Block aerial, looking north.</span> <span class="caption_credit">Homer City Energy Campus.</span></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- =============== PALETTE =============== -->
+<section class="container section" data-board aria-label="Palette">
+  <span class="board-label">Colour · anchored on the client’s five</span>
+  <h2 class="h2">Paper, ink and a gold rule.</h2>
+  <div class="swatches">
+    <div><div class="swatch_chip" style="background:#FAF8EC;outline:1px solid #D8B471;outline-offset:-1px">Aa</div><p class="swatch_name">Paper</p><p class="swatch_hex">#FAF8EC · cream/50</p><p class="swatch_role">The page. A lightened step of the client cream, so long reading stays calm.</p></div>
+    <div><div class="swatch_chip" style="background:#F3F1D0">Aa</div><p class="swatch_name">Cream</p><p class="swatch_hex">#F3F1D0 · client</p><p class="swatch_hex"></p><p class="swatch_role">The ledger band and feature sections. Full strength, used for one band at a time.</p></div>
+    <div><div class="swatch_chip" style="background:#143251;color:#FAF8EC">Aa</div><p class="swatch_name">Ink navy</p><p class="swatch_hex">#143251 · client</p><p class="swatch_role">All primary text, the strong rule under the masthead, and institutional bands.</p></div>
+    <div><div class="swatch_chip" style="background:#D8B471;color:#143251">Aa</div><p class="swatch_name">Gold rule</p><p class="swatch_hex">#D8B471 · client</p><p class="swatch_role">Hairlines between rows and the note bar. Never text on a light ground.</p></div>
+    <div><div class="swatch_chip" style="background:#4A5A6E;color:#FAF8EC">Aa</div><p class="swatch_name">Ink, secondary</p><p class="swatch_hex">#4A5A6E · navy/600</p><p class="swatch_role">Notes, qualifiers and captions. The lightest ink allowed on paper.</p></div>
+    <div><div class="swatch_chip" style="background:#145E8C;color:#FAF8EC">Aa</div><p class="swatch_name">Link blue</p><p class="swatch_hex">#145E8C · blue/700</p><p class="swatch_role">Links only, always underlined. Client blue #238FC8 is 3.14:1 on cream, so it is kept for the logo.</p></div>
+    <div><div class="swatch_chip" style="background:#6E5418;color:#FAF8EC">Aa</div><p class="swatch_name">Stamp bronze</p><p class="swatch_hex">#6E5418 · gold/800</p><p class="swatch_role">Mono date stamps and source lines on light grounds. The gold, darkened until it reads.</p></div>
+    <div><div class="swatch_chip" style="background:#AFECF1;color:#143251">Aa</div><p class="swatch_name">Aqua</p><p class="swatch_hex">#AFECF1 · client</p><p class="swatch_role">Links and focus rings on navy only. Never a ground.</p></div>
+  </div>
+  <table class="ratios">
+    <thead><tr><th>Text pairing</th><th>On paper #FAF8EC</th><th>On cream #F3F1D0</th><th>On navy #143251</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td>Ink navy #143251</td><td class="num">12.28 AAA</td><td class="num">11.41 AAA</td><td class="num">—</td><td>All primary text</td></tr>
+      <tr><td>Ink secondary #4A5A6E</td><td class="num">6.61 AA</td><td class="num">6.14 AA</td><td class="num">—</td><td>Notes, qualifiers, captions</td></tr>
+      <tr><td>Link blue #145E8C</td><td class="num">6.55 AA</td><td class="num">6.08 AA</td><td class="num">—</td><td>Links</td></tr>
+      <tr><td>Stamp bronze #6E5418</td><td class="num">6.69 AA</td><td class="num">6.22 AA</td><td class="num">—</td><td>Mono stamps</td></tr>
+      <tr><td>Paper #FAF8EC</td><td class="num">—</td><td class="num">—</td><td class="num">12.28 AAA</td><td>Text on navy</td></tr>
+      <tr><td>Aqua #AFECF1</td><td class="num">1.22 fail</td><td class="num">1.14 fail</td><td class="num">10.03 AAA</td><td>Links on navy only</td></tr>
+      <tr><td>Gold #D8B471</td><td class="num">1.84 fail</td><td class="num">1.71 fail</td><td class="num">6.66 AA</td><td>Rules; stamps on navy only</td></tr>
+      <tr><td>Client blue #238FC8</td><td class="num">3.38 large only</td><td class="num">3.14 large only</td><td class="num">3.64 large only</td><td>Logo only</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- =============== TYPE =============== -->
+<section class="container section" data-board aria-label="Type" style="padding-top:0">
+  <span class="board-label">Type · three families, no sans</span>
+  <div class="typerow">
+    <div class="typerow_spec"><b>Fraunces</b>Display and figures<br>Light 300–330<br>opsz 72 · SOFT 0 · WONK 0<br>88 / 44 px hero<br>120 / 72 px figures, lining</div>
+    <div><p class="h1" style="font-size:80px">Seven GE Vernova 7HA.02 turbines, up to 4.4 GW.</p></div>
+  </div>
+  <div class="typerow">
+    <div class="typerow_spec"><b>Fraunces</b>Section heads<br>Book 360–400<br>opsz 60 h2 · 36 h3<br>56 / 34 px h2 · 28 / 22 px h3</div>
+    <div><p class="h2">From past to present</p><p class="h3" style="margin-top:16px">Meet the tradesmen and women building the campus</p></div>
+  </div>
+  <div class="typerow">
+    <div class="typerow_spec"><b>Newsreader</b>Text, notes, UI<br>Regular 400 · Semibold 600 · Bold 700 run-ins · Italic 600 qualifiers<br>opsz auto (6–72)<br>20 / 18 px body · 16 / 15 px notes</div>
+    <div>
+      <p class="lede" style="font-size:22px"><span class="runin">November 2025:</span> the Pennsylvania Department of Environmental Protection (PA DEP) approved Homer City Generation’s air quality plan, authorizing construction and initial operations.</p>
+      <p class="small" style="margin-top:16px;color:var(--text-secondary);max-width:40em"><span class="runin" style="color:var(--text-primary)">Note.</span> Jargon is expanded on first use: GIS is gas insulated switchgear; HRSG is a heat recovery steam generator. Qualifiers set in italic: <span class="qualifier" style="font-size:16px">Anticipated, Projected, Up to.</span></p>
+    </div>
+  </div>
+  <div class="typerow">
+    <div class="typerow_spec"><b>IBM Plex Mono</b>Stamps only: dates, sources, file details<br>Regular 400<br>13 / 13 px, sentence case, never body</div>
+    <div><p class="stamp" style="font-size:16px">As of 4 September 2026 · Press release · Homer City Generation<br>Fact sheet, May 2026 · PDF<br>IUP tour deck, July 2026 · slides 7–81</p></div>
+  </div>
+</section>
+
+<!-- =============== LEDGER =============== -->
+<section class="ledger-band section" aria-label="By the numbers">
+  <div class="container">
+    <span class="board-label" data-board>The receipt · stat ledger</span>
+    <span class="stamp">By the numbers · Source documents linked on every row</span>
+    <h2 class="h2" style="margin-top:12px">The campus, by the numbers</h2>
+    <div class="ledger">
+
+      <article class="receipt">
+        <div><p class="qualifier">Anticipated</p><p class="receipt_figure">10,000+</p></div>
+        <div>
+          <p class="receipt_label">Direct on-site construction-related jobs<span class="sup">1</span></p>
+          <p class="receipt_note"><span class="runin">Note 1.</span> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+        </div>
+        <div class="receipt_meta">
+          <span><span class="runin">Source:</span> <span class="stamp">Fact sheet, May 2026</span></span>
+          <a href="#">Read the fact sheet (PDF)</a>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <div><p class="qualifier">Anticipated</p><p class="receipt_figure">~1,000</p></div>
+        <div>
+          <p class="receipt_label">Total direct &amp; indirect permanent high-paying positions in technology, operations and energy infrastructure<span class="sup">2</span></p>
+          <p class="receipt_note"><span class="runin">Note 2.</span> Anticipated total number of direct and indirect permanent positions to support the operations of both the natural gas-powered plant and all aspects of the data center campus once running at full capacity following the completion of the construction based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+        </div>
+        <div class="receipt_meta">
+          <span><span class="runin">Source:</span> <span class="stamp">Fact sheet, May 2026</span></span>
+          <a href="#">Read the fact sheet (PDF)</a>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <div><p class="qualifier">Up to</p><p class="receipt_figure">4.4 <span class="receipt_unit">GW</span></p></div>
+        <div>
+          <p class="receipt_label">Energy expected to be produced on-site</p>
+        </div>
+        <div class="receipt_meta">
+          <span><span class="runin">Source:</span> <span class="stamp">Fact sheet, May 2026; IUP tour deck, July 2026</span></span>
+          <a href="#">How the power block works</a>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <div><p class="qualifier is-empty" aria-hidden="true">&nbsp;</p><p class="receipt_figure">1,800+</p></div>
+        <div>
+          <p class="receipt_label"><span class="runin">As of September 2026:</span> direct-hire tradespeople and skilled contractors active on site</p>
+        </div>
+        <div class="receipt_meta">
+          <span class="receipt_asof">Updated 4 September 2026</span>
+          <span><span class="runin">Source:</span> <span class="stamp">Press release, 4 September 2026</span></span>
+          <a href="#">Read the press release</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============== IMAGERY =============== -->
+<section class="container section" data-board aria-label="Imagery">
+  <span class="board-label">Imagery · the dated record</span>
+  <h2 class="h2">Every picture is dated. Every rendering says so.</h2>
+  <div class="img-grid">
+    <figure class="figure">
+      <div class="standin" style="aspect-ratio:3/2">
+        <img src="../../content/imagery/07-campus-landscape-aerial.jpg" alt="Stand-in image: wide aerial of a cleared construction site ringed by farmland and forest" width="1600" height="800">
+        <span class="standin_label">Stand-in — suspected generated image, not a photograph of the campus</span>
+      </div>
+      <figcaption class="caption">
+        <span class="caption_meta">Stand-in · undated</span>
+        <span class="caption_text"><span class="runin">Shows crop and grade only.</span> 3:2, horizon in the top third, farmland kept at the edges. Grade: natural daylight, saturation eased about 10%, no warming, no vignette. Replace with a dated photograph before anything ships.</span>
+      </figcaption>
+    </figure>
+    <figure class="figure">
+      <div class="placeholder" style="aspect-ratio:4/5;background:#DCD7B2">
+        <span class="placeholder_kind">Rendering · asset needed</span>
+        <p class="placeholder_brief">Brief: concept rendering of the operating plant at dusk, as supplied. Shown only with the Rendering label, in the image and in the caption.</p>
+      </div>
+      <figcaption class="caption">
+        <span class="caption_meta">Rendering · undated</span>
+        <span class="caption_text"><span class="runin">Concept rendering.</span> <span class="qualifier" style="font-size:16px">Anticipated</span> first power on site, early 2028. Not a photograph.</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="essay" aria-label="Photo essay, 1969 to 2026">
+    <figure><div class="placeholder"><span class="placeholder_kind">Photo</span><span>Brief: the generating station, archive frame</span></div><p class="essay_date">1969–2023</p><p class="essay_cap">Homer City Generating Station</p></figure>
+    <figure><div class="placeholder"><span class="placeholder_kind">Photo</span><span>Brief: deck frame “Inflection Point”</span></div><p class="essay_date">March 2025</p><p class="essay_cap">Inflection point</p></figure>
+    <figure><div class="placeholder"><span class="placeholder_kind">Photo</span><span>Brief: site after demolition</span></div><p class="essay_date">November 2025</p><p class="essay_cap">After the stacks and towers came down</p></figure>
+    <figure><div class="placeholder"><span class="placeholder_kind">Photo</span><span>Brief: first columns standing</span></div><p class="essay_date">March 2026</p><p class="essay_cap">First steel, going vertical</p></figure>
+    <figure><div class="placeholder"><span class="placeholder_kind">Photo</span><span>Brief: aerial looking north</span></div><p class="essay_date">April 2026</p><p class="essay_cap">Power Block aerial, looking north</p></figure>
+    <figure><div class="placeholder"><span class="placeholder_kind">Photo</span><span>Brief: Unit 5 heat recovery steam generator</span></div><p class="essay_date">July 2026</p><p class="essay_cap">Unit 5 HRSG</p></figure>
+  </div>
+</section>
+
+<!-- =============== CONTROLS =============== -->
+<section class="container section" data-board aria-label="Links and buttons" style="padding-top:0">
+  <span class="board-label">Links, buttons, focus · light and navy</span>
+  <div class="controls">
+    <div class="controls_panel" style="background:var(--surface-page);outline:1px solid var(--rule);outline-offset:-1px">
+      <span class="stamp">Paper ground</span>
+      <div class="controls_list">
+        <div><a class="button" href="#">See what we’re building <span aria-hidden="true">→</span></a></div>
+        <div><span class="button focus-demo">Find work on the campus <span aria-hidden="true">→</span></span> <span class="stamp" style="margin-left:16px">focus: 3px ink ring</span></div>
+        <p>Inline: questions about air, water and noise are answered in the <a href="#">FAQs</a>.</p>
+        <p class="small"><span class="runin">Download:</span> <a href="#">Fact sheet, May 2026</a> <span class="stamp">PDF</span></p>
+      </div>
+    </div>
+    <div class="controls_panel is-inverse">
+      <span class="stamp">Navy ground · institutional moments</span>
+      <div class="controls_list">
+        <div><a class="button is-inverse" href="#">Contact the campus <span aria-hidden="true">→</span></a></div>
+        <div><span class="button is-inverse focus-demo">Media inquiries <span aria-hidden="true">→</span></span> <span class="stamp" style="margin-left:16px">focus: 3px aqua ring</span></div>
+        <p>Community members: <a href="#">info@homercityredevelopment.com</a></p>
+        <p class="small"><span class="runin">Site address:</span> Homer City Energy Campus, 1750 Power Plant Rd, Homer City, PA 15748</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="avoid">
+    <p><span class="runin">Avoids nostalgia.</span> No newsprint texture, no blackletter, no dingbats or ornamental rules. A modern editorial site, not a 1950s paper.</p>
+    <p><span class="runin">Avoids Survey (05).</span> Mono is a dateline and a citation, never a coordinate, grid label or dimension. Serif carries the voice.</p>
+    <p><span class="runin">Avoids spin.</span> No count-ups, no scroll theatre, no adjectives in the figures. The figure arrives whole, with its note.</p>
+  </div>
+</section>
+
+</body>
+</html>

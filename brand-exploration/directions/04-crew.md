@@ -65,6 +65,7 @@ everything else:
 | --- | --- |
 | Yellow `#FFD202` logo tile, top rule, arrows, progress pill | **No yellow anywhere.** Gold is retired too, because any warm accent on navy points back to Kiewit. The accent is aqua, a cool colour Kiewit never uses |
 | White type on navy and black | **Cream** type on navy. No black, and no white text on navy at all |
+| Yellow buttons and arrows | The primary button is **aqua**, so the one saturated colour on navy is cool. A cream button was tried in the first board and read as pale yellow on navy, so it was dropped |
 | Squared slab grotesque (Industry), all-caps nav and eyebrows | Big Shoulders Display, tall and narrow, **sentence case everywhere**, including nav, buttons and eyebrows. No letter-spaced caps |
 | Outlined yellow numerals that count up | Solid cream figures that never animate. The row arrives whole, with its footnote |
 | Centred stats in a band, no source | A ledger aligned left. Every row carries qualifier, label, footnote, date and document |
@@ -115,7 +116,7 @@ All Google Fonts (OFL), all supported as Webflow Google fonts.
 
 | Role | Face | Weight | 375 | 1440 | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Hero | Big Shoulders Display | 800 | 60/0.92 | 136/0.88 | Sentence case, tracking 0 |
+| Hero | Big Shoulders Display | 800 | 54/0.92 | 128/0.88 | Sentence case, tracking 0. Two lines at 1440, four at 375 |
 | H2 | Big Shoulders Display | 800 | 40/0.98 | 72/0.95 | |
 | H3 / trade name | Big Shoulders Display | 700 | 28/1 | 36/1 | |
 | Stat figure | Big Shoulders Display | 800 | 72/0.9 | 120/0.88 | Tabular lining figures, solid fill, never outlined |
@@ -147,7 +148,7 @@ Built from the client's five. Gold is deliberately unused (see §3).
 | `navy-raised` | `#1C4166` | navy, lightened | Trade tile ground, focused row, mobile menu |
 | `cream` | `#F3F1D0` | client cream | Text on navy; duotone highlight (photographs) |
 | `cream-dim` | `#C8C9B4` | cream mixed toward navy | Secondary text and footnotes on navy |
-| `aqua` | `#AFECF1` | client aqua | Links and controls on navy; focus ring; rendering highlight |
+| `aqua` | `#AFECF1` | client aqua | Primary button, links and controls on navy; focus ring; rendering highlight |
 | `blue` | `#238FC8` | client blue | Identity only: focus ring on paper, progress rail. **Never text** |
 | `paper` | `#FAF9EE` | cream, lightened | Reading surface: FAQ, articles, long answers |
 | `link-on-paper` | `#17628F` | blue, darkened | Links on paper |
@@ -163,8 +164,8 @@ Built from the client's five. Gold is deliberately unused (see §3).
 | cream on navy-raised | 9.16 | Trade tile text |
 | cream-dim on navy-raised | 6.24 | Trade descriptions |
 | aqua on navy-raised | 8.06 | Links in tiles |
-| navy on cream (button) | 11.41 | Primary button on navy |
-| navy on aqua | 10.03 | Rendering tag; focus fill |
+| navy on aqua (primary button) | 10.03 | Primary button on navy; cream fill on hover |
+| navy on aqua (tag) | 10.03 | Rendering tag, review flags |
 | navy on paper | 12.37 | FAQ body |
 | link-on-paper on paper | 6.24 | Links on paper |
 | ink-dim on paper | 7.19 | Source lines, dates on paper |
@@ -274,11 +275,12 @@ Figures stay as sourced.
 
 The phone opens on faces. A strip of three duotoned portraits, 4:5, edge to
 edge with 2px gutters, wipes in. Directly beneath, on solid navy, is the
-headline in Big Shoulders 800 at 60px, sentence case and cream: "Meet the
-tradesmen and women building the campus." Four short lines, no photo behind
-the words. Next comes one receipt, *As of September 2026* / **1,800+** /
-direct-hire tradespeople and skilled contractors active on site, then a cream
-"Find work on the campus" button and an aqua "What we're building" link.
+headline in Big Shoulders 800 at 54px, sentence case and cream: "Meet the
+tradesmen and women building the campus." Four lines, no photo behind the
+words. Next comes one receipt, *As of September 2026* / **1,800+** /
+direct-hire tradespeople and skilled contractors active on site, then a full-width
+aqua "Find work on the campus" button and an aqua "What we're building"
+link.
 The alert banner sits above everything in navy-raised, dismissible. On a
 slow connection the headline and figure are there before any photograph.
 

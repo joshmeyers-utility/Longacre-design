@@ -37,7 +37,7 @@ receipt. No other energy company's site can carry it with the name swapped.
 
 | | Stays | Changes |
 | --- | --- | --- |
-| Type | Geist, 300–700. Stat figures Light. Sentence case everywhere | Hero drops from Bold to **Medium 500** at −3% tracking: calmer, more exact. Tabular figures on every number and date. Footnote **12 → 14px** (15 desktop) |
+| Type | Geist, 300–700. Stat figures Light. Sentence case everywhere | Hero drops from Bold 104px to **Medium 500, 84px** at −3.5% tracking: calmer, more exact, and the locked homepage headline holds to three lines at 1440. Tabular figures on every number and date. Footnote **12 → 14px** (15 desktop) |
 | Grounds | White page, `stone/50` subtle, navy bands, **no tinted grounds** | Navy band moves from generated `navy/900` `#1D3D5C` to the client anchor **`#143251`** itself: deeper, and it matches dusk photography |
 | Colour roles | Blue means link. `#238FC8` is identity, not link. Pillar colour only on pillars | Stat figures and headings move from near-black to **navy `#143251`** (13.09:1). Cream `#F3F1D0` becomes the secondary text colour on navy, replacing grey `stone/200`: warmth without a tinted ground. Footnote text `stone/700` → **`stone/800`** (7.87:1) |
 | Structure | Square surfaces, strokes are dividers, ledger not cards, band widths from parent padding | The ledger row gains two fixed slots, **footnote** and **receipt line**, so the unit is the same everywhere, including social cards |
@@ -113,10 +113,10 @@ stamp clear of 03 The Record and 05 Survey, which both lean on mono.
 
 | Role | 375 | 1440 | Weight | Line height | Tracking |
 | --- | --- | --- | --- | --- | --- |
-| Hero | 40 | 96 | Medium 500 | 1.02 | −3% |
-| H2 | 28 | 48 | Medium 500 | 1.1 | −2% |
+| Hero | 40 | 84 | Medium 500 | 1.02 | −3.5% |
+| H2 | 30 | 44 | Medium 500 | 1.1 | −2% |
 | H3 | 20 | 24 | SemiBold 600 | 1.25 | −1% |
-| Stat figure (ledger) | 52 | 72 | Light 300 | 1.0 | −3%, tabular |
+| Stat figure (ledger) | 56 | 68 | Light 300 | 1.0 | −3%, tabular |
 | Qualifier / as-of stamp | 13 | 13 | SemiBold 600 | 1.3 | +2%, tabular |
 | Body | 17 | 18 | Regular 400 | 1.6 | 0 |
 | Stat label | 17 | 18 | Regular 400 | 1.45 | 0 |
@@ -124,9 +124,12 @@ stamp clear of 03 The Record and 05 Survey, which both lean on mono.
 | Caption | 14 | 14 | Regular 400 (date SemiBold) | 1.45 | 0 |
 | Button | 16 | 16 | SemiBold 600 | 1 | 0 |
 
-Hero 104 → 96 and stat 68 → 72 narrow the gap between them so the ledger
-reads as the second voice of the page, not a footer to the hero. Both are
-even values; 72 and 96 need adding to the primitive ramp.
+Hero 104 → 84 narrows the gap to the 68px ledger figure, so the ledger
+reads as the second voice of the page, not a footer to the hero. The locked
+homepage headline is 74 characters; at 104px it runs to five lines and
+pushes the intro off a 900px screen. On a phone the ledger figure goes *up*,
+44 → 56: the figures are the proof. Every size is an existing primitive
+except the 40px mobile hero, the one new step.
 
 ---
 
@@ -161,7 +164,7 @@ Anchored on the client's five. Grounds stay white, near-white and navy.
 | White over a pure-white photo under navy scrim at 0.80 | 7.03 | 4.5 |
 | Cream over a pure-white photo under navy scrim at 0.80 | 6.13 | 4.5 |
 
-Scrim: navy at 0.80 under any text on a photograph, which clears AA even if
+Scrim: navy `#143251` at 0.80 under any text on a photograph, which clears AA even if
 the photo underneath is pure white. That is stricter than the current 0.72 so
 that cream captions also pass.
 
