@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 Current</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Instrument+Serif:ital@0;1&display=block" rel="stylesheet">
+<style>
+/* ---------- D05 tokens: primitive -> semantic ---------- */
+:root{
+  --c-navy:#143251;   /* client: anchor ground */
+  --c-night:#0A1626;  /* navy, darkened: deepest ground */
+  --c-blue:#238FC8;   /* client: field only, never text */
+  --c-aqua:#AFECF1;   /* client: secondary text on dark, field */
+  --c-cream:#F3F1D0;  /* client: primary text on dark, pills */
+  --c-gold:#D8B471;   /* client: field, qualifier eyebrows */
+  --c-current:#D4F25A;/* open accent: aqua x gold crossing, at full charge */
+
+  --surface-page:var(--c-navy);
+  --surface-deep:var(--c-night);
+  --text-primary:var(--c-cream);
+  --text-secondary:var(--c-aqua);
+  --text-qualifier:var(--c-gold);
+  --receipt:var(--c-current);       /* dates and sources only */
+  --pill-bg:var(--c-cream); --pill-fg:var(--c-navy);
+  --pill-active-bg:var(--c-navy); --pill-active-fg:var(--c-cream);
+  --scrim:rgba(20,50,81,.75);       /* navy @ .75: 5.25:1 cream vs a pure-white field */
+  --rule:rgba(243,241,208,.28);
+
+  --font-display:'Syne',sans-serif;
+  --font-text:'Newsreader',Georgia,serif;
+  --font-moment:'Instrument Serif',Georgia,serif;
+
+  --dur-field:150s; --dur-breathe:24s; --dur-mood:60s;
+  --t:0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--surface-deep)}
+body{background:var(--surface-deep);color:var(--text-primary);font-family:var(--font-text);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{padding:0 32px}
+.caps{font-family:var(--font-display);font-weight:800;text-transform:uppercase;line-height:.86;letter-spacing:-.01em;white-space:nowrap;display:block}
+.label{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.01em}
+.h2{font-family:var(--font-display);font-weight:700;font-size:64px;line-height:1.02;letter-spacing:-.02em}
+.lede{font-size:44px;line-height:1.16;font-weight:350}
+.body{font-size:20px;line-height:1.5;font-weight:400}
+.small{font-size:14px;line-height:1.45}
+hr{border:0;border-top:1px solid var(--rule)}
+
+/* ---------- the field ---------- */
+.field{position:absolute;inset:0;overflow:hidden;background:var(--c-navy);isolation:isolate}
+.field i{position:absolute;display:block;inset:-40%;will-change:transform;
+  animation-delay:calc(var(--t) * -1s)!important}
+.field .f1{background:conic-gradient(from 8deg at 50% 50%,
+   #143251 0deg,#238FC8 20deg,#AFECF1 31deg,#238FC8 40deg,#143251 58deg,#0A1626 74deg,
+   #238FC8 96deg,#F3F1D0 111deg,#D8B471 121deg,#143251 148deg,#0A1626 160deg,#238FC8 180deg,
+   #AFECF1 196deg,#143251 221deg,#D8B471 247deg,#F3F1D0 259deg,#D8B471 268deg,#238FC8 290deg,
+   #143251 316deg,#AFECF1 338deg,#143251 360deg);
+  filter:blur(34px);animation:spin var(--dur-field) linear infinite}
+.field .f2{background:conic-gradient(from 0deg at 50% 50%,
+   transparent 0deg,rgba(175,236,241,.75) 14deg,transparent 26deg,transparent 70deg,
+   rgba(216,180,113,.7) 84deg,transparent 99deg,transparent 150deg,rgba(35,143,200,.8) 168deg,
+   transparent 186deg,transparent 228deg,rgba(243,241,208,.55) 238deg,transparent 252deg,
+   transparent 300deg,rgba(212,242,90,.35) 312deg,transparent 326deg);
+  mix-blend-mode:screen;filter:blur(20px);animation:spin calc(var(--dur-field)*.62) linear infinite reverse}
+.field .f3{background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(243,241,208,0) 0deg,rgba(243,241,208,.16) 1.2deg,rgba(243,241,208,0) 3.4deg);
+  -webkit-mask:radial-gradient(circle at 50% 50%,transparent 0,#000 8%,#000 40%,transparent 70%);mask:radial-gradient(circle at 50% 50%,transparent 0,#000 8%,#000 40%,transparent 70%);
+  filter:blur(2.5px);mix-blend-mode:overlay;animation:spin calc(var(--dur-field)*1.6) linear infinite}
+.field .f4{inset:0;background:
+   radial-gradient(circle at 50% 50%,rgba(243,241,208,.95) 0,rgba(216,180,113,.55) 3.5%,rgba(35,143,200,.2) 12%,transparent 24%),
+   radial-gradient(ellipse 80% 75% at 50% 50%,transparent 45%,rgba(10,22,38,.75) 100%);
+  animation:breathe var(--dur-breathe) ease-in-out infinite}
+.field .f5{inset:0;background:linear-gradient(115deg,rgba(216,180,113,.0),rgba(216,180,113,.55) 45%,rgba(243,241,208,.25) 60%,rgba(20,50,81,0));
+  mix-blend-mode:soft-light;animation:mood var(--dur-mood) ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes mood{0%,100%{opacity:0}50%{opacity:1}}
+.freeze .field i{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){.field i{animation:none!important}}
+.band{position:absolute;left:0;right:0;background:linear-gradient(to bottom,rgba(20,50,81,0),var(--scrim) 18%,var(--scrim) 82%,rgba(20,50,81,0))}
+
+/* ---------- pills ---------- */
+.pills{display:flex;gap:4px;flex-wrap:wrap}
+.pill{font-family:var(--font-text);font-size:17px;line-height:1;padding:11px 16px 12px;border-radius:999px;background:var(--pill-bg);color:var(--pill-fg);white-space:nowrap;text-decoration:none}
+.pill.on{background:var(--pill-active-bg);color:var(--pill-active-fg)}
+.pill.ghost{background:rgba(243,241,208,.12);color:var(--c-cream)}
+.pill:focus-visible,.pill.focus{outline:3px solid var(--receipt);outline-offset:2px}
+.logo{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px dashed rgba(243,241,208,.7);border-radius:999px;font:500 13px/1 var(--font-display);color:var(--c-cream);background:rgba(10,22,38,.6)}
+.logo b{display:inline-block;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--c-cream)}
+
+/* ---------- board header ---------- */
+.head{position:relative;padding-top:24px;background:var(--surface-deep)}
+.head .caps{font-size:300px;color:var(--c-cream)}
+.headbar{display:flex;justify-content:space-between;align-items:center;margin:20px 0 0}
+.meta{display:grid;grid-template-columns:330px 1fr;gap:32px;padding:56px 0 72px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:900px;overflow:hidden}
+.hero .top{position:absolute;top:24px;left:32px;right:32px;display:flex;justify-content:space-between;align-items:center;z-index:3}
+.hero .band{top:300px;height:400px;z-index:1}
+.hero .name{position:absolute;left:32px;right:32px;top:348px;z-index:2}
+.hero .name .caps{color:var(--c-cream)}
+.hero h1{position:absolute;left:32px;top:584px;width:860px;z-index:2;font:400 34px/1.15 var(--font-text);letter-spacing:-.005em}
+.hero h1 em{font-family:var(--font-moment);font-style:italic;font-size:1.22em;color:var(--c-cream)}
+.hero .nav{position:absolute;left:32px;right:32px;bottom:28px;display:flex;justify-content:space-between;z-index:3}
+.tag{position:absolute;right:32px;top:600px;z-index:2;font:500 13px/1.3 var(--font-display);color:var(--c-aqua);text-align:right}
+
+/* ---------- statement ---------- */
+.statement{background:var(--surface-page);padding:120px 0 120px}
+.statement .grid{display:grid;grid-template-columns:330px 1fr;gap:32px;padding-top:16px}
+.btnrow{display:flex;gap:6px;margin-top:40px}
+
+/* ---------- ledger ---------- */
+.numbers{background:var(--surface-deep);padding:110px 0 120px}
+.row{display:grid;grid-template-columns:1fr 420px;gap:32px;border-top:1px solid var(--rule);padding:28px 0 40px}
+.row:last-child{border-bottom:1px solid var(--rule)}
+.q{display:block;font:italic 400 22px/1 var(--font-text);color:var(--text-qualifier);margin-bottom:10px}
+.n{font-family:var(--font-display);font-weight:800;font-size:168px;line-height:.86;letter-spacing:-.035em;color:var(--c-cream);white-space:nowrap}
+.n small{font-size:.5em;letter-spacing:-.02em}
+.lab p:first-child{font-size:22px;line-height:1.35}
+.fn{margin-top:16px;font-size:14.5px;line-height:1.5;color:var(--text-secondary)}
+.fn sup,.lab sup{font-family:var(--font-display);font-weight:700;color:var(--receipt);font-size:.8em}
+.asof{display:flex;align-items:baseline;gap:22px;margin-top:6px;white-space:nowrap}
+.asof .of{font:italic 400 150px/.8 var(--font-moment);color:var(--receipt);letter-spacing:-.02em}
+.asof .d{font:800 54px/1 var(--font-display);text-transform:uppercase;color:var(--receipt);letter-spacing:-.01em}
+
+/* ---------- board blocks ---------- */
+.blk{padding:110px 0;background:var(--surface-page)}
+.blk.deep{background:var(--surface-deep)}
+.sechead{display:grid;grid-template-columns:330px 1fr;gap:32px;border-top:1px solid var(--rule);padding-top:16px;margin-bottom:56px}
+.sw{display:grid;grid-template-columns:repeat(7,1fr);gap:0;height:360px}
+.sw div{padding:18px 16px;display:flex;flex-direction:column;justify-content:space-between;font-size:15px;line-height:1.35}
+.sw b{font:700 22px/1 var(--font-display);display:block;margin-bottom:6px}
+.prop{display:flex;height:22px;margin-top:20px}
+table{width:100%;border-collapse:collapse;margin-top:40px;font-size:15.5px}
+td,th{text-align:left;padding:11px 12px 11px 0;border-top:1px solid var(--rule);vertical-align:top}
+th{font:600 13px var(--font-display);color:var(--c-aqua)}
+.type-row{display:grid;grid-template-columns:330px 1fr;gap:32px;border-top:1px solid var(--rule);padding:22px 0 30px}
+.type-row .k{font-size:15px;line-height:1.45;color:var(--c-aqua)}
+.mob{display:flex;gap:40px;align-items:flex-start}
+.mob iframe{border:0;width:375px;height:2060px;background:var(--c-night);flex:none;outline:1px solid var(--rule)}
+.notes{font-size:17px;line-height:1.5;max-width:520px}
+.notes p+p{margin-top:14px}
+.notes b{font-family:var(--font-display);font-weight:700;font-size:15px}
+.img2{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.ph{position:relative;aspect-ratio:2/1;border-radius:4px;overflow:hidden;background:#0d2238}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .lbl{position:absolute;left:14px;top:14px;right:14px;background:var(--c-night);color:var(--c-cream);font:600 13px/1.35 var(--font-display);padding:10px 12px;border-radius:2px}
+.ph .lbl span{display:block;font:400 13px/1.4 var(--font-text);color:var(--c-aqua);margin-top:4px}
+.brief{aspect-ratio:auto;height:100%;min-height:320px;border:1px dashed rgba(175,236,241,.5);display:flex;align-items:flex-end;padding:20px;background:repeating-linear-gradient(135deg,#0d2238 0 14px,#102844 14px 28px)}
+.brief p{font-size:16px;line-height:1.45;color:var(--c-cream)}
+.cap{margin-top:10px;font-size:14px;color:var(--c-aqua);display:flex;gap:10px}
+.cap i{font-style:normal;color:var(--receipt);font-family:var(--font-display);font-weight:700;font-size:12.5px}
+.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fr{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:4px}
+.fr .tc{position:absolute;left:12px;bottom:12px;z-index:3;font:700 13px var(--font-display);background:var(--c-night);padding:6px 9px;border-radius:999px}
+
+/* applications */
+.apps{display:grid;gap:40px}
+.app{position:relative}
+.appcap{display:flex;justify-content:space-between;margin-top:12px;font-size:14.5px;color:var(--c-aqua)}
+.appcap b{font:700 14px var(--font-display);color:var(--c-cream)}
+.scaled{transform-origin:top left;position:absolute;top:0;left:0}
+.box{position:relative;overflow:hidden}
+.hoard{position:relative;width:1376px;height:460px;overflow:hidden;background:var(--c-night)}
+.hoard .band{top:70px;height:260px}
+.post{position:absolute;width:44px;bottom:-1px;height:30px;background:#2a3440}
+.plate{background:var(--c-night);color:var(--c-cream)}
+.row3{display:grid;grid-template-columns:432px 540px 1fr;gap:32px;align-items:start}
+
+/* ---------- 375 / mobile (also used by #m iframe) ---------- */
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .hero{height:760px}
+  .hero .top{left:16px;right:16px;top:16px}
+  .hero .band{top:228px;height:400px}
+  .hero .name{left:16px;right:16px;top:262px}
+  .hero h1{left:16px;right:16px;width:auto;top:356px;font-size:27px;line-height:1.16}
+  .hero .nav{left:16px;right:16px;bottom:16px;flex-direction:column;gap:8px}
+  .hero .nav .pills.secondary{display:none}
+  .tag{display:none}
+  .numbers{padding:56px 0 64px}
+  .row{grid-template-columns:1fr;gap:14px;padding:20px 0 28px}
+  .n{font-size:68px}
+  .q{font-size:18px;margin-bottom:8px}
+  .lab p:first-child{font-size:18px}
+  .fn{font-size:14px}
+  .asof .of{font-size:72px}
+  .asof .d{font-size:22px}
+  .asof{gap:10px}
+  .mtitle{font:700 30px/1.05 var(--font-display);letter-spacing:-.02em;margin-bottom:28px}
+}
+.only-m{display:none}
+.m .not-m{display:none}
+.m .only-m{display:block}
+</style>
+</head>
+<body>
+<script>
+// Board-only helpers: #m renders the 375 page; #t=NN freezes the field at NN seconds.
+const h=location.hash;
+if(h.includes('m'))document.documentElement.classList.add('m');
+const tm=h.match(/t=(\d+)/); if(tm){document.documentElement.style.setProperty('--t',tm[1]);document.documentElement.classList.add('freeze');}
+if(h.includes('freeze'))document.documentElement.classList.add('freeze');
+</script>
+
+<!-- ============ BOARD HEADER ============ -->
+<header class="head not-m">
+  <div class="wrap">
+    <span class="caps fit">Current</span>
+    <div class="headbar">
+      <div class="pills">
+        <a class="pill on">Direction 05</a><a class="pill">Concept</a><a class="pill">Palette</a><a class="pill">Type</a><a class="pill">Hero</a><a class="pill">Numbers</a><a class="pill">In the world</a>
+      </div>
+      <div class="pills"><a class="pill ghost">Stretch · Palette open</a><a class="pill ghost">6 November 2026</a></div>
+    </div>
+    <div class="meta">
+      <span class="label">Homer City Energy Campus</span>
+      <div>
+        <p class="lede">Power was made on this ground from 1969 to 2023. <span style="font-family:var(--font-moment);font-style:italic;font-size:1.12em">Current</span> shows the same place switching back on: a field of colour that always converges on one address, 1750 Power Plant Rd, and never moves without a dated figure beside it.</p>
+        <p class="body" style="margin-top:28px;max-width:860px;color:var(--c-aqua)">Drawn from Ragged Edge’s own site (ultra-wide caps edge to edge, the full-bleed blurred field, serif pill navigation, serif long copy) and Granola (an electric accent on near-black, an oversized serif word as the playful moment). Here that word is <em>as of</em>.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO (1440 + 375 responsive) ============ -->
+<section class="hero" id="hero">
+  <div class="field"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div>
+  <div class="band"></div>
+  <div class="top">
+    <span class="logo"><b></b>Logo as-is</span>
+    <a class="pill not-m">Local alerts &amp; advisories</a>
+    <a class="pill only-m" style="padding:11px 14px">Menu</a>
+  </div>
+  <div class="name">
+    <span class="caps fit">Homer City</span>
+    <span class="caps fit" style="margin-top:.08em">Energy Campus</span>
+  </div>
+  <h1>Building America’s energy future by drawing on <em>Pennsylvania’s proud past.</em></h1>
+  <p class="tag">Field converges on<br>1750 Power Plant Rd</p>
+  <nav class="nav">
+    <div class="pills">
+      <a class="pill on">What we’re building</a><a class="pill not-m">Who we are</a><a class="pill not-m">Careers</a><a class="pill not-m">Community stewardship</a><a class="pill not-m">FAQs</a><a class="pill not-m">News &amp; resources</a>
+      <a class="pill only-m">Local alerts &amp; advisories</a>
+    </div>
+    <div class="pills secondary"><a class="pill">Contact us</a></div>
+  </nav>
+</section>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement not-m">
+  <div class="wrap">
+    <hr>
+    <div class="grid">
+      <span class="label">Homer City Energy Campus</span>
+      <div>
+        <p class="lede">We are transforming the site of the former Homer City Generating Station into a state-of-the-art energy campus powered by one of the country’s largest natural gas power plants, bringing new jobs and economic opportunity back to Indiana County.</p>
+        <div class="btnrow"><a class="pill">What we’re building</a><a class="pill ghost">Local alerts &amp; advisories</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMBERS ============ -->
+<section class="numbers" id="numbers">
+  <div class="wrap">
+    <p class="mtitle only-m">By the numbers</p>
+    <div class="sechead not-m"><span class="label">By the numbers</span><p class="h2">Big figures, with the receipt set just as big.</p></div>
+    <div class="row">
+      <div><span class="n">1,800+</span>
+        <div class="asof"><span class="of">as of</span><span class="d">September 2026</span></div></div>
+      <div class="lab"><p>Direct-hire tradespeople and skilled contractors active on site</p>
+        <p class="fn">Changes monthly. Updated from the campus workforce count; the date moves with the figure.</p></div>
+    </div>
+    <div class="row">
+      <div><span class="q">Anticipated</span><span class="n">10,000+</span></div>
+      <div class="lab"><p>Direct on-site construction-related jobs<sup>1</sup></p>
+        <p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p></div>
+    </div>
+    <div class="row">
+      <div><span class="q">Anticipated</span><span class="n">~1,000</span></div>
+      <div class="lab"><p>Total direct &amp; indirect permanent high-paying positions in technology, operations and energy infrastructure<sup>2</sup></p>
+        <p class="fn"><sup>2</sup> Anticipated total number of direct and indirect permanent positions to support the operations of both the natural gas-powered plant and all aspects of the data center campus once running at full capacity following the completion of the construction based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p></div>
+    </div>
+    <div class="row">
+      <div><span class="q">Up to</span><span class="n">4.4 <small>GW</small></span></div>
+      <div class="lab"><p>Energy expected to be produced on-site</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PALETTE ============ -->
+<section class="blk not-m">
+  <div class="wrap">
+    <div class="sechead"><span class="label">Palette · open</span><p class="h2">Five client colours in motion, one accent where they cross.</p></div>
+    <div class="sw">
+      <div style="background:#143251;outline:1px solid var(--rule)"><span><b>Navy</b>#143251 · client</span><span>Anchor ground. ~45%. Cream text 11.41:1</span></div>
+      <div style="background:#0A1626;outline:1px solid var(--rule)"><span><b>Night</b>#0A1626 · navy, darkened</span><span>Deep ground for numbers and applications. ~20%. Cream 15.84:1</span></div>
+      <div style="background:#238FC8;color:#0A1626"><span><b>Blue</b>#238FC8 · client</span><span>Field only. Never text: 3.64:1 on navy</span></div>
+      <div style="background:#AFECF1;color:#143251"><span><b>Aqua</b>#AFECF1 · client</span><span>Secondary text, footnotes, field. 10.03:1 on navy</span></div>
+      <div style="background:#F3F1D0;color:#143251"><span><b>Cream</b>#F3F1D0 · client</span><span>Primary text on dark, pill ground. ~12%</span></div>
+      <div style="background:#D8B471;color:#143251"><span><b>Gold</b>#D8B471 · client</span><span>Field warmth; qualifier eyebrows. 6.66:1 on navy</span></div>
+      <div style="background:#D4F25A;color:#143251"><span><b>Current</b>#D4F25A · open</span><span>Where aqua and gold cross in the field, at full charge. Dates, sources, focus. ≤2%. 10.37:1 on navy</span></div>
+    </div>
+    <div class="prop" title="proportion"><span style="flex:45;background:#143251;outline:1px solid var(--rule)"></span><span style="flex:20;background:#0A1626;outline:1px solid var(--rule)"></span><span style="flex:18;background:linear-gradient(90deg,#238FC8,#AFECF1,#F3F1D0,#D8B471)"></span><span style="flex:12;background:#F3F1D0"></span><span style="flex:3;background:#D8B471"></span><span style="flex:2;background:#D4F25A"></span></div>
+    <table>
+      <tr><th>Text pairing</th><th>Ratio</th><th>Use</th><th>Text pairing</th><th>Ratio</th><th>Use</th></tr>
+      <tr><td>Cream on navy</td><td>11.41:1</td><td>Body, headings</td><td>Navy on cream pill</td><td>11.41:1</td><td>Navigation</td></tr>
+      <tr><td>Cream on night</td><td>15.84:1</td><td>Numbers ground</td><td>Cream on navy pill (active)</td><td>11.41:1</td><td>Current page</td></tr>
+      <tr><td>Aqua on navy / night</td><td>10.03 / 13.92:1</td><td>Footnotes, captions</td><td>Navy on Current</td><td>10.37:1</td><td>Receipt chips</td></tr>
+      <tr><td>Gold on navy / night</td><td>6.66 / 9.25:1</td><td>Qualifiers</td><td>Current on navy / night</td><td>10.37 / 14.41:1</td><td>“as of”, dates</td></tr>
+      <tr><td>Cream over the field, inside the navy .75 band</td><td>≥ 5.25:1</td><td>Worst case: a pure-white field. The field’s lightest stop is cream, so real is higher</td><td>Blue on navy</td><td>3.64:1 — fails</td><td>Blue is never text</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section class="blk deep not-m">
+  <div class="wrap">
+    <div class="sechead"><span class="label">Typography</span><p class="h2">Wide caps for names and numbers. A serif for everything a person reads.</p></div>
+    <div class="type-row"><div class="k">Display · Syne 800, caps<br>1440: 200–300px, set to fit edge to edge<br>375: 30–44px, still edge to edge<br>Names and figures only</div><span class="caps" style="font-size:150px;color:var(--c-cream)">Ironworkers</span></div>
+    <div class="type-row"><div class="k">Heading · Syne 700, sentence case<br>1440: 64 / 1.02 · 375: 30 / 1.05</div><p class="h2">Meet the tradesmen and women building the campus</p></div>
+    <div class="type-row"><div class="k">Lede and long copy · Newsreader 350–400<br>1440: 44 / 1.16 lede, 20 / 1.5 body<br>375: 24 / 1.2 lede, 18 / 1.5 body</div><p class="lede" style="font-size:40px">The Homer City Generating Station produced power on this site from 1969 to 2023.</p></div>
+    <div class="type-row"><div class="k">Navigation · Newsreader 400 in pills<br>17px, 44px tall target at both sizes</div><div class="pills"><a class="pill">What we’re building</a><a class="pill on">Careers</a><a class="pill focus">FAQs</a><a class="pill">News &amp; resources</a><span class="small" style="align-self:center;margin-left:12px;color:var(--c-aqua)">Focus ring: 3px Current</span></div></div>
+    <div class="type-row"><div class="k">The moment · Instrument Serif italic<br>Only the receipt words: <em>as of</em>, <em>up to</em>, <em>projected</em>. 1440: 150px · 375: 72px</div><div class="asof"><span class="of">as of</span><span class="d">September 2026</span></div></div>
+  </div>
+</section>
+
+<!-- ============ 375 ============ -->
+<section class="blk not-m">
+  <div class="wrap">
+    <div class="sechead"><span class="label">375 first</span><p class="h2">The same caps, the same field, the same receipt.</p></div>
+    <div class="mob">
+      <iframe src="05-current.html#m-freeze" title="375 hero and numbers"></iframe>
+      <div class="notes">
+        <p><b>Hero.</b> Caps stay edge to edge at 30–44px. The H1 sits inside the navy band (.75 at 375 too; the band is taller so the H1 never leaves it).</p>
+        <p><b>Pills.</b> Two on screen: the current page and the alert. The rest sit behind “Menu”, which opens a full-screen field with the pills stacked.</p>
+        <p><b>Numbers.</b> Figure, then qualifier, then label, then footnote, all inside the row. The giant <em>as of</em> drops to 72px and keeps its colour.</p>
+        <p><b>Weight.</b> The field ships as a 6–8 s looping H.264/WebM at 720p, ≈ 600 KB on mobile, behind a 20 KB poster. On Save-Data or slow connections only the poster loads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGERY ============ -->
+<section class="blk deep not-m">
+  <div class="wrap">
+    <div class="sechead"><span class="label">Imagery</span><p class="h2">The field is the brand. Photographs are the evidence: straight, dated, never tinted.</p></div>
+    <div class="img2">
+      <div>
+        <div class="ph"><img src="../../content/imagery/07-campus-landscape-aerial.jpg" alt=""><div class="lbl">Stand-in — suspected generated image, not a photograph of the campus<span>Brief: full-colour aerial of the campus in Indiana County farmland, shot from the north, horizon high. Ungraded: no field colour over a photograph.</span></div></div>
+        <p class="cap"><i>PHOTOGRAPH · DATE</i> Caption and date are separate CMS fields</p>
+      </div>
+      <div>
+        <div class="ph brief"><p><b style="font-family:var(--font-display)">Photograph needed</b><br>Portrait, waist up, of a named apprentice on site. Natural light, eye level, hi-vis as worn. Name, trade and local union on the caption — with written consent.</p></div>
+        <p class="cap"><i>PORTRAIT</i> Nothing runs without a name</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOTION ============ -->
+<section class="blk not-m">
+  <div class="wrap">
+    <div class="sechead"><span class="label">Motion</span><p class="h2">One slow field. Everything else holds still.</p></div>
+    <div class="frames">
+      <div class="fr" style="--t:0"><div class="field"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div><span class="tc">0 s</span></div>
+      <div class="fr" style="--t:40"><div class="field"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div><span class="tc">40 s</span></div>
+      <div class="fr" style="--t:95"><div class="field"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div><span class="tc">95 s · reduced-motion still</span></div>
+    </div>
+    <table>
+      <tr><th>Token</th><th>Value</th><th>What it does</th></tr>
+      <tr><td>field/rotate</td><td>150 s per turn, linear</td><td>Streaks turn about the vanishing point (the site), never faster than a clock’s minute hand</td></tr>
+      <tr><td>field/breathe</td><td>24 s, ease-in-out, scale 1 → 1.14</td><td>The core brightens and recedes</td></tr>
+      <tr><td>field/mood</td><td>60 s cross-fade</td><td>A gold layer comes and goes: the field reads warm, then cool</td></tr>
+      <tr><td>ui/press, ui/appear</td><td>160 ms / 320 ms, ease-out, 12px</td><td>Pills and reveals. Interactions 2.0</td></tr>
+      <tr><td>reduced motion</td><td>Poster frame at 95 s</td><td>No loop, no autoplay. Pause control on every field (WCAG 2.2.2)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IN THE WORLD ============ -->
+<section class="blk deep not-m">
+  <div class="wrap">
+    <div class="sechead"><span class="label">In the world</span><p class="h2">The field on Power Plant Road, on phones, and on paper.</p></div>
+    <div class="apps">
+
+      <!-- hoarding -->
+      <div class="app">
+        <div class="hoard">
+          <div class="field" style="--t:62"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div>
+          <div class="band"></div>
+          <div style="position:absolute;left:36px;right:36px;top:96px;z-index:2">
+            <span class="caps fit" style="color:var(--c-cream)">Homer City</span>
+            <span class="caps fit" style="color:var(--c-cream);margin-top:.08em">Energy Campus</span>
+          </div>
+          <div class="plate" style="position:absolute;left:36px;bottom:36px;z-index:2;padding:18px 22px;border-radius:2px;display:flex;gap:26px;align-items:flex-end">
+            <span style="font:800 76px/.86 var(--font-display);letter-spacing:-.03em">1,800+</span>
+            <span style="font-size:17px;line-height:1.3;max-width:300px">Direct-hire tradespeople and skilled contractors active on site</span>
+            <span style="display:flex;align-items:baseline;gap:10px"><span style="font:italic 64px/.8 var(--font-moment);color:var(--receipt)">as of</span><span style="font:800 24px/1 var(--font-display);color:var(--receipt)">SEPTEMBER 2026</span></span>
+          </div>
+          <div style="position:absolute;right:36px;bottom:36px;z-index:2;text-align:right" class="pills"><span class="logo"><b></b>Logo as-is</span><span class="pill">1750 Power Plant Rd</span><span class="pill">Job seekers: HomerCity.Info@Kiewit.com</span></div>
+        </div>
+        <div class="appcap"><span><b>Site hoarding, Power Plant Road</b> · 24 × 8 ft, printed still of the field at 62 s</span><span>The figure plate is a swap-out panel, re-printed monthly. If it can’t be kept current, it comes off.</span></div>
+      </div>
+
+      <div class="row3">
+        <!-- social card 1080x1350 -> .4 -->
+        <div class="app"><div class="box" style="width:432px;height:540px">
+          <div class="scaled" style="width:1080px;height:1350px;transform:scale(.4);background:var(--c-night)">
+            <div style="position:absolute;inset:0 0 700px 0"><div class="field" style="--t:20"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div></div>
+            <span class="logo" style="position:absolute;top:56px;left:56px;transform:scale(1.8);transform-origin:left top"><b></b>Logo as-is</span>
+            <div style="position:absolute;left:64px;right:64px;top:600px">
+              <span style="font:italic 52px/1 var(--font-text);color:var(--c-gold)">Anticipated</span>
+              <div style="font:800 270px/.86 var(--font-display);letter-spacing:-.04em;margin-top:18px">10,000+</div>
+              <p style="font:400 46px/1.2 var(--font-text);margin-top:26px">Direct on-site construction-related jobs<sup style="color:var(--receipt);font-family:var(--font-display);font-size:.6em">1</sup></p>
+              <p style="font:400 25px/1.42 var(--font-text);color:var(--c-aqua);margin-top:30px"><sup style="color:var(--receipt);font-family:var(--font-display)">1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+            </div>
+          </div></div>
+          <div class="appcap"><span><b>Social card</b> · 1080 × 1350, footnote 1 at 25px</span></div>
+        </div>
+
+        <!-- OG 1200x630 -> .45 ; fact sheet below -->
+        <div style="display:grid;gap:32px">
+          <div class="app"><div class="box" style="width:540px;height:283.5px">
+            <div class="scaled" style="width:1200px;height:630px;transform:scale(.45)">
+              <div class="field" style="--t:110"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div>
+              <div class="band" style="top:150px;height:330px"></div>
+              <div style="position:absolute;left:48px;right:48px;top:200px;z-index:2"><span class="caps fit" style="color:var(--c-cream)">Homer City</span><span class="caps fit" style="color:var(--c-cream);margin-top:.08em">Energy Campus</span></div>
+              <div style="position:absolute;left:48px;bottom:40px;z-index:2" class="pills"><span class="pill" style="font-size:24px;padding:14px 22px">Up to 4.4 GW · energy expected to be produced on-site</span></div>
+              <span class="logo" style="position:absolute;right:48px;top:40px;z-index:2;transform:scale(1.4);transform-origin:right top"><b></b>Logo as-is</span>
+            </div></div>
+            <div class="appcap"><span><b>OG / share image</b> · 1200 × 630, no URL until the domain is decided (open question 9)</span></div>
+          </div>
+          <div class="app"><div class="box" style="width:540px;height:300px;background:var(--c-cream);color:var(--c-navy);display:grid;grid-template-columns:212px 1fr">
+            <div style="position:relative;overflow:hidden"><div class="field" style="--t:140"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div></div>
+            <div style="padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between">
+              <div><span style="font:600 12px var(--font-display)">Fact sheet</span><span class="caps" style="font-size:31px;margin-top:10px;line-height:.9">Homer City<br>Energy<br>Campus</span></div>
+              <p style="font:400 14px/1.4 var(--font-text)">Building America’s energy future by drawing on <em style="font-family:var(--font-moment);font-size:1.15em">Pennsylvania’s proud past.</em></p>
+              <span style="display:flex;align-items:baseline;gap:8px"><span style="font:italic 34px/.8 var(--font-moment);color:var(--c-navy)">as of</span><span style="font:800 13px var(--font-display);background:var(--c-current);padding:4px 7px;border-radius:999px">MAY 2026</span></span>
+            </div>
+          </div>
+          <div class="appcap"><span><b>Fact-sheet cover</b> · Letter, spread shown at 1:2.6. The cover carries its own edition date</span></div></div>
+        </div>
+
+        <!-- motion poster 1080x1920 -> .3 -->
+        <div class="app"><div class="box" style="width:324px;height:576px">
+          <div class="scaled" style="width:1080px;height:1920px;transform:scale(.3);background:var(--c-night)">
+            <div class="field" style="--t:78"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div>
+            <div class="band" style="top:560px;height:860px"></div>
+            <div style="position:absolute;left:64px;right:64px;top:640px;z-index:2">
+              <span class="caps fit" style="color:var(--c-cream)">First</span>
+              <span class="caps fit" style="color:var(--c-cream);margin-top:.08em">Steel</span>
+              <p style="font:400 54px/1.18 var(--font-text);margin-top:40px">Crossed first steel threshold with commencement of vertical construction</p>
+            </div>
+            <div style="position:absolute;left:64px;bottom:80px;z-index:2;display:flex;align-items:baseline;gap:22px"><span style="font:italic 150px/.8 var(--font-moment);color:var(--receipt)">April</span><span style="font:800 80px/1 var(--font-display);color:var(--receipt)">2026</span></div>
+            <span class="logo" style="position:absolute;left:64px;top:64px;z-index:2;transform:scale(2);transform-origin:left top"><b></b>Logo as-is</span>
+          </div></div>
+          <div class="appcap" style="display:block"><span><b>Milestone motion poster</b> · 1080 × 1920, 8 s loop. The field winds up to the core, the caps land, the date lands last and holds.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="blk not-m" style="padding:80px 0 64px">
+  <div class="wrap"><div class="sechead" style="margin:0"><span class="label">What it avoids</span>
+  <p class="body" style="font-size:22px;max-width:980px">A field with no address (generic “energy future” spin) · a figure without its date · footnotes in grey fine print · blue text on navy · a tinted photograph · type over raw field without the band · motion with no pause and no still.</p></div></div>
+</footer>
+
+<script>
+function fit(){document.querySelectorAll('.fit').forEach(el=>{const w=el.parentElement.clientWidth;el.style.fontSize='100px';el.style.display='inline-block';const s=el.scrollWidth;el.style.fontSize=(100*w/s)+'px';el.style.display='block';});}
+document.fonts.ready.then(fit);addEventListener('resize',fit);
+</script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nine Trades — Direction 02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,50;1,9..144,300..500,50&display=block" rel="stylesheet">
+<style>
+/* ---------- D02 tokens: primitive -> semantic ---------- */
+:root{
+  --navy:#143251; --blue:#238FC8; --aqua:#AFECF1; --cream:#F3F1D0; --gold:#D8B471;
+  --paper:#FBFAF0; --link:#1B6A98;
+  /* semantic */
+  --ground:var(--paper); --ground-warm:var(--cream); --ground-deep:var(--navy);
+  --text:var(--navy); --text-inverse:var(--cream); --text-link:var(--link);
+  --field-portrait-a:var(--gold); --field-portrait-b:var(--aqua);
+  --field-portrait-c:var(--navy); --field-portrait-d:var(--cream);
+  --mark:var(--blue);
+  --display:'Schibsted Grotesk',system-ui,sans-serif;
+  --human:'Fraunces',Georgia,serif;
+  --ease-appear:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ground);color:var(--text);font-family:var(--display);-webkit-font-smoothing:antialiased;width:1440px}
+i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-settings:"opsz" 144,"SOFT" 50;letter-spacing:-.01em}
+.d{font-weight:900;letter-spacing:-.04em;line-height:.9}
+.eyebrow{font:600 13px/1.3 var(--display);letter-spacing:.01em}
+.serif{font-family:var(--human);font-variation-settings:"opsz" 14;font-weight:400}
+.pill{display:inline-block;padding:7px 14px;border-radius:99px;font:500 13px var(--display);background:rgba(243,241,208,.14);color:var(--cream)}
+.pill.light{background:#E6E3BD;color:var(--navy)}
+.flag{display:inline-block;border:1.5px dashed currentColor;border-radius:99px;padding:3px 10px;font:600 11px var(--display);letter-spacing:.01em;white-space:nowrap}
+.wrap{padding:0 64px}
+.rule{height:1px;background:currentColor;opacity:.25}
+
+/* ---------- case-study chrome ---------- */
+.cs-top{background:var(--navy);color:var(--cream);padding:28px 64px 120px}
+.cs-nav{display:flex;gap:8px;align-items:center;margin-bottom:96px}
+.cs-nav .sp{flex:1}
+.cs-title{font:800 15px var(--display);margin-bottom:28px;opacity:.8}
+.cs-lede{font:500 64px/1.04 var(--display);letter-spacing:-.025em;max-width:1180px}
+.cs-lede i{font-size:1.06em;color:var(--gold)}
+
+/* ---------- hero statement + portrait strip (Tilt f03/f04) ---------- */
+.statement{padding:130px 0 40px;text-align:center}
+.statement h2{font-size:150px;color:var(--navy)}
+.statement h2 i{font-size:1.04em;letter-spacing:-.02em}
+.strip{display:flex;gap:22px;padding:70px 0 30px 64px}
+.strip>div{width:240px;flex:none}
+.strip.four{padding:10px 0 0 195px}
+.ph{position:relative;aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;padding:14px}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 80% at 30% 18%,rgba(255,255,255,.38),rgba(255,255,255,0) 55%),radial-gradient(90% 60% at 50% 110%,rgba(20,50,81,.22),rgba(20,50,81,0) 70%);z-index:0}
+.f-navy.ph::before{background:radial-gradient(120% 80% at 30% 18%,rgba(175,236,241,.16),rgba(175,236,241,0) 55%),radial-gradient(90% 60% at 50% 110%,rgba(0,0,0,.25),rgba(0,0,0,0) 70%)}
+.ph .brief{font:500 12px/1.4 var(--display);position:relative;z-index:2;max-width:96%}
+.ph .brief b{display:block;font-weight:700;margin-bottom:4px}
+.ph svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.f-gold{background:var(--gold);color:var(--navy)}
+.f-aqua{background:var(--aqua);color:var(--navy)}
+.f-navy{background:var(--navy);color:var(--cream)}
+.f-cream{background:var(--cream);color:var(--navy)}
+.cap{margin-top:12px;font:700 19px/1.2 var(--display);letter-spacing:-.01em}
+.cap i{font-size:27px;font-weight:400}
+.cap small{display:block;font:400 13.5px/1.4 var(--display);letter-spacing:0;margin-top:6px;opacity:.85;max-width:94%}
+
+/* ---------- define (Tilt f05) ---------- */
+.define{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:110px 64px 60px}
+.define .k{font:800 26px var(--display);letter-spacing:-.02em}
+.define p{font:400 26px/1.4 var(--human);font-variation-settings:"opsz" 30;max-width:860px;margin-bottom:22px}
+.define p i{font-variation-settings:"opsz" 30,"SOFT" 50}
+.borrow{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding:10px 64px 110px}
+.borrow div{border-top:1px solid rgba(20,50,81,.25);padding-top:16px;font:400 15.5px/1.5 var(--display)}
+.borrow b{display:block;font:800 17px var(--display);margin-bottom:6px}
+
+/* ---------- logo tile moment (Tilt f10) ---------- */
+.tiles{display:grid;grid-template-columns:1.15fr 1fr;height:640px}
+.tile-field{background:var(--aqua);display:flex;align-items:center;justify-content:center;position:relative}
+.logo-tile{width:330px;height:330px;border-radius:64px;background:var(--navy);color:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+.logo-ph{width:200px;height:120px;border:1.5px dashed rgba(243,241,208,.7);display:flex;align-items:center;justify-content:center;font:600 13px/1.35 var(--display);padding:12px}
+.tile-field .note{position:absolute;left:28px;bottom:24px;font:500 13px var(--display);color:var(--navy);max-width:460px;line-height:1.4}
+.poster{background:var(--navy);display:flex;align-items:center;justify-content:center}
+.metro{width:400px;height:560px;background:var(--cream);color:var(--navy);padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.metro h3{font-size:68px}
+.metro h3 i{font-size:1.05em}
+.metro .foot{display:flex;justify-content:space-between;align-items:flex-end;font:600 13px/1.4 var(--display)}
+.mini-tile{width:64px;height:64px;border-radius:14px;background:var(--navy);color:var(--cream);font:600 9px/1.2 var(--display);display:flex;align-items:center;justify-content:center;text-align:center;padding:4px}
+
+.bleed{position:relative;height:760px;display:flex;align-items:center;justify-content:space-between;padding:0 72px;color:var(--cream);overflow:hidden}
+.bleed .ph{position:absolute;inset:0;aspect-ratio:auto;padding:28px 72px}
+.bleed .ph .brief{font-size:14px;max-width:520px}
+.bleed .ph svg{opacity:1}
+.bleed h3{position:relative;z-index:3;font-size:120px}
+.bleed h3 i{font-size:1.05em}
+.bleed .side{position:relative;z-index:3;text-align:right}
+.bleed .side .d{font-size:96px}
+.bleed .side p{font:500 18px/1.4 var(--display);margin-top:12px;max-width:430px;margin-left:auto}
+/* ---------- system: palette + type ---------- */
+.sys{padding:120px 64px 40px}
+.sys h4{font:800 30px var(--display);letter-spacing:-.02em;margin-bottom:28px}
+.swatches{display:grid;grid-template-columns:2.2fr 1.6fr 1fr .8fr .6fr .5fr .5fr;height:300px;margin-bottom:12px}
+.sw{padding:16px;display:flex;flex-direction:column;justify-content:space-between;font:600 13px/1.45 var(--display)}
+.sw span{font-weight:400;display:block}
+.swnotes{font:400 14px/1.5 var(--display);max-width:1100px;margin-bottom:90px}
+.type{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+.spec-big{font-size:200px}
+.spec-big i{font-size:1.04em}
+.spec small,.mono{font:500 13px/1.5 var(--display);opacity:.8;display:block;margin-top:14px}
+.scale{border-top:1px solid rgba(20,50,81,.25)}
+.scale div{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(20,50,81,.25)}
+.scale span{font:500 12px var(--display);opacity:.8}
+
+/* ---------- devices ---------- */
+.devices{background:var(--cream);padding:110px 64px;display:grid;grid-template-columns:889px 375px;gap:48px;align-items:start}
+.phone-crop{max-height:770px;overflow:hidden;border-radius:28px}
+.browser{background:var(--paper);box-shadow:0 30px 60px rgba(20,50,81,.18);overflow:hidden;width:889px}
+.bar{height:30px;background:#E6E3BD;display:flex;align-items:center;gap:6px;padding:0 12px}
+.bar i{width:9px;height:9px;border-radius:50%;background:rgba(20,50,81,.25);display:block}
+/* the 1440 hero is drawn at 1440 then scaled to fit */
+.scaler{width:1440px;transform:scale(.61736);transform-origin:0 0;height:740px}
+.site{width:1440px;height:980px;background:var(--paper);color:var(--navy);position:relative}
+.alert{background:var(--navy);color:var(--cream);font:500 15px var(--display);padding:12px 64px;display:flex;gap:16px;align-items:center}
+.alert b{font-weight:700}
+.alert a{color:var(--cream);margin-left:auto}
+.nav{display:flex;align-items:center;gap:30px;padding:22px 64px;font:600 16px var(--display)}
+.nav .lg{width:150px;height:44px;border:1.5px dashed rgba(20,50,81,.55);font:600 11px/1.2 var(--display);display:flex;align-items:center;justify-content:center;text-align:center}
+.nav .sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:var(--cream);font:700 17px var(--display);padding:16px 26px;border-radius:99px}
+.btn.cream{background:var(--cream);color:var(--navy)}
+.btn.ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
+.hero-h{font-size:112px;padding:40px 64px 0;max-width:1340px}
+.hero-h i{font-size:1.05em}
+.hero-row{display:grid;grid-template-columns:520px 1fr;gap:48px;padding:34px 64px 0;align-items:start}
+.hero-row p{font:400 21px/1.45 var(--human);font-variation-settings:"opsz" 20}
+.hero-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;padding:40px 64px 0}
+.hero-strip .ph{aspect-ratio:4/5;padding:12px}
+.hero-strip .ph .brief{font-size:11px}
+.hero-strip .cap{font-size:15px;margin-top:8px}.hero-strip .cap i{font-size:17px}
+
+/* phone */
+.phone{width:375px;background:var(--paper);box-shadow:0 30px 60px rgba(20,50,81,.18);overflow:hidden;border-radius:28px}
+.m-alert{background:var(--navy);color:var(--cream);font:500 13px/1.4 var(--display);padding:10px 16px}
+.m-alert b{display:block;font-weight:700}
+.m-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}
+.m-nav .lg{width:112px;height:36px;border:1.5px dashed rgba(20,50,81,.55);font:600 9.5px/1.15 var(--display);display:flex;align-items:center;justify-content:center;text-align:center}
+.m-menu{font:700 15px var(--display);background:var(--navy);color:var(--cream);border-radius:99px;padding:9px 16px}
+.m-h{font-size:46px;padding:18px 16px 0;letter-spacing:-.045em}
+.m-h i{font-size:1.05em}
+.m-p{font:400 17px/1.45 var(--human);font-variation-settings:"opsz" 16;padding:16px 16px 0}
+.m-btn{padding:20px 16px 0}
+.m-btn .btn{font-size:16px;padding:14px 22px}
+.m-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:26px 16px 0}
+.m-strip .ph{padding:10px}.m-strip .ph .brief{font-size:10.5px}
+.m-strip .cap{font-size:14px;margin-top:6px}.m-strip .cap i{font-size:16px}
+.m-work{background:var(--navy);color:var(--cream);margin-top:30px;padding:34px 16px 30px}
+.m-work h3{font-size:36px;letter-spacing:-.035em;margin:10px 0 22px}
+.m-work h3 i{font-size:1.05em;color:var(--gold)}
+
+/* ---------- the receipt (ledger) ---------- */
+.rc{border-top:1px solid rgba(243,241,208,.35);padding:16px 0 18px}
+.rc .q{font:400 18px var(--human);font-style:italic;font-variation-settings:"opsz" 30;color:var(--gold);display:block;margin-bottom:2px}
+.rc .fig{font:900 64px/0.95 var(--display);letter-spacing:-.045em}
+.rc .fig sup{font:700 .3em var(--display);vertical-align:top;position:relative;top:.25em;margin-left:2px;letter-spacing:0}
+.rc .lab{font:500 15.5px/1.4 var(--display);margin-top:8px}
+.rc .lab i{font-size:1.08em}
+.rc .fn{font:400 13px/1.45 var(--human);font-variation-settings:"opsz" 12;margin-top:10px;opacity:.92}
+.rc .flag{margin-top:10px;color:var(--gold)}
+
+.numbers{background:var(--navy);color:var(--cream);padding:120px 64px}
+.numbers .head{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:end;margin-bottom:56px}
+.numbers h3{font-size:110px}
+.numbers h3 i{font-size:1.05em;color:var(--gold)}
+.numbers .head p{font:400 17px/1.5 var(--human);font-variation-settings:"opsz" 16}
+.ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:0 36px}
+.ledger .rc .fig{font-size:104px}
+.ledger2{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:56px}
+.ledger2 .rc .fig{font-size:150px}
+.ledger2 .rc .lab{font-size:19px;max-width:560px}
+.ledger2 .rc .fn{font-size:15px;max-width:600px}
+
+/* ---------- applications ---------- */
+.apps{padding:120px 64px 60px}
+.apps h4{font:800 30px var(--display);letter-spacing:-.02em;margin-bottom:8px}
+.apps .sub{font:400 16px/1.5 var(--display);margin-bottom:40px;max-width:900px}
+.app-cap{font:600 13px/1.4 var(--display);margin-top:12px}
+.app-cap span{font-weight:400}
+.billboard{display:grid;grid-template-columns:1fr 1fr;height:520px;background:#5a6a5a}
+.bb-type{background:var(--navy);color:var(--cream);padding:44px;display:flex;flex-direction:column;justify-content:space-between}
+.bb-type h3{font-size:84px}
+.bb-type h3 i{font-size:1.05em;color:var(--gold)}
+.bb-type .row{display:flex;justify-content:space-between;align-items:flex-end;font:600 17px/1.4 var(--display)}
+.standin{position:relative;background-size:cover;background-position:center}
+.standin .lbl{position:absolute;left:14px;top:14px;right:14px;background:var(--cream);color:var(--navy);font:700 12.5px/1.35 var(--display);padding:8px 12px;max-width:340px}
+.road{background:linear-gradient(#b9c7c3,#9aa59a);padding:40px 0 0;margin-bottom:12px}
+.road .post{display:flex;gap:0;justify-content:center}
+
+.stickers{display:grid;grid-template-columns:repeat(9,1fr);gap:18px;margin-top:70px}
+.stk{aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;box-shadow:0 6px 14px rgba(20,50,81,.16)}
+.stk i{font-size:24px;line-height:1}
+.stk span{font:700 8.5px/1.25 var(--display);margin-top:7px;letter-spacing:.01em}
+.patches{display:grid;grid-template-columns:repeat(3,416px);gap:28px;margin-top:70px;align-items:start}
+.patches .vest{height:416px}
+.vest{background:#7e8b8f;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:40px;position:relative}
+.vest .note{position:absolute;left:12px;top:10px;font:600 11px var(--display);color:#fff;background:rgba(20,50,81,.85);padding:4px 8px}
+.patch{width:260px;height:120px;border-radius:18px;background:var(--navy);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:0 24px;box-shadow:inset 0 0 0 5px var(--navy),inset 0 0 0 7px rgba(243,241,208,.55),0 6px 12px rgba(0,0,0,.25)}
+.patch i{font-size:40px;line-height:1}
+.patch span{font:700 11px var(--display);margin-top:8px}
+.social{background:var(--cream);color:var(--navy);aspect-ratio:1;padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+.social.navy{background:var(--navy);color:var(--cream)}
+.social .q{font:400 22px var(--human);font-style:italic;font-variation-settings:"opsz" 30}
+.social .fig{font:900 120px/.9 var(--display);letter-spacing:-.05em}
+.social .fig sup{font:700 34px var(--display);vertical-align:top;letter-spacing:0}
+.social .lab{font:600 16px/1.35 var(--display);margin-top:10px}
+.social .fn{font:400 11.5px/1.45 var(--human);font-variation-settings:"opsz" 10}
+.social .ft{display:flex;justify-content:space-between;align-items:center;font:600 11px var(--display)}
+.social .ft .mt{width:44px;height:44px;border-radius:10px;border:1.5px dashed currentColor;font:600 7.5px/1.1 var(--display);display:flex;align-items:center;justify-content:center;text-align:center}
+
+.jobs{margin-top:80px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px}
+.jobs-page{background:var(--paper);box-shadow:0 20px 40px rgba(20,50,81,.14)}
+.jp-head{background:var(--gold);color:var(--navy);padding:34px 36px 30px}
+.jp-head h3{font-size:86px}
+.jp-head h3 i{font-size:1.05em}
+.jp-head p{font:400 17px/1.45 var(--human);font-variation-settings:"opsz" 16;max-width:560px;margin-top:16px}
+.jrow{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 36px;border-top:1px solid rgba(20,50,81,.2);align-items:center}
+.jrow b{font:800 22px var(--display);letter-spacing:-.02em}
+.jrow b i{font-size:1.05em;font-weight:400}
+.jrow span{display:block;font:400 13.5px/1.4 var(--display);margin-top:3px}
+.jrow .go{font:700 15px var(--display);color:var(--link);text-decoration:underline;text-underline-offset:3px}
+.rollover{display:grid;grid-template-rows:auto auto;gap:18px}
+.ro{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:stretch;background:var(--paper);padding:14px;box-shadow:0 20px 40px rgba(20,50,81,.1)}
+.ro .ph{aspect-ratio:auto;width:150px;height:188px;padding:8px}.ro .ph .brief{font-size:9.5px}
+.ro .state{font:600 11px var(--display);opacity:.75}
+.ro h5{font:800 24px var(--display);letter-spacing:-.02em;margin-top:6px}
+.ro h5 i{font-weight:400;font-size:1.06em}
+.ro p{font:400 15px/1.45 var(--human);font-variation-settings:"opsz" 14;margin-top:8px}
+.ro.focus{outline:3px solid var(--link);outline-offset:3px}
+.ro.focus .ph{outline:none}
+
+.email{margin-top:28px;background:#E6E3BD;padding:30px;display:flex;justify-content:center}
+.mail{width:600px;background:var(--paper)}
+.mail .top{background:var(--navy);color:var(--cream);padding:22px 28px;display:flex;justify-content:space-between;align-items:center;font:600 13px var(--display)}
+.mail .body{padding:28px}
+.mail h3{font-size:44px;letter-spacing:-.04em}
+.mail h3 i{font-size:1.05em}
+.mail p{font:400 16px/1.5 var(--human);font-variation-settings:"opsz" 16;margin-top:12px}
+
+.avoid{background:var(--navy);color:var(--cream);padding:110px 64px 120px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.avoid h4{font-size:84px}
+.avoid h4 i{color:var(--gold);font-size:1.05em}
+.avoid ul{list-style:none;font:400 18px/1.5 var(--display)}
+.avoid li{border-top:1px solid rgba(243,241,208,.3);padding:14px 0}
+.avoid li b{font-weight:800}
+.kw{display:flex;gap:16px;margin-top:40px}
+.kw div{flex:1;height:120px;display:flex;align-items:center;justify-content:center;font:600 13px/1.3 var(--display);text-align:center;padding:10px}
+
+/* ---------- 375 export mode ---------- */
+body.m375{width:375px;background:var(--paper)}
+body.m375 > *:not(.devices){display:none}
+body.m375 .devices{display:block;padding:0;background:var(--paper)}
+body.m375 .devices > *:not(.mobile-col){display:none}
+body.m375 .mobile-col > .eyebrow{display:none}
+body.m375 .phone{border-radius:0;box-shadow:none}
+body.m375 .phone-crop{max-height:none;border-radius:0}
+@media (prefers-reduced-motion:no-preference){.ro .ph{transition:transform 240ms var(--ease-appear)}}
+</style>
+</head>
+<body>
+
+<!-- ============ CASE STUDY OPENER ============ -->
+<section class="cs-top">
+  <div class="cs-nav">
+    <span class="pill">Direction 02</span><span class="pill">Overview</span><span class="pill">Define</span><span class="pill">Create</span><span class="pill">In the world</span>
+    <span class="sp"></span><span class="pill">Homer City Energy Campus</span>
+  </div>
+  <div class="cs-title">Nine Trades</div>
+  <p class="cs-lede">The Homer City Energy Campus is being built by boilermakers, carpenters, electricians, ironworkers, laborers, millwrights, operators, pipefitters and teamsters. This direction gives them the <i>credit</i>, by trade, with the figures beside them.</p>
+</section>
+
+<!-- ============ STATEMENT + PORTRAIT STRIP (after Tilt f04) ============ -->
+<section>
+  <div class="statement"><h2 class="d">Meet the <i>tradesmen<br>and women</i> building<br>the campus</h2></div>
+  <div class="strip" id="strip"></div>
+  <div class="strip four" id="strip2"></div>
+  <p class="wrap app-cap" style="margin-top:22px">Portrait grid, nine trades. Every tile is a placeholder: the brief sits inside the image. Captions name the trade only and carry its locked description (content/homer-city-qa.md, Job opportunities). No person is named; none are supplied.</p>
+</section>
+
+<!-- ============ DEFINE ============ -->
+<section class="define">
+  <div class="k">Define</div>
+  <div>
+    <p>A campus of 3,200+ acres is hard to picture from Homer City. A pipefitter from the next town over is not. So the identity is the people doing the work, shown <i>by trade</i>, each in their own colour, set in a heavy grotesque that says what it is and a soft serif italic that says <i>who</i>.</p>
+    <p>The figures stay with them. ~95% of the skilled direct-hire craft workforce is from the local area; 135+ apprentices train alongside experienced journeymen; 9 local union organizations are represented on site. Each number is set with its qualifier, its date and its footnote, in the same type, as one line of reading.</p>
+  </div>
+</section>
+<section class="borrow">
+  <div><b>From Tilt (f03, f04)</b>A row of portraits under one huge sentence, each captioned in a mix of serif italic and heavy grotesque. Here the italic word is the trade, never a name.</div>
+  <div><b>From Tilt (f09–f12)</b>Heavy grotesque interrupted by a serif italic for the human word; a squarish rounded tile; the identity on a poster in the street. We keep the tile and the poster, and leave the yellow and black behind.</div>
+  <div><b>From Marshmallow (f05–f12)</b>Faces as the brand, warm styled colour fields behind them, a palette that feels friendly before it feels corporate.</div>
+</section>
+
+<!-- ============ FULL-BLEED PORTRAIT (after Tilt f06 "Natalie / Good for it") ============ -->
+<section class="bleed">
+  <div class="ph f-navy"><svg viewBox="0 0 160 76" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="currentColor" opacity=".10"><ellipse cx="66" cy="34" rx="7" ry="9"/><path d="M48 76 C49 58 57 50 66 50 C75 50 83 58 84 76Z"/><ellipse cx="92" cy="31" rx="7.5" ry="9.5"/><path d="M74 76 C75 56 83 47 92 47 C101 47 109 56 110 76Z"/></g></svg>
+    <div class="brief"><b>Photo brief · full bleed</b>An apprentice and a journeyman from the same trade, side by side at the work face, mid-task, not posed to camera. Warm low side light; their own gear. Real, consented photograph; no names until supplied. Text sits over the darker half; scrim to AA against white.</div></div>
+  <h3 class="d"><i>Apprentices</i></h3>
+  <div class="side"><div class="d">135+</div><p>Training the next generation. Apprentices training alongside experienced journeymen.</p><span class="flag" style="color:var(--gold);margin-top:12px">Tier A · confirm before publishing</span></div>
+</section>
+
+<!-- ============ TILE + POSTER (after Tilt f10/f11) ============ -->
+<section class="tiles">
+  <div class="tile-field">
+    <div class="logo-tile"><div class="logo-ph">Logo as-is<br>(client mark, vector needed; not redrawn)</div><span class="eyebrow" style="opacity:.8">The tile: a container, not a new logo</span></div>
+    <p class="note">The rounded tile holds the existing logo unchanged: app icon, social avatar, sticker, site-hoarding corner. Navy on aqua or cream, never on gold-and-black.</p>
+  </div>
+  <div class="poster">
+    <div class="metro">
+      <p class="eyebrow">Careers · Homer City Energy Campus</p>
+      <h3 class="d">Meet the <i>tradesmen and women</i> building the campus</h3>
+      <div class="foot"><span>Find work on the campus →<br><span style="font-weight:400">HomerCity.Info@Kiewit.com</span></span><div class="mini-tile">Logo as-is</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYSTEM ============ -->
+<section class="sys">
+  <h4>Colour: the client's five, as fields</h4>
+  <div class="swatches">
+    <div class="sw" style="background:var(--cream)">Cream #F3F1D0<span>Ground, 40%. Navy text 11.41:1</span></div>
+    <div class="sw" style="background:var(--navy);color:var(--cream)">Navy #143251<span>Type, deep bands, 25%. Cream text 11.41:1</span></div>
+    <div class="sw" style="background:var(--gold)">Gold #D8B471<span>Portrait field, jobs header, 12%. Navy only, 6.66:1</span></div>
+    <div class="sw" style="background:var(--aqua)">Aqua #AFECF1<span>Portrait field, tile, 10%. Navy 10.03:1</span></div>
+    <div class="sw" style="background:var(--blue);color:var(--navy)">Blue #238FC8<span>Marks only</span></div>
+    <div class="sw" style="background:var(--paper);box-shadow:inset 0 0 0 1px rgba(20,50,81,.2)">Paper #FBFAF0<span>Reading</span></div>
+    <div class="sw" style="background:var(--link);color:var(--paper)">Link #1B6A98<span>Links</span></div>
+  </div>
+  <p class="swnotes">Navy is the only text colour on light grounds; cream and gold the only text colours on navy (gold 6.66:1). Identity blue #238FC8 never carries small text (3.14:1 on cream): it is for marks, sticker fields and large display on navy (3.64:1, large only). Link blue #1B6A98 is derived from it: 5.14:1 on cream, 5.63:1 on paper; never placed on gold (3.0:1). There is no black in the system.</p>
+
+  <h4>Type: a heavy grotesque, and a soft italic for the human word</h4>
+  <div class="type">
+    <div class="spec">
+      <div class="spec-big d">Nine <i>trades</i></div>
+      <small>Schibsted Grotesk 900 (display), 800 (headings), 500–700 (UI, labels, figures' labels) · Fraunces Italic 400, opsz 144, SOFT 50 (the human word, qualifiers) · Fraunces Roman 400, opsz 14–30 (long reading, footnotes). Both Google Fonts, both variable, both in Webflow's Google list.</small>
+    </div>
+    <div class="scale">
+      <div><span>Display<br>1440 / 375</span><b class="d" style="font-size:64px">112 / 46 <i>px</i></b></div>
+      <div><span>H2<br>1440 / 375</span><b class="d" style="font-size:44px">84 / 36 <i>px</i></b></div>
+      <div><span>Stat figure<br>1440 / 375</span><b class="d" style="font-size:40px">104 / 64</b></div>
+      <div><span>Trade caption<br>both</span><b style="font:700 19px var(--display)"><i style="font-size:22px">Millwrights</i> 22 + 19 / 16</b></div>
+      <div><span>Body<br>1440 / 375</span><span class="serif" style="font-size:20px;opacity:1">Fraunces 21/30, 17/25. Plain, warm, specific.</span></div>
+      <div><span>Label<br>both</span><span style="font:600 14px var(--display);opacity:1">Schibsted 600, 13–15, sentence case. No caps.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEVICES ============ -->
+<section class="devices">
+  <div>
+    <p class="eyebrow" style="margin-bottom:14px">Home hero · 1440 (scaled) · locked copy</p>
+    <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+      <div class="scaler"><div class="site">
+        <div class="alert"><b>News · 4 September 2026</b> Homer City Energy Campus workforce grows to more than 1,800 workers, including members of 9 building and construction trade unions <a>View all</a></div>
+        <div class="nav"><div class="lg">Logo as-is<br>(vector needed)</div><span class="sp"></span><span>What we’re building</span><span>Who we are</span><span>Careers</span><span>Community stewardship</span><span>FAQs</span><span>News &amp; resources</span><span class="btn" style="font-size:15px;padding:12px 20px">Contact us</span></div>
+        <h1 class="d hero-h">Building America’s energy future by drawing on <i>Pennsylvania’s proud past.</i></h1>
+        <div class="hero-row">
+          <p>A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.</p>
+          <div style="display:flex;gap:14px;padding-top:6px"><span class="btn">Meet the tradesmen and women →</span><span class="btn ghost">See what we’re building →</span></div>
+        </div>
+        <div class="hero-strip" id="herostrip"></div>
+      </div></div>
+    </div>
+    <p class="app-cap">The hero is people and type, not a skyline. The strip scrolls sideways (all nine trades); each tile opens its trade.</p>
+  </div>
+  <div class="mobile-col">
+    <p class="eyebrow" style="margin-bottom:14px">375 · hero + workforce</p>
+    <div class="phone-crop"><div class="phone">
+      <div class="m-alert"><b>What’s happening at the Homer City Energy Campus</b>Heavy equipment transport to Homer City Energy Campus begins September 16.</div>
+      <div class="m-nav"><div class="lg">Logo as-is<br>(vector needed)</div><span class="m-menu">Menu</span></div>
+      <h1 class="d m-h">Building America’s energy future by drawing on <i>Pennsylvania’s proud past.</i></h1>
+      <p class="m-p">A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.</p>
+      <div class="m-btn"><span class="btn">Meet the tradesmen and women →</span></div>
+      <div class="m-strip" id="mstrip"></div>
+      <div class="m-work">
+        <span class="eyebrow" style="opacity:.85">Careers</span>
+        <h3 class="d">Meet the <i>tradesmen and women</i> building the campus</h3>
+        <div class="rc"><span class="fig">1,800+</span><p class="lab">Direct-hire tradespeople and skilled contractors active on site, <i>as of September 2026</i></p><span class="flag">Tier A · confirm wording before publishing</span></div>
+        <div class="rc"><span class="fig">~95%</span><p class="lab">Of the skilled direct-hire craft workforce is from the local area</p><span class="flag">Tier A · confirm before publishing</span></div>
+        <div class="rc"><span class="fig">135+</span><p class="lab">Apprentices training alongside experienced journeymen</p><span class="flag">Tier A · confirm before publishing</span></div>
+        <div class="rc"><span class="fig">9</span><p class="lab">Local union organizations represented on site</p><span class="flag">Tier A · confirm before publishing</span></div>
+        <div class="rc"><span class="q">Projected</span><span class="fig">~2,000</span><p class="lab">Total workers by year-end 2026</p><span class="flag">Tier A · confirm before publishing</span></div>
+        <div class="rc"><span class="q">Anticipated</span><span class="fig">10,000+<sup>1</sup></span><p class="lab">Direct on-site construction-related jobs</p><p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p></div>
+        <div class="rc"><span class="q">Anticipated</span><span class="fig">~1,000<sup>2</sup></span><p class="lab">Total direct &amp; indirect permanent high-paying positions in technology, operations and energy infrastructure</p><p class="fn"><sup>2</sup> Anticipated total number of direct and indirect permanent positions to support the operations of both the natural gas-powered plant and all aspects of the data center campus once running at full capacity following the completion of the construction based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p></div>
+        <div style="padding-top:18px"><span class="btn cream">Find work on the campus →</span></div>
+      </div>
+    </div></div>
+    <p class="app-cap">Cropped here; the full 375 page (hero, strip, all seven figures with both footnotes) is exported separately.</p>
+  </div>
+</section>
+
+<!-- ============ THE RECEIPT, 1440 ============ -->
+<section class="numbers">
+  <div class="head">
+    <h3 class="d">Who’s <i>on site</i>, counted</h3>
+    <p>The receipt: qualifier in italic above the figure, the date inside the label, the footnote under it. Set as one piece of type, at every size, so none of it can fall off a layout.</p>
+  </div>
+  <div class="ledger">
+    <div class="rc"><span class="q">As of September 2026</span><span class="fig">1,800+</span><p class="lab">Direct-hire tradespeople and skilled contractors active on site</p><span class="flag">Tier A · confirm wording</span></div>
+    <div class="rc"><span class="q">From the local area</span><span class="fig">~95%</span><p class="lab">Of the skilled direct-hire craft workforce is from the local area</p><span class="flag">Tier A · confirm before publishing</span></div>
+    <div class="rc"><span class="q">Learning on the job</span><span class="fig">135+</span><p class="lab">Apprentices training alongside experienced journeymen</p><span class="flag">Tier A · confirm before publishing</span></div>
+    <div class="rc"><span class="q">Projected</span><span class="fig">~2,000</span><p class="lab">Total workers by year-end 2026</p><span class="flag">Tier A · confirm before publishing</span></div>
+  </div>
+  <div class="ledger" style="margin-top:28px;grid-template-columns:1fr 3fr">
+    <div class="rc"><span class="q">Represented on site</span><span class="fig">9</span><p class="lab">Local union organizations represented on site</p><span class="flag">Tier A · confirm before publishing</span></div>
+    <div class="rc"><span class="q">The trades</span><p class="d" style="font-size:52px;line-height:1.02;letter-spacing:-.035em;margin-top:4px">Boilermakers, carpenters, electricians, ironworkers, laborers, millwrights, operators, pipefitters, <i style="color:var(--gold)">teamsters</i>.</p><p class="lab">Nine unions are counted; the roster is not yet public (open question #2), so no union is named here.</p></div>
+  </div>
+  <div class="ledger2">
+    <div class="rc"><span class="q">Anticipated</span><span class="fig">10,000+<sup>1</sup></span><p class="lab">Direct on-site construction-related jobs</p><p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p></div>
+    <div class="rc"><span class="q">Anticipated</span><span class="fig">~1,000<sup>2</sup></span><p class="lab">Total direct &amp; indirect permanent high-paying positions in technology, operations and energy infrastructure</p><p class="fn"><sup>2</sup> Anticipated total number of direct and indirect permanent positions to support the operations of both the natural gas-powered plant and all aspects of the data center campus once running at full capacity following the completion of the construction based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p></div>
+  </div>
+</section>
+
+<!-- ============ IN THE WORLD ============ -->
+<section class="apps">
+  <h4>In the world</h4>
+  <p class="sub">Hoarding on Power Plant Road, stickers for hard hats, a patch for a vest, social cards that carry their footnotes, the jobs page and the construction-update email.</p>
+
+  <div class="billboard">
+    <div class="bb-type">
+      <p class="eyebrow" style="opacity:.85">Careers · Homer City Energy Campus · 1750 Power Plant Rd</p>
+      <h3 class="d">Meet the <i>tradesmen and women</i> building the campus</h3>
+      <div class="row"><span>Find work on the campus →<br><span style="font-weight:400">HomerCity.Info@Kiewit.com</span></span><div class="mini-tile" style="background:var(--cream);color:var(--navy);width:84px;height:84px;border-radius:18px">Logo as-is</div></div>
+    </div>
+    <div class="standin" style="background-image:url(../../content/imagery/13-steel-frame-long-view.jpg)"><span class="lbl">Stand-in — suspected generated image, not a photograph of the campus. Final: a real portrait of one tradesperson at work, by trade, with consent.</span></div>
+  </div>
+  <p class="app-cap">Site hoarding / billboard, 48-sheet. <span>Navy and cream. Gold appears only as the italic word, never as a field behind black.</span></p>
+
+  <div class="stickers" id="stickers"></div>
+  <p class="app-cap">Hard-hat stickers, one per trade, 50 mm round. <span>Italic trade name, small grotesque line beneath. Fields rotate through navy, aqua, cream and gold, always with navy or cream type; never black.</span></p>
+
+  <div class="patches">
+    <div class="vest"><span class="note">Vest colour is the contractor’s; the patch is ours</span>
+      <div class="patch"><i>Ironworker</i><span>Building the Homer City Energy Campus</span></div></div>
+    <div class="social"><div><span class="q">Anticipated</span><div class="fig">10,000+<sup>1</sup></div><p class="lab">Direct on-site construction-related jobs</p></div>
+      <div><p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p><div class="ft" style="margin-top:12px"><span>Homer City Energy Campus</span><span class="mt">Logo as-is</span></div></div></div>
+    <div class="social navy"><div><span class="q" style="color:var(--gold)">As of September 2026</span><div class="fig">1,800+</div><p class="lab">Direct-hire tradespeople and skilled contractors active on site</p></div>
+      <div><p class="d" style="font-size:34px;letter-spacing:-.035em;line-height:1">Nine trades. <i style="color:var(--gold)">From the local area.</i></p><div class="ft" style="margin-top:14px"><span class="flag" style="color:var(--gold)">Tier A · confirm before publishing</span><span class="mt">Logo as-is</span></div></div></div>
+  </div>
+  <p class="app-cap">Hi-vis patch (woven, 100 × 45 mm) · social cards, 1080 square. <span>The footnote is part of the card, set in the same serif at the smallest legible size, not a link to it.</span></p>
+
+  <div class="jobs">
+    <div class="jobs-page">
+      <div class="jp-head"><p class="eyebrow">Careers</p><h3 class="d">Job <i>opportunities</i></h3><p>Kiewit Power Constructors leads construction hiring in coordination with our local unions. Each row opens Kiewit’s union craft opportunities page.</p></div>
+      <div class="jrow"><div><b><i>Boilermakers</i></b><span>Union craft · Hiring via Kiewit · Homer City Energy Campus · Indiana County, PA</span></div><span class="go">Open →</span></div>
+      <div class="jrow"><div><b><i>Carpenters</i></b><span>Union craft · Hiring via Kiewit · Homer City Energy Campus · Indiana County, PA</span></div><span class="go">Open →</span></div>
+      <div class="jrow"><div><b><i>Electricians</i></b><span>Union craft · Hiring via Kiewit · Homer City Energy Campus · Indiana County, PA</span></div><span class="go">Open →</span></div>
+      <div class="jrow"><div><b><i>Heavy equipment operators</i></b><span>Union craft · Hiring via Kiewit · Homer City Energy Campus · Indiana County, PA</span></div><span class="go">Open →</span></div>
+    </div>
+    <div class="rollover">
+      <p class="eyebrow">Trade tile · three states, one content</p>
+      <div class="ro"><div class="ph f-aqua"><div class="brief"><b>Portrait brief</b>Millwright, chest-up, aqua sheet.</div></div><div><span class="state">Rest</span><h5><i>Millwrights</i></h5><p style="opacity:.7">Caption by trade only.</p></div></div>
+      <div class="ro focus"><div class="ph f-aqua" style="transform:scale(1.03)"><div class="brief"><b>Portrait brief</b>Millwright, chest-up, aqua sheet.</div></div><div><span class="state">Hover · keyboard focus · tap (one state)</span><h5><i>Millwrights</i></h5><p>Trained to install, maintain, diagnose, repair, assemble and align complex industrial machinery.</p><p style="font:700 14px var(--display);color:var(--link);text-decoration:underline;margin-top:10px">Find work on the campus →</p></div></div>
+    </div>
+  </div>
+  <p class="app-cap">Jobs page header, on a gold field with navy type, and the trades rollover. <span>The description is in the DOM at rest (visually revealed on hover, focus or tap) so a screen reader and a phone get the same words.</span></p>
+
+  <div class="email"><div class="mail">
+    <div class="top"><span class="mini-tile" style="background:var(--cream);color:var(--navy);width:52px;height:52px;border-radius:12px">Logo as-is</span><span>Construction update · September 2026</span></div>
+    <div class="standin" style="height:230px;background-image:url(../../content/imagery/07-campus-landscape-aerial.jpg)"><span class="lbl">Stand-in — suspected generated image, not a photograph of the campus</span></div>
+    <div class="body"><p class="eyebrow">News · 4 September 2026</p><h3 class="d" style="margin-top:10px">Homer City Energy Campus workforce grows to more than <i>1,800 workers</i>, including members of 9 building and construction trade unions</h3><p class="eyebrow" style="margin-top:16px">Questions? info@homercityredevelopment.com</p></div>
+  </div></div>
+  <p class="app-cap">Construction-update email. <span>Headline from the 4 September 2026 release; verbatim; the italic falls on the people it counts.</span></p>
+</section>
+
+<!-- ============ AVOID ============ -->
+<section class="avoid">
+  <div><h4 class="d">Not <i>Kiewit’s</i> colours</h4>
+    <div class="kw"><div style="background:var(--gold);color:var(--navy)">Gold field, navy type: yes</div><div style="background:var(--navy);color:var(--gold)">Navy field, gold italic: yes</div><div style="background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(243,241,208,.5)">Never: yellow on black, squared caps, hazard stripes</div></div></div>
+  <ul>
+    <li><b>No yellow-on-black, no black at all.</b> The darkest colour is navy #143251. Gold #D8B471 is a muted ochre (not a safety yellow) and carries navy type only.</li>
+    <li><b>No squared caps.</b> Sentence case throughout; the brand word is a soft serif italic, the opposite of a stencil.</li>
+    <li><b>No gold as the lead field.</b> Cream and navy lead; gold is one portrait field among four and the jobs header.</li>
+    <li><b>No names, no faces we don’t have.</b> Captions by trade; portraits are briefs until real, consented photographs exist.</li>
+    <li><b>No hazard stripes, chevrons or stencils.</b> Those belong to the site’s safety signage and the contractor.</li>
+  </ul>
+</section>
+
+<script>
+const T=[
+ ['Boilermakers','Supporting critical mechanical construction and equipment installation activities.','gold','a boilermaker in their own work gear, chest-up, looking to camera; soft morning side light; painted gold sheet behind, on site'],
+ ['Carpenters','Who perform concrete form work, scaffolding and other critical construction activities.','aqua','a carpenter beside formwork, chest-up; overcast daylight; aqua sheet'],
+ ['Electricians','Supporting all aspects of electrical work on the site.','navy','an electrician, chest-up, tools as worn; warm key light; navy sheet'],
+ ['Ironworkers','Specializing in structural steel erection, concrete/reinforcing steel, pre-engineered metal buildings, welding, rigging/machinery moving and other industrial construction activities.','cream','an ironworker after a shift, chest-up; late light; cream sheet'],
+ ['Laborers','Experienced in large-scale construction and the operation of related heavy machinery.','gold','a laborer, chest-up, own gear; gold sheet'],
+ ['Millwrights','Trained to install, maintain, diagnose, repair, assemble and align complex industrial machinery.','aqua','a millwright, chest-up; aqua sheet'],
+ ['Operators','Specializing in the construction industry.','navy','a heavy equipment operator at the cab step; navy sheet'],
+ ['Pipefitters','Who specialize in installing all piping systems and equipment on site.','cream','a pipefitter, chest-up; cream sheet'],
+ ['Teamsters','Engaged in jobsite transportation, logistics and materials handling.','gold','a teamster by their truck door; gold sheet'],
+];
+const guide=c=>`<svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="currentColor" opacity=".13"><ellipse cx="50" cy="60" rx="15" ry="19"/><path d="M10 125 C12 96 30 84 50 84 C70 84 88 96 90 125Z"/></g></svg>`;
+const tile=(t,brief=true,short=false)=>`<div><div class="ph f-${t[2]}">${guide()}<div class="brief"><b>Portrait brief · ${t[0].toLowerCase().replace(/s$/,'')}</b>${short?'':t[3]+'. '}Real, consented photograph; no name until supplied.</div></div><p class="cap"><i>${t[0]}</i>${short?'':`<small>${t[1]}</small>`}</p></div>`;
+document.getElementById('strip').innerHTML=T.slice(0,5).map(t=>tile(t)).join('');
+document.getElementById('strip2').innerHTML=T.slice(5).map(t=>tile(t)).join('');
+document.getElementById('herostrip').innerHTML=T.slice(0,6).map(t=>tile(t,true,true)).join('');
+document.getElementById('mstrip').innerHTML=T.slice(0,4).map(t=>tile(t,true,true)).join('');
+const sf=[['navy','var(--cream)'],['aqua','var(--navy)'],['cream','var(--navy)'],['gold','var(--navy)']];
+document.getElementById('stickers').innerHTML=T.map((t,i)=>{const s=sf[i%4];return `<div class="stk" style="background:var(--${s[0]});color:${s[1]}"><i style="${t[0].length>10?'font-size:19px':''}">${t[0].replace(/s$/,'')}</i><span>Building the Homer City Energy Campus</span></div>`}).join('');
+if(location.hash==='#m375')document.body.classList.add('m375');
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>Since 1969 · Direction 03</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&family=Instrument+Sans:wght@400;500;600&family=Archivo:wdth,wght@125,600;125,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143251; --ink:#0C1F33; --cream:#F3F1D0; --paper:#FAF8E8;
+  --gold:#D8B471; --gold-ink:#7A5A1E; --blue:#238FC8; --link:#1B5E8A; --aqua:#AFECF1;
+  --rule-dark:#F3F1D040; --rule-light:#14325126;
+}
+*{box-sizing:border-box}
+body{margin:0;width:1440px;background:var(--cream);color:var(--navy);font:400 17px/1.5 'Instrument Sans',sans-serif}
+.serif{font-family:Cormorant,serif;font-variant-numeric:lining-nums}
+em{font-style:italic}
+.wrap{padding:0 64px}
+.lab-col{display:grid;grid-template-columns:260px 1fr;gap:40px}
+.k{font-family:'Instrument Sans';font-size:13px;font-weight:600;letter-spacing:.02em}
+.note{font-size:12px;color:#14325199}
+/* ---------- case-study chrome (agency register, not the brand) ---------- */
+.chrome{display:flex;justify-content:space-between;align-items:center;padding:22px 64px}
+.pills{display:flex;gap:6px}.pills span{font-family:Cormorant;font-weight:600;font-size:15px;padding:5px 14px;border-radius:999px;background:#14325112}
+.pills span.on{background:var(--navy);color:var(--cream)}
+.intro{padding:70px 64px 90px}
+.intro .k{margin-bottom:28px}
+.intro h1{font-family:Archivo;font-stretch:125%;font-weight:700;font-size:74px;line-height:1.04;letter-spacing:-.02em;margin:0;max-width:1240px}
+.intro .chromenote{margin-top:26px;font-size:12px;color:#14325199}
+/* ---------- reveal ---------- */
+.reveal{background:var(--navy);height:880px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.reveal svg{width:470px;height:470px}
+.reveal .cap{position:absolute;left:64px;bottom:40px;color:#F3F1D0B3;font-size:13px}
+.reveal .cap b{color:var(--gold);font-weight:600}
+/* ---------- long copy ---------- */
+.long{padding:120px 64px 40px}
+.long p{font-family:Cormorant;font-weight:500;font-size:50px;line-height:1.12;margin:0 0 36px;max-width:1180px;font-variant-numeric:lining-nums}
+.long p em{color:var(--gold-ink)}
+.over{padding:30px 64px 120px}
+.over .lab-col{border-top:1px solid var(--rule-light);padding-top:22px}
+.over p{margin:0 0 14px;max-width:640px}
+.over .pos{font-family:Cormorant;font-size:30px;line-height:1.15;font-weight:500;margin:0 0 18px}
+.over .pos em{color:var(--gold-ink)}
+/* ---------- statement ---------- */
+.statement{background:var(--paper);padding:150px 64px 140px;text-align:center}
+.statement h2{font-family:Cormorant;font-weight:500;font-size:116px;line-height:.98;letter-spacing:-.005em;text-transform:uppercase;margin:0 auto;max-width:1300px}
+.statement h2 em{text-transform:none;color:var(--gold-ink);font-size:1.06em}
+.statement p{margin:44px auto 0;max-width:560px;font-size:15px}
+/* ---------- full bleed stand-in ---------- */
+.bleed{height:720px;position:relative;background:center/cover}
+.stand{position:absolute;left:24px;top:24px;background:#0C1F33E6;color:var(--cream);font-size:13px;line-height:1.3;padding:8px 12px;max-width:440px}
+.bleed .over-fan{position:absolute;right:64px;bottom:64px;width:300px}
+/* ---------- palette ---------- */
+.sec{padding:120px 64px}
+.sec-h{display:grid;grid-template-columns:260px 1fr;gap:40px;border-top:1px solid var(--rule-light);padding-top:22px;margin-bottom:56px}
+.sec-h p{margin:0;max-width:700px}
+.palette{display:flex;height:520px}
+.sw{padding:22px;display:flex;flex-direction:column;justify-content:space-between;font-size:13px;line-height:1.4}
+.sw .nm{font-family:Cormorant;font-size:40px;line-height:1;font-weight:500}
+.sw .nm em{font-size:.7em}
+.contrast{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:28px;border-top:1px solid var(--rule-light)}
+.contrast div{padding:14px 14px 14px 0;font-size:13px;border-bottom:1px solid var(--rule-light)}
+.contrast b{font-family:Cormorant;font-size:26px;font-weight:600;display:block;line-height:1.1}
+.chip{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:-2px;margin-right:2px;outline:1px solid #14325122}
+/* ---------- type ---------- */
+.type{display:grid;grid-template-columns:1.25fr 1fr;gap:64px}
+.spec-big{font-family:Cormorant;font-weight:500;font-size:200px;line-height:.85;letter-spacing:-.02em;text-transform:uppercase}
+.spec-big em{text-transform:none;color:var(--gold-ink)}
+.typetable{width:100%;border-collapse:collapse;font-size:13px}
+.typetable td{border-top:1px solid var(--rule-light);padding:10px 8px 10px 0;vertical-align:baseline}
+.typetable td:first-child{font-weight:600;width:120px}
+/* ---------- emblems ---------- */
+.emb{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.emb>div{height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;gap:14px}
+.emb .t{position:absolute;left:16px;bottom:14px;right:16px;font-size:12px;line-height:1.35}
+.stamp{border:2px solid currentColor;border-radius:999px;padding:12px 26px;text-align:center;font-family:Cormorant;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:15px;line-height:1.15}
+.stamp big{display:block;font-size:34px;letter-spacing:.02em;font-style:italic;text-transform:none;font-weight:500}
+.kind{font-family:'Instrument Sans';font-size:12px;font-weight:600;letter-spacing:.04em;padding:6px 12px;border-radius:2px}
+.logo-ph{border:1.5px dashed currentColor;padding:18px 26px;font-size:13px;letter-spacing:.04em;text-align:center;line-height:1.35}
+/* ---------- website ---------- */
+.browser{background:var(--navy);color:var(--cream)}
+.alertbar{background:var(--gold);color:var(--navy);display:flex;gap:18px;align-items:center;padding:12px 64px;font-size:14px}
+.alertbar b{font-weight:600}.alertbar .va{margin-left:auto;font-weight:600}
+.webnav{display:flex;align-items:center;gap:28px;padding:20px 64px;border-bottom:1px solid var(--rule-dark);font-size:15px}
+.webnav .logo-ph{padding:8px 14px;font-size:11px;color:#F3F1D0CC}
+.webnav .sp{flex:1}
+.webnav .cta{background:var(--cream);color:var(--navy);padding:10px 18px;border-radius:999px;font-weight:600}
+.hero{display:grid;grid-template-columns:1.32fr 1fr;min-height:780px}
+.hero .txt{padding:84px 56px 72px 64px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--gold)}
+.hero h1{font-family:Cormorant;font-weight:500;font-size:94px;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin:22px 0 0}
+.hero h1 em{text-transform:none;color:var(--gold);font-size:1.07em}
+.hero .lede{font-size:21px;line-height:1.45;max-width:600px;margin:30px 0 0;color:#F3F1D0E6}
+.btn{display:inline-flex;margin-top:32px;background:var(--cream);color:var(--navy);padding:15px 24px;border-radius:999px;font-weight:600}
+.hero .pic{position:relative;background:url(../../content/imagery/07-campus-landscape-aerial.jpg) 40% center/cover}
+.hero .pic .seal{position:absolute;left:-72px;bottom:72px;width:144px;height:144px}
+.hero .pic .rise{position:absolute;left:50%;top:0;width:260px;margin-left:-130px;transform:translateY(-1px)}
+.hero .pic .stand{top:auto;bottom:24px;left:auto;right:24px;max-width:330px}
+/* ---------- ledger ---------- */
+.ledger{background:var(--navy);color:var(--cream);padding:120px 64px 110px}
+.ledger .sec-h{border-color:var(--rule-dark)}
+.ledger h2{font-family:Cormorant;font-weight:500;font-size:84px;line-height:.95;text-transform:uppercase;margin:0}
+.ledger h2 em{text-transform:none;color:var(--gold)}
+.lrow{display:grid;grid-template-columns:1fr 470px;gap:40px;border-top:1px solid var(--rule-dark);padding:30px 0 34px;align-items:start}
+.lrow:last-child{border-bottom:1px solid var(--rule-dark)}
+.q{font-family:Cormorant;font-style:italic;font-weight:500;font-size:34px;color:var(--gold);line-height:1}
+.fig{font-family:Cormorant;font-weight:500;font-size:190px;line-height:.82;letter-spacing:-.025em;font-variant-numeric:lining-nums;margin-top:6px}
+.fig sup{font-size:.28em;color:var(--gold);font-style:italic;vertical-align:top;position:relative;top:.2em;margin-left:6px}
+.fig small{font-size:.48em;letter-spacing:0}
+.lab{font-size:19px;line-height:1.4;padding-top:18px}
+.fn{font-size:13px;line-height:1.5;color:#F3F1D0CC;margin-top:16px;padding-left:18px;position:relative}
+.fn span{position:absolute;left:0;top:-4px;color:var(--gold);font:italic 500 19px Cormorant}
+.asof{display:inline-flex;align-items:center;gap:10px;margin-top:16px;border:1.5px solid var(--gold);color:var(--gold);border-radius:999px;padding:5px 16px 5px 5px;font-size:13px;font-weight:600;letter-spacing:.03em}
+.asof svg{width:26px;height:26px}
+.src{font-size:12px;color:#F3F1D099;margin-top:14px}
+/* ---------- essay ---------- */
+.essay{background:var(--cream);padding:120px 0 120px 64px}
+.essay h2{font-family:Cormorant;font-weight:500;font-size:150px;line-height:.85;text-transform:uppercase;margin:0;letter-spacing:-.01em}
+.essay h2 em{text-transform:none;color:var(--gold-ink)}
+.strip{display:flex;gap:18px;margin-top:64px;overflow:hidden;padding-right:64px}
+.fr{flex:0 0 250px}
+.fr.big{flex-basis:420px}
+.fr .date{font-family:Cormorant;font-weight:600;font-size:30px;letter-spacing:.06em;text-transform:uppercase;border-top:2px solid var(--navy);padding-top:10px;line-height:1}
+.fr .ph{height:300px;margin-top:14px;background:repeating-linear-gradient(135deg,#1432510f 0 1px,transparent 1px 14px),#E9E6C2;color:var(--navy);padding:16px;font-size:12.5px;line-height:1.4;display:flex;flex-direction:column;justify-content:space-between}
+.fr.big .ph{background:var(--navy);color:var(--cream)}
+.fr .ph b{font-weight:600}
+.fr .cap{font-size:15px;margin-top:12px;line-height:1.35}
+.fr .cap i{display:block;font-size:12px;color:#143251B3;font-style:normal;margin-top:4px}
+.essay .flag{margin-top:34px;max-width:880px;font-size:13px;padding-left:16px;border-left:2px solid var(--gold-ink)}
+/* ---------- applications ---------- */
+.apps{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.stage{height:780px;display:flex;align-items:center;justify-content:center;position:relative}
+.stage .t{position:absolute;left:24px;bottom:18px;font-size:12px;right:24px}
+/* gate sign */
+.gate{width:470px;background:var(--navy);color:var(--cream);padding:40px 38px 34px;position:relative;box-shadow:0 30px 60px -30px #0C1F3399}
+.gate:before,.gate:after{content:"";position:absolute;bottom:-140px;width:18px;height:140px;background:#0C1F33}
+.gate:before{left:60px}.gate:after{right:60px}
+.gate .top{display:flex;justify-content:space-between;align-items:flex-start}
+.gate h3{font-family:Cormorant;font-weight:500;font-size:62px;line-height:.92;text-transform:uppercase;margin:26px 0 0}
+.gate h3 em{text-transform:none;color:var(--gold)}
+.gate .addr{font-size:15px;margin-top:20px;border-top:1px solid var(--rule-dark);padding-top:14px}
+.gate .rows{font-size:13px;margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;color:#F3F1D0D9}
+/* fact sheet */
+.sheet{width:420px;height:560px;background:var(--cream);color:var(--navy);padding:34px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px #0C1F33AA;position:relative}
+.sheet h3{font-family:Cormorant;font-weight:500;font-size:68px;line-height:.9;text-transform:uppercase;margin:auto 0 0}
+.sheet h3 em{text-transform:none;color:var(--gold-ink)}
+.sheet .meta{display:flex;justify-content:space-between;font-size:12px;font-weight:600;border-top:1px solid var(--rule-light);padding-top:10px;margin-top:22px}
+/* social */
+.social{width:500px;height:500px;background:var(--navy);color:var(--cream);padding:34px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px #000}
+.social .q{font-size:30px}
+.social .fig{font-size:150px;margin-top:4px}
+.social .lab{font-size:19px;padding-top:12px}
+.social .fn{font-size:10.5px;margin-top:auto}
+/* poster */
+.poster{width:440px;height:620px;background:var(--gold);color:var(--navy);padding:34px 34px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 30px 60px -30px #0C1F33AA}
+.poster .s{font-family:Cormorant;font-weight:600;letter-spacing:.18em;font-size:14px;text-transform:uppercase}
+.poster h3{font-family:Cormorant;font-weight:500;font-size:132px;line-height:.8;text-transform:uppercase;margin:18px 0 0;letter-spacing:-.01em}
+.poster h3 em{text-transform:none;display:block;font-size:.9em}
+.poster p{font-size:15px;max-width:300px;margin:auto 0 0;line-height:1.4}
+/* email */
+.email{width:600px;background:#fff;box-shadow:0 30px 60px -30px #0C1F3399;font-size:15px}
+.email .hd{background:var(--navy);color:var(--cream);padding:28px 32px;display:flex;gap:22px;align-items:center}
+.email .hd h3{font-family:Cormorant;font-weight:500;font-size:44px;line-height:.95;text-transform:uppercase;margin:0}
+.email .hd h3 em{text-transform:none;color:var(--gold)}
+.email .bd{padding:26px 32px 30px;color:var(--navy)}
+.email .bd h4{font-family:Cormorant;font-weight:600;font-size:30px;line-height:1.05;margin:10px 0 12px}
+.email .bd a{color:var(--link);font-weight:600}
+/* sticker */
+.stickers{display:grid;grid-template-columns:repeat(3,150px);gap:22px}
+.stk{width:150px;height:150px}
+/* avoid */
+.avoid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.avoid div{border-top:1px solid var(--rule-dark);padding-top:16px;font-size:15px;color:#F3F1D0D9}
+.avoid b{display:block;font-family:Cormorant;font-size:30px;font-weight:500;color:var(--cream);line-height:1.05;margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<!-- ============ CASE-STUDY CHROME ============ -->
+<div class="chrome"><div class="pills"><span>Directions</span><span class="on">03 · Since 1969</span><span>Homer City Energy Campus</span></div><div class="pills"><span>Mood board</span><span>November 2026</span></div></div>
+<section class="intro">
+  <div class="k">Direction 03 — Since 1969</div>
+  <h1>Homer City committed to its own story. With a brand that carries a generating station from 1969 into a campus under construction.</h1>
+  <div class="chromenote">Case-study chrome (wide grotesque, pills) is the presentation register, not part of the brand. The brand is everything below.</div>
+</section>
+
+<!-- ============ EMBLEM REVEAL ============ -->
+<section class="reveal">
+  <svg data-seal="goldline" viewBox="0 0 200 200" aria-label="Campus seal"></svg>
+  <div class="cap"><b>The campus seal.</b> A secondary emblem, beside the logo, never instead of it. Seven rays, one for each GE Vernova 7HA.02 turbine in the Power Block, rising from one horizon. “19 ✦ 69” is the year the Homer City Generating Station began producing power on this site.</div>
+</section>
+
+<!-- ============ LONG COPY ============ -->
+<section class="long">
+  <p>The Homer City Generating Station produced power on this site from 1969 to 2023. In April 2025, a plan was unveiled to build the Homer City Energy Campus in its place.</p>
+  <p>This direction treats that as one long story. <em>Heritage reinvigorated</em>, the way a good old firm is relaunched: a seal, a refined serif, navy and gold used at full strength. Not sepia. Not a museum.</p>
+</section>
+<section class="over">
+  <div class="lab-col"><div class="k">Positioning</div><div>
+    <div class="pos">A generating station <em>from 1969</em>. A campus under construction <em>now</em>. One place, one long story — and every figure in it signed and dated.</div>
+    <p><b>Voice test.</b> No other energy company can say 1969, Indiana County and the former Homer City Generating Station in one sentence. Swap the name and the line stops being true.</p>
+  </div></div>
+  <div class="lab-col" style="margin-top:28px;border-top:1px solid var(--rule-light);padding-top:22px"><div class="k">Drawn from</div><div>
+    <p><b>Globe-Trotter</b> (re-globe-trotter f07, f10–f13): the crest with a date split by a mark (“18 ✦ 97”), gold on navy at full scale, the blind-embossed mark on cream, a refined serif headline with one italic word (“128 years and <em>counting</em>”).</p>
+    <p><b>Papier</b> (re-papier f01, f04, f05, f09, f10, f13): the fan mark, set huge; refined caps interrupted by lower-case italics (“PURVEYORS <em>of the</em> POTENTIALLY REMARKABLE”); products shot on flat colour fields.</p>
+  </div></div>
+</section>
+
+<!-- ============ STATEMENT ============ -->
+<section class="statement">
+  <h2>Building America’s <em>energy future</em> by drawing on Pennsylvania’s <em>proud past.</em></h2>
+  <p>The fact sheet’s own positioning line, May 2026, and the locked hero H1. Caps carry the claim; the italic is the human part.</p>
+</section>
+
+<!-- ============ FULL BLEED ============ -->
+<section class="bleed" style="background-image:url(../../content/imagery/13-steel-frame-long-view.jpg)">
+  <div class="stand">Stand-in — suspected generated image, not a photograph of the campus</div>
+  <svg class="over-fan" data-fan="#F3F1D0"></svg>
+</section>
+
+<!-- ============ PALETTE ============ -->
+<section class="sec">
+  <div class="sec-h"><div class="k">Colour · Anchored</div><p>The five client colours used as owned fields, not tints. Navy and cream alternate down the page; gold is foil — the seal, the qualifier, the footnote numeral; one gold field per page at most, always with navy type. Blue and aqua are rare, full-strength moments.</p></div>
+  <div class="palette">
+    <div class="sw" style="flex:38;background:var(--navy);color:var(--cream)"><div class="nm">Station <em>navy</em></div><div>#143251 · 38%<br>Hero, ledger, signage. Cream text 11.41:1 · gold text 6.66:1</div></div>
+    <div class="sw" style="flex:30;background:var(--cream);color:var(--navy);box-shadow:inset 0 0 0 1px #14325122"><div class="nm">Field <em>cream</em></div><div>#F3F1D0 · 30%<br>Reading ground. Navy text 11.41:1</div></div>
+    <div class="sw" style="flex:12;background:var(--gold);color:var(--navy)"><div class="nm">Foil <em>gold</em></div><div>#D8B471 · 12%<br>Seal, qualifiers, alert bar. Navy text 6.66:1</div></div>
+    <div class="sw" style="flex:8;background:var(--paper);color:var(--navy);box-shadow:inset 0 0 0 1px #14325122"><div class="nm"><em>Paper</em></div><div>#FAF8E8 · 8%<br>Statements, forms</div></div>
+    <div class="sw" style="flex:6;background:var(--blue);color:var(--ink)"><div class="nm"><em>Blue</em></div><div>#238FC8<br>Display only. Ink 4.63:1</div></div>
+    <div class="sw" style="flex:6;background:var(--aqua);color:var(--navy)"><div class="nm"><em>Aqua</em></div><div>#AFECF1<br>Navy 10.03:1. Never by water</div></div>
+  </div>
+  <div class="contrast">
+    <div><b>11.41</b><span class="chip" style="background:#F3F1D0"></span> cream on navy</div>
+    <div><b>6.66</b><span class="chip" style="background:#D8B471"></span> gold on navy</div>
+    <div><b>6.07</b><span class="chip" style="background:#1B5E8A"></span> link #1B5E8A on cream</div>
+    <div><b>5.53</b><span class="chip" style="background:#7A5A1E"></span> gold-ink #7A5A1E on cream</div>
+    <div><b>4.63</b><span class="chip" style="background:#0C1F33"></span> ink #0C1F33 on blue</div>
+    <div><b>3.64</b><span class="chip" style="background:#238FC8"></span> navy on blue — 24px+ only</div>
+  </div>
+</section>
+
+<!-- ============ TYPE ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="sec-h"><div class="k">Typography</div><p>Cormorant 500/600, caps and italic, with lining figures switched on (its default old-style figures read “1,000” as small caps). Instrument Sans for everything a neighbour reads at length. Two faces, both Google Fonts, both port to Webflow.</p></div>
+  <div class="type">
+    <div><div class="spec-big">Since<br><em>1969</em></div>
+      <div class="serif" style="font-size:150px;line-height:1;letter-spacing:-.02em;margin-top:30px">10,000+ <em style="color:var(--gold-ink)">~1,000</em></div></div>
+    <div>
+      <table class="typetable">
+        <tr><td>Display</td><td><span class="serif" style="font-size:22px;font-weight:500">CORMORANT 500 · <em>italic 500</em></span><br>Caps for the claim, lower-case italic for the human word. 375: 42 / 1440: 94–116</td></tr>
+        <tr><td>Figure</td><td><span class="serif" style="font-size:22px">Cormorant 500, lining-nums</span><br>375: 84 / 1440: 190. Qualifier italic 22 / 34</td></tr>
+        <tr><td>Stamp</td><td><span class="serif" style="font-size:18px;font-weight:600;letter-spacing:.12em">CORMORANT 600 · +12%</span><br>Seals, dates, milestone stamps only. 13–15</td></tr>
+        <tr><td>Text</td><td><span style="font-size:18px">Instrument Sans 400 / 600</span><br>Body 17 / 18, lede 17 / 21, footnote 12.5 / 13. Line 1.5</td></tr>
+        <tr><td>Eyebrow</td><td><span style="font-size:13px;font-weight:600;letter-spacing:.04em">Instrument Sans 600, sentence case</span><br>Dates, scope, “as of”. 12 / 13</td></tr>
+        <tr><td>Departs</td><td>From the current system’s “no all-caps” rule — display only, via text-transform so screen readers get sentence case.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMBLEM SYSTEM ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="sec-h"><div class="k">The emblem system</div><p>One seal, one mark, and a family of stamps that do factual work: they date milestones, say “as of”, and say whether a picture is a photograph or a rendering. The logo is fixed and used as-is; the seal sits beside it, never inside it.</p></div>
+  <div class="emb">
+    <div style="background:var(--navy)"><svg data-seal="gold" viewBox="0 0 200 200" style="width:220px;height:220px"></svg><div class="t" style="color:#F3F1D0B3">Seal · gold foil on navy</div></div>
+    <div style="background:var(--cream);box-shadow:inset 0 0 0 1px #14325118"><svg data-seal="emboss" viewBox="0 0 200 200" style="width:220px;height:220px"></svg><div class="t">Seal · blind emboss on cream stock (print only; never faked on screen)</div></div>
+    <div style="background:var(--gold)"><svg data-fan="#143251" style="width:220px"></svg><div class="t">The seven-ray mark · one ray per 7HA.02 turbine</div></div>
+    <div style="background:var(--paper);color:var(--navy)"><div class="logo-ph">Logo as-is<br>client vector, unaltered</div><svg data-seal="navy" viewBox="0 0 200 200" style="width:96px;height:96px"></svg><div class="t">Lockup · logo first, seal beside it at ≤ logo height</div></div>
+    <div style="background:var(--cream);color:var(--navy);box-shadow:inset 0 0 0 1px #14325118"><div class="stamp">First steel<big>April 2026</big>Vertical construction</div><div class="t">Milestone stamp · date from the deck timeline</div></div>
+    <div style="background:var(--navy);color:var(--gold)"><div class="asof" style="font-size:15px;padding:7px 20px 7px 7px"><svg data-seal="onGold" viewBox="0 0 200 200"></svg>As of September 2026</div><div class="t" style="color:#F3F1D0B3">“As of” stamp · travels with every moving figure</div></div>
+    <div style="background:var(--paper)"><span class="kind" style="background:var(--navy);color:var(--cream)">Photograph · February 2026</span><span class="kind" style="background:var(--gold);color:var(--navy)">Rendering — not a photograph</span><span class="kind" style="background:#E9E6C2;color:var(--navy)">Archival photograph · 1969–2023</span><div class="t">Kind stamps · sit inside the image, top left, and survive every crop</div></div>
+    <div style="background:var(--blue);color:var(--ink)"><svg data-seal="ink" viewBox="0 0 200 200" style="width:200px;height:200px" data-top="POWER BLOCK" data-bottom="7 × GE VERNOVA 7HA.02" data-l="Up to" data-r="4.4 GW"></svg><div class="t">Variant seal · a fact in the ring, sourced, never decorative</div></div>
+  </div>
+</section>
+
+<!-- ============ WEBSITE 1440 ============ -->
+<section class="browser">
+  <div class="alertbar"><b>News · 4 September 2026</b><span>Homer City Energy Campus workforce grows to more than 1,800 workers, including members of 9 building and construction trade unions</span><span class="va">View all →</span></div>
+  <div class="webnav"><span class="logo-ph">Logo as-is · client vector</span><span>What we’re building ▾</span><span>Who we are</span><span>Careers ▾</span><span>Community stewardship ▾</span><span>FAQs</span><span>News &amp; resources ▾</span><span class="sp"></span><span class="cta">Contact us</span></div>
+  <div class="hero">
+    <div class="txt">
+      <div class="eyebrow">Indiana County, Pennsylvania</div>
+      <h1>Building America’s <em>energy future</em> by drawing on Pennsylvania’s <em>proud past.</em></h1>
+      <p class="lede">A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.</p>
+      <span class="btn">See what we’re building →</span>
+    </div>
+    <div class="pic"><svg class="seal" data-seal="gold" viewBox="0 0 200 200"></svg><div class="stand">Stand-in — suspected generated image, not a photograph of the campus</div></div>
+  </div>
+</section>
+
+<!-- ============ LEDGER 1440 ============ -->
+<section class="ledger">
+  <div class="sec-h"><div class="k" style="color:var(--gold)">The receipt</div><div><h2>By the numbers, <em>signed and dated</em></h2></div></div>
+  <div class="lrow"><div><div class="fig">1,800+</div></div><div><div class="lab">Direct-hire tradespeople and skilled contractors active on site</div><div class="asof"><svg data-seal="onGold" viewBox="0 0 200 200"></svg>As of September 2026</div><div class="src">CMS field, updated monthly. Wording tier A, to confirm.</div></div></div>
+  <div class="lrow"><div><div class="q">Anticipated</div><div class="fig">10,000+<sup>1</sup></div></div><div><div class="lab">Direct on-site construction-related jobs</div><div class="fn"><span>1</span>Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</div></div></div>
+  <div class="lrow"><div><div class="q">Anticipated</div><div class="fig">~1,000<sup>2</sup></div></div><div><div class="lab">Total direct &amp; indirect permanent high-paying positions in technology, operations and energy infrastructure</div><div class="fn"><span>2</span>Anticipated total number of direct and indirect permanent positions to support the operations of both the natural gas-powered plant and all aspects of the data center campus once running at full capacity following the completion of the construction based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</div></div></div>
+  <div class="lrow"><div><div class="q">Up to</div><div class="fig">4.4 <small>GW</small></div></div><div><div class="lab">Energy expected to be produced on-site</div><div class="src">Fact sheet, May 2026 · IUP deck, July 2026</div></div></div>
+</section>
+
+<!-- ============ 375 ============ -->
+<section class="sec" style="background:var(--paper)">
+  <div class="sec-h"><div class="k">375 first</div><p>The same hero and receipt at phone width. The seven rays rise off the top edge of the picture; the seal overlaps its corner. Footnotes sit inside the row they qualify, at 12.5px, never behind a tap.</p></div>
+  <div style="display:flex;gap:48px;align-items:flex-start">
+    <iframe src="03-since-1969-375.html" style="width:375px;height:1500px;border:0;box-shadow:0 30px 60px -30px #0C1F3399" title="375 hero"></iframe>
+    <iframe src="03-since-1969-375.html#x" style="width:375px;height:1500px;border:0;box-shadow:0 30px 60px -30px #0C1F3399" title="375 stats" onload="this.contentWindow.scrollTo(0,1180)"></iframe>
+    <div style="flex:1;font-size:15px;max-width:380px">
+      <p class="serif" style="font-size:40px;line-height:1.02;margin:0 0 18px;font-weight:500">The headline sets in <em style="color:var(--gold-ink)">eight lines</em> at 42px and still reads as one sentence.</p>
+      <p>Caps break wide words (“PENNSYLVANIA’S” fills the 343px column at 42px), so 42 is the ceiling at 375. The italic phrases are where the eye lands on a phone: <em>energy future</em>, <em>proud past</em>.</p>
+      <p>The alert bar is the only gold field on the page.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHOTO ESSAY ============ -->
+<section class="essay">
+  <h2>Since <em>1969</em> —<br>the site, in order</h2>
+  <p style="max-width:720px;margin:28px 0 0;font-size:17px">The IUP tour deck’s photo essay, as a dated sequence. Every date and caption below is the deck’s. Archival frames sit on navy; new ones on cream. Frames are briefs until the client library lands at full resolution.</p>
+  <div class="strip">
+    <div class="fr big"><div class="date">1969–2023</div><div class="ph"><span><b>Archival photograph needed.</b> The Homer City Generating Station in operation, stacks and towers standing. From the client archive (IUP deck, slides 7–81). Kind stamp: Archival photograph.</span><span>Brief · not a caption</span></div><div class="cap">Homer City Generating Station</div></div>
+    <div class="fr"><div class="date">Mar 2025</div><div class="ph"><span><b>Photograph needed.</b> The moment demolition begins. Deck frame “Inflection Point”.</span><span>Brief</span></div><div class="cap">Inflection Point</div></div>
+    <div class="fr"><div class="date">Nov 2025</div><div class="ph"><span><b>Photograph needed.</b> The cleared skyline from the same viewpoint as the archival frame.</span><span>Brief</span></div><div class="cap">After Stacks and Towers Down</div></div>
+    <div class="fr"><div class="date">Feb 2026</div><div class="ph"><span><b>Photograph needed.</b> Site from the north.</span><span>Brief</span></div><div class="cap">View from the North</div></div>
+    <div class="fr"><div class="date">Mar 2026</div><div class="ph"><span><b>Photograph needed.</b> First steel columns standing.</span><span>Brief</span></div><div class="cap">First Steel, Going Vertical<i>Deck timeline dates the milestone April 2026 — see note</i></div></div>
+    <div class="fr"><div class="date">Apr 2026</div><div class="ph"><span><b>Photograph needed.</b> Power Block from the air, looking north.</span><span>Brief</span></div><div class="cap">Power Block Aerial Looking North</div></div>
+    <div class="fr"><div class="date">July 2026</div><div class="ph"><span><b>Photograph needed.</b> Unit 5 heat recovery steam generator (HRSG).</span><span>Brief</span></div><div class="cap">Unit 5 HRSG</div></div>
+  </div>
+  <div class="flag"><b>Open question #12.</b> The deck’s photo essay dates “First Steel, Going Vertical” to March 2026; its timeline dates the milestone to April 2026. The essay keeps the photograph’s date; the milestone stamp and poster use April. One client answer resolves both.</div>
+</section>
+
+<!-- ============ APPLICATIONS ============ -->
+<section class="sec" style="padding-bottom:40px"><div class="sec-h" style="margin-bottom:0"><div class="k">In the world</div><p>Where the neighbours actually meet the brand: the gate on Power Plant Road, a fact sheet on a kitchen table, a post in the feed, a poster in the union hall, an email in the inbox.</p></div></section>
+<section class="apps">
+  <div class="stage" style="background:var(--cream)">
+    <div class="gate" style="margin-top:-120px">
+      <div class="top"><span class="logo-ph" style="color:#F3F1D0CC;padding:10px 14px;font-size:11px">Logo as-is</span><svg data-seal="gold" viewBox="0 0 200 200" style="width:96px;height:96px"></svg></div>
+      <h3>Homer City <em>Energy Campus</em></h3>
+      <div class="addr">1750 Power Plant Rd · Homer City, PA 15748</div>
+      <div class="rows"><span>Job seekers</span><span>HomerCity.Info@Kiewit.com</span><span>Community</span><span>info@homercityredevelopment.com</span></div>
+    </div>
+    <div class="t">01 · Site gate sign, Power Plant Road. Enamelled navy panel, gold-foil seal. No access wording until open question #11 (site access policy) is answered.</div>
+  </div>
+  <div class="stage" style="background:var(--navy);color:var(--cream)">
+    <div class="sheet">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><span class="logo-ph" style="padding:8px 12px;font-size:11px">Logo as-is</span><svg data-seal="navy" viewBox="0 0 200 200" style="width:84px;height:84px"></svg></div>
+      <svg data-fan="#D8B471" style="width:230px;margin:40px auto 0;display:block"></svg>
+      <h3>Quick <em>facts</em></h3>
+      <div style="font-size:14px;margin-top:10px">Homer City Energy Campus</div>
+      <div class="meta"><span>Fact sheet</span><span>May 2026</span></div>
+    </div>
+    <div class="t" style="color:#F3F1D0B3">02 · Fact-sheet cover. Uncoated cream stock, seal blind-embossed in print, edition date on the cover.</div>
+  </div>
+  <div class="stage" style="background:var(--paper)">
+    <div class="social">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span class="eyebrow">Homer City Energy Campus</span><svg data-seal="gold" viewBox="0 0 200 200" style="width:56px;height:56px"></svg></div>
+      <div class="q" style="margin-top:24px">Anticipated</div>
+      <div class="fig">10,000+<sup>1</sup></div>
+      <div class="lab">Direct on-site construction-related jobs</div>
+      <div class="fn"><span>1</span>Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</div>
+    </div>
+    <div class="t">03 · Social card, 1080 × 1080. The footnote is part of the card, not the post text.</div>
+  </div>
+  <div class="stage" style="background:var(--blue)">
+    <div class="poster">
+      <svg data-seal="onGold" viewBox="0 0 200 200" style="width:110px;height:110px"></svg>
+      <div class="s" style="margin-top:20px">Homer City Energy Campus</div>
+      <h3>First <em>steel</em></h3>
+      <div class="s" style="margin-top:22px;font-size:20px">April 2026</div>
+      <p>Crossed first steel threshold with commencement of vertical construction.</p>
+    </div>
+    <div class="t" style="color:var(--ink)">04 · Commemorative poster for the crews. Date from the deck timeline (April 2026); the photo essay says March 2026 — open question #12.</div>
+  </div>
+  <div class="stage" style="background:var(--gold)">
+    <div class="email">
+      <div class="hd"><svg data-seal="gold" viewBox="0 0 200 200" style="width:84px;height:84px;flex:none"></svg><h3>Construction <em>update</em></h3></div>
+      <div class="bd"><div class="eyebrow" style="color:var(--gold-ink)">What’s happening at the Homer City Energy Campus</div>
+        <h4>Heavy equipment transport to Homer City Energy Campus begins September 16.</h4>
+        <a>Read the update →</a></div>
+    </div>
+    <div class="t">05 · Construction-update email header. Copy from the mobile alert bar.</div>
+  </div>
+  <div class="stage" style="background:var(--navy)">
+    <div class="stickers">
+      <svg class="stk" data-seal="gold" viewBox="0 0 200 200" data-top="IRONWORKERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+      <svg class="stk" data-seal="onGold" viewBox="0 0 200 200" data-top="PIPEFITTERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+      <svg class="stk" data-seal="ink" viewBox="0 0 200 200" data-top="ELECTRICIANS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+      <svg class="stk" data-seal="onGold" viewBox="0 0 200 200" data-top="BOILERMAKERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+      <svg class="stk" data-seal="ink" viewBox="0 0 200 200" data-top="MILLWRIGHTS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+      <svg class="stk" data-seal="gold" viewBox="0 0 200 200" data-top="CARPENTERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+    </div>
+    <div class="t" style="color:#F3F1D0B3">06 · Hard-hat stickers, one per trade on site. Trades named; the nine unions are not (open question #2).</div>
+  </div>
+</section>
+
+<!-- ============ AVOIDS ============ -->
+<section class="ledger" style="padding-top:100px">
+  <div class="avoid">
+    <div><b>Nostalgia kitsch</b>No sepia, no smokestack silhouettes, no “the good old days”. The station is a dated fact in the sequence, not a mood.</div>
+    <div><b>Fake texture</b>No paper grain, rust or distressed stamps on screen. Emboss and foil exist only where there is real paper.</div>
+    <div><b>The forbidden words</b>Never “coal”. Never 4.5 GW. The site is “the former Homer City Generating Station”, and the figure is up to 4.4 GW.</div>
+    <div><b>Seal as logo</b>The seal never replaces, recolours or crowds the fixed logo, and never carries a date the sources don’t give.</div>
+  </div>
+</section>
+
+<script src="seal.js"></script>
+</body>
+</html>
