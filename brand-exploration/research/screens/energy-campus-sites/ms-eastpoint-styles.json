@@ -1,0 +1,103 @@
+{
+  "slug": "ms-eastpoint",
+  "url": "https://local.microsoft.com/blog/east-point-georgia-datacenter-project-update/",
+  "status": 200,
+  "styles": {
+    "title": "East Point, Georgia datacenter project update - Microsoft Local",
+    "body": {
+      "sel": "body",
+      "text": "Skip to content\nMicrosoft in your community\nCommunities\nAbout our datacenters\nAl",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "East Point, Georgia datacenter project update",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "44.6px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Overview of Microsoft’s East Point campus",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "27.3px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "main p",
+      "text": "Microsoft is building a datacenter campus in East Point. The work going on now i",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Community",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "15.4px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "capitalize",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Communities",
+      "fontFamily": "\"Segoe UI\", SegoeUI, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(38, 38, 38)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Microsoft in your community\nCommunities\nAbout our datacenters\nAll Microsoft\nSear",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "What's new\nSurface Laptop Ultra\nSurface Pro\nSurface Laptop\nSurface RTX Spark Dev",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "FabricMDL2Icons 400 normal",
+      "Microsoft SegoeUI 400 normal",
+      "Microsoft SegoeUI 600 normal"
+    ]
+  },
+  "ok": true
+}

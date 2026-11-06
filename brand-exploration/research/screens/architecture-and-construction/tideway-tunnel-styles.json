@@ -1,0 +1,113 @@
+{
+  "slug": "tideway-tunnel",
+  "url": "https://www.tideway.london/the-tunnel/",
+  "status": 200,
+  "styles": {
+    "title": "Tideway | The Tunnel",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nAbout Us\nMedia\nInvestors\nCorporate Info\nOPEN SPACES\nSITES\nI",
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "The Tunnel",
+      "fontFamily": "Cubano, \"Old Standard TT\", serif",
+      "fontSize": "50px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "About Us",
+      "fontFamily": "Cubano, \"Old Standard TT\", serif",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 168, 143)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "In May 2024, the new super sewer was connected to the Lee Tunnel, which has been",
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(91, 103, 112)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Locations",
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "100",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(46, 46, 46)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "THE TUNNEL",
+      "fontFamily": "Cubano, \"Old Standard TT\", serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "uppercase",
+      "color": "rgb(91, 103, 112)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "About Us\nMedia\nInvestors\nCorporate Info\nOPEN SPACES\nSITES\nIMPACT\nTHE TUNNEL\nNEWS",
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Follow Us\n\nTwitter\nFacebook\nInstagram\nLinkedin\nVimeo\nYouTube\nBACK TO TOP\nAbout U",
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "fontsLoaded": [
+      "Roboto 400 normal",
+      "cubano 400 normal",
+      "urw-din-semi-condensed 900 normal"
+    ]
+  },
+  "ok": true
+}

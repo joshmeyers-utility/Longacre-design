@@ -1,0 +1,121 @@
+{
+  "slug": "formenergy-home",
+  "url": "https://formenergy.com/",
+  "status": 200,
+  "styles": {
+    "title": "Form Energy: Energy Storage For a Better World",
+    "body": {
+      "sel": "body",
+      "text": "Press Alt+1 for screen-reader mode, Alt+0 to cancel\nAccessibility Screen-Reader ",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "ENERGY STORAGE\nFOR A BETTER WORLD",
+      "fontFamily": "\"Roboto Condensed\", sans-serif",
+      "fontSize": "86px",
+      "fontWeight": "400",
+      "letterSpacing": "2px",
+      "textTransform": "uppercase",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "September 21, 2026",
+      "fontFamily": "\"Roboto Mono\", sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "OUR TECHNOLOGY",
+      "fontFamily": "\"Roboto Condensed\", sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "600",
+      "letterSpacing": "1px",
+      "textTransform": "uppercase",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "p",
+      "text": "Form Energy is an American company driving innovation in energy technology and m",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "Accessibility Screen-Reader Guide, Feedback, and Issue Reporting | New window",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "LEARN MORE",
+      "fontFamily": "\"Roboto Mono\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "2px",
+      "textTransform": "uppercase",
+      "color": "rgb(32, 32, 32)",
+      "background": "rgba(255, 255, 255, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "ABOUT\nTECHNOLOGY\nFORM FACTORY 1\nCAREERS\nNEWSROOM\nCONTACT\nENERGY STORAGE\nFOR A BE",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Energy Storage\nfor a Better World\nMENU\n\nAbout\n\nTechnology\n\nForm Factory 1\n\nCaree",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "Roboto 300 normal",
+      "Roboto 400 normal",
+      "Roboto 500 normal",
+      "Roboto Condensed 400 normal",
+      "Roboto Condensed 600 normal",
+      "Roboto Mono 400 normal",
+      "Roboto Mono 500 normal",
+      "Roboto Mono 600 normal",
+      "Roboto Mono 700 normal",
+      "Font Awesome 5 Free 900 normal",
+      "Font Awesome 5 Brands 400 normal"
+    ]
+  },
+  "ok": true
+}

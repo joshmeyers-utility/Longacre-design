@@ -1,0 +1,49 @@
+{
+  "slug": "nyc-open-data-cb",
+  "url": "https://www.nyc.gov/site/dcp/index.page",
+  "status": 403,
+  "styles": {
+    "title": "Access Denied",
+    "body": {
+      "sel": "body",
+      "text": "Access Denied\nYou don't have permission to access \"http://www.nyc.gov/site/dcp/i",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Access Denied",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "32px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": null,
+    "h3": null,
+    "p": {
+      "sel": "p",
+      "text": "Reference #18.1c53d117.1793980281.6bb534c3",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": null,
+    "button": null,
+    "header": null,
+    "footer": null,
+    "fontsLoaded": []
+  },
+  "ok": true
+}

@@ -1,0 +1,112 @@
+{
+  "slug": "govuk-publication",
+  "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2020",
+  "status": 200,
+  "styles": {
+    "title": "The Green Book - GOV.UK",
+    "body": {
+      "sel": "body",
+      "text": "Cookies on GOV.UK\n\nWe use some essential cookies to make this website work.\n\nWe’",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "The Green Book",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "48px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(11, 12, 12)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Cookies on GOV.UK",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(11, 12, 12)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Services and information",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(11, 12, 12)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "UK government guidance on appraisal.",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(11, 12, 12)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "HM Treasury",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(26, 101, 166)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Accept additional cookies",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "19px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(15, 122, 82)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Navigation menu \nMenu\n Search GOV.UK",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Services and information\nBenefits Births, death, marriages and care Business and",
+      "fontFamily": "\"GDS Transport\", arial, sans-serif",
+      "fontSize": "19px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(11, 12, 12)",
+      "background": "rgb(244, 248, 251)"
+    },
+    "fontsLoaded": [
+      "GDS Transport normal normal",
+      "GDS Transport bold normal"
+    ]
+  },
+  "ok": true
+}

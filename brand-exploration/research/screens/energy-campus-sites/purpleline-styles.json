@@ -1,0 +1,107 @@
+{
+  "slug": "purpleline",
+  "url": "https://www.purplelinemd.com",
+  "status": 200,
+  "styles": {
+    "title": "Home | Purple Line MD",
+    "body": {
+      "sel": "body",
+      "text": "Skip to content\nAbout the Project\nConstruction\nPublic Meetings & Events\nBusiness",
+      "fontFamily": "mulish-variable, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": null,
+    "h2": {
+      "sel": "h2",
+      "text": "Menu",
+      "fontFamily": "ibm-plex-sans, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "LRV Dynamic Testing: A Closer Look",
+      "fontFamily": "ibm-plex-sans, sans-serif",
+      "fontSize": "40px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "See where Light Rail Vehicles are testing on the alignment, along with more info",
+      "fontFamily": "mulish-variable, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Testing & Safety Page",
+      "fontFamily": "mulish-variable, sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(87, 43, 125)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "About the Project",
+      "fontFamily": "mulish-variable, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Skip to content\nAbout the Project\nConstruction\nPublic Meetings & Events\nBusiness",
+      "fontFamily": "mulish-variable, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Follow Us:\n\nVisit our Facebook page (Opens in a new window)\nVisit our X page (Op",
+      "fontFamily": "mulish-variable, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "ibm-plex-sans 200 normal",
+      "ibm-plex-sans 500 normal",
+      "ibm-plex-sans 600 normal",
+      "ibm-plex-sans 700 italic",
+      "ibm-plex-sans 700 normal",
+      "mulish-variable 400 normal",
+      "IBM Plex Sans 500 normal"
+    ]
+  },
+  "ok": true
+}

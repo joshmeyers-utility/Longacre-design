@@ -1,0 +1,103 @@
+{
+  "slug": "cfs-home",
+  "url": "https://cfs.energy/",
+  "status": 200,
+  "styles": {
+    "title": "Home | Commonwealth Fusion Systems",
+    "body": {
+      "sel": "body",
+      "text": "Commonwealth Fusion Systems\nTechnology\nShow submenu for technology\n↓\nCompany\nSho",
+      "fontFamily": "nbInternational, \"nbInternational Fallback\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(204, 200, 195)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "The world's largest and leading commercial fusion energy company",
+      "fontFamily": "nbInternational, \"nbInternational Fallback\", sans-serif",
+      "fontSize": "63.1156px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "A breakthrough for commercial fusion energy",
+      "fontFamily": "nbInternational, \"nbInternational Fallback\", sans-serif",
+      "fontSize": "63.1156px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "It’s incredibly humbling working with this talented and mission-driven team focu",
+      "fontFamily": "nbInternational, \"nbInternational Fallback\", sans-serif",
+      "fontSize": "30.4701px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Revolutionary high-temperature superconducting (HTS) magnets speed the arrival o",
+      "fontFamily": "nbInternational, \"nbInternational Fallback\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Learn more",
+      "fontFamily": "nbInternationalMono, \"nbInternationalMono Fallback\", monospace",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Show submenu for technology\n↓",
+      "fontFamily": "Arial",
+      "fontSize": "13.3333px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(207, 109, 70)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "header": null,
+    "footer": {
+      "sel": "footer",
+      "text": "Join the power movement\n\nFollow Us\n\nSign up for the Tokamak Times\n\nCommonwealth ",
+      "fontFamily": "nbInternational, \"nbInternational Fallback\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(21, 37, 54)"
+    },
+    "fontsLoaded": [
+      "nbInternational 300 normal",
+      "nbInternational 400 normal",
+      "nbInternationalMono 400 normal"
+    ]
+  },
+  "ok": true
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "soundtransit",
+  "url": "https://www.soundtransit.org/system-expansion",
+  "status": 200,
+  "styles": {
+    "title": "System expansion | Sound Transit",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nLink to homepage\nSEARCH\n EN\n MENU\nSystem expansion\nVoters a",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "System expansion",
+      "fontFamily": "\"Nunito Sans\", \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "62.2222px",
+      "fontWeight": "900",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Expansion projects",
+      "fontFamily": "\"Nunito Sans\", \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "30px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Recent Searches",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "17.7778px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Explore our progress report",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "17.7778px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "uppercase",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(214, 7, 142)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Link to homepage\nSEARCH\n EN\n MENU",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "17.7778px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Sign up for project updates and construction alerts\nEnter your email address\nSub",
+      "fontFamily": "Hind, \"Helvetica Neue\", Calibri, Arial, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "Hind 400 normal",
+      "Hind 700 normal",
+      "Nunito Sans 900 italic",
+      "Nunito Sans 900 normal"
+    ]
+  },
+  "ok": true
+}

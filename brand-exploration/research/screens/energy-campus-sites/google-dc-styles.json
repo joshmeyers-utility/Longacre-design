@@ -1,0 +1,116 @@
+{
+  "slug": "google-dc",
+  "url": "https://datacenters.google/",
+  "status": 200,
+  "styles": {
+    "title": "Homepage – Google Data Centers",
+    "body": {
+      "sel": "body",
+      "text": "Jump to Content\n\nData Centers\nInvesting in communities\nAdvancing security\nOperat",
+      "fontFamily": "\"Google Sans Text\", Arial, Helvetica, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "0.1px",
+      "textTransform": "none",
+      "color": "rgb(32, 33, 36)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Building for\neveryone",
+      "fontFamily": "\"Google Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "60px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.5px",
+      "textTransform": "none",
+      "color": "rgb(32, 33, 36)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Cultivating growth in\nour data center communities",
+      "fontFamily": "\"Google Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "48px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.5px",
+      "textTransform": "none",
+      "color": "rgb(32, 33, 36)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Accelerating economies",
+      "fontFamily": "\"Google Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "28px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(32, 33, 36)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "We build data centers that power essential technology and services as we invest ",
+      "fontFamily": "\"Google Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(95, 99, 104)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Link to Youtube Video",
+      "fontFamily": "\"Google Sans Text\", Arial, Helvetica, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(26, 115, 232)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "OK, got it",
+      "fontFamily": "\"Google Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "letterSpacing": "0.5px",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(26, 115, 232)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Jump to Content\n\nData Centers\nInvesting in communities\nAdvancing security\nOperat",
+      "fontFamily": "sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "0.1px",
+      "textTransform": "none",
+      "color": "rgb(32, 33, 36)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Footer links\nGet involved\nData center careers\nSTAR Program\nGoogle Supplier Engag",
+      "fontFamily": "\"Google Sans Text\", Arial, Helvetica, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "0.1px",
+      "textTransform": "none",
+      "color": "rgb(32, 33, 36)",
+      "background": "rgb(248, 249, 250)"
+    },
+    "fontsLoaded": [
+      "Google Sans 400 italic",
+      "Google Sans 400 normal",
+      "Google Sans 500 normal",
+      "Google Sans Text 400 normal",
+      "Google Sans Text 500 normal",
+      "Product Sans 400 normal"
+    ]
+  },
+  "ok": true
+}

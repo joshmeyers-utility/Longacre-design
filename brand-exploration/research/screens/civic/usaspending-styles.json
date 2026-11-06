@@ -1,0 +1,105 @@
+{
+  "slug": "usaspending",
+  "url": "https://www.usaspending.gov/",
+  "status": 200,
+  "styles": {
+    "title": "Government Spending Open Data | USAspending",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nAn official website of the United States government\nHere’s ",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(85, 85, 85)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "32px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(249, 249, 249)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "main p",
+      "text": "USAspending is the official open data source of federal spending information,\nin",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(85, 85, 85)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Pause text animation",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 94, 162)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Here’s how you know",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "12.8px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 94, 162)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "An official website of the United States government\nHere’s how you know\nSearch A",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(85, 85, 85)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Stay in touch\nYour USAspending ideas\nWe're looking for your ideas! Tell us what ",
+      "fontFamily": "\"Source Sans Pro\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(85, 85, 85)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "Source Sans Pro 300 normal",
+      "Source Sans Pro 400 normal",
+      "Source Sans Pro 400 italic",
+      "Source Sans Pro 600 normal",
+      "Source Sans Pro 700 normal"
+    ]
+  },
+  "ok": true
+}

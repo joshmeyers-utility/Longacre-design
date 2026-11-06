@@ -1,0 +1,114 @@
+{
+  "slug": "x-energy-home",
+  "url": "https://x-energy.com/",
+  "status": 200,
+  "styles": {
+    "title": "X-energy — Advanced Nuclear Reactor & Fuel Design Engineering",
+    "body": {
+      "sel": "body",
+      "text": "Skip navigation and go to main content.\nReactors & Fuel\nPartners\nDeployments\nAbo",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(8, 14, 25)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Solving for What’s Next",
+      "fontFamily": "\"Druk Wide Medium\", sans-serif",
+      "fontSize": "72px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(2, 4, 8)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "A commercial-scale advanced SMR",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "ADVANCED NUCLEAR ENERGY",
+      "fontFamily": "\"Akkurat Mono LL TT\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "0.4px",
+      "textTransform": "uppercase",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(231, 233, 238, 0.1)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Our Mission",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "letterSpacing": "0.5px",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Show more",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(20, 20, 20)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Reactors & Fuel\nPartners\nDeployments\nAbout Us\nNewsroom\nInvestors\nCareers\nSearch\n",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(8, 14, 25)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Skip footer and return to top.\nJoin the Team\n\nJoin a mission where innovators an",
+      "fontFamily": "\"PP Neue Montreal\", sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(8, 14, 25)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "PP Neue Montreal 400 normal",
+      "PP Neue Montreal 500 normal",
+      "Akkurat Mono LL TT 400 normal",
+      "Druk Wide Medium 500 normal"
+    ]
+  },
+  "ok": true
+}

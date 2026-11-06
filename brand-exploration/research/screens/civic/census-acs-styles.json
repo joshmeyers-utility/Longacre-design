@@ -1,0 +1,105 @@
+{
+  "slug": "census-acs",
+  "url": "https://www.census.gov/programs-surveys/acs/about.html",
+  "status": 200,
+  "styles": {
+    "title": "About the American Community Survey",
+    "body": {
+      "sel": "body",
+      "text": "An official website of the United States government\n\nHere’s how you know\n2025 Am",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "About the American Community Survey",
+      "fontFamily": "Roboto, serif",
+      "fontSize": "62px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(19, 19, 19)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": null,
+    "h3": {
+      "sel": "h3",
+      "text": "What is the American Community Survey?",
+      "fontFamily": "Roboto, serif",
+      "fontSize": "32px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(19, 19, 19)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "p",
+      "text": "An official website of the United States government",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "12.8px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(27, 27, 27)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "2025 American Community Survey 1-year estimates and 2025 ACS 1-year Supplemental",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(43, 116, 183)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Here’s how you know",
+      "fontFamily": "\"Source Sans Pro Web\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "12.8px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 94, 162)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "An official website of the United States government\n\nHere’s how you know",
+      "fontFamily": "\"Source Sans Pro Web\", \"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "12.8px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(27, 27, 27)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Receive Updates\n\nTo sign up for updates please enter your email address.\n\nEnter ",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(245, 245, 245)"
+    },
+    "fontsLoaded": [
+      "Roboto 400 normal",
+      "Roboto 700 normal",
+      "census-interface-1 normal normal",
+      "2021-census-interface-1 400 normal",
+      "2021-census-social 400 normal"
+    ]
+  },
+  "ok": true
+}

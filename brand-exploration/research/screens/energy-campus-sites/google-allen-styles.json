@@ -1,0 +1,106 @@
+{
+  "slug": "google-allen",
+  "url": "https://www.allencountydatacenter.com",
+  "status": 200,
+  "styles": {
+    "title": "Allen County Data Center",
+    "body": {
+      "sel": "body",
+      "text": "/\nALLEN COUNTY DATA CENTER\nInvestment\nJobs\nNews\nFAQ\nContact Us\nALLEN COUNTY, OHI",
+      "fontFamily": "\"TASA Orbiter\"",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 61, 122)",
+      "background": "lab(100 0 0)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "BUILDING TOMORROW'S DATA INFRASTRUCTURE RESPONSIBLY",
+      "fontFamily": "\"Zalando Sans Expanded\"",
+      "fontSize": "42px",
+      "fontWeight": "700",
+      "letterSpacing": "-1.05px",
+      "textTransform": "uppercase",
+      "color": "rgb(0, 61, 122)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "POWERING THE DIGITAL WORLD, RESPONSIBLY.",
+      "fontFamily": "\"Zalando Sans Expanded\"",
+      "fontSize": "40px",
+      "fontWeight": "700",
+      "letterSpacing": "-1px",
+      "textTransform": "uppercase",
+      "color": "rgb(0, 61, 122)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "WHAT IS A DATA CENTER?",
+      "fontFamily": "\"Zalando Sans Expanded\"",
+      "fontSize": "18px",
+      "fontWeight": "500",
+      "letterSpacing": "-0.45px",
+      "textTransform": "uppercase",
+      "color": "rgb(0, 157, 247)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Data centers are the backbone of the internet, providing critical digital servic",
+      "fontFamily": "\"TASA Orbiter\"",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(57, 142, 178)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "ALLEN COUNTY, OHIO",
+      "fontFamily": "\"TASA Orbiter\"",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 157, 247)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "\"TASA Orbiter\"",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 61, 122)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": null,
+    "footer": {
+      "sel": "footer",
+      "text": "ALLEN COUNTY DATA CENTER\n\nBuilding Tomorrow's Data Infrastructure Responsibly\n\nP",
+      "fontFamily": "\"TASA Orbiter\"",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 61, 122)",
+      "background": "oklab(0.673188 -0.0712091 -0.154993 / 0.05)"
+    },
+    "fontsLoaded": [
+      "Zalando Sans Expanded 600 normal",
+      "Zalando Sans Expanded 700 normal",
+      "TASA Orbiter 400 normal",
+      "TASA Orbiter 500 normal",
+      "TASA Orbiter 600 normal",
+      "TASA Orbiter 700 normal"
+    ]
+  },
+  "ok": true
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "ember-home",
+  "url": "https://ember-energy.org/",
+  "status": 200,
+  "styles": {
+    "title": "Ember",
+    "body": {
+      "sel": "body",
+      "text": "Explore\n \nLatest\n \nData\n \nAbout\n \nEN\n \n\nData into action\nOpen data and intellig",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Data into action",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "54.4px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Graphic of the week",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "42.5px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Open data and intelligent policy analysis to unlock a clean, electrified energy ",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "25.5px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "2 November 2026 – Electrification rates, meaning the share of final energy use m",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Explore our data ",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "18.7px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Poppins, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(25, 34, 56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": null,
+    "footer": null,
+    "fontsLoaded": [
+      "Poppins 300 normal",
+      "Poppins 400 normal",
+      "Poppins 500 normal",
+      "Poppins 600 normal",
+      "Poppins 400 italic",
+      "webflow-icons normal normal",
+      "Fa Brands 400 400 normal",
+      "Fa Solid 900 400 normal"
+    ]
+  },
+  "ok": true
+}

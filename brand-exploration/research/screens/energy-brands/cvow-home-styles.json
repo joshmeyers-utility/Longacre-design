@@ -1,0 +1,113 @@
+{
+  "slug": "cvow-home",
+  "url": "https://coastalvawind.com/",
+  "status": 200,
+  "styles": {
+    "title": "Coastal Virginia Offshore Wind | Dominion Energy",
+    "body": {
+      "sel": "body",
+      "text": "English \nAbout\nThe Project\nProject Background\nTimeline\nWind Energy\nHow It Works\n",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Propelling Renewable Energy Forward",
+      "fontFamily": "Egyptienne, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "48px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(53, 77, 124)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Our Clean Energy Future",
+      "fontFamily": "Egyptienne, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(53, 77, 124)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Coastal Virginia Offshore Wind",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Providing reliable, affordable and increasingly clean energy that powers your ev",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "View Project Timeline",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "17.6px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(6, 100, 184)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "English \nAbout\nThe Project\nProject Background\nTimeline\nWind Energy\nHow It Works\n",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(16, 71, 142)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "About\nThe Project\nProject Background\nTimeline\nWind Energy\nHow It Works\nEconomic ",
+      "fontFamily": "Urbano, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(51, 51, 51)",
+      "background": "rgb(238, 241, 245)"
+    },
+    "fontsLoaded": [
+      "Egyptienne normal normal",
+      "Urbano 400 normal",
+      "Urbano 700 normal"
+    ]
+  },
+  "ok": true
+}

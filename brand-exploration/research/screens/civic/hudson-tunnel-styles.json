@@ -1,0 +1,89 @@
+{
+  "slug": "hudson-tunnel",
+  "url": "https://www.hudsontunnelproject.com/",
+  "status": 200,
+  "styles": {
+    "title": "Home",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\n HUDSON TUNNEL PROJECT\nHome\nAbout The FEIS\nFAQ\nLibrary\nFEIS",
+      "fontFamily": "\"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "HUDSON TUNNEL PROJECT",
+      "fontFamily": "Arial",
+      "fontSize": "30px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(50, 49, 48)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": null,
+    "h3": {
+      "sel": "h3",
+      "text": "​​​Current Environmental Contacts:",
+      "fontFamily": "Arial",
+      "fontSize": "24px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(50, 49, 48)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "p",
+      "text": "Photo courtesy of Amtrak",
+      "fontFamily": "Arial",
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(50, 49, 48)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "Skip to main content",
+      "fontFamily": "\"Segoe UI\"",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(116, 39, 116)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Toggle navigation",
+      "fontFamily": "\"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(14, 90, 157)"
+    },
+    "header": null,
+    "footer": {
+      "sel": "footer",
+      "text": "Copyright © 2026. All rights reserved.",
+      "fontFamily": "Arial",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(50, 49, 48)",
+      "background": "rgb(244, 249, 253)"
+    },
+    "fontsLoaded": []
+  },
+  "ok": true
+}

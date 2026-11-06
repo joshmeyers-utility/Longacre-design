@@ -1,0 +1,29 @@
+{
+  "slug": "energytransfer-me",
+  "url": "https://marinerpipeline.com/",
+  "status": 405,
+  "styles": {
+    "title": "",
+    "body": {
+      "sel": "body",
+      "text": "agent-proxy relay: this proxy only accepts HTTPS CONNECT tunnels. Plain-HTTP/abs",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": null,
+    "h2": null,
+    "h3": null,
+    "p": null,
+    "a": null,
+    "button": null,
+    "header": null,
+    "footer": null,
+    "fontsLoaded": []
+  },
+  "ok": true
+}

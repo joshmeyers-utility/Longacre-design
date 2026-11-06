@@ -1,0 +1,104 @@
+{
+  "slug": "som",
+  "url": "https://www.som.com",
+  "status": 200,
+  "styles": {
+    "title": "Homepage – SOM",
+    "body": {
+      "sel": "body",
+      "text": "Skip to Main Content\nProjects\nIdeas\nPeople\nNews\nAbout\nEN\n|\n中文\nContact\n\nAward\nCVU",
+      "fontFamily": "sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Celebrating 90 Years of Innovation",
+      "fontFamily": "\"Benton Sans Light\", sans-serif",
+      "fontSize": "40px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Filter by",
+      "fontFamily": "\"Benton Sans Bold\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "main p",
+      "text": "",
+      "fontFamily": "\"Benton Sans Book\", sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Award\nCVU names SANY IROOTECH\nHeadquarters the 2026 Best Tall\nBuilding Worldwide",
+      "fontFamily": "sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "REJECT NON-ESSENTIAL",
+      "fontFamily": "\"Benton Sans Book\", sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Award\nCVU names SANY IROOTECH\nHeadquarters the 2026 Best Tall\nBuilding Worldwide",
+      "fontFamily": "sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Skidmore, Owings & Merrill\n\nContact\nDiversity, Equity + Inclusion\nClimate Action",
+      "fontFamily": "sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "BentonModDisp RG 400 normal",
+      "Benton Sans Light 300 normal",
+      "Benton Sans Book 400 normal",
+      "Benton Sans Bold 700 normal"
+    ]
+  },
+  "ok": true
+}

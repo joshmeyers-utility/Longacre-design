@@ -1,0 +1,115 @@
+{
+  "slug": "ms-local",
+  "url": "https://local.microsoft.com/",
+  "status": 200,
+  "styles": {
+    "title": "Microsoft in your community - Microsoft Local",
+    "body": {
+      "sel": "body",
+      "text": "Skip to content\nMicrosoft in your community\nCommunities\nAbout our datacenters\nAl",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(235, 235, 235)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Microsoft in your community",
+      "fontFamily": "\"Microsoft Segoe Serif\", \"Palatino Linotype\", Palatino, Palladio, \"URW Palladio L\", \"Book Antiqua\", serif",
+      "fontSize": "44.6px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "How a small town grew in Quincy, WA",
+      "fontFamily": "\"Microsoft Segoe Serif\", \"Palatino Linotype\", Palatino, Palladio, \"URW Palladio L\", \"Book Antiqua\", serif",
+      "fontSize": "40.5px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "2026 Microsoft Community Energy Program Report",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Datacenters provide the infrastructure behind everyday technology. When you open",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "15.4px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Read the official Microsoft announcement here.",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "15.4px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(42, 107, 181)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Communities",
+      "fontFamily": "\"Segoe UI\", SegoeUI, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(38, 38, 38)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Microsoft in your community\nCommunities\nAbout our datacenters\nAll Microsoft\nSear",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "What's new\nSurface Laptop Ultra\nSurface Pro\nSurface Laptop\nSurface RTX Spark Dev",
+      "fontFamily": "\"Microsoft SegoeUI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18.1px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "swiper-icons 400 normal",
+      "FabricMDL2Icons 400 normal",
+      "Microsoft SegoeUI 400 normal",
+      "Microsoft SegoeUI 600 normal",
+      "Microsoft Segoe Serif 400 normal"
+    ]
+  },
+  "ok": true
+}

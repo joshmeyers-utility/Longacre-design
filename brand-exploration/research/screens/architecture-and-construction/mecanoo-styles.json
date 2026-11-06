@@ -1,0 +1,113 @@
+{
+  "slug": "mecanoo",
+  "url": "https://www.mecanoo.nl",
+  "status": 200,
+  "styles": {
+    "title": "We are Mecanoo",
+    "body": {
+      "sel": "body",
+      "text": "projects\noffice\nnews\nmedia\ncareers\ncontact\n中文\nNatural History Museum Abu Dhabi\nK",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(34, 34, 34)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "We design primarily for people, construct spaces that are relevant to place, and",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "42.5px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 47, 167)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "34px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0.5)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "13.6px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0.5)"
+    },
+    "p": {
+      "sel": "p",
+      "text": "Situated adjacent to the Kaohsiung High-Speed Rail station, the new headquarters",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "15.3px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 47, 167)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Architecture",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "20.4px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "projects\noffice\nnews\nmedia\ncareers\ncontact\n中文",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "15.3px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(34, 34, 34)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "info@mecanoo.nl\n\nNewsletter\n\nLogin © 2026 Privacy policy",
+      "fontFamily": "MaisonNeue-Book, Arial, Helvetica, sans-serif",
+      "fontSize": "15.3px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(34, 34, 34)",
+      "background": "rgb(247, 247, 247)"
+    },
+    "fontsLoaded": [
+      "mecanoo normal normal",
+      "MaisonNeue-Book 400 normal",
+      "MaisonNeue-Book 400 italic"
+    ]
+  },
+  "ok": true
+}

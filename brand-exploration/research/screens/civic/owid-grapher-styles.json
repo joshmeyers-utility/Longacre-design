@@ -1,0 +1,119 @@
+{
+  "slug": "owid-grapher",
+  "url": "https://ourworldindata.org/grapher/life-expectancy?tab=chart",
+  "status": 200,
+  "styles": {
+    "title": "Life expectancy",
+    "body": {
+      "sel": "body",
+      "text": "Our World\nin Data\nBrowse by topic\nData\nLatest\nResources\nAbout\nSubscribe\nDonate\nL",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(29, 61, 99)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Life expectancy",
+      "fontFamily": "\"Playfair Display\", Georgia, \"Times New Roman\", \"Liberation Serif\", serif",
+      "fontSize": "25px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(45, 46, 45)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "ADD/REMOVE COUNTRIES AND REGIONS",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "900",
+      "letterSpacing": "1.2px",
+      "textTransform": "uppercase",
+      "color": "rgb(118, 118, 118)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Life expectancy: what does this actually mean?",
+      "fontFamily": "\"Playfair Display\", Georgia, \"Times New Roman\", \"Liberation Serif\", serif",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(29, 61, 99)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Period life expectancy is the number of years the average person born in a certa",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(91, 91, 91)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Data source: Riley (2005); Zijdeman et al. (2015); HMD (2025); UN WPP (2024)",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(91, 91, 91)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Our World\nin Data\nBrowse by topic\nData\nLatest\nResources\nAbout\nSubscribe\nDonate",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(29, 61, 99)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Data source: Riley (2005); Zijdeman et al. (2015); HMD (2025); UN WPP (2024)\n\nOu",
+      "fontFamily": "Lato, \"Helvetica Neue\", Helvetica, Arial, \"Liberation Sans\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(91, 91, 91)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "Lato 400 normal",
+      "Lato 400 italic",
+      "Lato 500 normal",
+      "Lato 500 italic",
+      "Lato 600 normal",
+      "Lato 700 normal",
+      "Lato 900 normal",
+      "Playfair Display 600 normal",
+      "Playfair Display 700 normal"
+    ]
+  },
+  "ok": true
+}

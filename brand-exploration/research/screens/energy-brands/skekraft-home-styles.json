@@ -1,0 +1,103 @@
+{
+  "slug": "skekraft-home",
+  "url": "https://www.skekraft.se/",
+  "status": 200,
+  "styles": {
+    "title": "Elavtal med förnybar el och smarta energitjänster | Skellefteå Kraft",
+    "body": {
+      "sel": "body",
+      "text": "Vi använder cookies. Vissa är nödvändiga för att sajten ska fungera. Här finns o",
+      "fontFamily": "\"SK Sans\", Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(249, 249, 249)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Elavtal med förnybar energi och smarta energitjänster",
+      "fontFamily": "\"SK Sans\", \"Arial Black\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Förnybar el till inköpspris i 12 månader",
+      "fontFamily": "\"SK Sans\", \"Arial Black\", sans-serif",
+      "fontSize": "36px",
+      "fontWeight": "900",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "p",
+      "text": "HÖSTKAMPANJ",
+      "fontFamily": "\"SK Sans\", Arial, sans-serif",
+      "fontSize": "24px",
+      "fontWeight": "900",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "Läs mer om våra cookies",
+      "fontFamily": "\"SK Sans\", Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(168, 61, 114)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Hantera kakor",
+      "fontFamily": "\"SK Sans\", Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(168, 61, 114)",
+      "background": "rgb(242, 240, 238)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Gå till Innehållet\nPRIVAT\nFÖRETAG\nOM OSS\nSV\nGoogle translate\nSök\nElavtal\nProdukt",
+      "fontFamily": "\"SK Sans\", Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(249, 249, 249)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Kontakta Skellefteå Kraft\n\nVäxel: 0910-77 25 00\nKundservice: 0910-77 25 50\nFelan",
+      "fontFamily": "\"SK Sans\", Arial, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgb(249, 249, 249)"
+    },
+    "fontsLoaded": [
+      "SK Sans 400 normal",
+      "SK Sans 700 normal",
+      "SK Sans 800 normal"
+    ]
+  },
+  "ok": true
+}

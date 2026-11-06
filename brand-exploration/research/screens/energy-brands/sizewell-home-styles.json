@@ -1,0 +1,101 @@
+{
+  "slug": "sizewell-home",
+  "url": "https://www.edfenergy.com/energy/nuclear-new-build-projects/sizewell-c",
+  "status": 200,
+  "styles": {
+    "title": "Sizewell C nuclear power station | EDF",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nFor home\nFor business\nAbout EDF\nLog in\n\nHow we generate \nel",
+      "fontFamily": "\"Open Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(28, 28, 28)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Sizewell C",
+      "fontFamily": "\"Open Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "48px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(16, 54, 122)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Sizewell C will meet 7% of the UK's energy needs for at least 60 years",
+      "fontFamily": "\"Open Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "32px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(16, 54, 122)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Company",
+      "fontFamily": "\"Open Sans\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "letterSpacing": "0.12px",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "EDF is a minority investor (12.5%) in and major supplier to Sizewell C in Suffol",
+      "fontFamily": "\"Open Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(28, 28, 28)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Hinkley Point C",
+      "fontFamily": "\"Open Sans\", Arial, Helvetica, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(200, 44, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "Menu",
+      "fontFamily": "\"Open Sans\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(200, 44, 0)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "header": null,
+    "footer": {
+      "sel": "footer",
+      "text": "Home\nAbout Us\nSizewell C\nCompany\nAbout EDF\nPress\nCareers\nInformation\nWebsite ter",
+      "fontFamily": "\"Open Sans\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(28, 28, 28)"
+    },
+    "fontsLoaded": [
+      "Open Sans 300 800 normal"
+    ]
+  },
+  "ok": true
+}
