@@ -290,8 +290,12 @@ dated, nothing to decode.
   exist beyond being the control.
 - Navy headings plus navy bands is a slightly more corporate temperature than
   near-black. Worth comparing side by side.
-- No photography was in `content/imagery/` when the board was built, so the
-  dusk grade is described, not shown. The direction depends on the client
-  having (or shooting) a dusk frame with the town in it.
+- The 32 images in `content/imagery/` are all suspected generated or CGI
+  (see its INDEX.md). The board uses three of them (07, 04, 03) only to
+  demonstrate crop and layout, each labelled inside the image as a stand-in;
+  the hero and the photo-essay strip are briefed placeholders. So the dusk
+  grade is described, not shown, and no image in the set shows the town.
+  The direction depends on the client having (or shooting) a real dusk frame
+  with Homer City in it.
 - 1,800+ and its date are tier A (client press release, 4 September 2026),
   not from the supplied PDFs; wording to confirm, per root CLAUDE.md §6.
