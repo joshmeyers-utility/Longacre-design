@@ -6,7 +6,7 @@
 <title>05 Current</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Instrument+Serif:ital@0;1&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wdth,wght@125,900&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Instrument+Serif:ital@0;1&display=block" rel="stylesheet">
 <style>
 /* ---------- D05 tokens: primitive -> semantic ---------- */
 :root{
@@ -32,12 +32,13 @@
   --font-display:'Syne',sans-serif;
   --font-text:'Newsreader',Georgia,serif;
   --font-moment:'Instrument Serif',Georgia,serif;
+  --font-figure:'Archivo',sans-serif; /* wdth 125, 900: Syne's '.' and '~' read as a minus */
 
   --dur-field:150s; --dur-breathe:24s; --dur-mood:60s;
   --t:0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:var(--surface-deep)}
+html{background:var(--surface-deep);overflow-x:hidden}
 body{background:var(--surface-deep);color:var(--text-primary);font-family:var(--font-text);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{padding:0 32px}
@@ -58,14 +59,14 @@ hr{border:0;border-top:1px solid var(--rule)}
    #238FC8 96deg,#F3F1D0 111deg,#D8B471 121deg,#143251 148deg,#0A1626 160deg,#238FC8 180deg,
    #AFECF1 196deg,#143251 221deg,#D8B471 247deg,#F3F1D0 259deg,#D8B471 268deg,#238FC8 290deg,
    #143251 316deg,#AFECF1 338deg,#143251 360deg);
-  filter:blur(34px);animation:spin var(--dur-field) linear infinite}
+  filter:blur(48px) saturate(1.35);animation:spin var(--dur-field) linear infinite}
 .field .f2{background:conic-gradient(from 0deg at 50% 50%,
    transparent 0deg,rgba(175,236,241,.75) 14deg,transparent 26deg,transparent 70deg,
    rgba(216,180,113,.7) 84deg,transparent 99deg,transparent 150deg,rgba(35,143,200,.8) 168deg,
    transparent 186deg,transparent 228deg,rgba(243,241,208,.55) 238deg,transparent 252deg,
    transparent 300deg,rgba(212,242,90,.35) 312deg,transparent 326deg);
-  mix-blend-mode:screen;filter:blur(20px);animation:spin calc(var(--dur-field)*.62) linear infinite reverse}
-.field .f3{background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(243,241,208,0) 0deg,rgba(243,241,208,.16) 1.2deg,rgba(243,241,208,0) 3.4deg);
+  mix-blend-mode:screen;filter:blur(30px);animation:spin calc(var(--dur-field)*.62) linear infinite reverse}
+.field .f3{background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(243,241,208,0) 0deg,rgba(243,241,208,.10) 1.2deg,rgba(243,241,208,0) 3.4deg);
   -webkit-mask:radial-gradient(circle at 50% 50%,transparent 0,#000 8%,#000 40%,transparent 70%);mask:radial-gradient(circle at 50% 50%,transparent 0,#000 8%,#000 40%,transparent 70%);
   filter:blur(2.5px);mix-blend-mode:overlay;animation:spin calc(var(--dur-field)*1.6) linear infinite}
 .field .f4{inset:0;background:
@@ -114,17 +115,17 @@ hr{border:0;border-top:1px solid var(--rule)}
 
 /* ---------- ledger ---------- */
 .numbers{background:var(--surface-deep);padding:110px 0 120px}
-.row{display:grid;grid-template-columns:1fr 420px;gap:32px;border-top:1px solid var(--rule);padding:28px 0 40px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:32px;border-top:1px solid var(--rule);padding:28px 0 40px}
 .row:last-child{border-bottom:1px solid var(--rule)}
 .q{display:block;font:italic 400 22px/1 var(--font-text);color:var(--text-qualifier);margin-bottom:10px}
-.n{font-family:var(--font-display);font-weight:800;font-size:168px;line-height:.86;letter-spacing:-.035em;color:var(--c-cream);white-space:nowrap}
+.n{font-family:var(--font-figure);font-stretch:125%;font-weight:900;font-size:150px;line-height:.86;letter-spacing:-.03em;color:var(--c-cream);white-space:nowrap}
 .n small{font-size:.5em;letter-spacing:-.02em}
 .lab p:first-child{font-size:22px;line-height:1.35}
 .fn{margin-top:16px;font-size:14.5px;line-height:1.5;color:var(--text-secondary)}
 .fn sup,.lab sup{font-family:var(--font-display);font-weight:700;color:var(--receipt);font-size:.8em}
 .asof{display:flex;align-items:baseline;gap:22px;margin-top:6px;white-space:nowrap}
 .asof .of{font:italic 400 150px/.8 var(--font-moment);color:var(--receipt);letter-spacing:-.02em}
-.asof .d{font:800 54px/1 var(--font-display);text-transform:uppercase;color:var(--receipt);letter-spacing:-.01em}
+.asof .d{font:800 44px/1 var(--font-display);text-transform:uppercase;color:var(--receipt);letter-spacing:-.01em}
 
 /* ---------- board blocks ---------- */
 .blk{padding:110px 0;background:var(--surface-page)}
@@ -137,7 +138,7 @@ hr{border:0;border-top:1px solid var(--rule)}
 table{width:100%;border-collapse:collapse;margin-top:40px;font-size:15.5px}
 td,th{text-align:left;padding:11px 12px 11px 0;border-top:1px solid var(--rule);vertical-align:top}
 th{font:600 13px var(--font-display);color:var(--c-aqua)}
-.type-row{display:grid;grid-template-columns:330px 1fr;gap:32px;border-top:1px solid var(--rule);padding:22px 0 30px}
+.type-row{display:grid;grid-template-columns:330px minmax(0,1fr);gap:32px;border-top:1px solid var(--rule);padding:22px 0 30px}
 .type-row .k{font-size:15px;line-height:1.45;color:var(--c-aqua)}
 .mob{display:flex;gap:40px;align-items:flex-start}
 .mob iframe{border:0;width:375px;height:2060px;background:var(--c-night);flex:none;outline:1px solid var(--rule)}
@@ -165,7 +166,7 @@ th{font:600 13px var(--font-display);color:var(--c-aqua)}
 .scaled{transform-origin:top left;position:absolute;top:0;left:0}
 .box{position:relative;overflow:hidden}
 .hoard{position:relative;width:1376px;height:460px;overflow:hidden;background:var(--c-night)}
-.hoard .band{top:70px;height:260px}
+.hoard .band{top:60px;height:250px}
 .post{position:absolute;width:44px;bottom:-1px;height:30px;background:#2a3440}
 .plate{background:var(--c-night);color:var(--c-cream)}
 .row3{display:grid;grid-template-columns:432px 540px 1fr;gap:32px;align-items:start}
@@ -189,7 +190,8 @@ th{font:600 13px var(--font-display);color:var(--c-aqua)}
   .fn{font-size:14px}
   .asof .of{font-size:72px}
   .asof .d{font-size:22px}
-  .asof{gap:10px}
+  .asof{gap:4px 10px;flex-wrap:wrap}
+  .asof .d{font-size:24px}
   .mtitle{font:700 30px/1.05 var(--font-display);letter-spacing:-.02em;margin-bottom:28px}
 }
 .only-m{display:none}
@@ -321,7 +323,7 @@ if(h.includes('freeze'))document.documentElement.classList.add('freeze');
 <section class="blk deep not-m">
   <div class="wrap">
     <div class="sechead"><span class="label">Typography</span><p class="h2">Wide caps for names and numbers. A serif for everything a person reads.</p></div>
-    <div class="type-row"><div class="k">Display · Syne 800, caps<br>1440: 200–300px, set to fit edge to edge<br>375: 30–44px, still edge to edge<br>Names and figures only</div><span class="caps" style="font-size:150px;color:var(--c-cream)">Ironworkers</span></div>
+    <div class="type-row"><div class="k">Display · Syne 800, caps<br>1440: 200–300px, set to fit edge to edge<br>375: 30–44px, still edge to edge<br>Names and figures only</div><div><span class="caps fit" style="color:var(--c-cream)">Ironworkers</span></div></div>
     <div class="type-row"><div class="k">Heading · Syne 700, sentence case<br>1440: 64 / 1.02 · 375: 30 / 1.05</div><p class="h2">Meet the tradesmen and women building the campus</p></div>
     <div class="type-row"><div class="k">Lede and long copy · Newsreader 350–400<br>1440: 44 / 1.16 lede, 20 / 1.5 body<br>375: 24 / 1.2 lede, 18 / 1.5 body</div><p class="lede" style="font-size:40px">The Homer City Generating Station produced power on this site from 1969 to 2023.</p></div>
     <div class="type-row"><div class="k">Navigation · Newsreader 400 in pills<br>17px, 44px tall target at both sizes</div><div class="pills"><a class="pill">What we’re building</a><a class="pill on">Careers</a><a class="pill focus">FAQs</a><a class="pill">News &amp; resources</a><span class="small" style="align-self:center;margin-left:12px;color:var(--c-aqua)">Focus ring: 3px Current</span></div></div>
@@ -393,16 +395,16 @@ if(h.includes('freeze'))document.documentElement.classList.add('freeze');
         <div class="hoard">
           <div class="field" style="--t:62"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div>
           <div class="band"></div>
-          <div style="position:absolute;left:36px;right:36px;top:96px;z-index:2">
+          <div style="position:absolute;left:36px;right:36px;top:84px;z-index:2">
             <span class="caps fit" style="color:var(--c-cream)">Homer City</span>
             <span class="caps fit" style="color:var(--c-cream);margin-top:.08em">Energy Campus</span>
           </div>
           <div class="plate" style="position:absolute;left:36px;bottom:36px;z-index:2;padding:18px 22px;border-radius:2px;display:flex;gap:26px;align-items:flex-end">
-            <span style="font:800 76px/.86 var(--font-display);letter-spacing:-.03em">1,800+</span>
+            <span style="font:900 76px/.86 var(--font-figure);font-stretch:125%;letter-spacing:-.03em">1,800+</span>
             <span style="font-size:17px;line-height:1.3;max-width:300px">Direct-hire tradespeople and skilled contractors active on site</span>
             <span style="display:flex;align-items:baseline;gap:10px"><span style="font:italic 64px/.8 var(--font-moment);color:var(--receipt)">as of</span><span style="font:800 24px/1 var(--font-display);color:var(--receipt)">SEPTEMBER 2026</span></span>
           </div>
-          <div style="position:absolute;right:36px;bottom:36px;z-index:2;text-align:right" class="pills"><span class="logo"><b></b>Logo as-is</span><span class="pill">1750 Power Plant Rd</span><span class="pill">Job seekers: HomerCity.Info@Kiewit.com</span></div>
+          <div style="position:absolute;right:36px;top:28px;z-index:2" class="pills"><span class="logo"><b></b>Logo as-is</span><span class="pill">1750 Power Plant Rd</span><span class="pill">Job seekers: HomerCity.Info@Kiewit.com</span></div>
         </div>
         <div class="appcap"><span><b>Site hoarding, Power Plant Road</b> · 24 × 8 ft, printed still of the field at 62 s</span><span>The figure plate is a swap-out panel, re-printed monthly. If it can’t be kept current, it comes off.</span></div>
       </div>
@@ -413,11 +415,11 @@ if(h.includes('freeze'))document.documentElement.classList.add('freeze');
           <div class="scaled" style="width:1080px;height:1350px;transform:scale(.4);background:var(--c-night)">
             <div style="position:absolute;inset:0 0 700px 0"><div class="field" style="--t:20"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div></div>
             <span class="logo" style="position:absolute;top:56px;left:56px;transform:scale(1.8);transform-origin:left top"><b></b>Logo as-is</span>
-            <div style="position:absolute;left:64px;right:64px;top:600px">
+            <div style="position:absolute;left:64px;right:64px;top:690px">
               <span style="font:italic 52px/1 var(--font-text);color:var(--c-gold)">Anticipated</span>
-              <div style="font:800 270px/.86 var(--font-display);letter-spacing:-.04em;margin-top:18px">10,000+</div>
-              <p style="font:400 46px/1.2 var(--font-text);margin-top:26px">Direct on-site construction-related jobs<sup style="color:var(--receipt);font-family:var(--font-display);font-size:.6em">1</sup></p>
-              <p style="font:400 25px/1.42 var(--font-text);color:var(--c-aqua);margin-top:30px"><sup style="color:var(--receipt);font-family:var(--font-display)">1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+              <div style="font:900 220px/.86 var(--font-figure);font-stretch:125%;letter-spacing:-.03em;margin-top:18px">10,000+</div>
+              <p style="font:400 44px/1.2 var(--font-text);margin-top:24px">Direct on-site construction-related jobs<sup style="color:var(--receipt);font-family:var(--font-display);font-size:.6em">1</sup></p>
+              <p style="font:400 25px/1.4 var(--font-text);color:var(--c-aqua);margin-top:24px"><sup style="color:var(--receipt);font-family:var(--font-display)">1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
             </div>
           </div></div>
           <div class="appcap"><span><b>Social card</b> · 1080 × 1350, footnote 1 at 25px</span></div>
@@ -438,7 +440,7 @@ if(h.includes('freeze'))document.documentElement.classList.add('freeze');
           <div class="app"><div class="box" style="width:540px;height:300px;background:var(--c-cream);color:var(--c-navy);display:grid;grid-template-columns:212px 1fr">
             <div style="position:relative;overflow:hidden"><div class="field" style="--t:140"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i></div></div>
             <div style="padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between">
-              <div><span style="font:600 12px var(--font-display)">Fact sheet</span><span class="caps" style="font-size:31px;margin-top:10px;line-height:.9">Homer City<br>Energy<br>Campus</span></div>
+              <div><span style="font:600 12px var(--font-display)">Fact sheet</span><span class="caps" style="font-size:24px;margin-top:10px;line-height:.92">Homer City<br>Energy<br>Campus</span></div>
               <p style="font:400 14px/1.4 var(--font-text)">Building America’s energy future by drawing on <em style="font-family:var(--font-moment);font-size:1.15em">Pennsylvania’s proud past.</em></p>
               <span style="display:flex;align-items:baseline;gap:8px"><span style="font:italic 34px/.8 var(--font-moment);color:var(--c-navy)">as of</span><span style="font:800 13px var(--font-display);background:var(--c-current);padding:4px 7px;border-radius:999px">MAY 2026</span></span>
             </div>

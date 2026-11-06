@@ -48,7 +48,9 @@ i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-
 .strip{display:flex;gap:22px;padding:70px 0 30px 64px}
 .strip>div{width:240px;flex:none}
 .strip.four{padding:10px 0 0 195px}
-.ph{position:relative;aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;padding:14px}
+.ph{position:relative;aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
+.ph::after{content:'';position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(rgba(20,50,81,0),rgba(20,50,81,.16));z-index:0}
+.f-navy.ph::after{background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.22))}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 80% at 30% 18%,rgba(255,255,255,.38),rgba(255,255,255,0) 55%),radial-gradient(90% 60% at 50% 110%,rgba(20,50,81,.22),rgba(20,50,81,0) 70%);z-index:0}
 .f-navy.ph::before{background:radial-gradient(120% 80% at 30% 18%,rgba(175,236,241,.16),rgba(175,236,241,0) 55%),radial-gradient(90% 60% at 50% 110%,rgba(0,0,0,.25),rgba(0,0,0,0) 70%)}
 .ph .brief{font:500 12px/1.4 var(--display);position:relative;z-index:2;max-width:96%}
@@ -85,7 +87,7 @@ i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-
 .mini-tile{width:64px;height:64px;border-radius:14px;background:var(--navy);color:var(--cream);font:600 9px/1.2 var(--display);display:flex;align-items:center;justify-content:center;text-align:center;padding:4px}
 
 .bleed{position:relative;height:760px;display:flex;align-items:center;justify-content:space-between;padding:0 72px;color:var(--cream);overflow:hidden}
-.bleed .ph{position:absolute;inset:0;aspect-ratio:auto;padding:28px 72px}
+.bleed .ph{position:absolute;inset:0;aspect-ratio:auto;padding:28px 72px;justify-content:flex-start}
 .bleed .ph .brief{font-size:14px;max-width:520px}
 .bleed .ph svg{opacity:1}
 .bleed h3{position:relative;z-index:3;font-size:120px}
@@ -149,7 +151,7 @@ i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-
 .m-btn .btn{font-size:16px;padding:14px 22px}
 .m-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:26px 16px 0}
 .m-strip .ph{padding:10px}.m-strip .ph .brief{font-size:10.5px}
-.m-strip .cap{font-size:14px;margin-top:6px}.m-strip .cap i{font-size:16px}
+.m-strip .cap{font-size:14px;margin-top:6px}.m-strip .cap i{font-size:21px}
 .m-work{background:var(--navy);color:var(--cream);margin-top:30px;padding:34px 16px 30px}
 .m-work h3{font-size:36px;letter-spacing:-.035em;margin:10px 0 22px}
 .m-work h3 i{font-size:1.05em;color:var(--gold)}
@@ -206,8 +208,8 @@ i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-
 .social{background:var(--cream);color:var(--navy);aspect-ratio:1;padding:30px;display:flex;flex-direction:column;justify-content:space-between}
 .social.navy{background:var(--navy);color:var(--cream)}
 .social .q{font:400 22px var(--human);font-style:italic;font-variation-settings:"opsz" 30}
-.social .fig{font:900 120px/.9 var(--display);letter-spacing:-.05em}
-.social .fig sup{font:700 34px var(--display);vertical-align:top;letter-spacing:0}
+.social .fig{font:900 92px/.9 var(--display);letter-spacing:-.05em}
+.social .fig sup{font:700 28px var(--display);vertical-align:top;letter-spacing:0;margin-left:3px}
 .social .lab{font:600 16px/1.35 var(--display);margin-top:10px}
 .social .fn{font:400 11.5px/1.45 var(--human);font-variation-settings:"opsz" 10}
 .social .ft{display:flex;justify-content:space-between;align-items:center;font:600 11px var(--display)}
@@ -217,6 +219,7 @@ i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-
 .jobs-page{background:var(--paper);box-shadow:0 20px 40px rgba(20,50,81,.14)}
 .jp-head{background:var(--gold);color:var(--navy);padding:34px 36px 30px}
 .jp-head h3{font-size:86px}
+.jp-head p.eyebrow{font:600 13px var(--display);margin:0}
 .jp-head h3 i{font-size:1.05em}
 .jp-head p{font:400 17px/1.45 var(--human);font-variation-settings:"opsz" 16;max-width:560px;margin-top:16px}
 .jrow{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 36px;border-top:1px solid rgba(20,50,81,.2);align-items:center}
@@ -238,7 +241,7 @@ i,.hu{font-family:var(--human);font-style:italic;font-weight:400;font-variation-
 .mail{width:600px;background:var(--paper)}
 .mail .top{background:var(--navy);color:var(--cream);padding:22px 28px;display:flex;justify-content:space-between;align-items:center;font:600 13px var(--display)}
 .mail .body{padding:28px}
-.mail h3{font-size:44px;letter-spacing:-.04em}
+.mail h3{font-size:34px;letter-spacing:-.035em;line-height:.98}
 .mail h3 i{font-size:1.05em}
 .mail p{font:400 16px/1.5 var(--human);font-variation-settings:"opsz" 16;margin-top:12px}
 
@@ -256,7 +259,7 @@ body.m375{width:375px;background:var(--paper)}
 body.m375 > *:not(.devices){display:none}
 body.m375 .devices{display:block;padding:0;background:var(--paper)}
 body.m375 .devices > *:not(.mobile-col){display:none}
-body.m375 .mobile-col > .eyebrow{display:none}
+body.m375 .mobile-col > .eyebrow,body.m375 .mobile-col > .app-cap{display:none}
 body.m375 .phone{border-radius:0;box-shadow:none}
 body.m375 .phone-crop{max-height:none;border-radius:0}
 @media (prefers-reduced-motion:no-preference){.ro .ph{transition:transform 240ms var(--ease-appear)}}
@@ -279,7 +282,7 @@ body.m375 .phone-crop{max-height:none;border-radius:0}
   <div class="statement"><h2 class="d">Meet the <i>tradesmen<br>and women</i> building<br>the campus</h2></div>
   <div class="strip" id="strip"></div>
   <div class="strip four" id="strip2"></div>
-  <p class="wrap app-cap" style="margin-top:22px">Portrait grid, nine trades. Every tile is a placeholder: the brief sits inside the image. Captions name the trade only and carry its locked description (content/homer-city-qa.md, Job opportunities). No person is named; none are supplied.</p>
+  <p class="wrap app-cap" style="margin-top:22px">Portrait grid, nine trades. Every tile is a placeholder: a lit, empty set in the trade’s colour, with the brief inside the image. Captions name the trade only and carry its locked description (content/homer-city-qa.md, Job opportunities). No person is named; none are supplied.</p>
 </section>
 
 <!-- ============ DEFINE ============ -->
@@ -298,7 +301,7 @@ body.m375 .phone-crop{max-height:none;border-radius:0}
 
 <!-- ============ FULL-BLEED PORTRAIT (after Tilt f06 "Natalie / Good for it") ============ -->
 <section class="bleed">
-  <div class="ph f-navy"><svg viewBox="0 0 160 76" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="currentColor" opacity=".10"><ellipse cx="66" cy="34" rx="7" ry="9"/><path d="M48 76 C49 58 57 50 66 50 C75 50 83 58 84 76Z"/><ellipse cx="92" cy="31" rx="7.5" ry="9.5"/><path d="M74 76 C75 56 83 47 92 47 C101 47 109 56 110 76Z"/></g></svg>
+  <div class="ph f-navy">
     <div class="brief"><b>Photo brief · full bleed</b>An apprentice and a journeyman from the same trade, side by side at the work face, mid-task, not posed to camera. Warm low side light; their own gear. Real, consented photograph; no names until supplied. Text sits over the darker half; scrim to AA against white.</div></div>
   <h3 class="d"><i>Apprentices</i></h3>
   <div class="side"><div class="d">135+</div><p>Training the next generation. Apprentices training alongside experienced journeymen.</p><span class="flag" style="color:var(--gold);margin-top:12px">Tier A · confirm before publishing</span></div>
@@ -397,17 +400,17 @@ body.m375 .phone-crop{max-height:none;border-radius:0}
 <!-- ============ THE RECEIPT, 1440 ============ -->
 <section class="numbers">
   <div class="head">
-    <h3 class="d">Who’s <i>on site</i>, counted</h3>
-    <p>The receipt: qualifier in italic above the figure, the date inside the label, the footnote under it. Set as one piece of type, at every size, so none of it can fall off a layout.</p>
+    <h3 class="d">The <i>receipt</i></h3>
+    <p>Qualifier (only the source’s own: As of, Projected, Anticipated) in italic above the figure, the date inside the label, the footnote under it. Set as one piece of type, at every size, so none of it can fall off a layout.</p>
   </div>
   <div class="ledger">
     <div class="rc"><span class="q">As of September 2026</span><span class="fig">1,800+</span><p class="lab">Direct-hire tradespeople and skilled contractors active on site</p><span class="flag">Tier A · confirm wording</span></div>
-    <div class="rc"><span class="q">From the local area</span><span class="fig">~95%</span><p class="lab">Of the skilled direct-hire craft workforce is from the local area</p><span class="flag">Tier A · confirm before publishing</span></div>
-    <div class="rc"><span class="q">Learning on the job</span><span class="fig">135+</span><p class="lab">Apprentices training alongside experienced journeymen</p><span class="flag">Tier A · confirm before publishing</span></div>
+    <div class="rc"><span class="q">&nbsp;</span><span class="fig">~95%</span><p class="lab">Of the skilled direct-hire craft workforce is from the local area</p><span class="flag">Tier A · confirm before publishing</span></div>
+    <div class="rc"><span class="q">&nbsp;</span><span class="fig">135+</span><p class="lab">Apprentices training alongside experienced journeymen</p><span class="flag">Tier A · confirm before publishing</span></div>
     <div class="rc"><span class="q">Projected</span><span class="fig">~2,000</span><p class="lab">Total workers by year-end 2026</p><span class="flag">Tier A · confirm before publishing</span></div>
   </div>
   <div class="ledger" style="margin-top:28px;grid-template-columns:1fr 3fr">
-    <div class="rc"><span class="q">Represented on site</span><span class="fig">9</span><p class="lab">Local union organizations represented on site</p><span class="flag">Tier A · confirm before publishing</span></div>
+    <div class="rc"><span class="q">&nbsp;</span><span class="fig">9</span><p class="lab">Local union organizations represented on site</p><span class="flag">Tier A · confirm before publishing</span></div>
     <div class="rc"><span class="q">The trades</span><p class="d" style="font-size:52px;line-height:1.02;letter-spacing:-.035em;margin-top:4px">Boilermakers, carpenters, electricians, ironworkers, laborers, millwrights, operators, pipefitters, <i style="color:var(--gold)">teamsters</i>.</p><p class="lab">Nine unions are counted; the roster is not yet public (open question #2), so no union is named here.</p></div>
   </div>
   <div class="ledger2">
@@ -440,7 +443,7 @@ body.m375 .phone-crop{max-height:none;border-radius:0}
     <div class="social"><div><span class="q">Anticipated</span><div class="fig">10,000+<sup>1</sup></div><p class="lab">Direct on-site construction-related jobs</p></div>
       <div><p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p><div class="ft" style="margin-top:12px"><span>Homer City Energy Campus</span><span class="mt">Logo as-is</span></div></div></div>
     <div class="social navy"><div><span class="q" style="color:var(--gold)">As of September 2026</span><div class="fig">1,800+</div><p class="lab">Direct-hire tradespeople and skilled contractors active on site</p></div>
-      <div><p class="d" style="font-size:34px;letter-spacing:-.035em;line-height:1">Nine trades. <i style="color:var(--gold)">From the local area.</i></p><div class="ft" style="margin-top:14px"><span class="flag" style="color:var(--gold)">Tier A · confirm before publishing</span><span class="mt">Logo as-is</span></div></div></div>
+      <div><p class="d" style="font-size:40px;letter-spacing:-.035em;line-height:1"><i style="color:var(--gold)">Nine trades</i> on site</p><div class="ft" style="margin-top:14px"><span class="flag" style="color:var(--gold)">Tier A · confirm before publishing</span><span class="mt">Logo as-is</span></div></div></div>
   </div>
   <p class="app-cap">Hi-vis patch (woven, 100 × 45 mm) · social cards, 1080 square. <span>The footnote is part of the card, set in the same serif at the smallest legible size, not a link to it.</span></p>
 
@@ -493,7 +496,7 @@ const T=[
  ['Pipefitters','Who specialize in installing all piping systems and equipment on site.','cream','a pipefitter, chest-up; cream sheet'],
  ['Teamsters','Engaged in jobsite transportation, logistics and materials handling.','gold','a teamster by their truck door; gold sheet'],
 ];
-const guide=c=>`<svg viewBox="0 0 100 125" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="currentColor" opacity=".13"><ellipse cx="50" cy="60" rx="15" ry="19"/><path d="M10 125 C12 96 30 84 50 84 C70 84 88 96 90 125Z"/></g></svg>`;
+const guide=c=>'';
 const tile=(t,brief=true,short=false)=>`<div><div class="ph f-${t[2]}">${guide()}<div class="brief"><b>Portrait brief · ${t[0].toLowerCase().replace(/s$/,'')}</b>${short?'':t[3]+'. '}Real, consented photograph; no name until supplied.</div></div><p class="cap"><i>${t[0]}</i>${short?'':`<small>${t[1]}</small>`}</p></div>`;
 document.getElementById('strip').innerHTML=T.slice(0,5).map(t=>tile(t)).join('');
 document.getElementById('strip2').innerHTML=T.slice(5).map(t=>tile(t)).join('');

@@ -12,7 +12,7 @@
   --rule-dark:#F3F1D040; --rule-light:#14325126;
 }
 *{box-sizing:border-box}
-body{margin:0;width:1440px;background:var(--cream);color:var(--navy);font:400 17px/1.5 'Instrument Sans',sans-serif}
+body{margin:0;width:1440px;font-variant-numeric:lining-nums;background:var(--cream);color:var(--navy);font:400 17px/1.5 'Instrument Sans',sans-serif}
 .serif{font-family:Cormorant,serif;font-variant-numeric:lining-nums}
 em{font-style:italic}
 .wrap{padding:0 64px}
@@ -43,7 +43,7 @@ em{font-style:italic}
 .over .pos em{color:var(--gold-ink)}
 /* ---------- statement ---------- */
 .statement{background:var(--paper);padding:150px 64px 140px;text-align:center}
-.statement h2{font-family:Cormorant;font-weight:500;font-size:116px;line-height:.98;letter-spacing:-.005em;text-transform:uppercase;margin:0 auto;max-width:1300px}
+.statement h2{font-family:Cormorant;font-weight:500;font-size:108px;line-height:.98;letter-spacing:-.005em;text-transform:uppercase;margin:0 auto;max-width:1300px}
 .statement h2 em{text-transform:none;color:var(--gold-ink);font-size:1.06em}
 .statement p{margin:44px auto 0;max-width:560px;font-size:15px}
 /* ---------- full bleed stand-in ---------- */
@@ -115,12 +115,12 @@ em{font-style:italic}
 .src{font-size:12px;color:#F3F1D099;margin-top:14px}
 /* ---------- essay ---------- */
 .essay{background:var(--cream);padding:120px 0 120px 64px}
-.essay h2{font-family:Cormorant;font-weight:500;font-size:150px;line-height:.85;text-transform:uppercase;margin:0;letter-spacing:-.01em}
+.essay h2{font-family:Cormorant;font-weight:500;font-size:124px;line-height:.98;text-transform:uppercase;margin:0;letter-spacing:-.01em}
 .essay h2 em{text-transform:none;color:var(--gold-ink)}
-.strip{display:flex;gap:18px;margin-top:64px;overflow:hidden;padding-right:64px}
-.fr{flex:0 0 250px}
-.fr.big{flex-basis:420px}
-.fr .date{font-family:Cormorant;font-weight:600;font-size:30px;letter-spacing:.06em;text-transform:uppercase;border-top:2px solid var(--navy);padding-top:10px;line-height:1}
+.strip{display:flex;gap:16px;margin-top:64px;padding-right:64px}
+.fr{flex:1 1 0;min-width:0}
+.fr.big{flex:1.7 1 0}
+.fr .date{font-family:Cormorant;font-weight:600;font-size:26px;letter-spacing:.06em;text-transform:uppercase;border-top:2px solid var(--navy);padding-top:10px;line-height:1}
 .fr .ph{height:300px;margin-top:14px;background:repeating-linear-gradient(135deg,#1432510f 0 1px,transparent 1px 14px),#E9E6C2;color:var(--navy);padding:16px;font-size:12.5px;line-height:1.4;display:flex;flex-direction:column;justify-content:space-between}
 .fr.big .ph{background:var(--navy);color:var(--cream)}
 .fr .ph b{font-weight:600}
@@ -132,7 +132,7 @@ em{font-style:italic}
 .stage{height:780px;display:flex;align-items:center;justify-content:center;position:relative}
 .stage .t{position:absolute;left:24px;bottom:18px;font-size:12px;right:24px}
 /* gate sign */
-.gate{width:470px;background:var(--navy);color:var(--cream);padding:40px 38px 34px;position:relative;box-shadow:0 30px 60px -30px #0C1F3399}
+.gate{width:540px;background:var(--navy);color:var(--cream);padding:40px 38px 34px;position:relative;box-shadow:0 30px 60px -30px #0C1F3399}
 .gate:before,.gate:after{content:"";position:absolute;bottom:-140px;width:18px;height:140px;background:#0C1F33}
 .gate:before{left:60px}.gate:after{right:60px}
 .gate .top{display:flex;justify-content:space-between;align-items:flex-start}
@@ -141,18 +141,18 @@ em{font-style:italic}
 .gate .addr{font-size:15px;margin-top:20px;border-top:1px solid var(--rule-dark);padding-top:14px}
 .gate .rows{font-size:13px;margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;color:#F3F1D0D9}
 /* fact sheet */
-.sheet{width:420px;height:560px;background:var(--cream);color:var(--navy);padding:34px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px #0C1F33AA;position:relative}
+.sheet{width:450px;height:600px;background:var(--cream);color:var(--navy);padding:34px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px #0C1F33AA;position:relative}
 .sheet h3{font-family:Cormorant;font-weight:500;font-size:68px;line-height:.9;text-transform:uppercase;margin:auto 0 0}
 .sheet h3 em{text-transform:none;color:var(--gold-ink)}
 .sheet .meta{display:flex;justify-content:space-between;font-size:12px;font-weight:600;border-top:1px solid var(--rule-light);padding-top:10px;margin-top:22px}
 /* social */
-.social{width:500px;height:500px;background:var(--navy);color:var(--cream);padding:34px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px #000}
+.social{width:560px;height:560px;background:var(--navy);color:var(--cream);padding:34px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px #000}
 .social .q{font-size:30px}
 .social .fig{font-size:150px;margin-top:4px}
 .social .lab{font-size:19px;padding-top:12px}
 .social .fn{font-size:10.5px;margin-top:auto}
 /* poster */
-.poster{width:440px;height:620px;background:var(--gold);color:var(--navy);padding:34px 34px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 30px 60px -30px #0C1F33AA}
+.poster{width:470px;height:660px;background:var(--gold);color:var(--navy);padding:34px 34px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 30px 60px -30px #0C1F33AA}
 .poster .s{font-family:Cormorant;font-weight:600;letter-spacing:.18em;font-size:14px;text-transform:uppercase}
 .poster h3{font-family:Cormorant;font-weight:500;font-size:132px;line-height:.8;text-transform:uppercase;margin:18px 0 0;letter-spacing:-.01em}
 .poster h3 em{text-transform:none;display:block;font-size:.9em}
@@ -208,7 +208,7 @@ em{font-style:italic}
 
 <!-- ============ STATEMENT ============ -->
 <section class="statement">
-  <h2>Building America’s <em>energy future</em> by drawing on Pennsylvania’s <em>proud past.</em></h2>
+  <h2>Building America’s<br><em>energy future</em> by drawing<br>on Pennsylvania’s<br><em>proud past.</em></h2>
   <p>The fact sheet’s own positioning line, May 2026, and the locked hero H1. Caps carry the claim; the italic is the human part.</p>
 </section>
 
@@ -216,6 +216,13 @@ em{font-style:italic}
 <section class="bleed" style="background-image:url(../../content/imagery/13-steel-frame-long-view.jpg)">
   <div class="stand">Stand-in — suspected generated image, not a photograph of the campus</div>
   <svg class="over-fan" data-fan="#F3F1D0"></svg>
+</section>
+
+<!-- ============ GOLD FIELD ============ -->
+<section style="background:var(--gold);color:var(--navy);height:900px;position:relative;overflow:hidden">
+  <svg data-fan="#143251" style="position:absolute;left:50%;width:1100px;margin-left:-550px;bottom:330px"></svg>
+  <div style="position:absolute;left:0;right:0;bottom:70px;text-align:center;font-family:Cormorant;font-weight:500;font-size:250px;line-height:.8;letter-spacing:-.02em;text-transform:uppercase">Since <em style="text-transform:none">1969</em></div>
+  <div style="position:absolute;left:64px;top:40px;font-size:13px;font-weight:600">The seven-ray mark at billboard scale · navy on foil gold, never black</div>
 </section>
 
 <!-- ============ PALETTE ============ -->
@@ -269,7 +276,7 @@ em{font-style:italic}
     <div style="background:var(--cream);color:var(--navy);box-shadow:inset 0 0 0 1px #14325118"><div class="stamp">First steel<big>April 2026</big>Vertical construction</div><div class="t">Milestone stamp · date from the deck timeline</div></div>
     <div style="background:var(--navy);color:var(--gold)"><div class="asof" style="font-size:15px;padding:7px 20px 7px 7px"><svg data-seal="onGold" viewBox="0 0 200 200"></svg>As of September 2026</div><div class="t" style="color:#F3F1D0B3">“As of” stamp · travels with every moving figure</div></div>
     <div style="background:var(--paper)"><span class="kind" style="background:var(--navy);color:var(--cream)">Photograph · February 2026</span><span class="kind" style="background:var(--gold);color:var(--navy)">Rendering — not a photograph</span><span class="kind" style="background:#E9E6C2;color:var(--navy)">Archival photograph · 1969–2023</span><div class="t">Kind stamps · sit inside the image, top left, and survive every crop</div></div>
-    <div style="background:var(--blue);color:var(--ink)"><svg data-seal="ink" viewBox="0 0 200 200" style="width:200px;height:200px" data-top="POWER BLOCK" data-bottom="7 × GE VERNOVA 7HA.02" data-l="Up to" data-r="4.4 GW"></svg><div class="t">Variant seal · a fact in the ring, sourced, never decorative</div></div>
+    <div style="background:var(--blue);color:var(--ink)"><svg data-seal="ink" viewBox="0 0 200 200" style="width:200px;height:200px" data-top="UP TO 4.4 GW" data-bottom="7 × GE VERNOVA 7HA.02" data-l="7" data-r="7"></svg><div class="t">Variant seal · a fact in the ring, sourced, never decorative</div></div>
   </div>
 </section>
 
@@ -301,8 +308,8 @@ em{font-style:italic}
 <section class="sec" style="background:var(--paper)">
   <div class="sec-h"><div class="k">375 first</div><p>The same hero and receipt at phone width. The seven rays rise off the top edge of the picture; the seal overlaps its corner. Footnotes sit inside the row they qualify, at 12.5px, never behind a tap.</p></div>
   <div style="display:flex;gap:48px;align-items:flex-start">
-    <iframe src="03-since-1969-375.html" style="width:375px;height:1500px;border:0;box-shadow:0 30px 60px -30px #0C1F3399" title="375 hero"></iframe>
-    <iframe src="03-since-1969-375.html#x" style="width:375px;height:1500px;border:0;box-shadow:0 30px 60px -30px #0C1F3399" title="375 stats" onload="this.contentWindow.scrollTo(0,1180)"></iframe>
+    <div style="width:375px;height:1130px;overflow:hidden;box-shadow:0 30px 60px -30px #0C1F3399;flex:none"><img src="03-since-1969-375.jpg" style="width:375px;display:block" alt="375 hero"></div>
+    <div style="width:375px;height:1100px;overflow:hidden;box-shadow:0 30px 60px -30px #0C1F3399;flex:none;position:relative"><img src="03-since-1969-375.jpg" style="width:375px;display:block;position:absolute;bottom:0" alt="375 stats"></div>
     <div style="flex:1;font-size:15px;max-width:380px">
       <p class="serif" style="font-size:40px;line-height:1.02;margin:0 0 18px;font-weight:500">The headline sets in <em style="color:var(--gold-ink)">eight lines</em> at 42px and still reads as one sentence.</p>
       <p>Caps break wide words (“PENNSYLVANIA’S” fills the 343px column at 42px), so 42 is the ceiling at 375. The italic phrases are where the eye lands on a phone: <em>energy future</em>, <em>proud past</em>.</p>
@@ -380,14 +387,14 @@ em{font-style:italic}
   </div>
   <div class="stage" style="background:var(--navy)">
     <div class="stickers">
-      <svg class="stk" data-seal="gold" viewBox="0 0 200 200" data-top="IRONWORKERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
-      <svg class="stk" data-seal="onGold" viewBox="0 0 200 200" data-top="PIPEFITTERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
-      <svg class="stk" data-seal="ink" viewBox="0 0 200 200" data-top="ELECTRICIANS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
-      <svg class="stk" data-seal="onGold" viewBox="0 0 200 200" data-top="BOILERMAKERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
-      <svg class="stk" data-seal="ink" viewBox="0 0 200 200" data-top="MILLWRIGHTS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
-      <svg class="stk" data-seal="gold" viewBox="0 0 200 200" data-top="CARPENTERS" data-bottom="HOMER CITY ENERGY CAMPUS"></svg>
+      <svg class="stk" data-seal="gold" viewBox="0 0 200 200" data-top="IRONWORKERS" data-bottom="HOMER CITY ENERGY CAMPUS" data-l="20" data-r="26"></svg>
+      <svg class="stk" data-seal="onGold" viewBox="0 0 200 200" data-top="PIPEFITTERS" data-bottom="HOMER CITY ENERGY CAMPUS" data-l="20" data-r="26"></svg>
+      <svg class="stk" data-seal="ink" viewBox="0 0 200 200" data-top="ELECTRICIANS" data-bottom="HOMER CITY ENERGY CAMPUS" data-l="20" data-r="26"></svg>
+      <svg class="stk" data-seal="onGold" viewBox="0 0 200 200" data-top="BOILERMAKERS" data-bottom="HOMER CITY ENERGY CAMPUS" data-l="20" data-r="26"></svg>
+      <svg class="stk" data-seal="ink" viewBox="0 0 200 200" data-top="MILLWRIGHTS" data-bottom="HOMER CITY ENERGY CAMPUS" data-l="20" data-r="26"></svg>
+      <svg class="stk" data-seal="gold" viewBox="0 0 200 200" data-top="CARPENTERS" data-bottom="HOMER CITY ENERGY CAMPUS" data-l="20" data-r="26"></svg>
     </div>
-    <div class="t" style="color:#F3F1D0B3">06 · Hard-hat stickers, one per trade on site. Trades named; the nine unions are not (open question #2).</div>
+    <div class="t" style="color:#F3F1D0B3">06 · Hard-hat stickers, one per trade on site, dated 20 ✦ 26 for the year the crews raised the steel. Trades named; the nine unions are not (open question #2).</div>
   </div>
 </section>
 
@@ -396,11 +403,11 @@ em{font-style:italic}
   <div class="avoid">
     <div><b>Nostalgia kitsch</b>No sepia, no smokestack silhouettes, no “the good old days”. The station is a dated fact in the sequence, not a mood.</div>
     <div><b>Fake texture</b>No paper grain, rust or distressed stamps on screen. Emboss and foil exist only where there is real paper.</div>
-    <div><b>The forbidden words</b>Never “coal”. Never 4.5 GW. The site is “the former Homer City Generating Station”, and the figure is up to 4.4 GW.</div>
+    <div><b>The forbidden words</b>No fuel word the client’s own documents never use, and no gigawatt figure from press coverage. The site is “the former Homer City Generating Station”, and the figure is up to 4.4 GW.</div>
     <div><b>Seal as logo</b>The seal never replaces, recolours or crowds the fixed logo, and never carries a date the sources don’t give.</div>
   </div>
 </section>
 
-<script src="seal.js"></script>
+<script src="03-since-1969-seal.js"></script>
 </body>
 </html>

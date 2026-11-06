@@ -10,7 +10,7 @@
   t1=el.dataset.top||'HOMER CITY ENERGY CAMPUS',t2=el.dataset.bottom||'INDIANA COUNTY · PENNSYLVANIA',y1=el.dataset.l||'19',y2=el.dataset.r||'69';
   var emb=el.dataset.seal==='emboss'?' filter="url(#emb'+i+')"':'';
   el.innerHTML=(emb?'<defs><filter id="emb'+i+'"><feDropShadow dx="-1" dy="-1" stdDeviation=".6" flood-color="#fff" flood-opacity=".9"/><feDropShadow dx="1.2" dy="1.4" stdDeviation="1" flood-color="#8E8A5C" flood-opacity=".55"/></filter></defs>':'')+
-  '<g'+emb+'><circle cx="100" cy="100" r="98" fill="'+c[0]+'"/><circle cx="100" cy="100" r="93" fill="none" stroke="'+c[1]+'" stroke-width="1.6"/><circle cx="100" cy="100" r="66" fill="none" stroke="'+c[1]+'" stroke-width="1"/>'+
+  '<g'+emb+'><circle cx="100" cy="100" r="98" fill="'+c[0]+'"/><circle cx="100" cy="100" r="93" fill="none" stroke="'+c[1]+'" stroke-width="2.6"/><circle cx="100" cy="100" r="66" fill="none" stroke="'+c[1]+'" stroke-width="1.4"/>'+
   '<path id="'+id+'a" d="M 22 100 A 78 78 0 0 1 178 100" fill="none"/><path id="'+id+'b" d="M 17 100 A 83 83 0 0 0 183 100" fill="none"/>'+
   '<text font-family="Cormorant" font-weight="600" font-size="12" letter-spacing="1.5" fill="'+c[2]+'"><textPath href="#'+id+'a" startOffset="50%" text-anchor="middle">'+t1+'</textPath></text>'+
   '<text font-family="Cormorant" font-weight="600" font-size="10.5" letter-spacing="1.3" fill="'+c[2]+'"><textPath href="#'+id+'b" startOffset="50%" text-anchor="middle">'+t2+'</textPath></text>'+
