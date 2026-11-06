@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daylight 375</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --haze:#F1F4F6; --navy:#143251; --slate:#4F5F72;
+  --blue:#238FC8; --blue-deep:#16679A; --aqua:#AFECF1; --gold:#D8B471; --cream:#F3F1D0;
+  --rule:#D5DCE2;
+  --display:'Outfit',system-ui,sans-serif; --text:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--white);color:var(--navy);font-family:var(--text);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--blue-deep);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.alert{background:var(--navy);color:var(--white);padding:10px 16px;font-size:14px;line-height:1.4;display:flex;gap:10px;align-items:flex-start}
+.alert b{font-weight:600}
+.alert span.x{margin-left:auto;font-size:18px;line-height:1;opacity:.9}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 16px;background:var(--haze)}
+.logo{font-family:var(--display);font-weight:400;font-size:15px;letter-spacing:.01em;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--navy);display:inline-block;position:relative}
+.logo i:after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--blue)}
+.menu{font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px}
+.menu b{display:inline-block;width:20px;height:10px;border-top:1.5px solid var(--navy);border-bottom:1.5px solid var(--navy)}
+.hero{background:var(--haze);padding:40px 16px 0}
+.eyebrow{font-size:14px;font-weight:500;color:var(--slate);letter-spacing:.01em}
+h1{font-family:var(--display);font-weight:200;font-size:44px;line-height:1.04;letter-spacing:-.025em;margin:14px 0 20px}
+.intro{font-size:18px;line-height:1.5;color:var(--navy);max-width:34ch}
+.actions{display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin:28px 0 36px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-deep);color:#fff;text-decoration:none;font-weight:500;font-size:16px;padding:14px 20px;border-radius:999px}
+.btn:after{content:"→";font-size:18px}
+.photo{position:relative;margin:0 -16px;aspect-ratio:4/5;background:linear-gradient(180deg,#E3EBF0 0%,#F6F8F9 55%,#EEF1EE 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px 16px;overflow:hidden}
+.photo .brief{font-size:13px;line-height:1.45;color:var(--slate);max-width:30ch}
+.photo .brief b{display:block;color:var(--navy);font-weight:600;margin-bottom:4px}
+.photo .frame{position:absolute;inset:14px;border:1px dashed #B9C5CF;border-radius:4px;pointer-events:none}
+.cap{display:flex;justify-content:space-between;gap:12px;padding:10px 16px 0;font-size:13px;color:var(--slate);background:var(--white)}
+.section{padding:56px 16px 48px}
+.section h2{font-family:var(--display);font-weight:300;font-size:32px;line-height:1.1;letter-spacing:-.02em;margin:10px 0 8px}
+.section .sub{color:var(--slate);font-size:16px}
+.receipt{border-top:1px solid var(--rule);padding:28px 0 32px}
+.receipt:last-child{border-bottom:1px solid var(--rule)}
+.q{font-size:14px;font-weight:500;color:var(--slate);display:flex;align-items:center;gap:8px;min-height:24px}
+.asof{background:var(--aqua);color:var(--navy);font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px}
+.fig{font-family:var(--display);font-weight:300;font-size:68px;line-height:1;letter-spacing:-.035em;color:var(--blue);margin:6px 0 14px;font-variant-numeric:lining-nums}
+.fig small{font-size:.5em;letter-spacing:-.01em;margin-left:6px}
+.label{font-size:17px;line-height:1.45;color:var(--navy);max-width:32ch}
+.label sup{font-size:.7em;color:var(--blue-deep);font-weight:600}
+.fn{margin-top:14px;font-size:14px;line-height:1.5;color:var(--slate);padding-left:14px;border-left:1px solid var(--rule)}
+.fn sup{font-weight:600;color:var(--navy)}
+.src{margin-top:16px;font-size:14px;color:var(--slate);display:flex;flex-direction:column;gap:4px}
+.src a{font-weight:500}
+</style>
+</head>
+<body>
+<div class="alert"><div><b>News · 4 September 2026.</b> Workforce grows to more than 1,800 workers, including members of 9 building and construction trade unions. <a href="#" style="color:#A9D3EA">Read more</a></div><span class="x" aria-label="Dismiss">×</span></div>
+<header class="nav"><span class="logo"><i aria-hidden="true"></i>Homer City Energy Campus</span><span class="menu">Menu <b aria-hidden="true"></b></span></header>
+<section class="hero">
+  <p class="eyebrow">Indiana County, Pennsylvania</p>
+  <h1>Building America’s energy future by drawing on Pennsylvania’s proud past.</h1>
+  <p class="intro">A 3,200+ acre natural gas-powered campus under construction on the site of the former Homer City Generating Station, in Indiana County, Pennsylvania.</p>
+  <div class="actions">
+    <a class="btn" href="#">See what we’re building</a>
+    <a href="#">Local alerts &amp; advisories</a>
+  </div>
+  <div class="photo"><div class="frame"></div><p class="brief"><b>Photograph needed · 4:5 crop</b>The build from the edge of town, daylight, overcast-bright. Houses or a field in the foreground third, Power Block steel behind, lots of sky. Graded high-key per the Daylight recipe. Real photograph only.</p></div>
+</section>
+<p class="cap"><span>Photograph · the campus from Homer City</span><span>Date field</span></p>
+
+<section class="section">
+  <p class="eyebrow">By the numbers</p>
+  <h2>What is being built, and who is building it</h2>
+  <p class="sub">Every figure carries its source and its date.</p>
+  <div style="margin-top:32px">
+    <div class="receipt">
+      <p class="q"><span class="asof">As of September 2026</span></p>
+      <p class="fig">1,800+</p>
+      <p class="label">Direct-hire tradespeople and skilled contractors active on site</p>
+      <p class="src"><span>Source: Homer City Generation, 4 September 2026</span><a href="#">Read the announcement</a></p>
+    </div>
+    <div class="receipt">
+      <p class="q">Anticipated</p>
+      <p class="fig">10,000+</p>
+      <p class="label">Direct on-site construction-related jobs<sup>1</sup></p>
+      <p class="fn"><sup>1</sup> Anticipated total number of direct on-site jobs related to the construction of both the natural gas-powered plant and the data center campus over an expected five-year period based on a 2024 data center and power generation economic impact analysis commissioned by Homer City Generation.</p>
+      <p class="src"><span>Source: Fact sheet, May 2026</span><a href="#">Download the fact sheet (PDF)</a></p>
+    </div>
+  </div>
+</section>
+</body>
+</html>
