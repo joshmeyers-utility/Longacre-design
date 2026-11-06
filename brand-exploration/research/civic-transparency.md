@@ -1,152 +1,223 @@
-# Research: civic-transparency angle
+# Research: civic-transparency angle (visual pass)
 
-Who it is for: neighbours, tradespeople, sceptics (docs/02-plan.md §1). The
-sceptic test is "source, date, and a document to download."
+Rewritten 6 November 2026 after capturing and viewing real screenshots
+(Chromium, 1440 desktop and 375 @2x mobile; stills in `screens/civic/`).
+Every look-and-feel claim below was read off an image unless marked
+**unverified**. Hex values come from computed styles (`*-styles.json`) or from
+sampling the screenshot, and are labelled. Cookie banners cover the first
+screen on several captures; the full-page JPGs are the clean view.
 
-Method note. WebFetch returns text only, so type and colour were NOT visible
-in most fetches. Where a type/colour line below is marked (known) it comes
-from general knowledge of the system, not from this session's fetch, and
-should be checked against a live screenshot. Sound Transit, Canada.ca and an
-EPA page failed (DNS / 404); USAspending returned only a title. No
-instructions embedded in fetched pages were seen.
+Sceptic test: "source, date, and a document to download", seen on screen.
 
-## References
+## References (verified)
 
-### 1. GOV.UK Design System
-https://design-system.service.gov.uk/
-- Fetched: dates as "15 October 2026" (day, full month, year); month-year when
-  vague. Short, direct, "you" voice; verbs on links. Content under Open
-  Government Licence with a stated copyright line. Plain stacked sections
-  separated by horizontal rules.
-- (known) GDS Transport/now GOV.UK Sans, black on white, thick yellow focus
-  ring, blue links, no decoration.
-- Why: the model for "boring on purpose". Every claim is a link to a source.
-  The yellow focus state is a trust signal in itself.
-- Webflow: Easy. Focus ring and rule-based layout are native.
+### 1. Our World in Data, grapher with source and metadata block
+URL: https://ourworldindata.org/grapher/life-expectancy (also `?tab=sources`)
+Stills: `screens/civic/owid-grapher-desktop.jpg`, `owid-sources-desktop-full.jpg`
+(the metadata block sits mid-page), `owid-sources-mobile.jpg`
+- Look: navy header band (#002147, sampled) with a thin red rule (#D52124) under
+  it; white page. Chart title in Playfair Display 600 (#2D2E2D), body in Lato
+  16px (#1D3D63 navy text). Palette is navy, vermilion and a muted
+  categorical set. Layout: chart card left, country picker right.
+- Source: directly under the chart, one line, 13px grey (#5B5B5B):
+  **"Data source:"** in bold, then underlined citations, then
+  "OurWorldinData.org/life-expectancy | CC BY". It is small but always there,
+  and it is the first thing under the plot.
+- Date: further down, in a pale-blue box (pale blue-grey; exact hex not sampled) a single horizontal
+  metadata row of small label/value pairs, the label grey, the value dark:
+  **Unit** years, **Date range** 1543-2023, **Last updated** 2025-10-22,
+  **Next expected update** 2026-12-06, **Managed by** (a named person,
+  underlined). ISO-format dates, no icons.
+- Download: a bottom "Download" section with two big rows (icon, title, one
+  line of what is included) for "Download full data" and "Download displayed
+  data", plus monospace code boxes for the CSV and JSON metadata URLs. A small
+  "Download" button also sits beside the chart.
+- Mobile: chart fills the width, the country picker collapses to an "Edit
+  countries" button, the source line wraps to 3 lines and is partly under the
+  cookie sheet. Controls are large, 44px-plus.
+- Steal: the one-line metadata strip with **Last updated / Next expected
+  update / Managed by a named person**. Avoid: Playfair headlines are too
+  editorial for us, and the strip is 13px and easy to miss.
 
-### 2. GOV.UK publications and "See all updates"
-https://www.gov.uk/government/organisations/hm-treasury
-- Fetched: every list row shows date plus document type on its own line
-  ("4 November 2026 / Corporate report"). Notes formats ("print, web and HTML
-  accessible versions"). It did not show file size in the list.
-- (known) Document pages carry "Published" and "Last updated" with a
-  collapsible change history of dated change notes; attachments show format
-  and size.
-- Why: date + type + format is the whole download mechanic. The change history
-  is the correction mechanic.
-- Webflow: Medium. CMS fields cover date/type; the per-item change log needs a
-  multi-reference or rich-text "Updates" field.
+### 2. GOV.UK publication page: dates and "See all updates"
+URL: https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2020
+Stills: `govuk-publication-desktop.jpg`, `govuk-publication-desktop-full.jpg`,
+`govuk-updates-open.jpg` (expanded change history), `govuk-publication-mobile.jpg`
+- Look: white page, blue bar (#1D70B8) with white wordmark, black text
+  (#0B0C0C) in GDS Transport, H1 48px bold. Links #1A65A6, bold and underlined.
+  Green buttons (#0F7A52). Almost no decoration.
+- Dates: a three-row label/value block under the title, labels regular and
+  values beside them: **From:** (linked), **Published:** 18 April 2013,
+  **Last updated:** 28 October 2026 followed by an inline bold link
+  "See all updates". The same Last updated line repeats at the page foot above
+  a "Show all updates" disclosure.
+- Change history (seen open): a yellow focus-state summary toggle (#FFDD00 with
+  a black underline), then a vertical grey rule with each entry as a bold date
+  and a plain-English note ("5 February 2026 ... radically shorter and
+  simpler"). Newest first.
+- Downloads (seen): **Documents** heading, then a grey file-icon tile (PDF or
+  HTML label on a page glyph) beside a blue link title, then a grey line
+  "Ref: ISBN ..., PDF, 944 KB, 86 pages". Type, size and page count on screen.
+- FAQ/feedback: a bordered strip "Is this page useful? Yes / No" and "Report a
+  problem with this page" at the foot, buttons outlined black.
+- Mobile: same stack, labels stack above values, the cookie panel fills the
+  first screen (about 975px of 1624). The Menu toggle is a text button.
+- Steal: **Published / Last updated / See all updates** as three plain rows;
+  the file tile with format, size and page count. Avoid: nothing visual, but it
+  is austere, so it needs warmth from imagery elsewhere.
 
-### 3. USWDS "official website" banner
-https://designsystem.digital.gov/components/banner/
-- Fetched: a thin top strip, flag icon, one line, accordion "Here's how you
-  know" that teaches the reader how to verify (.gov domain, lock/https). Must
-  appear unaltered across sites so the signal is learnt. Background and link
-  colour are tokens; text colour auto-adjusts for contrast.
-- Why: it explains how to verify the site itself. A CMS-driven strip could say
-  "Official source: Homer City Energy Campus; figures as of {month year}" with
-  an expand for how we source.
-- Webflow: Easy. Native accordion/interaction; dismissal memory needs a small
-  embed (already required by root CLAUDE.md §8 for the alert banner).
+### 3. ProPublica corrections
+URL: https://www.propublica.org/corrections
+Stills: `propublica-corrections-desktop.jpg`, `propublica-corrections-mobile.jpg`
+- Look: white page, a huge condensed serif wordmark, "Corrections" H1 at 80px
+  in a feature serif (#111110), body in Brut Grotesque 16px (#31302D). Hairline
+  rules separate sections. Orange-red Donate pill (hex not sampled).
+- Entries: a two-column grid under a hairline; each entry has a bold serif story
+  headline, then **"Correction, Oct. 27, 2026:"** in bold, then plain
+  third-person text ("This story originally misstated..."). Some entries are
+  set in italic. No icons, no badges. The correction date is the bold run-in
+  label, not a separate field.
+- Contact: the first line on the page is "To contact us with corrections,
+  email us at feedback@..." (underlined), above the first entry.
+- Mobile: single column, the same bold run-in label, body at about 17px, long
+  entries run full length (no truncation).
+- Steal: the bold run-in "Correction, {date}:" pattern and the correction
+  email as line one. Avoid: the 80px serif display, which is another brand.
 
-### 4. Our World in Data (grapher pages)
-https://ourworldindata.org/grapher/life-expectancy
-- Fetched: chart attribution line names every source and "with major
-  processing by Our World in Data". Collapsible "Data sources" with retrieval
-  date, URL and original citation "prior to any processing". "Last updated"
-  and "Next expected update" as a metadata pair. "How to cite this page/data".
-  ZIP download (CSV, JSON metadata, README), CC BY 4.0 stated. Archived-snapshot
-  link.
-- (known) Serif headlines, restrained navy/vermilion palette.
-- Why: the richest source/date mechanics found. "Next expected update" is the
-  rare honest promise; processing disclosure is exactly what a sceptic wants.
-- Webflow: Medium. Details/summary blocks are native; the metadata pair maps to
-  CMS fields. Interactive charts are out of scope, use static figures.
+### 4. Tideway: a stat with its footnote and its data date
+URL: https://www.tideway.london/the-tunnel/ (stat block lower down)
+Stills: `screens/civic/tideway-stat-footnote.jpg` (the one to open),
+`tideway-tunnel-full.jpg`, `tideway-home-desktop.jpg`, `tideway-home-mobile.jpg`
+- Look: the stat is a full-width teal block (#459F96, sampled), figure
+  "23 MILLION TONNES" in a chunky display face (Cubano) in white with an
+  off-white tint, one-line label "of sewage diverted from the River Thames*"
+  in bold sans. Page background near-white (#FCFCFC).
+- Footnote and date (seen): directly below the teal block, centred grey 16px
+  text: "*into the London Tideway Tunnel system since August 2024. The tunnel was
+  fully connected and operational in February, 2025." Then a blank line and
+  **"Data last updated 27/10/2026."** Then a plain-language comparison and a
+  pool illustration ("equivalent of 400 Olympic-sized swimming pools").
+- This is the closest match to our rule that a figure carries its footnote and
+  its date. It is weak: the footnote is centred, small, and sits outside the
+  coloured block, so the eye reads the figure alone. Footnote and date are on
+  separate lines with no rule.
+- News list (seen): dates as 12/10/26 in small teal under each headline.
+- Steal: asterisk + footnote + "Data last updated" on the stat itself. Avoid:
+  placing them outside the figure block, centred, in light grey.
 
-### 5. ProPublica corrections page
-https://www.propublica.org/corrections
-- Fetched: reverse-chronological list; each entry links the story, then a
-  bold correction label with date, then a plain third-person description using
-  "originally" ("the story originally said X; it is Y"). Email for reporting
-  errors. Also states "transparent financial reporting" on the About page and
-  offers republishing ("Steal Our Stories").
-- (known) Strong serif/sans editorial pairing.
-- Why: a public errata log is the most credible tone available. Admitting
-  small errors makes big claims believable.
-- Webflow: Easy. A CMS collection sorted by date.
+### 5. USWDS "official website" banner
+URL: https://designsystem.digital.gov/components/banner/
+Stills: `uswds-banner-desktop.jpg`, `uswds-banner-mobile.jpg`
+- Look: a thin strip at the very top (about 22px, light grey #F0F0F0 on
+  census.gov, #1B1B1B here), a tiny flag, one line "An official
+  website of the United States government", then an underlined blue "Here's how
+  you know" with a chevron. Text about 12px.
+- Cost: it is tiny, and the explanation is hidden behind the chevron. The
+  same strip appears on census.gov and USAspending in identical form
+  (confirmed in `census-acs-desktop.jpg` and `usaspending-desktop.jpg`), so
+  the signal is learnt.
+- Expanded state: **unverified** (not captured).
+- Steal: one-line top strip with a disclosure that teaches verification.
+  Avoid: 12px text.
 
-### 6. Texas Tribune "About / ethics / funding"
-https://www.texastribune.org/about/
-- Fetched: donors listed by year and amount; gifts of $1,000+ disclosed on any
-  story mentioning the donor; "Editorial decisions are made by journalists
-  alone"; running corrections list; sponsored content labelled "paid content"
-  and visually separated.
-- Why: transparency about who pays, on the page where it matters. The campus
-  site's equivalent is disclosing who funds and operates it next to the claims.
-- Webflow: Easy. Labelling is a component variant.
+### 6. Census.gov page chrome
+URL: https://www.census.gov/programs-surveys/acs/about.html
+Stills: `census-acs-desktop.jpg`, `census-acs-mobile.jpg`
+- Look: grey federal strip, a pale-blue alert bar with an "i" icon and a close
+  X ("2025 ACS 1-year estimates ... are now available"), white header, Roboto
+  H1 62px bold (#131313), blue links #2B74B7, left sub-nav of blue links,
+  right "Related Information". Round blue and green pill buttons.
+- Feedback (seen): bottom-right floating card "Is this page helpful? Yes /
+  No" with thumbs icons and a close X. This is the cheapest correction channel.
+- The page-revised date is below the fold of the capture; the placement at the
+  foot is **unverified visually**.
+- Steal: the dismissible pale-blue alert bar (matches our alert banner spec),
+  and the floating helpful widget. Avoid: the thumbs icons.
 
-### 7. Census.gov page template
-https://www.census.gov/programs-surveys/acs/about.html
-- Fetched: federal banner; breadcrumb; left sub-nav; big H1; cards for related
-  info; "Page Last Revised - February 19, 2026" at the foot of the main content
-  above a "Is this page helpful?" widget; closing line "Thank you for your
-  time and effort."
-- Why: last-revised at the foot is the common (and weak) placement; the
-  feedback widget is the cheap correction channel. Note it gives no inline
-  source citations, a gap to beat.
-- Webflow: Easy. Yes/no helpful widget needs a form or embed.
+### 7. USAspending
+URL: https://www.usaspending.gov/
+Stills: `usaspending-desktop.jpg`, `usaspending-mobile.jpg`
+- Look: pale blue-grey ground (#ECF4F7, sampled), 56px bold Source Sans Pro
+  heading, blue and outlined blue buttons (#005EA2), a flat illustrated
+  landscape (capitol, bridge, wind turbines, farm). A "Pause text animation"
+  control sits visible under the lede. Then a dark teal band (#0D4F5D).
+- The illustration is a place-as-diagram move that is closer to our brief than
+  a stock photo, but it is generic. The visible pause control is the useful
+  detail.
+- Steal: a visible pause control for any moving text. Avoid: clip-art scenery.
 
-### 8. Hudson Tunnel Project (capital-project site)
-https://www.gatewayprogram.org/ (resolved to the Hudson Tunnel Project page)
-- Fetched: big bold figures with a one-line description ("95,000 jobs,
-  $19.6 billion in economic activity, $87 million in monthly purchases");
-  "seven of ten packages in progress or completed" with no percentage; live
-  site cameras with draggable photos and older-image arrows; opening 2035,
-  rehabilitation 2038; Noise Abatement Program page; separate contact emails
-  for construction questions by side of the river; board meeting minutes and
-  Inspector General linked.
-- Weaknesses seen: no budget or cost figure; no interim milestone dates; stats
-  carry no source or as-of date; no downloadable reports on the page.
-- Why: the nearest comparable. Jobs figures and site cameras are what the
-  brief wants, and its misses (undated stats) are what to avoid.
-- Webflow: Medium. Camera galleries need an embed or image slider.
+### 8. HS2 communities page
+URL: https://www.hs2.org.uk/in-your-area/ (resolves to "Communities")
+Stills: `hs2-community-desktop.jpg`, `hs2-community-mobile.jpg`
+- Look: navy (#1E3775) wordmark and headings, Open Sans 54px bold H1, a magenta
+  section bar (#B85198) with an "Also in this section" button, a dark-scrimmed
+  photo hero of the CEO meeting residents, with a caption line and an "i" icon
+  beneath ("HS2's CEO Mark Wild meeting residents in Old Oak Common and
+  Acton."). Names and places are in the caption.
+- The caption pattern (real names, real place, below the photo, grey 14px) is
+  the useful bit and matches our quote rule.
+- Steal: place-and-name captions with an info icon. Avoid: the magenta bar.
 
-### 9. The Pudding "About"
-https://pudding.cool/about/
-- Fetched: small collective; "visual essays"; stated aim to "inform and
-  entertain"; avoids hooks and clickbait; direct, values-led voice. The page
-  names no datasets or methods, a gap.
-- (known) Each story ends with a methodology/data note and source links;
-  bold, playful scroll visuals.
-- Why: scrollytelling shows how to make numbers legible; the end-of-story
-  "how we did this" note is portable. Tone is too playful for this brief.
-- Webflow: Hard for the scroll visuals (GSAP embed per CLAUDE.md §8); the
-  methods note itself is Easy.
+### 9. Sizewell C: stat row and project hero
+URL: https://www.sizewellc.com/
+Stills: `screens/motion/sizewell-scroll-2.jpg` (stat row, full size),
+`sizewell-c-desktop.jpg`
+- Look: deep blue header (#02588B), Montserrat, aerial rendering of the
+  campus as the hero with white 60px text over it. The rendering is not
+  labelled as a rendering on the first screen (**seen**).
+- Stat row: five figures, each in a circular arc outline (open ring, blue
+  #02588B) with the figure beside it, a one-line label under ("60+ Years of
+  clean, reliable power", "70,000 UK jobs supported"). No source, date or
+  footnote anywhere on the row.
+- It confirms the gap: a stat row with no receipt. It also shows what to
+  avoid: a rendering with no label.
 
-## Patterns
+### 10. GOV.UK Design System home, for type and focus
+URL: https://design-system.service.gov.uk/
+Stills: `govuk-design-system-desktop.jpg`
+- Look: GDS Transport, a navy hero #0B0C0C and blue #1D70B8 pair, yellow
+  focus ring. A plain list of links. Mostly confirms entry 2.
 
-1. Date plus type on every row. "28 October 2026, Policy paper" (GOV.UK),
-   dated correction labels (ProPublica). Maps to CMS fields; no caption string.
-2. Two dates, not one: "Last updated" and "Next expected update" (OWID). The
-   second is a promise; it deters stale numbers.
-3. A source block that records processing, not just origin: retrieval date,
-   URL, original citation, "what we changed" (OWID). Applies to every stat.
-4. A public errata log in the third person, "originally said / actually"
-   (ProPublica, Texas Tribune). Doubles as a news-style CMS collection.
-5. Disclose who funds and operates it in the same place as the claim (Texas
-   Tribune donor rule), and teach verification on the page itself (USWDS banner).
-6. Downloads state format (and, at best, size) next to a title and date.
+## Seen but weak (kept in index as "weak")
+- **Texas Tribune About** `screens/civic/texas-tribune-about-desktop.jpg`: a
+  centred pipe-separated link row ("Ethics | Corrections | Downloads |
+  Documents") in underlined PT Serif, Open Sans bold headings. Plain and
+  honest but dated in look. The donor-disclosure content was not captured
+  (**unverified**).
+- **Hudson Tunnel Project (hudsontunnelproject.com)**:
+  `screens/civic/hudson-tunnel-desktop.jpg`. A 2010s Arial site with an
+  orange rule under a white header, FEIS and Library in the nav, bullet lists
+  of blue links, a small "Photo courtesy of Amtrak" credit. Shows how a
+  document-heavy project site looks when nothing is designed: a cautionary
+  reference, not a model. Note the earlier pass cited the Gateway Program site
+  (gatewayprogram.org); this is a different site and the claims about site
+  cameras were **not** verified visually.
+
+## Dropped
+- Microsoft East Point (404 at the URL tried), Vogtle (404), Mariner East
+  (blocked, 405), NYC DCP (403), Crossrail/GLA (403): no usable capture.
+- The Pudding About: not captured in this angle (used in motion).
+
+## Patterns (visual)
+
+1. **Label/value rows for dates.** GOV.UK's Published / Last updated / See all
+   updates and OWID's Last updated / Next expected update are both small
+   labelled pairs, not prose.
+2. **A bold run-in label.** "Correction, Oct. 27, 2026:" (ProPublica) and
+   "Data source:" (OWID) put the receipt at the start of the line in bold.
+3. **File tile with metadata.** GOV.UK shows format, size and page count under
+   a linked title next to an icon tile.
+4. **Footnote on the figure.** Tideway's asterisk + "Data last updated" is the
+   only one found, and it is under-designed.
+5. **A named person.** OWID "Managed by" a named person with a link.
 
 ## Gaps nobody owns
-
-1. A stats ledger with row-level provenance. Hudson Tunnel's big figures carry
-   no source or as-of date; OWID has provenance but only on charts. Nobody
-   puts a figure, its date, its footnote and its source document in one row.
-2. Long answers for a hostile question. The sites above publish errata and
-   policy, but none shows a contested topic (permit appeal, water) with the
-   claim, the evidence, the document, the date and an open "what we don't know
-   yet". Sceptic-grade FAQ is unowned.
-3. A project tracker that is plain and local. Capital-project sites lean
-   corporate (cameras, job counts); civic sites lean bureaucratic. Neither
-   speaks to a neighbour about noise, traffic and a named contact for their
-   side of the site, with a dated update log.
+1. **The receipt inside the ledger row.** Tideway puts the footnote below the
+   block; Sizewell C has none. Nothing sets figure, footnote, date and
+   document link as one aligned row.
+2. **A contested-topic answer that looks serious.** No reference shows a
+   claim, evidence, document, date and "what we don't know yet" on one calm
+   page. ProPublica's corrections look the part but are about the publisher.
+3. **Mobile receipts.** On every mobile capture the source line wraps and is
+   the first thing pushed under a banner or the fold (OWID). Nobody designs the
+   source for the 375px screen first.
