@@ -1,0 +1,104 @@
+{
+  "slug": "guardian-home",
+  "url": "https://www.theguardian.com/us",
+  "status": 200,
+  "styles": {
+    "title": "Latest news, sport and opinion from the Guardian",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nSkip to navigation\nSupport the Guardian\nFund independent jo",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(18, 18, 18)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": null,
+    "h2": {
+      "sel": "h2",
+      "text": "Support the Guardian",
+      "fontFamily": "\"GH Guardian Headline\", \"Guardian Egyptian Web\", Georgia, serif",
+      "fontSize": "24px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Moustafa Bayoumi\nA showdown looms over some Democrats' support for Israel",
+      "fontFamily": "\"GH Guardian Headline\", \"Guardian Egyptian Web\", Georgia, serif",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(18, 18, 18)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Share stories with the Guardian securely and confidentially",
+      "fontFamily": "\"GH Guardian Headline\", \"Guardian Egyptian Web\", Georgia, serif",
+      "fontSize": "24px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(26, 26, 26)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 238)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "GuardianTextSans, \"Guardian Text Sans Web\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif",
+      "fontSize": "17px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(5, 41, 98)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Support the Guardian\nFund independent journalism with $15 per month\nMake a year-",
+      "fontFamily": "\"Times New Roman\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(18, 18, 18)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "30m ago",
+      "fontFamily": "GuardianTextSans, \"Guardian Text Sans Web\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(18, 18, 18)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "GH Guardian Headline 500 normal",
+      "GH Guardian Headline 700 normal",
+      "GuardianTextSans 400 normal",
+      "GuardianTextSans 700 normal"
+    ]
+  },
+  "ok": true
+}

@@ -1,0 +1,101 @@
+{
+  "slug": "nps-home",
+  "url": "https://www.nps.gov/",
+  "status": 200,
+  "styles": {
+    "title": "NPS.gov Homepage (U.S. National Park Service)",
+    "body": {
+      "sel": "body",
+      "text": "An official website of the United States government\nSearch or ask anything\nAsk D",
+      "fontFamily": "InterVariable, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(27, 27, 27)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": null,
+    "h2": {
+      "sel": "h2",
+      "text": "Explore This Park",
+      "fontFamily": "\"Helvetica Neue\", Helvetica, Roboto, Arial, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "900",
+      "letterSpacing": "-0.5px",
+      "textTransform": "none",
+      "color": "rgb(68, 100, 67)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Plants, Animals & More",
+      "fontFamily": "InterVariable, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(108, 117, 125)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "p",
+      "text": "An official website of the United States government",
+      "fontFamily": "InterVariable, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "fontSize": "12.48px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(27, 27, 27)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "Skip to global NPS navigation",
+      "fontFamily": "InterVariable, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "fontSize": "11px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "An official website of the United States government",
+      "fontFamily": "\"Inter Variable\", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "color(srgb 0.0470588 0.0470588 0.0470588 / 0.56)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "An official website of the United States government\n\nHere's how you know\n\n\nHere'",
+      "fontFamily": "InterVariable, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "fontSize": "12.48px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(27, 27, 27)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Experience Your America.\n\nDownload the NPS app to navigate the parks on the go.\n",
+      "fontFamily": "InterVariable, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+      "fontSize": "16.48px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(27, 27, 27)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "InterVariable 100 900 normal"
+    ]
+  },
+  "ok": true
+}

@@ -1,0 +1,124 @@
+{
+  "slug": "kiewit-home",
+  "url": "https://www.kiewit.com/",
+  "status": 200,
+  "styles": {
+    "title": "Home - Kiewit Corporation",
+    "body": {
+      "sel": "body",
+      "text": "Skip to content\nWHO WE ARE\nBuilding Tomorrow Since 1884\n\nBringing expert solutio",
+      "fontFamily": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Liberation Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Home",
+      "fontFamily": "industry, serif",
+      "fontSize": "64px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Engineering. Construction. Solutions.",
+      "fontFamily": "industry, serif",
+      "fontSize": "64px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "About Kiewit",
+      "fontFamily": "industry, serif",
+      "fontSize": "25.008px",
+      "fontWeight": "700",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Integrated construction and engineering solutions that deliver — safely, on time",
+      "fontFamily": "acumin-pro, sans-serif",
+      "fontSize": "22.4px",
+      "fontWeight": "300",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Explore our solutions",
+      "fontFamily": "acumin-pro-condensed, sans-serif",
+      "fontSize": "26px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "acumin-pro-condensed, sans-serif",
+      "fontSize": "20.8px",
+      "fontWeight": "600",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "WHO WE ARE\nBuilding Tomorrow Since 1884\n\nBringing expert solutions to the indust",
+      "fontFamily": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Liberation Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(33, 37, 41)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "SINCE 1884\nMarkets\nServices\nVendors\nNewsroom\nCareers\nContact\nwww.facebook.com\ntw",
+      "fontFamily": "system-ui, -apple-system, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", \"Liberation Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "industry 700 normal",
+      "industry 400 normal",
+      "industry 500 normal",
+      "acumin-pro 700 normal",
+      "acumin-pro 300 normal",
+      "acumin-pro 300 italic",
+      "acumin-pro 400 normal",
+      "acumin-pro-condensed 700 italic",
+      "acumin-pro-condensed 400 normal",
+      "acumin-pro-condensed 300 normal",
+      "acumin-pro-condensed 500 normal",
+      "acumin-pro-condensed 600 normal",
+      "bootstrap-icons normal normal",
+      "swiper-icons 400 normal"
+    ]
+  },
+  "ok": true
+}

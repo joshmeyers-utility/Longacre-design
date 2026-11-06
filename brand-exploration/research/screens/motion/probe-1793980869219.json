@@ -1,0 +1,184 @@
+{
+ "cfs": {
+  "url": "https://cfs.energy/",
+  "probe": {
+   "gsap": false,
+   "scrollTrigger": false,
+   "webflow": false,
+   "lenis": false,
+   "splitting": false,
+   "framer": false,
+   "anims": 2,
+   "running": 1,
+   "videos": [],
+   "htmlClass": "nbinternational_320ea7b3-module__y6cvXG__variable nbinternationalmono_a9650a6a-m",
+   "scrollBehavior": "auto",
+   "navTransition": "all",
+   "scripts": []
+  },
+  "scrollY": 3000,
+  "hover": {
+   "before": {
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "deco": "none",
+    "tr": "0s ease"
+   },
+   "after": {
+    "color": "rgb(21, 37, 54)",
+    "bg": "rgb(255, 255, 255)",
+    "deco": "none"
+   }
+  },
+  "reducedProbe": {
+   "gsap": false,
+   "scrollTrigger": false,
+   "webflow": false,
+   "lenis": false,
+   "splitting": false,
+   "framer": false,
+   "anims": 2,
+   "running": 1,
+   "videos": [],
+   "htmlClass": "nbinternational_320ea7b3-module__y6cvXG__variable nbinternationalmono_a9650a6a-m",
+   "scrollBehavior": "auto",
+   "navTransition": "all",
+   "scripts": []
+  },
+  "mnav": "ok"
+ },
+ "tideway": {
+  "url": "https://www.tideway.london/",
+  "probe": {
+   "gsap": false,
+   "scrollTrigger": false,
+   "webflow": false,
+   "lenis": false,
+   "splitting": false,
+   "framer": false,
+   "anims": 5,
+   "running": 1,
+   "videos": [
+    {
+     "auto": false,
+     "paused": true,
+     "loop": false,
+     "src": "ab305b9c8000bbc333d03fea4fffbbf78f6533d6"
+    },
+    {
+     "auto": true,
+     "paused": false,
+     "loop": false,
+     "src": "ab305b9c8000bbc333d03fea4fffbbf78f6533d6"
+    },
+    {
+     "auto": false,
+     "paused": true,
+     "loop": false,
+     "src": ""
+    }
+   ],
+   "htmlClass": " js-inlinesvg",
+   "scrollBehavior": "auto",
+   "navTransition": "all",
+   "scripts": []
+  },
+  "scrollY": 3000,
+  "hover": {
+   "before": {
+    "color": "rgb(91, 103, 112)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "deco": "none",
+    "tr": "0s ease"
+   },
+   "after": {
+    "color": "rgb(91, 103, 112)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "deco": "none"
+   }
+  },
+  "reducedProbe": {
+   "gsap": false,
+   "scrollTrigger": false,
+   "webflow": false,
+   "lenis": false,
+   "splitting": false,
+   "framer": false,
+   "anims": 5,
+   "running": 2,
+   "videos": [
+    {
+     "auto": false,
+     "paused": true,
+     "loop": false,
+     "src": "ab305b9c8000bbc333d03fea4fffbbf78f6533d6"
+    },
+    {
+     "auto": true,
+     "paused": true,
+     "loop": false,
+     "src": "ab305b9c8000bbc333d03fea4fffbbf78f6533d6"
+    },
+    {
+     "auto": false,
+     "paused": true,
+     "loop": false,
+     "src": ""
+    }
+   ],
+   "htmlClass": "no-motion js-inlinesvg",
+   "scrollBehavior": "auto",
+   "navTransition": "all",
+   "scripts": []
+  },
+  "mnav": "ok"
+ },
+ "mortenson": {
+  "url": "https://www.mortenson.com/",
+  "probe": {
+   "gsap": false,
+   "scrollTrigger": false,
+   "webflow": false,
+   "lenis": false,
+   "splitting": false,
+   "framer": false,
+   "anims": 2,
+   "running": 2,
+   "videos": [],
+   "htmlClass": "",
+   "scrollBehavior": "auto",
+   "navTransition": "all",
+   "scripts": []
+  },
+  "scrollY": 3000,
+  "hover": {
+   "before": {
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "deco": "none",
+    "tr": "0s ease"
+   },
+   "after": {
+    "color": "rgb(0, 124, 194)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "deco": "none"
+   }
+  },
+  "reducedProbe": {
+   "gsap": false,
+   "scrollTrigger": false,
+   "webflow": false,
+   "lenis": false,
+   "splitting": false,
+   "framer": false,
+   "anims": 0,
+   "running": 0,
+   "videos": [],
+   "htmlClass": "",
+   "scrollBehavior": "auto",
+   "navTransition": "all",
+   "scripts": []
+  },
+  "mnav": "ok"
+ }
+}

@@ -1,0 +1,103 @@
+{
+  "slug": "heatherwick-home",
+  "url": "https://www.heatherwick.com/",
+  "status": 200,
+  "styles": {
+    "title": "Heatherwick Studio | Design & Architecture",
+    "body": {
+      "sel": "body",
+      "text": "PROJECTS\nSTUDIO\nSEARCH\nDesigning joyful,\nengaging, human places\nall over the wor",
+      "fontFamily": "\"Plantin W01 Light\", Georgia, Times, \"Times New Roman\", serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgb(244, 243, 239)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "PROJECTS",
+      "fontFamily": "Relative-Book-Web, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "letterSpacing": "2px",
+      "textTransform": "uppercase",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Early opens its waiting list, bringing healthcare to the home",
+      "fontFamily": "\"Plantin W01 Light\", Georgia, Times, \"Times New Roman\", serif",
+      "fontSize": "27px",
+      "fontWeight": "500",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "main p",
+      "text": "",
+      "fontFamily": "\"Plantin W01 Light\", Georgia, Times, \"Times New Roman\", serif",
+      "fontSize": "37.44px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Find out more about the studio",
+      "fontFamily": "Relative-Book-Web, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "CLOSE",
+      "fontFamily": "Relative-Book-Web, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "letterSpacing": "2px",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "PROJECTS\nSTUDIO\nSEARCH",
+      "fontFamily": "\"Plantin W01 Light\", Georgia, Times, \"Times New Roman\", serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "Legal and Policies © 2026 Heatherwick Studio. All Rights Reserved. See our Priva",
+      "fontFamily": "\"Plantin W01 Light\", Georgia, Times, \"Times New Roman\", serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(72, 89, 74)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "Plantin W01 Light normal normal",
+      "Relative-Book-Web normal normal",
+      "Relative-Medium-Web normal normal"
+    ]
+  },
+  "ok": true
+}
