@@ -1,0 +1,113 @@
+{
+  "slug": "re-approach",
+  "url": "https://raggededge.com/approach",
+  "status": 200,
+  "styles": {
+    "title": "Ragged Edge. A global brand agency.",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nHome\nPartnerships\nApproach\nHappenings\nJoin\nContact\nProjects",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgb(235, 247, 243)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "It’s time to commit to a different reality",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "78px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.78px",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Projects",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.2px",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": {
+      "sel": "h3",
+      "text": "Quality comes before quantity",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.2px",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "p": {
+      "sel": "main p",
+      "text": "Average is easy. Most brands follow the path of least resistance. Dulled by cons",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "56px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "a",
+      "text": "Skip to main content",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Home\nPartnerships\nApproach\nHappenings\nJoin\nContact",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "From the edge to your inbox\nYour email address *\nSign up\n\nWe’ll never share your",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "ABCDiatype-Regular normal normal",
+      "ABCDiatypeExpanded-Bold 700 normal",
+      "Grit-Regular 400 normal"
+    ]
+  },
+  "ok": true
+}

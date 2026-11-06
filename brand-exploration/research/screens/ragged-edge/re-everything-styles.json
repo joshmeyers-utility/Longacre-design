@@ -1,0 +1,103 @@
+{
+  "slug": "re-everything",
+  "url": "https://raggededge.com/partnerships/everything",
+  "status": 200,
+  "styles": {
+    "title": "Ragged Edge. All our branding case studies.",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nHome\nPartnerships\nApproach\nHappenings\nJoin\nContact\nProjects",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(24, 31, 31)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "All our partners have\nwhat it takes",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "78px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.78px",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Projects",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.2px",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "p",
+      "text": "We’ll never share your details anywhere else.\nThis site is protected by reCAPTCH",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "10px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgba(255, 255, 255, 0.8)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "Featured",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(220, 242, 235, 0.6)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Home\nPartnerships\nApproach\nHappenings\nJoin\nContact",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "From the edge to your inbox\nYour email address *\nSign up\n\nWe’ll never share your",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "ABCDiatype-Regular normal normal",
+      "ABCDiatypeExpanded-Bold 700 normal",
+      "Grit-Regular 400 normal"
+    ]
+  },
+  "ok": true
+}

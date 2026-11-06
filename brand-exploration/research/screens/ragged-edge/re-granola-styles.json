@@ -1,0 +1,103 @@
+{
+  "slug": "re-granola",
+  "url": "https://raggededge.com/partnerships/granola",
+  "status": 200,
+  "styles": {
+    "title": "Granola rebrand and campaign by Ragged Edge",
+    "body": {
+      "sel": "body",
+      "text": "Skip to main content\nHome\nPartnerships\nApproach\nHappenings\nJoin\nContact\nGranola\n",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgb(255, 255, 255)"
+    },
+    "h1": {
+      "sel": "h1",
+      "text": "Granola committed to human progress. With a viral rebrand and campaign that drov",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "78px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.78px",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h2": {
+      "sel": "h2",
+      "text": "Granola",
+      "fontFamily": "ABCDiatypeExpanded-Bold, sans-serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.2px",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "h3": null,
+    "p": {
+      "sel": "main p",
+      "text": "In an era of tech slop, Granola is an AI notepad built with care and intention. ",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "56px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "a": {
+      "sel": "main a",
+      "text": "",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "button": {
+      "sel": "button, .button, .btn, a[class*=button]",
+      "text": "",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "header": {
+      "sel": "header",
+      "text": "Home\nPartnerships\nApproach\nHappenings\nJoin\nContact",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "footer": {
+      "sel": "footer",
+      "text": "From the edge to your inbox\nYour email address *\nSign up\n\nWe’ll never share your",
+      "fontFamily": "Grit-Regular, serif",
+      "fontSize": "20px",
+      "fontWeight": "400",
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(24, 31, 31)",
+      "background": "rgba(0, 0, 0, 0)"
+    },
+    "fontsLoaded": [
+      "ABCDiatype-Regular normal normal",
+      "ABCDiatypeExpanded-Bold 700 normal",
+      "Grit-Regular 400 normal"
+    ]
+  },
+  "ok": true
+}

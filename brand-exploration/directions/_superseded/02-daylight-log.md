@@ -49,3 +49,19 @@ style and component is prefixed `D02/`. Entries are appended after each section.
   - Easing values are stored as strings (`cubic-bezier(...)`), because
     Interactions 2.0 takes named or custom curves. The ease-out-soft curve has
     to be entered as a custom curve in each interaction.
+
+## 1. Cover
+
+- Section `17:45`, frame `D02 Cover / 1440` `17:2` (1440 × 1373).
+- **Contents:** the name at 248px in Outfit 200, the positioning line, a
+  three-sentence concept and a seven-row key/value list. Everything is bound
+  to D02 Semantic and the D02 text styles. The Typography mode is set to
+  Desktop on the frame.
+- **Critic notes (round-0), received during this section:**
+  - (1) The brief lives only inside the image area. Caption, Kind and Date
+    are separate fields.
+  - (2) Display stays at 200/300, and headings never go to 500.
+  - (3) Pills risk the pastel data-centre cliché. Reassess at the hero
+    screenshot and log the decision.
+  - (4) Keep all four contact inboxes visible.
+  - All four are applied from section 5 onwards.
