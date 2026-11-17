@@ -13,8 +13,8 @@ reference actually uses, not copied from `design-system/tokens.json`.
 
 | Page | Contents |
 | --- | --- |
-| Foundations | Spacing-rule demo (Desktop and Mobile modes), every semantic colour, every text style |
-| Components | 23 local components / sets (below) |
+| Foundations | Type scale (11 styles, desktop/mobile sizes), section-rhythm demo, colour roles grouped by family |
+| Components | 23 building-block components + 10 section components (below) |
 | Desktop | 17 pages at 1440 + 3 scroll storyboards |
 | Mobile | 17 pages + menu overlay at 375 + 2 scroll storyboards |
 | Reference | The original designs, untouched |
@@ -26,12 +26,30 @@ reference actually uses, not copied from `design-system/tokens.json`.
 | Primitives | Value | ~95 | Colour ramps (`stone`, `night`, `navy`, `green`, `sky`, `alpha/*`), `space/*`, `radius/*`, `font-size/*`, `font-family/sans`. Colour, radius and font-size primitives are hidden (`scopes = []`); `space/*` is visible for gap and padding. |
 | Color | Light | 57 | `surface/*`, `text/*`, `action/*`, `border/*`, `icon/*`, `track/*`, `status/*`, `diagram/*`, all aliased to primitives |
 | Layout | Desktop · Mobile | 17 | `layout/section-gap` **100 / 48**, `layout/panel-gap` **8 / 8**, `layout/panel-inset` 8 / 2, `layout/container-x` 120 / 16, `layout/page-width` 1440 / 375, radius roles (`radius/panel` 36, `radius/media` 28, `radius/control` full …) |
-| Typography | Desktop · Mobile | 34 | `type/<role>/size` per role + `type/family` |
+| Typography | Desktop · Mobile | 12 | `type/<style>/size` for each of the 11 styles + `type/family` |
 
 Every variable has a WEB code syntax (`var(--surface-panel)` etc.).
 
-**33 text styles** bind font size and family to the Typography collection, so a
-style resolves to its desktop or mobile size from the frame's mode. **3 effect
+**11 text styles**, all with **line height auto** (Geist resolves to ~122 %).
+Font size and family are bound to the Typography collection, so a style resolves
+to its desktop or mobile size from the frame's mode.
+
+| Style | Desktop / Mobile | Weight | Used for |
+| --- | --- | --- | --- |
+| display | 64 / 40 | Light | Hero, CTA headline, footnote markers |
+| heading/lg | 36 / 28 | Regular | Page and section titles |
+| heading/md | 32 / 22 | Light | Lead paragraphs, link-row titles, panel statements, story tabs |
+| heading/sm | 24 / 20 | Light | Item titles, FAQ questions, section labels, quotes, statements |
+| stat/figure | 80 / 64 | Regular | Ledger figures |
+| body/lg | 20 / 18 | Regular | Stat labels and units, large body |
+| body | 15 / 15 | Regular | Paragraphs |
+| ui | 14 / 14 | Regular | Buttons, nav, small UI |
+| caption | 12 / 12 | Regular | Meta, captions, footnotes |
+| eyebrow | 12 / 12 | SemiBold | Qualifiers (*Up to*, *Projected*), date stamps |
+| diagram | 16 / 15 | Medium | Diagram node labels |
+
+These replaced 33 earlier styles; every text layer was remapped and the old
+styles and size variables deleted. **3 effect
 styles**: `shadow/control`, `shadow/raised`, `shadow/glow-navy`.
 
 **Set the mode on the page frame, never per node.** Every Desktop and Mobile
@@ -63,15 +81,41 @@ Stat row (Layout × Ground) · Stat row / Simple · Footer (Breakpoint) · Page
 footnotes (Breakpoint) · Header / Inner (Breakpoint) · News card · Timeline row
 · Captioned photo · Spacer (Type)
 
+## Section components
+
+Larger components built from the pages' own recurring sections. They nest the
+building blocks above, and each has Desktop and Mobile variants. Pages use them
+as instances, with page-specific copy kept as overrides and unused list slots
+hidden.
+
+| Section | Variants | Instances (desktop + mobile) |
+| --- | --- | --- |
+| Section / Learn more | Breakpoint × Style (Plain, Panel, Home — mobile only) | 8 + 8 |
+| Section / Common questions | Breakpoint × Style (Default, Home — mobile only); up to 4 FAQ items | 7 + 7 |
+| Section / FAQ category | Breakpoint; up to 10 FAQ items | 6 + 6 |
+| Section / Page header | Breakpoint; centred title for utility pages | 5 + 5 |
+| Section / Stats ledger | Breakpoint × Layout (Simple, Detailed) | 2 + 2 |
+| Section / Key facts | Breakpoint | 2 + 2 |
+| Section / How to get hired | Breakpoint | 2 + 2 |
+| Section / Inner header · Page footnotes · Footer | Breakpoint (existing, renamed) | already instances |
+
+Left as page-specific (their structure is unique): the stats sections on
+Campus future, Power plant and Economic impact (two-column intro header), the
+Job opportunities header (has an image), and one-off sections such as the water
+diagram, timeline phases and trades grid.
+
 ## Verified state
 
 - **0** remote library instances left on Desktop or Mobile. The file no longer
   depends on the Longacre library.
 - **100 %** of solid fills and strokes on Desktop (2,792) and Mobile (2,633)
   are bound to Color variables.
-- **97 %+** of text uses a text style. Still unstyled: diagram labels drawn
-  at non-integer scale in the storyboards, and one mixed-style safety-record
-  figure. Both are intentional one-offs.
+- **97 %+** of text uses one of the 11 styles (100 % on the Components page).
+  Still unstyled: diagram labels drawn at non-integer scale in the storyboards,
+  and one mixed-style safety-record figure.
+- On mobile, all text outside a panel sits at least 16 px from the screen edge.
+- Partner logo boxes (mobile) are 343 × 88 tiles, `radius/tile`, with each logo
+  centred and sized to equal visual weight within 168 × 40.
 
 ## Flags carried over from the reference (not changed — content decisions)
 
