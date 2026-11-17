@@ -129,3 +129,18 @@ diagram, timeline phases and trades grid.
    still govern, the reference itself needs revising.
 3. **Mobile panels are inset 2 px** from the screen edge (desktop 8 px). Kept as
    designed via `layout/panel-inset`. Change one value if 8 is wanted.
+
+## Parity check against Reference (latest)
+
+- **Text:** every visible string on all 40 rebuilt frames matches its Reference
+  frame 1:1 (2,709 strings; same content, same counts).
+- **Images:** same photographs, same counts, on every frame.
+- **Type:** every text layer is checked against the reference's original size
+  and weight and given the nearest of the 11 styles (0 mismatches on 2,643
+  layers).
+- **Overflow:** no text or button spills outside its section. The one hit, in
+  the "How it works" storyboard, is clipped by design in the reference too.
+- **Intended visual differences:** the 100 / 48 section rhythm, the 11-style
+  type scale with auto line height (e.g. stat labels 24 → 20 desktop, mobile
+  Light 28 headings → 22), 16 px mobile text margins and the partner logo
+  tiles.
