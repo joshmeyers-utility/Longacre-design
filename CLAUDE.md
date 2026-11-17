@@ -67,6 +67,7 @@ Finish a stage, present it, wait for a decision, then start the next.
 | 2. Plan | `docs/02-plan.md` — IA, page specs, CMS schema | ✅ Complete |
 | 3. Design system | `docs/03-design-system.md`, `design-system/tokens.*`, Figma variables | ✅ Complete |
 | 4. Design pass | `docs/04-design-pass.md` + Figma artboards | ✅ Complete (revised — see `04` §11) |
+| 4b. Dev file | `docs/05-dev-file.md` + Homer City – Dev Figma (variables, components, 36 pages) | ✅ Complete |
 | 5. Build | Webflow, from the Figma pass | ⬜ Not started |
 
 Keep this table current. It is how the user and the next session both know where
@@ -88,6 +89,7 @@ docs/
   02-plan.md               IA, page specs, 13-collection CMS model.
   03-design-system.md      Rationale behind the tokens.
   04-design-pass.md        Artboards, component library, interaction spec.
+  05-dev-file.md           Homer City – Dev Figma: variables, components, spacing rule.
 design-system/
   tokens.json              Design tokens, W3C format. Generated — don't hand-edit.
   tokens.css               Same tokens as CSS custom properties. Powers prototype/.
