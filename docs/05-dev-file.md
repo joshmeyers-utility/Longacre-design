@@ -37,7 +37,7 @@ to its desktop or mobile size from the frame's mode.
 | Style | Desktop / Mobile | Weight | Used for |
 | --- | --- | --- | --- |
 | display | 64 / 40 | Light | Hero, CTA headline, footnote markers |
-| heading/lg | 36 / 28 | Regular | Page and section titles |
+| heading/lg | 36 / 28 | Regular | Page and section titles, and **every panel title** |
 | heading/md | 32 / 22 | Light | Lead paragraphs, link-row titles, panel statements, story tabs |
 | heading/sm | 24 / 20 | Light | Item titles, FAQ questions, section labels, quotes, statements |
 | stat/figure | 80 / 64 | Regular | Ledger figures |
@@ -47,6 +47,11 @@ to its desktop or mobile size from the frame's mode.
 | caption | 12 / 12 | Regular | Meta, captions, footnotes |
 | eyebrow | 12 / 12 | SemiBold | Qualifiers (*Up to*, *Projected*), date stamps |
 | diagram | 16 / 15 | Medium | Diagram node labels |
+
+**Panel rule:** the title of every panel (navy or stone rounded surface) uses
+`heading/lg` on both breakpoints. A small label above a title ("FAQs",
+"Campus history", "The vision for Homer City") keeps its own style, and a
+panel with no title (Home's site-history photo panel) is left as is.
 
 These replaced 33 earlier styles; every text layer was remapped and the old
 styles and size variables deleted. **3 effect
