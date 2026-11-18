@@ -14,7 +14,7 @@ reference actually uses, not copied from `design-system/tokens.json`.
 | Page | Contents |
 | --- | --- |
 | Foundations | Type scale (11 styles, desktop/mobile sizes), section-rhythm demo, colour roles grouped by family |
-| Components | 23 building-block components + 10 section components (below) |
+| Components | Six labelled sections, in build order: 1 Foundations (Spacer, Logo, Image placeholder) · 2 Actions & navigation · 3 Content blocks · 4 Data · 5 Page chrome · 6 Content sections. Each component has a name and variant/property caption above it |
 | Desktop | 17 pages at 1440 + 3 scroll storyboards |
 | Mobile | 17 pages + menu overlay at 375 + 2 scroll storyboards |
 | Reference | The original designs, untouched |
